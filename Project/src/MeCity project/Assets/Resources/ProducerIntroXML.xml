@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scripts>
+  <intro>
+    <text>
+      In this level we will be discussing everything you need to know about the Producer.
+
+      The main goal of this level is to produce enough electricity to sell to the suppliers. This can be achieved by buying buildings that produces said electricity and then selling it back to the suppliers via contracts.
+
+      But be careful! 'Grey' buildings produce pollution and this can cause happiness to decrease.
+      
+      Buying 'green' buildings is the obvious answer you might think, but not always.
+      
+      Solely relying on green buildings can cause problems. These buildings are not very reliable since they rely on the weather, but weather can vary extremely hard from time to time.
+      
+      In reality, this means the producer will need to either increase or decrease the production of 'grey' producing buildings to compensate.
+      
+      The producer does not want to produce too much, because then the producer wastes electricity and doesn't gain any money by selling it.
+      
+      On the other hand, the producer also does not want to produce too little, because then he will need to import it, but this usually comes at a high price.
+      
+      This means you'll need to make a good mix between 'green' buildings and 'gray' buildings.
+      
+      But remember! Reducing pollution as much as possible is also one of the main goals of the producer.
+    </text>
+  </intro>
+  <ui>
+    <text>
+      Let's explain your user interface.
+      
+      On the right side below you can see a slider, this is the pollution slider. This indicates how much pollution your buildings are producing.
+
+      On the left side of the slider you can see the money panel. It will display how much money you have and will open the Contracts menu. On the contracts menu, you can cancel ongoing contracts or accept contracts from new suppliers to earn more money.
+
+      On the left side of the money panel you can see the energy panel. This shows how much energy Your buildings are producing for you, minus the amount you are selling to suppliers. It is advised to keep this number as close as possible to zero, but above it.
+      
+      By Clicking on the energy panel, You will open the market. On the market you can see how much your buildings are producing in total and how much of it you are selling to suppliers.
+    </text>
+  </ui>
+  <market>
+    <text>
+      If you want to buy more buildings, you can go to the energy market by clicking on the energy button on the right side below.
+
+      Here you can choose what kind of building you want to buy. If you buy too much energy at the same time, you will get fines to pay due to the waste of energy.
+    </text>
+  </market>
+  <contracts>
+    <text>
+      if your want to sell your energy back to suppliers, you can go to the contracts menu by clicking on the money button on the right side below.
+      
+      Here you can choose to renew expired contracts, or accept new contracts from new suppliers.
+    </text>
+  </contracts>
+  <events>
+    <text>
+      During the game you will get events. If you choose to accept this event, a popup will appear and will ask you a question regarding producers.
+
+      If a question is answered correctly, then you will receive a certain bonus for green producing buildings. (e.g. 'It's a windy week! Wind turbines produce +33% more electricity!')
+
+      If a question is answered incorrectly, you will receive a similar penalty for green producing buildings.
+    </text>
+  </events>
+</scripts>

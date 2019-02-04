@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<scripts>
+  <intro>
+    <text>In this level we will be discussing everything you need to know about the supplier.
+
+Looking at the picture above, you can see that every house has a blue or orange cube turning above the house. This shows you which houses are your customers (blue) or which houses belong to another company (orange). The main goal of this level is to gain all the houses for your company. This by turning all the cubes blue.
+
+In reality there are several companies delivering energy. As in the picture above not all houses are blue. This we call a deregulated market. 
+      
+On the right side below you can see a slider, this is the customer's happiness in general. You can make your customers more happy by answering the events right,...
+
+On the left side of the slider you can see the money panel. It speaks for itself, you can buy energy on the energy market which we will be discussing in a few minutes. You can gain money by sending out invoices which I'll also explain to you in a few minutes.
+
+On the left side of the money panel you can see the energy panel. This shows how much energy is available on the energy grid. You can buy more energy on the energy market.
+    </text>
+  </intro>
+  <regulated>
+    <text>In the situation, you can see above, where all cubes are turned blue everything is performed by one main company. We call this situation a regulated market.
+    </text>
+  </regulated>
+  <house>
+    <text>Whenever you click on any house, a pop-up will appear. Here you can see how much happiness in general you should have before a customer switches to your company. You can also see the preference of energy the customer have. If the customers prefer green energy, it's your task to buy more green energy on the market in order to gain this customer for your company.
+    
+You can also see the preferences of high and low tariff. This shows which prices the customer is looking for to buy energy.
+    </text>
+  </house>
+  <market>
+    <text>If you want to buy more energy, you can go to the energy market by clicking on the energy button on the right side below.
+      
+Here you can choose how much energy you want to buy for different prices. If the game continues, there will be the option to buy green energy as well. Make sure you don't go below 1000 of energy because then there will be outages and you will lose customers. If you buy too much energy at the same time, you will get fines to pay due to the waste of energy.
+    </text>
+  </market>
+  <tarrif>
+    <text>If you click on the money button on the right side below, another pop up will appear, here you can adjust your high and low tariff in order to win more customers. Keep in mind you still have to pay your bills. You can’t do it for free because it will give you more customers. Keep in mind you don’t go bankrupt, or it’s game over!
+    </text>
+  </tarrif>
+  <events>
+    <text>During the game you will get events. A customer can call you with a problem, you can get invoices… Your happiness of your customers and your money depends on the answers you give. You can ignore a phone call, but that isn’t a good customer service so you will lose clients.
+    </text>
+  </events>
+</scripts>
