@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scripts>
+  <intro>
+    <text>
+      In this level we will be discussing everything you need to know about the Distributor Grid Operator (DGO).
+      
+      As you can see in the picture above, all the houses are grouped by cubes that have a different color.
+      
+      This is because in reality, every region has a designated DGO. Therefore you can't choose your DGO, you get assigned a DGO.
+      
+      The DGO is responsible for a number of things, such as: Maintaining the grid (e.g. fixing a Transformatorcabin), taking your meter readings in your house.
+      
+      To accomplish all of these tasks, you need workers. But ofcourse workers can only be assigned to one task at a time, or you can deploy multiple workers to a single task to decrease the amount of time the problem will take to solve.
+      
+      But be careful! If new problems occur and you don't have any available workers, you will get power outages and happiness will decrease!
+    </text>
+  </intro>
+  <ui>
+    <text>
+      Let's explain your user interface.
+      
+      On the right side below you can see a slider, this is the happiness slider. It represents how happy your customers are.
+      
+      On the left side of the slider you can see the money panel. It will simply display how much money you have.
+
+      On the left side of the money panel you can see the worker panel. It will display how many workers of your total amount of workers are available.
+      
+      By clicking on the worker panel, you will open the Worker Menu.
+    </text>
+  </ui>
+  <worker>
+    <text>
+      If you want to buy more workers, you will need to earn money by solving problems that will occur throughout the game.
+    </text>
+  </worker>
+  <events>
+    <text>
+      During the game you will get events. If you choose to accept this event, a popup will appear and will ask you a question regarding DGO's. If you decline, happiness will decrease since you are not solving problems.
+
+      If a question is answered correctly, one of two things can happen. A random problem that you are solving will either be instantaniously solved OR the time remaining to solve that problem will be halved.
+
+      If a question is answered incorrectly, one of two things can happen. A new random problem will occur that you will have to solve OR the time remaining to solve an exisiting random problem will be doubled.
+    </text>
+  </events>
+</scripts>
