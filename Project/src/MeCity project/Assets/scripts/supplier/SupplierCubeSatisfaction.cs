@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class CubeSatisfaction : MonoBehaviour
+public class SupplierCubeSatisfaction : MonoBehaviour
 {
     private int houseSatisfaction;
     private float HighExpectations;

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Satisfaction : MonoBehaviour
+public class SupplierSatisfaction : MonoBehaviour
 {
     //These are the prefabs the pop ups are based on.
     public GameObject EventPopUpPrefab;

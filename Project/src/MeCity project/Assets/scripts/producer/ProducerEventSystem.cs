@@ -30,7 +30,7 @@ public class EventSystem : MonoBehaviour
         }
         // load the xml script
         TextAsset xmlData = new TextAsset();
-        xmlData = (TextAsset)Resources.Load("ScriptsXML", typeof(TextAsset));
+        xmlData = (TextAsset)Resources.Load("SupplierScriptsXML", typeof(TextAsset));
         doc.LoadXml(xmlData.text);
         int range = doc.GetElementsByTagName("text").Count;
 

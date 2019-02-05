@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class HomeCanvasScript : MonoBehaviour
+public class SupplierHomeCanvasScript : MonoBehaviour
 {
     public Canvas familyCanvas;
     private static System.Random random = new System.Random();

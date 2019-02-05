@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Xml;
 
-public class Introduction : MonoBehaviour
+public class SupplierIntroduction : MonoBehaviour
 {
     public Canvas introCanvas;
     public Canvas uiCanvas;

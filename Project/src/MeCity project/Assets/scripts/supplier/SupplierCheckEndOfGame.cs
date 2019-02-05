@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class CheckEndOfGame : MonoBehaviour
+public class SupplierCheckEndOfGame : MonoBehaviour
 {
     [HideInInspector] public static int NumberOfCorrectAnswers = 0;
     public Text resulttxt;
@@ -24,7 +24,7 @@ public class CheckEndOfGame : MonoBehaviour
             {
                 gameWon();
             }
-            if (((float)Satisfaction.numberOfCustomers / 136f) > 0.8)
+            if (((float)SupplierSatisfaction.numberOfCustomers / 136f) > 0.8)
             {
                 gameWon();
             }
@@ -45,7 +45,7 @@ public class CheckEndOfGame : MonoBehaviour
     private void gameWon()
     {
         triggered = true;
-        FindObjectOfType<Satisfaction>().enabled = false;
+        FindObjectOfType<SupplierSatisfaction>().enabled = false;
         string resultText = "CONGRATULATIONS!!!";
         calculateScore(false);
         resultText += string.Format("\n\nYou got a score of: {0:0.00}!!\nYou would be an excellent supplier!!!", DataScript.GetScore());
@@ -57,7 +57,7 @@ public class CheckEndOfGame : MonoBehaviour
     private void gameOver()
     {
         triggered = true;
-        FindObjectOfType<Satisfaction>().enabled = false;
+        FindObjectOfType<SupplierSatisfaction>().enabled = false;
         string resultText = "GAME OVER!!!";
         calculateScore(true);
         resultText += string.Format("\n\nYou got a score of: {0:0.00}!!\nYou should hone your skills a bit more, but you will become a great supplier one day!!!", DataScript.GetScore());
@@ -72,7 +72,7 @@ public class CheckEndOfGame : MonoBehaviour
         {
             DataScript.AddScore(float.Parse(moneytxt.text));
         }
-        DataScript.AddScore(Satisfaction.numberOfCustomers);
+        DataScript.AddScore(SupplierSatisfaction.numberOfCustomers);
         if (gameOver)
         {
             DataScript.AddScore(Time.timeSinceLevelLoad * 1.5f);
