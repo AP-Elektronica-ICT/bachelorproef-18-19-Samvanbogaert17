@@ -28,7 +28,7 @@ public class TarifScript : MonoBehaviour
         LowInputText.onValueChanged.AddListener((value) => { LowTarif = double.Parse(value); });
         HighInputText.onValueChanged.AddListener((value) => { HighTarif = double.Parse(value); });
         //Enable the homecanvasscript AFTER the player tarifs have been set. This is needed because otherwise the cubes cant check colour, for they might be called before these values are set.
-        foreach (var item in FindObjectsOfType<HomeCanvasScript>())
+        foreach (var item in FindObjectsOfType<SupplierHomeCanvasScript>())
         {
             item.enabled = true;
         }

@@ -83,22 +83,22 @@ public class SupplierEventSystem : MonoBehaviour
 
         if (influence < 0)
         {
-            if (CheckEndOfGame.NumberOfCorrectAnswers > 0)
+            if (SupplierCheckEndOfGame.NumberOfCorrectAnswers > 0)
             {
-                CheckEndOfGame.NumberOfCorrectAnswers = 0;
+                SupplierCheckEndOfGame.NumberOfCorrectAnswers = 0;
             }
-            CheckEndOfGame.NumberOfCorrectAnswers--;
+            SupplierCheckEndOfGame.NumberOfCorrectAnswers--;
         }
         if (influence > 0)
         {
-            if (CheckEndOfGame.NumberOfCorrectAnswers < 0)
+            if (SupplierCheckEndOfGame.NumberOfCorrectAnswers < 0)
             {
-                CheckEndOfGame.NumberOfCorrectAnswers = 0;
+                SupplierCheckEndOfGame.NumberOfCorrectAnswers = 0;
             }
-            CheckEndOfGame.NumberOfCorrectAnswers++;
+            SupplierCheckEndOfGame.NumberOfCorrectAnswers++;
         }
         DataScript.AddScore(influence * 100);
-        Satisfaction.satisfaction += influence * 10;
+        SupplierSatisfaction.satisfaction += influence * 10;
 
         for (int i = 0; i < list.Count;i++)
         {

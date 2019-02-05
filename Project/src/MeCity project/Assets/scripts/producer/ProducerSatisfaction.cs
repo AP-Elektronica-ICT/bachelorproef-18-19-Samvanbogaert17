@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SatisfactionProducer : MonoBehaviour
+public class ProducerSatisfaction : MonoBehaviour
 {
     //These are the prefabs the pop ups are based on.
     public GameObject EventPopUpPrefab;
@@ -51,7 +51,7 @@ public class SatisfactionProducer : MonoBehaviour
             //The consumed energy also gets dedacted from the energy supply.
             if (Time.frameCount % 300 == 0)
             {
-                FindObjectOfType<CheckEndOfGame>().enabled = true;
+                FindObjectOfType<ProducerCheckEndOfGame>().enabled = true;
                 satisfaction -= 0.5f;
                 GameObject.Find("HapSlider").GetComponent<Slider>().value -= 0.5f;
                 EnergyText.text = string.Format("{0:n}",((int)(float.Parse(EnergyText.text) - 750)));

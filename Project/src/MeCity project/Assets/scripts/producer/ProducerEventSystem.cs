@@ -83,22 +83,22 @@ public class EventSystem : MonoBehaviour
 
         if (influence < 0)
         {
-            if (CheckEndOfGame.NumberOfCorrectAnswers > 0)
+            if (ProducerCheckEndOfGame.NumberOfCorrectAnswers > 0)
             {
-                CheckEndOfGame.NumberOfCorrectAnswers = 0;
+                ProducerCheckEndOfGame.NumberOfCorrectAnswers = 0;
             }
-            CheckEndOfGame.NumberOfCorrectAnswers--;
+            ProducerCheckEndOfGame.NumberOfCorrectAnswers--;
         }
         if (influence > 0)
         {
-            if (CheckEndOfGame.NumberOfCorrectAnswers < 0)
+            if (ProducerCheckEndOfGame.NumberOfCorrectAnswers < 0)
             {
-                CheckEndOfGame.NumberOfCorrectAnswers = 0;
+                ProducerCheckEndOfGame.NumberOfCorrectAnswers = 0;
             }
-            CheckEndOfGame.NumberOfCorrectAnswers++;
+            ProducerCheckEndOfGame.NumberOfCorrectAnswers++;
         }
         DataScript.AddScore(influence * 100);
-        Satisfaction.satisfaction += influence * 10;
+        ProducerSatisfaction.satisfaction += influence * 10;
 
         for (int i = 0; i < list.Count;i++)
         {

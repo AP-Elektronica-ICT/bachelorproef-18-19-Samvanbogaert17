@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SupplierchangeDGO : MonoBehaviour
+public class SupplierChangeDGO : MonoBehaviour
 {
     public Text NormalGridText;
     public Text GreenGridText;

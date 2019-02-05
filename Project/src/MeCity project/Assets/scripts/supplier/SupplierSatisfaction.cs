@@ -51,7 +51,7 @@ public class SupplierSatisfaction : MonoBehaviour
             //The consumed energy also gets dedacted from the energy supply.
             if (Time.frameCount % 300 == 0)
             {
-                FindObjectOfType<CheckEndOfGame>().enabled = true;
+                FindObjectOfType<SupplierCheckEndOfGame>().enabled = true;
                 satisfaction -= 0.5f;
                 GameObject.Find("HapSlider").GetComponent<Slider>().value -= 0.5f;
                 EnergyText.text = string.Format("{0:n}",((int)(float.Parse(EnergyText.text) - 750)));

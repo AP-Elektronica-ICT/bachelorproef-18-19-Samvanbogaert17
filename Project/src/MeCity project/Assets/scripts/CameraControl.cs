@@ -31,14 +31,16 @@ public class CameraControl : MonoBehaviour
             move();
             rotate();
             // for testing: add or subtract the statisfaction by pressing W and S
+            /*
             if (Input.GetKey(KeyCode.W))
             {
-                Satisfaction.satisfaction++;
+                SupplierSatisfaction.satisfaction++;
             }
             if (Input.GetKey(KeyCode.S))
             {
-                Satisfaction.satisfaction--;
+                SupplierSatisfaction.satisfaction--;
             }
+            */
         }
     }
     // move the camera by pressing the arrow keys
