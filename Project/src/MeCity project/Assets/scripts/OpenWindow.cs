@@ -19,7 +19,7 @@ public class OpenWindow : MonoBehaviour
             CameraControl.showingPopUp = true;
             if (canvas.name == "MarketCanvas")
             {
-                FindObjectOfType<SupplierChangeDGO>().RefreshItems();
+                FindObjectOfType<changeDGO>().RefreshItems();
             }
             canvas.enabled = true;
         }

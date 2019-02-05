@@ -1,47 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraControl : MonoBehaviour
 {
     public Canvas pauseCanvas;
     public static bool showingPopUp = false;
-    private bool pause;
+    private bool paused;
 
     // Script used for the ingame camera control
     void Update()
     {
-        // press escape to pause the game
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            if (!pauseCanvas.isActiveAndEnabled)
-            {
-                pause = true;
-                Time.timeScale = 0;
-                pauseCanvas.enabled = true;
-            }
-            else
-            {
-                pause = false;
-                Time.timeScale = 1;
-                pauseCanvas.enabled = false;
-            }
-
-        }
-        if (!pause)
-        {
-            move();
-            rotate();
-            // for testing: add or subtract the statisfaction by pressing W and S
-            /*
-            if (Input.GetKey(KeyCode.W))
-            {
-                SupplierSatisfaction.satisfaction++;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                SupplierSatisfaction.satisfaction--;
-            }
-            */
-        }
+        pause(SceneManager.GetActiveScene().name);
     }
     // move the camera by pressing the arrow keys
     private void move()
@@ -110,6 +79,46 @@ public class CameraControl : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0 && Camera.main.transform.position.y > -15)
         {
             transform.Translate(new Vector3(0, 0, Time.deltaTime * 600f));
+        }
+    }
+
+    private void pause(string sceneName)
+    {
+        // press escape to pause the game
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            if (!pauseCanvas.isActiveAndEnabled)
+            {
+                paused = true;
+                Time.timeScale = 0;
+                pauseCanvas.enabled = true;
+            }
+            else
+            {
+                paused = false;
+                Time.timeScale = 1;
+                pauseCanvas.enabled = false;
+            }
+
+        }
+        if (!paused)
+        {
+            if(sceneName != "Consumer" && sceneName != "Producer")
+            {
+                move();
+                rotate();
+            }
+            // for testing: add or subtract the statisfaction by pressing W and S
+            /*
+            if (Input.GetKey(KeyCode.W))
+            {
+                Satisfaction.satisfaction++;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                Satisfaction.satisfaction--;
+            }
+            */
         }
     }
 }

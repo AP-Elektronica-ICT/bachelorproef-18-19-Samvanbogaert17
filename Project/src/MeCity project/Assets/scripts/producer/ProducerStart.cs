@@ -19,6 +19,6 @@ public class ProducerStart : MonoBehaviour {
 	}
     private void Update()
     {
-        txtPlayer.text = "Player: " + DataScript.GetName();
+        txtPlayer.text = "Player: " + DataScript.GetName() + " Score: " + DataScript.GetScore();
     }
 }
