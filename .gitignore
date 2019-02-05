@@ -51,3 +51,89 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+Project/src/MeCity project/Assets/Resources/DGOIntroXML\.xml
+
+Project/src/MeCity project/Assets/scripts/producer/SatisfactionProducer\.cs
+
+Project/src/MeCity project/Assets/scripts/producer/SatisfactionProducer\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/changeDGO\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/changeDGO\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/CheckEndOfGame\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/CheckEndOfGame\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/CubeSatisfaction\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/CubeSatisfaction\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/EventSystem\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/EventSystem\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/HomeCanvasScript\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/HomeCanvasScript\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/Introduction\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/Introduction\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/LoadPause\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/LoadPause\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/Satisfaction\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/Satisfaction\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierEventSystem\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierTarifScript\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/TarifScript\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/TarifScript\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/LoadPause\.cs
+
+Project/src/MeCity project/Assets/scripts/LoadPause\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/producer/ProducerEventSystem\.cs
+
+Project/src/MeCity project/Assets/scripts/producer/ProducerEventSystem\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/producer/ProducerSatisfaction\.cs
+
+Project/src/MeCity project/Assets/scripts/producer/ProducerSatisfaction\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierChangeDGO\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierChangeDGO\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierCheckEndOfGame\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierCheckEndOfGame\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierCubeSatisfaction\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierCubeSatisfaction\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierEventSystem\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierHomeCanvasScript\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierHomeCanvasScript\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierIntroduction\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierIntroduction\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierSatisfaction\.cs
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierSatisfaction\.cs\.meta
+
+Project/src/MeCity project/Assets/scripts/supplier/SupplierTarifScript\.cs
