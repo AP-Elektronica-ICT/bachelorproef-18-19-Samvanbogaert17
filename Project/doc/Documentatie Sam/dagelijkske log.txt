@@ -24,3 +24,9 @@ Levelconcepten bedenken
 
 Levelconcepten verder uitwerken
 leren met unity werken (door te starten aan 1ste level: producer level)
+
+5/02/19
+
+producer level mockups finished
+proberen producer level op te starten en panel toe te voegen
+problemen gehad met github, zou nu niet meer mogen gebeuren.
