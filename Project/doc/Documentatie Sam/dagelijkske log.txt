@@ -36,3 +36,10 @@ problemen gehad met github, zou nu niet meer mogen gebeuren.
 Afwerken van mockups
 Scripts aanmaken/aanpassen van Producer level
 Documentatie opzoeken TGO
+
+07/02/19
+
+Grid layout proberen op te lossen van Market Canvas in Producer Menu
+Scripts aanpassen.
+
+11/02/19
