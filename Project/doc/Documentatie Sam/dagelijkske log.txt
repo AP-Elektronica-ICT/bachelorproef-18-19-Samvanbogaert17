@@ -43,3 +43,7 @@ Grid layout proberen op te lossen van Market Canvas in Producer Menu
 Scripts aanpassen.
 
 11/02/19
+
+MarketCanvas verder afwerken
+problemen met MarketCanvas: 2 prefabs verschijnen niet
+-> beginnen aan contractscanvas

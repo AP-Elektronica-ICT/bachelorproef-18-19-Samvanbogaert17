@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class OpenWindow : MonoBehaviour
 {
@@ -14,14 +15,25 @@ public class OpenWindow : MonoBehaviour
     // script for opening the market canvas
     public void Open()
     {
-        if (!CameraControl.showingPopUp)
+        if(SceneManager.GetActiveScene().name == "Supplier")
         {
-            CameraControl.showingPopUp = true;
-            if (canvas.name == "MarketCanvas")
+            if (!CameraControl.showingPopUp)
             {
-                FindObjectOfType<changeDGO>().RefreshItems();
+                CameraControl.showingPopUp = true;
+                if (canvas.name == "MarketCanvas")
+                {
+                    FindObjectOfType<changeDGO>().RefreshItems();
+                }
+                canvas.enabled = true;
             }
-            canvas.enabled = true;
+        }
+        else if (SceneManager.GetActiveScene().name == "Producer")
+        {
+            if (!CameraControl.showingPopUp)
+            {
+                CameraControl.showingPopUp = true;
+                canvas.enabled = true;
+            }
         }
     }
 }
