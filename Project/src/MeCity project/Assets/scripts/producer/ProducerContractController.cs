@@ -5,10 +5,8 @@ using Contract = ProducerMarketGridFiller.Contract;
 
 public class ProducerContractController : MonoBehaviour
 {
-    public GameObject contractTitleGrid;
-
-    private List<Contract> contractsList = new List<Contract>();
-    private List<Contract> ongoingContractsList = new List<Contract>();
+    [HideInInspector]public List<Contract> contractsList = new List<Contract>();
+    [HideInInspector]public List<Contract> ongoingContractsList = new List<Contract>();
 
     // Use this for initialization
     void Start()
@@ -27,8 +25,8 @@ public class ProducerContractController : MonoBehaviour
         ongoingContractsList.RemoveAt(index);
     }
 
-    public void AcceptContract(int index)
+    public void AcceptContract(int index, Contract contract)
     {
-        ongoingContractsList.Add(contractsList[index]);
+        ongoingContractsList.Insert(index, contract);
     }
 }
