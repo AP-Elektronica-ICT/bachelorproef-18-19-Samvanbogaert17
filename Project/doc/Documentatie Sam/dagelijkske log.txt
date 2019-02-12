@@ -47,3 +47,8 @@ Scripts aanpassen.
 MarketCanvas verder afwerken
 problemen met MarketCanvas: 2 prefabs verschijnen niet
 -> beginnen aan contractscanvas
+
+12/02/19
+
+concept voor consumentenlevel verder uitgewerkt.
+functionaliteit toevoegen aan MarketCanvas
