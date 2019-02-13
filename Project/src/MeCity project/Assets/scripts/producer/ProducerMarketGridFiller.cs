@@ -31,15 +31,13 @@ public class ProducerMarketGridFiller : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        if(gameObject.name == "MarketTitleGrid")
+        contractList = FindObjectOfType<ProducerContractController>().contractList;
+        if (gameObject.name == "MarketTitleGrid")
         {
-            FillBuildingsList();
             InitializeMarketCanvas();
         }
         else if(gameObject.name == "ContractTitleGrid")
         {
-            FillContractsList();
-
             //Give the player his first contract
             AddContract(0);
         }
@@ -51,21 +49,9 @@ public class ProducerMarketGridFiller : MonoBehaviour
 
     }
 
-    public void FillBuildingsList()
-    {
-        //Add all Green type buildings
-        buildingList.Add(new Building(0,"Solarpanel farm", "Green", 30000, 0, 10000));
-        buildingList.Add(new Building(1,"Hydroelectric plant", "Green", 275000, 0, 70000));
-        buildingList.Add(new Building(2,"Wind turbine farm", "Green", 80000, 0, 25000));
-        buildingList.Add(new Building(3,"Geothermal station", "Green", 150000, 0, 40000));
-
-        //Add all Gray type buildings
-        buildingList.Add(new Building(4,"Nuclear power plant", "Gray", 1000000, 10, 250000));
-        buildingList.Add(new Building(5,"Fossil fuel power station", "Gray", 100000, 6, 5000));
-    }
-
     public void InitializeMarketCanvas()
     {
+        buildingList = FindObjectOfType<ProducerMarketController>().buildingList;
         for (int i = 0; i < buildingList.Count; i++)
         {
             Building b = buildingList[i];
@@ -93,28 +79,6 @@ public class ProducerMarketGridFiller : MonoBehaviour
         }
     }
 
-    public void FillContractsList()
-    {
-        contractList.Add(new Contract("Eneco", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("ENGIE Electrabel", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("Enovos", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("Essent", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("Lampiris", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("Luminus", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("Mega", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("Poweo", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("Total", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("Watz", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("Aspiravi Energy", Random.Range(1, 000) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("EBEM", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("Ecopower", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("Elegant", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("Energie2030", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("OCTA+", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("Sociaal Tarief", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("Trevion", Random.Range(1, 1000) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract("Wase Wind", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-    }
     public void AddContract(int index)
     {
         contractNamePrefab.Insert(index, Instantiate(TextPrefab, transform));
@@ -122,7 +86,7 @@ public class ProducerMarketGridFiller : MonoBehaviour
         profitPrefab.Insert(index, Instantiate(TextPrefab, transform));
         cancelContractPrefab.Insert(index, Instantiate(CancelContractPrefab, transform));
 
-        ongoingContractList.Insert(index, contractList[index]);
+        ongoingContractList.Insert(index, FindObjectOfType<ProducerContractController>().contractList[index]);
         FindObjectOfType<ProducerContractController>().AcceptContract(index, contractList[index]);
 
         contractNamePrefab[index].GetComponent<Text>().text = ongoingContractList[index].name;
@@ -135,7 +99,6 @@ public class ProducerMarketGridFiller : MonoBehaviour
     }
     public void RemoveContract(int index)
     {
-        //FindObjectOfType<ProducerContractController>().CancelContract(index);
         ongoingContractList.RemoveAt(index);
 
         Destroy(contractNamePrefab[index]);
@@ -154,7 +117,6 @@ public class ProducerMarketGridFiller : MonoBehaviour
         public string type { get; set; }
         public int price { get; set; }
         public int amount { get; set; }
-
 
         public Building(int id, string name, string type, int production, int pollution, int price)
         {

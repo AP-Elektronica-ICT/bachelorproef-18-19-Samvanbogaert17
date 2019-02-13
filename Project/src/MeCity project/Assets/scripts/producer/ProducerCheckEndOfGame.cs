@@ -41,7 +41,7 @@ public class ProducerCheckEndOfGame : MonoBehaviour
     private void gameWon()
     {
         triggered = true;
-        FindObjectOfType<ProducerContractsController>().enabled = false;
+        FindObjectOfType<ProducerContractController>().enabled = false;
         string resultText = "CONGRATULATIONS!!!";
         calculateScore(false);
         resultText += string.Format("\n\nYou got a score of: {0:0.00}!!\nYou would be an excellent producer!!!", DataScript.GetScore());
@@ -53,7 +53,7 @@ public class ProducerCheckEndOfGame : MonoBehaviour
     private void gameOver()
     {
         triggered = true;
-        FindObjectOfType<ProducerContractsController>().enabled = false;
+        FindObjectOfType<ProducerContractController>().enabled = false;
         string resultText = "GAME OVER!!!";
         calculateScore(true);
         resultText += string.Format("\n\nYou got a score of: {0:0.00}!!\nYou should hone your skills a bit more, but you will become a great producer one day!!!", DataScript.GetScore());

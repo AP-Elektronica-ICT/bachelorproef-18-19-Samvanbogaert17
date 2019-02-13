@@ -52,3 +52,8 @@ problemen met MarketCanvas: 2 prefabs verschijnen niet
 
 concept voor consumentenlevel verder uitgewerkt.
 functionaliteit toevoegen aan MarketCanvas
+
+13/02/19
+
+Afgewerkt MarketCanvas
+EventCanvas proberen op te lossen samen met ProducerPopupSystem

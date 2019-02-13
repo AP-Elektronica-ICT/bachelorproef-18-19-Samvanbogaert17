@@ -19,14 +19,12 @@ public class ProducerMarketController : MonoBehaviour
     public Text producingTxt;
     public Text totalProducingTxt;
 
-    public GameObject marketTitleGrid;
-
     public Button marketButton;
     public Button installedButton;
     public Button defaultBtn;
 
-    private List<Building> buildingList = new List<Building>();
-    private List<Building> installedBuildingList = new List<Building>();
+    [HideInInspector] public List<Building> buildingList = new List<Building>();
+    [HideInInspector] public List<Building> installedBuildingList = new List<Building>();
 
     private int money;
     private int producing;
@@ -47,10 +45,12 @@ public class ProducerMarketController : MonoBehaviour
     void Start()
     {
         Debug.Log("Producer Start");
-        InitColorBlocks();
 
-        InitializeBuildingList();
-        GetRemoteMarketLists();
+        normalCb = disabledCb = defaultBtn.colors;
+        disabledCb.normalColor = normalCb.disabledColor;
+
+        FillBuildingList();
+        GetMarketPrefabs();
 
         GameObject.Find("PollutionSlider").GetComponent<Slider>().value = pollution;
 
@@ -60,25 +60,23 @@ public class ProducerMarketController : MonoBehaviour
 
         marketButton.onClick.AddListener(() =>
         {
-            SwitchCanvas(0);    // 1 indicates the panel will change to the market panel
+            SwitchCanvas(0);    // 0 indicates the panel will change to the market panel
         });
         installedButton.onClick.AddListener(() =>
         {
-            SwitchCanvas(1);    // 0 indicates the panel will change to the installed panel
+            SwitchCanvas(1);    // 1 indicates the panel will change to the installed panel
         });
+        /*
+        //Give player his 1st buildings
+        BuyBuilding(0); //Adds a solarpanel farm
+        BuyBuilding(5); //Adds a Fossil fuel power station
+        */
     }
 
     // Update is called once per frame
     void Update()
     {
 
-    }
-
-    private void InitColorBlocks()
-    {
-        normalCb = disabledCb = defaultBtn.colors;
-
-        disabledCb.normalColor = normalCb.disabledColor;
     }
 
     //method used to switch from market panel to installed panel or vice versa
@@ -97,8 +95,12 @@ public class ProducerMarketController : MonoBehaviour
                 for (int i = 0; i < buildingList.Count; i++)
                 {
                     Building b = buildingList[i];
+                    //all changes in the production prefab
+                    productionPrefab[i].GetComponent<Text>().text = b.production.ToString() + " kWh";
+                    //all changes in the pollution prefab
+                    pollutionPrefab[i].GetComponent<Text>().text = b.pollution.ToString() + " %";
                     //all changes in the price_behaviour prefab
-                    price_behaviourPrefab[i].GetComponentInChildren<Text>().text = "$ " + buildingList[i].price.ToString();
+                    price_behaviourPrefab[i].GetComponentInChildren<Text>().text = "$ " + b.price.ToString();
                     price_behaviourPrefab[i].GetComponentInChildren<RawImage>().enabled = false;
                     //all changes in the buy_sell prefab
                     buy_sellPrefab[i].GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "buy";
@@ -106,6 +108,8 @@ public class ProducerMarketController : MonoBehaviour
                     buy_sellPrefab[i].GetComponentInChildren<Button>().onClick.RemoveAllListeners();
                     buy_sellPrefab[i].GetComponentInChildren<Button>().onClick.AddListener(() => BuyBuilding(b.id));
                 }
+                Debug.Log("Set Remote Lists");
+                SetMarketPrefabs();
                 break;
             case 1:
                 titleText.text = "Installed";
@@ -115,16 +119,20 @@ public class ProducerMarketController : MonoBehaviour
                 marketButton.colors = disabledCb;
                 installedButton.colors = normalCb;
 
-                for (int i = 0; i < buildingList.Count; i++)
+                for (int i = 0; i < installedBuildingList.Count; i++)
                 {
-                    Building b = buildingList[i];
+                    Building b = installedBuildingList[i];
+                    //all changes in the production prefab
+                    productionPrefab[i].GetComponent<Text>().text = b.production.ToString() + " kWh";
+                    //all changes in the pollution prefab
+                    pollutionPrefab[i].GetComponent<Text>().text = b.pollution.ToString() + " %";
                     //all changes in the price_behaviour prefab
-                    price_behaviourPrefab[i].GetComponentInChildren<Text>().text = installedBuildingList[i].behaviour.ToString() + " %";
-                    if (installedBuildingList[i].behaviour > 0)
+                    price_behaviourPrefab[i].GetComponentInChildren<Text>().text = b.behaviour.ToString() + " %";
+                    if (b.behaviour > 0)
                     {
                         price_behaviourPrefab[i].GetComponentInChildren<RawImage>().texture = greenArrow;
                     }
-                    else if (installedBuildingList[i].behaviour < 0)
+                    else if (b.behaviour < 0)
                     {
                         price_behaviourPrefab[i].GetComponentInChildren<RawImage>().texture = redArrow;
                     }
@@ -132,16 +140,16 @@ public class ProducerMarketController : MonoBehaviour
                     {
                         price_behaviourPrefab[i].GetComponentInChildren<RawImage>().enabled = false;
                     }
-                    price_behaviourPrefab[i].GetComponentInChildren<RawImage>().enabled = true;
                     //all changes in the buy_sell prefab
                     buy_sellPrefab[i].GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "sell";
                     //Adds a new onlick listener to sell a building
                     buy_sellPrefab[i].GetComponentInChildren<Button>().onClick.RemoveAllListeners();
                     buy_sellPrefab[i].GetComponentInChildren<Button>().onClick.AddListener(() => SellBuilding(b.id));
                 }
+                Debug.Log("Set Remote Lists");
+                SetMarketPrefabs();
                 break;
         }
-        SetRemoteMarketLists();
     }
 
     public void BuyBuilding(int index)
@@ -152,87 +160,81 @@ public class ProducerMarketController : MonoBehaviour
         totalProducing += buildingList[index].production;
         totalProducingTxt.text = totalProducing.ToString();
 
-        pollution -= buildingList[index].pollution;
-        GameObject.Find("PollutionSlider").GetComponent<Slider>().value -= buildingList[index].pollution;
+        pollution += buildingList[index].pollution;
+        GameObject.Find("PollutionSlider").GetComponent<Slider>().value += buildingList[index].pollution;
 
+        installedBuildingList[index].amount++;
+        installedBuildingList[index].pollution += buildingList[index].pollution;
+        installedBuildingList[index].production += buildingList[index].production;
 
-        AddBuilding(index);
-
-        SetRemoteMarketLists();
+        buy_sellPrefab[index].GetComponentInChildren<Text>().text = installedBuildingList[index].amount.ToString();
+        SetMarketPrefabs();
     }
 
     public void SellBuilding(int index)
     {
-        money += buildingList[index].price / 2;
-        moneyTxt.text = money.ToString();
-
-        totalProducing -= buildingList[index].production;
-        totalProducingTxt.text = totalProducing.ToString();
-
-        pollution += buildingList[index].pollution;
-        GameObject.Find("PollutionSlider").GetComponent<Slider>().value += buildingList[index].pollution;
-
         if (installedBuildingList[index].amount > 0)
         {
-            RemoveBuilding(index);
-        }
-        buy_sellPrefab[index].GetComponentInChildren<Text>().text = installedBuildingList[index].amount.ToString();
+            money += buildingList[index].price / 2;
+            moneyTxt.text = money.ToString();
 
-        SetRemoteMarketLists();
+            totalProducing -= buildingList[index].production;
+            totalProducingTxt.text = totalProducing.ToString();
+
+            pollution -= buildingList[index].pollution;
+            GameObject.Find("PollutionSlider").GetComponent<Slider>().value -= buildingList[index].pollution;
+
+            installedBuildingList[index].amount--;
+            installedBuildingList[index].pollution -= buildingList[index].pollution;
+            installedBuildingList[index].production -= buildingList[index].production;
+
+            productionPrefab[index].GetComponent<Text>().text = installedBuildingList[index].production.ToString() + " kWh";
+            pollutionPrefab[index].GetComponent<Text>().text = installedBuildingList[index].pollution.ToString() + " %";
+            buy_sellPrefab[index].GetComponentInChildren<Text>().text = installedBuildingList[index].amount.ToString();
+            SetMarketPrefabs();
+        }
     }
 
-    private void ChangeBehaviour(int index, bool answerIsCorrect)
+    public void ChangeBehaviour(int index, int answerIsCorrect)
     {
-        if (answerIsCorrect)
+        if (answerIsCorrect == 1)
         {
             installedBuildingList[index].behaviour = UnityEngine.Random.Range(1, 11);
         }
-        else if (!answerIsCorrect)
+        else if (answerIsCorrect == 0)
         {
             installedBuildingList[index].behaviour = UnityEngine.Random.Range(-1, -11);
         }
         installedBuildingList[index].production += (installedBuildingList[index].production * (installedBuildingList[index].behaviour) * 10);
 
-        SetRemoteMarketLists();
+        SetMarketPrefabs();
     }
 
-    private void AddBuilding(int index)
+    private void FillBuildingList()
     {
-        installedBuildingList[index].amount++;
-        installedBuildingList[index].pollution *= installedBuildingList[index].amount;
-        installedBuildingList[index].production *= installedBuildingList[index].amount;
+        //Add all Green type buildings
+        buildingList.Add(new Building(0, "Solarpanel farm", "Green", 30000, 0, 10000));
+        buildingList.Add(new Building(1, "Hydroelectric plant", "Green", 275000, 0, 70000));
+        buildingList.Add(new Building(2, "Wind turbine farm", "Green", 80000, 0, 25000));
+        buildingList.Add(new Building(3, "Geothermal station", "Green", 150000, 0, 40000));
 
-        buy_sellPrefab[index].GetComponentInChildren<Text>().text = installedBuildingList[index].amount.ToString();
-        SetRemoteMarketLists();
-    }
-    private void RemoveBuilding(int index)
-    {
-        installedBuildingList[index].amount--;
-        installedBuildingList[index].pollution *= installedBuildingList[index].amount;
-        installedBuildingList[index].production *= installedBuildingList[index].amount;
+        //Add all Gray type buildings
+        buildingList.Add(new Building(4, "Nuclear power plant", "Gray", 1000000, 20, 250000));
+        buildingList.Add(new Building(5, "Fossil fuel power station", "Gray", 100000, 10, 50000));
 
-        buy_sellPrefab[index].GetComponentInChildren<Text>().text = installedBuildingList[index].amount.ToString();
-        
-        SetRemoteMarketLists();
-    }
+        //DO the same for installed buildinglist
 
-    private void InitializeBuildingList()
-    {
-        buildingList = FindObjectOfType<ProducerMarketGridFiller>().buildingList;
-        installedBuildingList = FindObjectOfType<ProducerMarketGridFiller>().buildingList;
-        for (int i = 0; i < buildingList.Count; i++)
-        {
-            installedBuildingList[i].production *= installedBuildingList[i].amount;
-            installedBuildingList[i].pollution *= installedBuildingList[i].amount;
-        }
+        //Add all Green type buildings
+        installedBuildingList.Add(new Building(0, "Solarpanel farm", "Green", 0, 0, 10000));
+        installedBuildingList.Add(new Building(1, "Hydroelectric plant", "Green", 0, 0, 70000));
+        installedBuildingList.Add(new Building(2, "Wind turbine farm", "Green", 0, 0, 25000));
+        installedBuildingList.Add(new Building(3, "Geothermal station", "Green", 0, 0, 40000));
+
+        //Add all Gray type buildings
+        installedBuildingList.Add(new Building(4, "Nuclear power plant", "Gray", 0, 0, 250000));
+        installedBuildingList.Add(new Building(5, "Fossil fuel power station", "Gray", 0, 0, 5000));
     }
-    private void SetTexts(int index)
-    {
-        buy_sellPrefab[index].GetComponentInChildren<Text>().text = installedBuildingList[index].amount.ToString();
-        pollutionPrefab[index].GetComponentInChildren<Text>().text = installedBuildingList[index].pollution.ToString();
-        productionPrefab[index].GetComponentInChildren<Text>().text = installedBuildingList[index].production.ToString();
-    }
-    private void GetRemoteMarketLists()
+    private void GetMarketPrefabs()
     {
         buildingTypePrefab = FindObjectOfType<ProducerMarketGridFiller>().buildingTypePrefab;
         energyTypePrefab = FindObjectOfType<ProducerMarketGridFiller>().energyTypePrefab;
@@ -241,7 +243,7 @@ public class ProducerMarketController : MonoBehaviour
         price_behaviourPrefab = FindObjectOfType<ProducerMarketGridFiller>().price_behaviourPrefab;
         buy_sellPrefab = FindObjectOfType<ProducerMarketGridFiller>().buy_sellPrefab;
     }
-    private void SetRemoteMarketLists()
+    private void SetMarketPrefabs()
     {
         FindObjectOfType<ProducerMarketGridFiller>().buildingTypePrefab = buildingTypePrefab;
         FindObjectOfType<ProducerMarketGridFiller>().energyTypePrefab = energyTypePrefab;
