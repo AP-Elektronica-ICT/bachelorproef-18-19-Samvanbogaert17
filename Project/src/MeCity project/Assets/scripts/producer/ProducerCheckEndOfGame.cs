@@ -31,7 +31,7 @@ public class ProducerCheckEndOfGame : MonoBehaviour
                 gameOver();
             }
 
-            if (ProducerMarketController.pollution <= 0)
+            if (ProducerMarketController.pollution >= 100)
             {
                 gameOver();
             }

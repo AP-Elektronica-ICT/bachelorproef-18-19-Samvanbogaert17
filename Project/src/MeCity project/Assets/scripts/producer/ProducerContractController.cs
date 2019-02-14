@@ -6,18 +6,20 @@ using Contract = ProducerMarketGridFiller.Contract;
 public class ProducerContractController : MonoBehaviour
 {
     [HideInInspector]public List<Contract> contractList = new List<Contract>();
-    [HideInInspector]public List<Contract> ongoingContractsList = new List<Contract>();
+    [HideInInspector]public Dictionary<int, Contract> ongoingContractsList = new Dictionary<int, Contract>();
 
     //Lists of GameObjects needed for the ContractCanvas
-    private List<GameObject> contractNamePrefab = new List<GameObject>();
-    private List<GameObject> amountSoldPrefab = new List<GameObject>();
-    private List<GameObject> profitPrefab = new List<GameObject>();
-    private List<GameObject> cancelContractPrefab = new List<GameObject>();
+    private Dictionary<int, GameObject> contractNamePrefab = new Dictionary<int, GameObject>();
+    private Dictionary<int, GameObject> amountSoldPrefab = new Dictionary<int, GameObject>();
+    private Dictionary<int, GameObject> profitPrefab = new Dictionary<int, GameObject>();
+    private Dictionary<int, GameObject> cancelContractPrefab = new Dictionary<int, GameObject>();
+
+    private System.Random random = new System.Random();
 
     // Use this for initialization
     void Start()
     {
-        FillContractsList(); 
+        //FillContractsList(); 
     }
 
     // Update is called once per frame
@@ -28,12 +30,19 @@ public class ProducerContractController : MonoBehaviour
 
     public void CancelContract(int index)
     {
-        ongoingContractsList.RemoveAt(index);
+        ongoingContractsList.Remove(index);
     }
 
-    public void AcceptContract(int index, Contract contract)
+    public void AcceptContract(int index)
     {
-        ongoingContractsList.Insert(index, contract);
+        ongoingContractsList.Add(index, contractList[index]);
+        FindObjectOfType<ProducerMarketGridFiller>().AddContract(index);
+    }
+
+    public void UpdateContract(int index)
+    {
+        ongoingContractsList[index] = contractList[index];
+        FindObjectOfType<ProducerMarketGridFiller>().UpdateContract(index);
     }
 
     public void FillContractsList()
@@ -57,6 +66,15 @@ public class ProducerContractController : MonoBehaviour
         contractList.Add(new Contract("Sociaal Tarief", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
         contractList.Add(new Contract("Trevion", Random.Range(1, 1000) * 1000, Random.Range(1, 10) * 1000));
         contractList.Add(new Contract("Wase Wind", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
+    }
+
+    public void RefreshContractsList()
+    {
+        for(int i = 0; i < contractList.Count; i++)
+        {
+            contractList[i].amountSold = random.Next(1, 100) * 1000;
+            contractList[i].profit = random.Next(1, 10) * 1000;
+        }
     }
 
     private void GetContractPrefabs()

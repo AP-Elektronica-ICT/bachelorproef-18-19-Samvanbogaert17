@@ -19,14 +19,14 @@ public class ProducerMarketGridFiller : MonoBehaviour
     [HideInInspector] public List<GameObject> buy_sellPrefab = new List<GameObject>();
 
     //Lists of GameObejcts needed for the ContractsCanvas
-    [HideInInspector] public List<GameObject> contractNamePrefab = new List<GameObject>();
-    [HideInInspector] public List<GameObject> amountSoldPrefab = new List<GameObject>();
-    [HideInInspector] public List<GameObject> profitPrefab = new List<GameObject>();
-    [HideInInspector] public List<GameObject> cancelContractPrefab = new List<GameObject>();
+    [HideInInspector] public Dictionary<int, GameObject> contractNamePrefab = new Dictionary<int, GameObject>();
+    [HideInInspector] public Dictionary<int, GameObject> amountSoldPrefab = new Dictionary<int, GameObject>();
+    [HideInInspector] public Dictionary<int, GameObject> profitPrefab = new Dictionary<int, GameObject>();
+    [HideInInspector] public Dictionary<int, GameObject> cancelContractPrefab = new Dictionary<int, GameObject>();
 
     [HideInInspector] public List<Building> buildingList = new List<Building>();
     [HideInInspector] public List<Contract> contractList = new List<Contract>();
-    [HideInInspector] public List<Contract> ongoingContractList = new List<Contract>();
+    [HideInInspector] public Dictionary<int, Contract> ongoingContractList = new Dictionary<int, Contract>();
 
     // Use this for initialization
     void Start()
@@ -38,8 +38,10 @@ public class ProducerMarketGridFiller : MonoBehaviour
         }
         else if(gameObject.name == "ContractTitleGrid")
         {
-            //Give the player his first contract
             AddContract(0);
+            AddContract(1);
+            Debug.Log(ongoingContractList[0].amountSold);
+            UpdateContract(0);
         }
     }
 
@@ -81,14 +83,26 @@ public class ProducerMarketGridFiller : MonoBehaviour
 
     public void AddContract(int index)
     {
-        contractNamePrefab.Insert(index, Instantiate(TextPrefab, transform));
-        amountSoldPrefab.Insert(index, Instantiate(TextPrefab, transform));
-        profitPrefab.Insert(index, Instantiate(TextPrefab, transform));
-        cancelContractPrefab.Insert(index, Instantiate(CancelContractPrefab, transform));
+        contractNamePrefab.Add(index, Instantiate(TextPrefab, transform));
+        amountSoldPrefab.Add(index, Instantiate(TextPrefab, transform));
+        profitPrefab.Add(index, Instantiate(TextPrefab, transform));
+        cancelContractPrefab.Add(index, Instantiate(CancelContractPrefab, transform));
 
-        ongoingContractList.Insert(index, FindObjectOfType<ProducerContractController>().contractList[index]);
-        FindObjectOfType<ProducerContractController>().AcceptContract(index, contractList[index]);
 
+        ongoingContractList.Add(index, FindObjectOfType<ProducerContractController>().contractList[index]);
+
+        contractNamePrefab[index].GetComponent<Text>().text = ongoingContractList[index].name;
+        amountSoldPrefab[index].GetComponent<Text>().text = ongoingContractList[index].amountSold.ToString();
+        profitPrefab[index].GetComponent<Text>().text = ongoingContractList[index].profit.ToString();
+        cancelContractPrefab[index].GetComponent<Button>().onClick.AddListener(() =>
+        {
+            RemoveContract(index);
+        });
+
+        Debug.Log(contractNamePrefab[index].GetComponent<Text>().text);
+    }
+    public void UpdateContract(int index)
+    {
         contractNamePrefab[index].GetComponent<Text>().text = ongoingContractList[index].name;
         amountSoldPrefab[index].GetComponent<Text>().text = ongoingContractList[index].amountSold.ToString();
         profitPrefab[index].GetComponent<Text>().text = ongoingContractList[index].profit.ToString();
@@ -99,7 +113,7 @@ public class ProducerMarketGridFiller : MonoBehaviour
     }
     public void RemoveContract(int index)
     {
-        ongoingContractList.RemoveAt(index);
+        ongoingContractList.Remove(index);
 
         Destroy(contractNamePrefab[index]);
         Destroy(amountSoldPrefab[index]);
