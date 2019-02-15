@@ -23,13 +23,23 @@ High-level overzicht van alle sectoren:
 Dit project was al reeds in werking door andere jobstudenten die tijdens de zomer van 2018 van start zijn gegaan met het ontwikkelen van dit project.
 Er was al reeds een spel aanwezig, waarin ook al enkele zaken aanwezig waren, zoals:
 
-* Main Menu
-* Highscore Lijst
-* Levels Menu
-* Megan Introductie
-* Game Introductie level
-* leverancier level
-
+* **Main Menu**
+	* **Levels Button**: Knop om naar Levels Menu te navigeren
+	* **Highscore Button**: Knop om naar Highscore Menu te navigeren
+	* 
+* **Highscore Menu**
+	* **Highscore Lijst**: Lijst van alle spelers met hun bijhorende score.
+* **Levels Menu**
+	* **Introdution Button**: Knop om Introductie level te starten
+	* **Producer Button**: Knop om Producer level te starten
+	* **TGO Button**: Knop om TGO level te starten
+	* **DGO Button** Knop om DGO level te starten
+	* **Supplier Button**: Knop om Supplier level te starten
+	* **Consumer Button**: Knop om Consumer level te starten
+* **Megan Introductie**: Introductie dat uitleg geeft over de inhoud van het spel
+* **Game Introductie level**: Introductie tot alle levels en geeft een high-level overzicht van alle sectoren in de energie sector
+* **leverancier level**
+	
 Het gewenste resultaat tegen het einde van de BAP zal het verwezelijken zijn van de ontbrekende levels (producer, TGO, DGO, Consumer) en de reeds aanwezige zaken te bugfixen.
 Elke level zal zijn eigen unieke werking hebben.
 
@@ -354,7 +364,7 @@ Indien de locatie van dit highscores bestand dus verandert, dan zijn de highscor
 De kleur van het correcte antwoord tijdens de quiz op de supplier level worden niet altijd correct weergegeven.
 Ook op de volgende vraag is krijgen de knoppen dezelfde kleur als het antwoord van de vorige vraag.
 
-Het spel is ook enkel speelbaar op 1680x1080, anders worden bepaalde canvassen en panels niet correct mee geschaald.
+Het spel is ook enkel speelbaar op 1920x1080, anders worden bepaalde canvassen en panels niet correct mee geschaald.
 
 
 ## Keywords
