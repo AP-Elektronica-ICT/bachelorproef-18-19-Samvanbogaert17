@@ -1,36 +1,64 @@
-28/01/19
+28/01/19 - Dag 1
 
 Inleiding
 Korte uitleg over het project
 Tutorials bekeken
 
-29/01/19
+29/01/19 - Dag 2
 
 Tutorials bekeken
 Spelen met levels aanmaken
 
-30/01/19
+30/01/19 - Dag 3
 
 Git opzetten
 leren met Unity werken
 
-31/01/19
+31/01/19 - Dag 4
 
 Opzetten van Azure DevOps
 Documentatie verzamelen
 Levelconcepten bedenken
 
-04/02/19
+04/02/19 - Dag 5
 
 Levelconcepten verder uitwerken
 leren met unity werken (door te starten aan 1ste level: producer level)
 
-05/02/19
+05/02/19 - Dag 6
 
 producer level mockups finished
 proberen producer level op te starten en panel toe te voegen
 problemen gehad met github, zou nu niet meer mogen gebeuren.
 
-06/02/19
+06/02/19 - Dag 7
 
 Afwerken van mockups
+Scripts aanmaken/aanpassen van Producer level
+Documentatie opzoeken TGO
+
+07/02/19 - Dag 8
+
+Grid layout proberen op te lossen van Market Canvas in Producer Menu
+Scripts aanpassen.
+
+11/02/19 - Dag 9
+
+MarketCanvas verder afwerken
+problemen met MarketCanvas: 2 prefabs verschijnen niet
+-> beginnen aan contractscanvas
+
+12/02/19 - Dag 10
+
+concept voor consumentenlevel verder uitgewerkt.
+functionaliteit toevoegen aan MarketCanvas
+
+13/02/19 - Dag 11
+
+Afgewerkt MarketCanvas
+EventCanvas proberen op te lossen samen met ProducerPopupSystem
+
+14/02/19 - Dag 12
+
+Verder afwerken van ContractCanvas
+Popup systeem verder afgewerkt, nodige bugs moeten nog verwijderd worden.

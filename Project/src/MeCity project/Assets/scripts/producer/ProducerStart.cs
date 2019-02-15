@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class ProducerStart : MonoBehaviour {
     public Canvas marketCanvas;
+    public Canvas ContractsCanvas;
     public Canvas eventCanvas;
     public Canvas pauseCanvas;
     public Canvas introCanvas;
@@ -13,6 +14,7 @@ public class ProducerStart : MonoBehaviour {
 	void Start () {
         introCanvas.enabled = true;
         marketCanvas.enabled = false;
+        ContractsCanvas.enabled = false;
         eventCanvas.enabled = false;
         pauseCanvas.enabled = false;
         endOfGameCanvas.enabled = false;

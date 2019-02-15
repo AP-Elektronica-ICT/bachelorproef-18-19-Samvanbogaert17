@@ -24,10 +24,6 @@ public class ProducerCheckEndOfGame : MonoBehaviour
             {
                 gameWon();
             }
-            if (((float)ProducerSatisfaction.numberOfCustomers / 136f) > 0.8)
-            {
-                gameWon();
-            }
 
             //LOSE
             if (float.Parse(moneytxt.text) < 0)
@@ -35,9 +31,9 @@ public class ProducerCheckEndOfGame : MonoBehaviour
                 gameOver();
             }
 
-            if (NumberOfCorrectAnswers == -10)
+            if (ProducerMarketController.pollution >= 100)
             {
-
+                gameOver();
             }
         }
     }
@@ -45,10 +41,10 @@ public class ProducerCheckEndOfGame : MonoBehaviour
     private void gameWon()
     {
         triggered = true;
-        FindObjectOfType<ProducerSatisfaction>().enabled = false;
+        FindObjectOfType<ProducerContractController>().enabled = false;
         string resultText = "CONGRATULATIONS!!!";
         calculateScore(false);
-        resultText += string.Format("\n\nYou got a score of: {0:0.00}!!\nYou would be an excellent supplier!!!", DataScript.GetScore());
+        resultText += string.Format("\n\nYou got a score of: {0:0.00}!!\nYou would be an excellent producer!!!", DataScript.GetScore());
         resulttxt.text = resultText;
         Time.timeScale = 0;
         endOfGameCanvas.enabled = true;
@@ -57,10 +53,10 @@ public class ProducerCheckEndOfGame : MonoBehaviour
     private void gameOver()
     {
         triggered = true;
-        FindObjectOfType<ProducerSatisfaction>().enabled = false;
+        FindObjectOfType<ProducerContractController>().enabled = false;
         string resultText = "GAME OVER!!!";
         calculateScore(true);
-        resultText += string.Format("\n\nYou got a score of: {0:0.00}!!\nYou should hone your skills a bit more, but you will become a great supplier one day!!!", DataScript.GetScore());
+        resultText += string.Format("\n\nYou got a score of: {0:0.00}!!\nYou should hone your skills a bit more, but you will become a great producer one day!!!", DataScript.GetScore());
         resulttxt.text = resultText;
         Time.timeScale = 0;
         endOfGameCanvas.enabled = true;
@@ -71,8 +67,8 @@ public class ProducerCheckEndOfGame : MonoBehaviour
         if (float.Parse(moneytxt.text) > 0)
         {
             DataScript.AddScore(float.Parse(moneytxt.text));
+            DataScript.AddScore(float.Parse(ProducerMarketController.pollution.ToString()));
         }
-        DataScript.AddScore(ProducerSatisfaction.numberOfCustomers);
         if (gameOver)
         {
             DataScript.AddScore(Time.timeSinceLevelLoad * 1.5f);

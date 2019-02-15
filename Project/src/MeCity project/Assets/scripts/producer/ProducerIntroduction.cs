@@ -76,7 +76,6 @@ public class ProducerIntroduction : MonoBehaviour
         doc.LoadXml(xmlData.text);
         XmlNodeList list = doc.GetElementsByTagName("text");
         txtField.text = list[number].InnerText;
-        Debug.Log(list[number].InnerText);
     }
     public void Quit()
     {
