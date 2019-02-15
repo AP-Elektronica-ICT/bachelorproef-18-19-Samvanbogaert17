@@ -90,7 +90,7 @@ De producer level zal volgende zaken bevatten:
 	* **Pause Button**: Knop om spel te pauzeren en om Pauze Menu te openen
 	* **Producing Panel**
 		* **Producing Text**: Geeft het verschil weer tussen de totaal geproduceerde energie en de totaal verkochte energie aan alle leveranciers
-	* *Money Panel**
+	* **Money Panel**
 		* **Money Text**: Geeft weer hoeveel geld de speler heeft
 	* **Pollution Panel**
 		* **Pollution Slider**: Geeft de vervuiling van de stad weer
@@ -168,7 +168,7 @@ Verdere uitwerking voor de TGO level is zeker en vast nog nodig, maar was nog ge
 
 #### Algemene Werking / Gameplay
 
-In de DGO level, zal de speler met 'workers' tewerk gaan om problemen op te lossen die zich in de stad zullen voordoen.
+In de DGO level, zal de speler met 'workers' te werk gaan om problemen op te lossen die zich in de stad zullen voordoen.
 Elk probleem zal een zijn eigen 'moeilijkheidsgraad' hebben. Sommige problemen zullen dus meer workers vereisen en zullen ook langer duren voor dat deze problemen opgelost zijn.
 De speler krijgt ook de mogelijkheid om bij elk probleem extra workers toe te voegen of te verwijderen.
 
@@ -194,6 +194,8 @@ Om de speler toch aan te moedigen om regelmatig een vraag te accepteren, zal de 
 * Algemene 'happiness' < 0%
 
 **Korte samenvatting van de Game Won voorwaarden:**
+
+*enkel één van deze voorwaarden is voldoende om het spel te winnen*
 
 * Aantal opgeloste problemen > 50
 * Aantal consistent correct beantwoordde vragen > 20
@@ -258,6 +260,7 @@ De DGO level zal volgende zaken bevatten:
 In deze level is het de bedoeling om de speler de beste keuzes te laten maken naar de consument toe.
 De speler zal in de aanvang van de level enkele keuzes moeten maken waarmee hij de rest van de level mee zal verder zetten.
 Elke keuze zal ook voor- en nadelen met zich meebrengen. 
+Deze level is vooral een grote quiz waarvan de vragen en antwoorden afhankelijk zijn van de keuzes van de speler.
 
 Deze keuzes kunnen inhouden, maar zijn niet gelimiteerd tot:
 
@@ -284,8 +287,13 @@ Deze keuzes kunnen inhouden, maar zijn niet gelimiteerd tot:
 	* Nadelen:
 		* Privacyrisico
 
+**Korte samenvatting van de Game over voorwaarden:**
 
-Deze level is vooral een grote quiz waarvan de vragen en antwoorden afhankelijk zijn van de keuzes van de speler.
+* Deze level valt niet te falen
+
+**Korte samenvatting van de Game Won voorwaarden:**
+
+* Aantal consistent correct beantwoordde vragen > 30
 
 #### Mockups & Designs
 
@@ -367,10 +375,10 @@ Het spel is ook enkel speelbaar op 1680x1080, anders worden bepaalde canvassen e
 <!--Geef hier kort weer wat te behalen milestones zijn per week-->
 
 1. Week 1-2: Introductie tot het project, nodige Unity tutorials bekijken, Leren met Unity werken via het project
-2. Sprint 1(Week 3-4): Ontwikkelen van Producer Level
-3. Sprint 2(Week 5-6): Ontwikkelen van DGO Level
-4. Sprint 3(Week 7-8): Ontwikkelen van Consumer Level
-5. Sprint 4(Week 9-10): Bugfixen en afwerken van reeds bestaande onderdelen
-6. Sprint 5(Week 11-12): Ontwikkelen van TGO Level
-7. Sprint 6(Week 13-14): Bugfixen van het volledige project
+2. Sprint 1 (Week 3-4): Ontwikkelen van Producer Level
+3. Sprint 2 (Week 5-6): Ontwikkelen van DGO Level
+4. Sprint 3 (Week 7-8): Ontwikkelen van Consumer Level
+5. Sprint 4 (Week 9-10): Bugfixen en afwerken van reeds bestaande onderdelen
+6. Sprint 5 (Week 11-12): Ontwikkelen van TGO Level
+7. Sprint 6 (Week 13-14): Bugfixen van het volledige project
 8. Week 15: Afwerken project en scriptie
