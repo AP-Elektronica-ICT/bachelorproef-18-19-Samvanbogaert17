@@ -1,9 +1,9 @@
 # Voortgangsverslag #1
-# (Voorlopige) Titel onderwerp:
+# Gamification van een opleiding:
 ## Promotors
 
-Mevr. Braspenning Cindy - Cindy.Braspenning@mecoms.be
-Dhr. Horsmans Serge - serge.horsmans@ap.be
+* Mevr. Braspenning Cindy - Cindy.Braspenning@mecoms.be
+* Dhr. Horsmans Serge - serge.horsmans@ap.be
 
 ## Onderwerp
 
@@ -12,28 +12,28 @@ die de speler op een leuke, maar toch informatieve wijze de werking van alle sec
 
 High-level overzicht van alle sectoren:
 
-*Producer / Producent: Deze produceert alle energie en verkoopt deze door aan de Supplier / Leverancier.
-*TGO (Transmission Grid Operator): Het doel van de TGO is de hoogspanning die gegenereerd is door de producent om te zetten naar een lagere hoogspanning.
-*DGO (Distribution Grid Operator): Het doel van de DGO is de lagere hoogspanning van de TGO om te zetten naar laagspanning voor huishoudelijk gebruik. Ook houdt de DGO zich bezig met het onderhoud van het elektriciteitsnet en het uitlezen en vervangen van de elektriciteitsmeters bij de consumenten.
-*Supplier / Leverancier: Koopt energie van de producent en verkoopt deze door aan de consument. 
-*Consumer / Consument: De consument zelf kiest dus bij welke leverancier hij zijn energie aankoopt.
+* Producer / Producent: Deze produceert alle energie en verkoopt deze door aan de Supplier / Leverancier.
+* TGO (Transmission Grid Operator): Het doel van de TGO is de hoogspanning die gegenereerd is door de producent om te zetten naar een lagere hoogspanning.
+* DGO (Distribution Grid Operator): Het doel van de DGO is de lagere hoogspanning van de TGO om te zetten naar laagspanning voor huishoudelijk gebruik. Ook houdt de DGO zich bezig met het onderhoud van het elektriciteitsnet en het uitlezen en vervangen van de elektriciteitsmeters bij de consumenten.
+* Supplier / Leverancier: Koopt energie van de producent en verkoopt deze door aan de consument. 
+* Consumer / Consument: De consument zelf kiest dus bij welke leverancier hij zijn energie aankoopt.
 
 Dit project was al reeds in werking door andere jobstudenten die tijdens de zomer van 2018 van start zijn gegaan met het ontwikkelen van dit project.
 Er was al reeds een spel aanwezig, waarin ook al enkele zaken aanwezig waren zoals:
 
-*Main Menu
-*Highscore Lijst
-*Levels Menu
-*Megan Introductie
-*Game Introductie level
-*leverancier level
+* Main Menu
+* Highscore Lijst
+* Levels Menu
+* Megan Introductie
+* Game Introductie level
+* leverancier level
 
 Het gewenste resultaat tegen het einde van de BAP zal het verwezelijken zijn van de ontbrekende levels (producer, TGO, DGO, Consumer) en de reeds aanwezige zaken te bugfixen.
 Elke level zal zijn eigen unieke werking hebben.
 
-###Producer Level
+### Producer Level
 
-####Algemene Werking / Gameplay
+#### Algemene Werking / Gameplay
 
 In de producer level is het de taak van de speler om zoveel mogelijk contracten aan de 'suppliers' te verkopen, en genoeg energie producerende gebouwen aan te kopen.
 Sommige energie producerende gebouwen produceren ook vervuiling en dit wordt dan ook in rekening gebracht. Indien het vervuilingsgehalte van de stad te hoog is, zal de speler automatisch de level verliezen.
@@ -62,29 +62,29 @@ Om de speler toch aan te moedigen om tijdig een vraag te beantwoorden, zal de 'h
 Elk juist antwoord zal beloond worden met een bonus in score en 'happiness'.
  
 
-####Mockups & Designs
+#### Mockups & Designs
 
-#####UI Canvas
-![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Hierarchy/Producer/Mockups/png/lvl_producer_ui.png "Producer Level UI Canvas")
+##### UI Canvas
+![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/Producer/Mockups/png/lvl_producer_ui.png "Producer Level UI Canvas")
 
-#####Market Canvas
-![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Hierarchy/Producer/Mockups/png/lvl_producer_marketCanvas.png "Producer Level Market Canvas")
+##### Market Canvas
+![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/Producer/Mockups/png/lvl_producer_marketCanvas.png "Producer Level Market Canvas")
 
-#####Contract Canvas
-![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Hierarchy/Producer/Mockups/png/lvl_producer_contractsCanvas.png "Producer Level Contract Canvas")
+##### Contract Canvas
+![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/Producer/Mockups/png/lvl_producer_contractsCanvas.png "Producer Level Contract Canvas")
 
-#####Quiz Canvas
-![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Hierarchy/Producer/Mockups/png/lvl_producer_eventCanvas.png "Producer Level Quiz Canvas")
+##### Quiz Canvas
+![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/Producer/Mockups/png/lvl_producer_eventCanvas.png "Producer Level Quiz Canvas")
 
-###TGO Level
+### TGO Level
 
 <!-- Voor deze level is er nog veel analyse werk nodig -->
 
-###DGO Level
+### DGO Level
 
-###Consumer Level
+### Consumer Level
 
-###Bug Fixing
+### Bug Fixing
 
 
 
@@ -100,15 +100,15 @@ eind te brengen. -->
 ## Keywords
 <!--Noteer hier enkele relevante keywords van het onderwerp-->
 <!--Minimum 5 keywords-->
-*Game Development
-*Unity
-*Opleiding energie sector
-*MeComs product
-*Producent / Producer
-*Transmission Grid Operator
-*Distribution Grid Operator
-*leveranciers / Suppliers
-*Consument / Consumer
+* Game Development
+* Unity
+* Opleiding energie sector
+* MeComs product
+* Producent / Producer
+* Transmission Grid Operator
+* Distribution Grid Operator
+* leveranciers / Suppliers
+* Consument / Consumer
 
 
 ## Milestones
