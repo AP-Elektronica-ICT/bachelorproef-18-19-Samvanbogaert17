@@ -33,11 +33,58 @@ Elke level zal zijn eigen unieke werking hebben.
 
 ###Producer Level
 
+####Algemene Werking / Gameplay
+
+In de producer level is het de taak van de speler om zoveel mogelijk contracten aan de 'suppliers' te verkopen, en genoeg energie producerende gebouwen aan te kopen.
+Sommige energie producerende gebouwen produceren ook vervuiling en dit wordt dan ook in rekening gebracht. Indien het vervuilingsgehalte van de stad te hoog is, zal de speler automatisch de level verliezen.
+Ook gebouwen met groene energie hebben hun eigen voor en nadelen. Gebouwen die groene energie produceren zijn meestal afhankelijk van het weer of andere omstandigheden.
+
+Doorheen de level, op willekeurige interval, zal het weer dan ook veranderen.
+Indien het weer meer of minder gunstig is, zullen de 'grijze' energie producerende gebouwen meer of minder moeten produceren afhankelijk van het weer.
+Door de energie productie van deze gebouwen te doen stijgen of dalen, zal dit ook enige extra vervuiling met zich meebrengen.
+
+De speler kan extra gebouwen aankopen via het 'Market Menu'. Hier kan de speler zien hoeveel elk gebouw kost, produceert,wat voor type energie het gebouw produceert en hoeveel vervuiling dit gebouw procentueel met zich meebrengt.
+Ook kan de speler hier zien hoeveel gebouwen hij van elk type heeft en de bijhorende statistieken hiervan (=totale productie, vervuiling en het eventuele gedrag in productie afhankelijk van het weer).
+
+Eerder aangehaald zal de speler dus contracten moeten verkopen aan de 'suppliers', deze zullen aangeboden worden na een bepaald interval via een popup.
+Op elk contract zal te zien zijn hoeveel energie de speler aan de leverancier verkoopt en hoeveel winst hij maakt met dit contract.
+
+Elk contract zal terecht komen op het 'Contract Menu'.
+Op dit menu is te zien welke contracten de speler al bezit.
+Ook is er een optie om een contract op te zeggen.
+Dit zal vooral nodig zijn als de speler te weinig energie produceert en dus een contract moet opzeggen.
+Indien de speler dit niet doet, zal de algemene happiness dalen en ook hierdoor kan de speler dus de level verliezen.
+
+Er zullen doorheen de level ook andere, gelijkaardige popups verschijnen als de popups van de contractaanbiedingen.
+Deze popups duiden aan dat de speler een vraag kan beantwoorden in verband met de producer.
+De speler kan kiezen om deze vraag te weigeren of te accepteren.
+Om de speler toch aan te moedigen om tijdig een vraag te beantwoorden, zal de 'happiness' doorheen de level blijven dalen.
+Elk juist antwoord zal beloond worden met een bonus in score en 'happiness'.
+ 
+
+####Mockups & Designs
+
+#####UI Canvas
+![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Hierarchy/Producer/Mockups/png/lvl_producer_ui.png "Producer Level UI Canvas")
+
+#####Market Canvas
+![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Hierarchy/Producer/Mockups/png/lvl_producer_marketCanvas.png "Producer Level Market Canvas")
+
+#####Contract Canvas
+![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Hierarchy/Producer/Mockups/png/lvl_producer_contractsCanvas.png "Producer Level Contract Canvas")
+
+#####Quiz Canvas
+![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Hierarchy/Producer/Mockups/png/lvl_producer_eventCanvas.png "Producer Level Quiz Canvas")
+
 ###TGO Level
+
+<!-- Voor deze level is er nog veel analyse werk nodig -->
 
 ###DGO Level
 
 ###Consumer Level
+
+###Bug Fixing
 
 
 
@@ -57,7 +104,11 @@ eind te brengen. -->
 *Unity
 *Opleiding energie sector
 *MeComs product
-*
+*Producent / Producer
+*Transmission Grid Operator
+*Distribution Grid Operator
+*leveranciers / Suppliers
+*Consument / Consumer
 
 
 ## Milestones
