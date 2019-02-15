@@ -62,3 +62,7 @@ EventCanvas proberen op te lossen samen met ProducerPopupSystem
 
 Verder afwerken van ContractCanvas
 Popup systeem verder afgewerkt, nodige bugs moeten nog verwijderd worden.
+
+15/02/19 - Dag 13
+
+Voorbereiden van VGV 1

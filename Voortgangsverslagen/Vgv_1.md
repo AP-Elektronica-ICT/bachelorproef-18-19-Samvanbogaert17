@@ -2,8 +2,10 @@
 # Gamification van een opleiding:
 ## Promotors
 
-* Mevr. Braspenning Cindy - Cindy.Braspenning@mecoms.be
-* Dhr. Horsmans Serge - serge.horsmans@ap.be
+* **Stagecoördinator:** Dhr. Smets Marc - marc.smets@ap.be
+* **Stagementor:** Mevr. Braspenning Cindy - Cindy.Braspenning@mecoms.be
+* **Stagebegeleider:** Dhr. Horsmans Serge - serge.horsmans@ap.be
+* **Opleidingshoof:** Dhr. Masset Yves - yves.masset@ap.be
 
 ## Onderwerp
 
@@ -19,7 +21,7 @@ High-level overzicht van alle sectoren:
 * Consumer / Consument: De consument zelf kiest dus bij welke leverancier hij zijn energie aankoopt.
 
 Dit project was al reeds in werking door andere jobstudenten die tijdens de zomer van 2018 van start zijn gegaan met het ontwikkelen van dit project.
-Er was al reeds een spel aanwezig, waarin ook al enkele zaken aanwezig waren zoals:
+Er was al reeds een spel aanwezig, waarin ook al enkele zaken aanwezig waren, zoals:
 
 * Main Menu
 * Highscore Lijst
@@ -48,6 +50,7 @@ Ook kan de speler hier zien hoeveel gebouwen hij van elk type heeft en de bijhor
 
 Eerder aangehaald zal de speler dus contracten moeten verkopen aan de 'suppliers', deze zullen aangeboden worden na een bepaald interval via een popup.
 Op elk contract zal te zien zijn hoeveel energie de speler aan de leverancier verkoopt en hoeveel winst hij maakt met dit contract.
+Indien de speler
 
 Elk contract zal terecht komen op het 'Contract Menu'.
 Op dit menu is te zien welke contracten de speler al bezit.
@@ -60,41 +63,290 @@ Deze popups duiden aan dat de speler een vraag kan beantwoorden in verband met d
 De speler kan kiezen om deze vraag te weigeren of te accepteren.
 Om de speler toch aan te moedigen om tijdig een vraag te beantwoorden, zal de 'happiness' doorheen de level blijven dalen.
 Elk juist antwoord zal beloond worden met een bonus in score en 'happiness'.
- 
+
+**Korte samenvatting van de Game Over voorwaarden:**
+
+*enkel één van deze voorwaarden is voldoende om het spel te verliezen*
+
+* Geld van de speler < 0
+* Algemene 'happiness' < 0%
+* Vervuiling van de stad > 100%
+
+**Korte samenvatting van de Game Won voorwaarden:**
+
+*enkel één van deze voorwaarden is voldoende om het spel te winnen*
+
+* Geld van de speler > 1.000.000
+* Aantal consistent correct beantwoordde vragen > 20
+* Aantal aangenomen contracten > 15
+
+#### Technisch
+
+De producer level zal volgende zaken bevatten:
+
+* **UI Canvas**
+	* **Player Score Panel**
+		* **Player Score Text**: Geeft naam en score weer van de speler
+	* **Pause Button**: Knop om spel te pauzeren en om Pauze Menu te openen
+	* **Producing Panel**
+		* **Producing Text**: Geeft het verschil weer tussen de totaal geproduceerde energie en de totaal verkochte energie aan alle leveranciers
+	* *Money Panel**
+		* **Money Text**: Geeft weer hoeveel geld de speler heeft
+	* **Pollution Panel**
+		* **Pollution Slider**: Geeft de vervuiling van de stad weer
+	* **Happiness Panel**
+		* **Happiness Slider**: Geeft het algemene geluk weer van de stad
+	* **Contract popup**
+		* **Contract content**: Geeft de naam van de leverancier weer, zowel als de hoeveelheid verkochte energie en de winst voor de speler
+		* **Accept Button**: Knop om contract te accepteren
+		* **Decline Button**: Knop om contract te weigeren
+		* **(Update Button)**: Knop om bestaand contract up te daten
+	* **Quiz Popup**
+		* **Accept Button**: Knop om de quiz te starten
+		* **Decline Button**: Knop om de quiz te weigeren
+* **Market Canvas**
+	* **Close Button**: Knop om het canvas te sluiten
+	* **Total Energy Production Text**: tekst dat weergeeft hoeveel alle gebouwen in totaal produceren, uitgedrukt in kWh
+	* **Market Panel**
+		* **Market Grid**
+			* **Building Type Text**: Geeft weer wat voor type gebouw de speler kan aankopen
+			* **Energy Type Text**: Geeft weer wat voor type energie het gebouw produceert
+			* **Production Text**: Geeft weer hoeveel energie dit gebouw gemiddeld zal produceren, uitgedrukt in kWh
+			* **Pollution Text**: Geeft weer hoeveel vervuiling dit gebouw met zich meebrengt, uitgedrukt in een percentage
+			* **Price Text**: Geeft weer hoeveel het gebouw kost
+			* **Buy button**: Knop om een gebouw te kopen
+		* **Market Button**: Schakelt het market canvas over naar het Market Panel
+		* **Installed Button**: Schakelt het market canvas over naar het Installed Panel
+	* **Installed Panel**
+		* **InstalledGrid**
+			* **Building Type Text**: Geeft weer wat voor type gebouw de speler kan aankopen
+			* **Energy type Text**: Geeft weer wat voor type energie het gebouw produceert
+			* **Production Text**: Geeft weer hoeveel energie dit gebouw gemiddeld zal produceren, uitgedrukt in kWh
+			* **Pollution Text**: Geeft weer hoeveel vervuiling dit gebouw met zich meebrengt, uitgedukt in een percentage
+			* **Behaviour Prefab**
+				* **Behaviour Percentage Text**: Geeft de stijging of daling weer van de productie van de geïnstalleerde gebouwen, uitgedrukt in een percentage
+				* **Behaviour Arrow**: Pijl dat weergeeft of het een positieve stijging of negatieve daling is
+			**Sell Button**: Knop om een gebouw te verkopen
+* **Contract Canvas**
+	* **Close Button**
+	* **Contract Grid**
+		* **Supplier Name**: geeft de naam van de leverancier weer
+		* **Energy Sold**: geeft weer hoeveel energie de speler levert aan de leverancier, uitgedrukt in kWh
+		* **Profit**: geeft weer hoeveel winst de speler maakt op het contract
+		* **Cancel** Button: knop om het contract te beëindigen
+* **Quiz Canvas**
+	* **Question Text**: Willekeurig geselecteerde vraag
+	* **Answer Buttons**: Knoppen met de antwoorden van desbetreffende vraag
+* **Pauze Canvas**
+	* **Continue button**: Spel verderzetten
+	* **Exit Button**: Spel beëindigen en terugkeren naar de main menu
+
 
 #### Mockups & Designs
 
 ##### UI Canvas
-![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/Producer/Mockups/png/lvl_producer_ui.png "Producer Level UI Canvas")
+![UI Canvas](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/Producer/Mockups/png/lvl_producer_ui.png "Producer Level UI Canvas")
 
 ##### Market Canvas
-![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/Producer/Mockups/png/lvl_producer_marketCanvas.png "Producer Level Market Canvas")
+![Market Canvas](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/Producer/Mockups/png/lvl_producer_marketCanvas.png "Producer Level Market Canvas")
 
 ##### Contract Canvas
-![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/Producer/Mockups/png/lvl_producer_contractsCanvas.png "Producer Level Contract Canvas")
+![Contract Canvas](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/Producer/Mockups/png/lvl_producer_contractsCanvas.png "Producer Level Contract Canvas")
 
 ##### Quiz Canvas
-![alt text](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/Producer/Mockups/png/lvl_producer_eventCanvas.png "Producer Level Quiz Canvas")
+![Quiz Canvas](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/Producer/Mockups/png/lvl_producer_eventCanvas.png "Producer Level Quiz Canvas")
 
 ### TGO Level
 
+Bij de TGO Level is het doel van de speler om hoogspanning om te zetten naar een lagere hoogspanning.
+Dit kan de speler bereiken door het spelen van enkele minigames en door vragen over de TGO te beantwoorden.
+
+Verdere uitwerking voor de TGO level is zeker en vast nog nodig, maar was nog geen prioriteit volgens mijn stagementor.
 <!-- Voor deze level is er nog veel analyse werk nodig -->
 
 ### DGO Level
 
+#### Algemene Werking / Gameplay
+
+In de DGO level, zal de speler met 'workers' tewerk gaan om problemen op te lossen die zich in de stad zullen voordoen.
+Elk probleem zal een zijn eigen 'moeilijkheidsgraad' hebben. Sommige problemen zullen dus meer workers vereisen en zullen ook langer duren voor dat deze problemen opgelost zijn.
+De speler krijgt ook de mogelijkheid om bij elk probleem extra workers toe te voegen of te verwijderen.
+
+De speler kan zien welke problemen er zich voordoen in het 'Problems Menu' dat de speler kan openen via het happiness panel
+
+De speler zal een beloning krijgen per opgelost probleem in de vorm van geld, waarmee de speler een extra worker kan aankopen.
+De prijs per worker zal exponentieel stijgen naarmate de speler meer workers bezit.
+
+Ook deze level zal werken met een algemene 'happiness'.
+Indien de speler geen workers inzet om een probleem om te lossen, zal per tijdseenheid de 'happiness' dalen afhankelijk van de 'moeilijkheidsgraad' van het probleem.
+
+Ook dit level zal een quiz systeem bevatten dat zal werken met popups.
+De speler kan kiezen om dit te accepteren of te weigeren.
+Door de vraag correct te beantwoorden, zal de speler een bonus krijgen in 'happiness'
+door de vraag te weigeren, zal de algemene 'happiness' dalen.
+Om de speler toch aan te moedigen om regelmatig een vraag te accepteren, zal de 'happiness' doorheen de level blijven dalen.
+
+**Korte samenvatting van de Game over voorwaarden:**
+
+*enkel één van deze voorwaarden is voldoende om het spel te verliezen*
+
+* Geld van de speler < 0
+* Algemene 'happiness' < 0%
+
+**Korte samenvatting van de Game Won voorwaarden:**
+
+* Aantal opgeloste problemen > 50
+* Aantal consistent correct beantwoordde vragen > 20
+
+#### Technisch
+
+De DGO level zal volgende zaken bevatten:
+
+* **UI Canvas**
+	* **Player Score Panel**
+		* **Player Score Text**: Geeft naam en score van de speler weer 
+	* **Pause Button**: Knop om spel te pauzeren en om Pauze Canvas te openen	
+	* **Worker Panel**
+		**Worker Text**: Geeft weer hoeveel workers de speler in zijn bezit heeft
+	* **Money Panel**
+		* **Money Text**: Geeft weer hoeveel geld de speler heeft
+	* **Happiness Panel**
+		* **Happiness Slider**: Geeft het algemene geluk van de stad weer 
+* **Worker Canvas**
+	* **Close Button**: Knop om Worker Canvas te sluiten
+	* **Worker Price text**: Geeft weer hoeveel een nieuwe worker zal kosten
+	* **Buy Button**: Knop om een nieuwe worker aan te kopen
+* **Problems Canvas**
+	* **Close Button**: Knop om Problems Canvas te sluiten
+	* **Available Worker Text**: Geeft de hoeveelheid resterende, inzetbare workers weer van de speler
+	* **Problems Grid**:
+		* **Problem Description Text**: Korte beschrijving van het probleem
+		* **Time Remaining Text**: Resterende tijd om probleem op te lossen
+		* **Workers Deployed Prefab**
+			* **Workers Deployed Text**: Aantal ingezette workers om probleem op te lossen
+			* **Add Worker Button**: Knop om worker toe te voegen om probleem op te lossen
+			* **Remove Worker Button**: Knop om worker weg te halen van het probleem
+* **Quiz Canvas**
+	* **Question Text**: Willekeurig geselecteerde vraag
+	* **Answer Buttons**: Knoppen met de antwoorden van desbetreffende vraag
+* **Pauze Canvas**
+	* **Continue button**: Spel verderzetten
+	* **Exit Button**: Spel beëindigen en terugkeren naar de main menu
+
+#### Mockups & Designs
+
+##### UI Canvas
+
+![UI Canvas](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/DGO/Mockups/png/lvl_DGO_ui.png "DGO UI Canvas")
+
+##### Problem Canvas
+
+![Problem Canvas](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/DGO/Mockups/png/lvl_DGO_problemsCanvas.png "DGO Problem Canvas")
+
+##### Worker Canvas
+
+![Worker Canvas](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/DGO/Mockups/png/lvl_DGO_recruitmentCanvas.png "DGO Worker Canvas")
+
+##### Quiz Canvas
+
+![Quiz Canvas](https://github.com/AP-Elektronica-ICT/bachelorproef-18-19-Samvanbogaert17/blob/master/Project/doc/Documentatie%20Sam/Mockups%20-%20Designs%20-%20Manuals/DGO/Mockups/png/lvl_DGO_eventCanvas.png "DGO Quiz Canvas")
+
 ### Consumer Level
+
+#### Algemene Werking / Gameplay
+
+In deze level is het de bedoeling om de speler de beste keuzes te laten maken naar de consument toe.
+De speler zal in de aanvang van de level enkele keuzes moeten maken waarmee hij de rest van de level mee zal verder zetten.
+Elke keuze zal ook voor- en nadelen met zich meebrengen. 
+
+Deze keuzes kunnen inhouden, maar zijn niet gelimiteerd tot:
+
+* Zonne Panelen
+	* Voordelen:
+		* Genereert energie indien er voldoende zonlicht aanwezig is.
+	* Nadelen:
+		* Hoge kostprijs.
+* Contract van leverancier
+	* Contract met eenvoudig tarief
+		* Voordelen:
+			* Dagtarief ligt lager dan dagtarief van tweevoudigtarief
+		* Nadelen:
+			* Nachttarief is hetzelfde als dagtarief en ligt ook hoger dan nachttarief van tweevoudigtarief
+	* Contract met tweevoudig tarief
+		* Voordelen:
+			* Dagtarief ligt hoger dan dagtarief van eenvoudigtarief
+		* Nadelen:
+			* Nachttarief is goedkoper dan nachttarief van eenvoudigtarief
+* Installeren van een Smart Meter
+	* Voordelen: 
+		* Houdt energieverbruik bij en stuurt deze automatisch door naar leverancier, manueel nakijken van meter door DGO is niet meer nodig.
+		* (indien zonnepanelen: Houdt bij hoeveel energie de zonnepanelen hebben opgeleverd)
+	* Nadelen:
+		* Privacyrisico
+
+
+Deze level is vooral een grote quiz waarvan de vragen en antwoorden afhankelijk zijn van de keuzes van de speler.
+
+#### Mockups & Designs
+
+<!-- Deze zijn momenteel nog afwezig. -->
+
+#### Technisch
+
+De Consumer Level  zal volgende zaken bevatten:
+
+Bij aanvang van de level:
+
+* **UI Canvas**
+	* **Player Score Panel**
+		* **Player Score Text**: Geeft naam en score van de speler weer 
+	* **Pause Button**: Knop om spel te pauzeren en om Pauze Canvas te openen
+* **Pauze Canvas**
+	* **Continue button**: Spel verderzetten
+	* **Exit Button**: Spel beëindigen en terugkeren naar de main menu
+* **Inventory Canvas**
+	* **ChoicePanel**
+		* **Choice Title Text**: Geeft de titel weer van de keuze
+		* **Choice 1 Panel**
+			* **Advantages**: Voordelen van de 1ste keuze
+			* **Disadvantages**: Nadelen van de 1ste keuze
+		* **Choice 2 Panel**
+			* **Advantages Text**: Voordelen van de 2de keuze
+			* **Disadvantages Text**: Nadelen van de 2de keuze
+	* **Next Button**: Knop om naar volgende keuze te gaan
+
+Na aanvang van de level:
+
+* **UI Canvas**
+	* **Player Score Panel**
+		* **Player Score Text**: Geeft naam en score van de speler weer 
+	* **Pause Button**: Knop om spel te pauzeren en om Pauze Canvas te openen
+	* **Inventory Panel**
+		* **Choice 1 Square**
+			* **Details Text**
+		* **Choice 2 Square**
+			* **Details Text**
+		* **Choice 3 Square**
+			* **Details Text**
+		* **...**
+* **Pauze Canvas**
+	* **Continue button**: Spel verderzetten
+	* **Exit Button**: Spel beëindigen en terugkeren naar de main menu
+* **Quiz Canvas**
+	* **Question Text**: Willekeurig geselecteerde vraag
+	* **Answer Buttons**: Knoppen met de antwoorden van desbetreffende vraag
 
 ### Bug Fixing
 
+Ook van de reeds aanwezige onderdelen in het project zijn er de nodige verbetereingen nodig.
 
+De highscores worden momenteel opgeslagen in een bestand op een vaste filepath afhankelijk van de filepath van het project.
+Indien de locatie van dit highscores bestand dus verandert, dan zijn de highscores niet meer functioneel.
 
+De kleur van het correcte antwoord tijdens de quiz op de supplier level worden niet altijd correct weergegeven.
+Ook op de volgende vraag is krijgen de knoppen dezelfde kleur als het antwoord van de vorige vraag.
 
-<!--Beschrijf je onderwerp van je BAP/Stage. Wat is het resultaat dat je wilt
-bereiken tegen het eind van de BAP? Maak een analyse van het
-onderwerp/resultaat. Geef de mogelijke stappen om je BAP/Stage tot een goed
-eind te brengen. --> 
-<!--Minimum 5000 tekens-->
-
+Het spel is ook enkel speelbaar op 1680x1080, anders worden bepaalde canvassen en panels niet correct mee geschaald.
 
 
 ## Keywords
@@ -113,3 +365,12 @@ eind te brengen. -->
 
 ## Milestones
 <!--Geef hier kort weer wat te behalen milestones zijn per week-->
+
+1. Week 1-2: Introductie tot het project, nodige Unity tutorials bekijken, Leren met Unity werken via het project
+2. Sprint 1(Week 3-4): Ontwikkelen van Producer Level
+3. Sprint 2(Week 5-6): Ontwikkelen van DGO Level
+4. Sprint 3(Week 7-8): Ontwikkelen van Consumer Level
+5. Sprint 4(Week 9-10): Bugfixen en afwerken van reeds bestaande onderdelen
+6. Sprint 5(Week 11-12): Ontwikkelen van TGO Level
+7. Sprint 6(Week 13-14): Bugfixen van het volledige project
+8. Week 15: Afwerken project en scriptie
