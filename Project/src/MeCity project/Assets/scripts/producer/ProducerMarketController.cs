@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Building = ProducerMarketGridFiller.Building;
 
 public class ProducerMarketController : MonoBehaviour
 {
@@ -44,8 +43,6 @@ public class ProducerMarketController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Producer Start");
-
         normalCb = disabledCb = defaultBtn.colors;
         disabledCb.normalColor = normalCb.disabledColor;
 
@@ -154,8 +151,15 @@ public class ProducerMarketController : MonoBehaviour
 
     public void BuyBuilding(int index)
     {
+        //Parsing all texts to ints
+        money = int.Parse(moneyTxt.text);
+        producing = int.Parse(producingTxt.text);
+
         money -= buildingList[index].price;
         moneyTxt.text = money.ToString();
+
+        producing += buildingList[index].production;
+        producingTxt.text = producing.ToString();
 
         totalProducing += buildingList[index].production;
         totalProducingTxt.text = totalProducing.ToString();
@@ -175,6 +179,10 @@ public class ProducerMarketController : MonoBehaviour
     {
         if (installedBuildingList[index].amount > 0)
         {
+            //Parsing all texts to ints
+            money = int.Parse(moneyTxt.text);
+            producing = int.Parse(producingTxt.text);
+
             money += buildingList[index].price / 2;
             moneyTxt.text = money.ToString();
 
@@ -251,5 +259,30 @@ public class ProducerMarketController : MonoBehaviour
         FindObjectOfType<ProducerMarketGridFiller>().pollutionPrefab = pollutionPrefab;
         FindObjectOfType<ProducerMarketGridFiller>().price_behaviourPrefab = price_behaviourPrefab;
         FindObjectOfType<ProducerMarketGridFiller>().buy_sellPrefab = buy_sellPrefab;
+    }
+
+    public class Building
+    {
+        public int id { get; set; }
+        public int production { get; set; }
+        public int pollution { get; set; }
+        public int behaviour { get; set; }
+
+        public string name { get; set; }
+        public string type { get; set; }
+        public int price { get; set; }
+        public int amount { get; set; }
+
+        public Building(int id, string name, string type, int production, int pollution, int price)
+        {
+            this.id = id;
+            this.name = name;
+            this.type = type;
+            this.production = production;
+            this.pollution = pollution;
+            this.price = price;
+            behaviour = 0;
+            amount = 0;
+        }
     }
 }
