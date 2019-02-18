@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Contract = ProducerMarketGridFiller.Contract;
+using Contract = ProducerContractController.Contract;
 
 public class ProducerPopupController : MonoBehaviour
 {
@@ -17,7 +17,7 @@ public class ProducerPopupController : MonoBehaviour
     [HideInInspector] public static System.Random random;
 
     private List<Contract> contractList = new List<Contract>();
-    private Dictionary<int, Contract> ongoingContractList = new Dictionary<int, Contract>();
+    private Dictionary<int, Contract> ongoingContractsList = new Dictionary<int, Contract>();
 
     private int eventTimer, contractTimer;
     private PopUp[] popUps = new PopUp[3];
@@ -29,7 +29,7 @@ public class ProducerPopupController : MonoBehaviour
     {
         FindObjectOfType<ProducerContractController>().FillContractsList();
         contractList = FindObjectOfType<ProducerContractController>().contractList;
-
+        ongoingContractsList = FindObjectOfType<ProducerContractController>().ongoingContractsList;
         random = new System.Random();
         rndindex = random.Next(0, contractList.Count);
         contractTimer = random.Next(1500, 2100);
@@ -56,7 +56,7 @@ public class ProducerPopupController : MonoBehaviour
             //At a random time between 15 and 25 seconds an invoice will be shown for the player to receive money based on the consumed energy since last invoice.
             if (contractFrameCounter % contractTimer == 0 || Input.GetKeyDown(KeyCode.O))
             {
-                showInvoice();
+                showContract();
                 contractTimer = random.Next(900, 1500);
                 contractFrameCounter = 0;
             }
@@ -106,7 +106,7 @@ public class ProducerPopupController : MonoBehaviour
     }
 
     //A contract will be shown. The player can choose to accept or decline a contract
-    public void showInvoice()
+    public void showContract()
     {
         for (int i = 0; i < popUps.Length; i++)
         {
@@ -115,10 +115,13 @@ public class ProducerPopupController : MonoBehaviour
                 popUps[i] = new PopUp(Time.frameCount, Instantiate(ContractPopUpPrefab, UICanvas.transform));
                 popUps[i].Prefab.transform.position = new Vector2(popUps[i].Prefab.transform.position.x, popUps[i].Prefab.transform.position.y - (i * 250));
                 //Update the contract if it is already ongoing
-                if (ongoingContractList.ContainsValue(contractList[rndindex]))
+                Debug.Log(rndindex);
+                Debug.Log(ongoingContractsList.ContainsKey(rndindex));
+                if (ongoingContractsList.ContainsKey(rndindex))
                 {
+                    Debug.Log(ongoingContractsList[rndindex].name);
                     //Styling of Title
-                    popUps[i].Prefab.GetComponentsInChildren<Text>()[0].text = ongoingContractList[rndindex].name;
+                    popUps[i].Prefab.GetComponentsInChildren<Text>()[0].text = ongoingContractsList[rndindex].name;
                     popUps[i].Prefab.GetComponentsInChildren<Text>()[0].fontSize = 12;
                     popUps[i].Prefab.GetComponentsInChildren<Text>()[0].fontStyle = FontStyle.Bold;
                     //Styling of Text
@@ -126,16 +129,18 @@ public class ProducerPopupController : MonoBehaviour
                     popUps[i].Prefab.GetComponentsInChildren<Text>()[1].fontSize = 12;
                     popUps[i].Prefab.GetComponentsInChildren<Button>()[0].GetComponentInChildren<Text>().text = "Update";
                     popUps[i].Prefab.GetComponentsInChildren<Button>()[1].GetComponentInChildren<Text>().text = "Decline";
+                    //Remove onClick Listeners
+                    popUps[i].Prefab.GetComponentsInChildren<Button>()[0].onClick.RemoveAllListeners();
+                    popUps[i].Prefab.GetComponentsInChildren<Button>()[1].onClick.RemoveAllListeners();
                     //Accept Contract
                     popUps[i].Prefab.GetComponentsInChildren<Button>()[0].onClick.AddListener(() =>
                     {
-                   
                         Destroy(popUps[i].Prefab);
                         popUps[i] = null;
                         FindObjectOfType<ProducerContractController>().UpdateContract(rndindex);
+
                         FindObjectOfType<ProducerContractController>().RefreshContractsList();
                         rndindex = random.Next(0, contractList.Count);
-
                     });
                     //Decline Contract
                     popUps[i].Prefab.GetComponentsInChildren<Button>()[1].onClick.AddListener(() =>
@@ -156,10 +161,12 @@ public class ProducerPopupController : MonoBehaviour
                     popUps[i].Prefab.GetComponentsInChildren<Text>()[1].fontSize = 12;
                     popUps[i].Prefab.GetComponentsInChildren<Button>()[0].GetComponentInChildren<Text>().text = "Accept";
                     popUps[i].Prefab.GetComponentsInChildren<Button>()[1].GetComponentInChildren<Text>().text = "Decline";
+                    //Remove onClick Listeners
+                    popUps[i].Prefab.GetComponentsInChildren<Button>()[0].onClick.RemoveAllListeners();
+                    popUps[i].Prefab.GetComponentsInChildren<Button>()[1].onClick.RemoveAllListeners();
                     //Accept Contract
                     popUps[i].Prefab.GetComponentsInChildren<Button>()[0].onClick.AddListener(() =>
                     {
-
                         Destroy(popUps[i].Prefab);
                         popUps[i] = null;
                         FindObjectOfType<ProducerContractController>().AcceptContract(rndindex);
