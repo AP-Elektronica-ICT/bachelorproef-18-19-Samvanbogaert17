@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ProducerMarketController : MonoBehaviour
 {
-    [HideInInspector] public static float pollution = 0;  // min: 0; max: 1000
+    [HideInInspector] public static float pollution = 0;  // min: 0; max: 100
 
     public Texture greenArrow;
     public Texture redArrow;
@@ -29,6 +29,8 @@ public class ProducerMarketController : MonoBehaviour
     private int producing;
     private int totalProducing;
 
+    [HideInInspector] public int mode = 0;
+
     private ColorBlock normalCb;
     private ColorBlock disabledCb;
 
@@ -50,24 +52,20 @@ public class ProducerMarketController : MonoBehaviour
         GetMarketPrefabs();
 
         GameObject.Find("PollutionSlider").GetComponent<Slider>().value = pollution;
-
         //Parsing all texts to ints
         money = int.Parse(moneyTxt.text);
         producing = int.Parse(producingTxt.text);
 
         marketButton.onClick.AddListener(() =>
         {
-            SwitchCanvas(0);    // 0 indicates the panel will change to the market panel
+            mode = 0; // 0 indicates the panel will change to the market panel
+            SwitchCanvas(mode);
         });
         installedButton.onClick.AddListener(() =>
         {
-            SwitchCanvas(1);    // 1 indicates the panel will change to the installed panel
+            mode = 1; // 1 indicates the panel will change to the installed panel
+            SwitchCanvas(mode);
         });
-        /*
-        //Give player his 1st buildings
-        BuyBuilding(0); //Adds a solarpanel farm
-        BuyBuilding(5); //Adds a Fossil fuel power station
-        */
     }
 
     // Update is called once per frame
@@ -79,6 +77,8 @@ public class ProducerMarketController : MonoBehaviour
     //method used to switch from market panel to installed panel or vice versa
     private void SwitchCanvas(int mode)
     {
+        producing = int.Parse(producingTxt.text);
+        totalProducing = int.Parse(totalProducingTxt.text);
         switch (mode)
         {
             case 0:
@@ -89,23 +89,8 @@ public class ProducerMarketController : MonoBehaviour
                 marketButton.colors = normalCb;
                 installedButton.colors = disabledCb;
 
-                for (int i = 0; i < buildingList.Count; i++)
-                {
-                    Building b = buildingList[i];
-                    //all changes in the production prefab
-                    productionPrefab[i].GetComponent<Text>().text = b.production.ToString() + " kWh";
-                    //all changes in the pollution prefab
-                    pollutionPrefab[i].GetComponent<Text>().text = b.pollution.ToString() + " %";
-                    //all changes in the price_behaviour prefab
-                    price_behaviourPrefab[i].GetComponentInChildren<Text>().text = "$ " + b.price.ToString();
-                    price_behaviourPrefab[i].GetComponentInChildren<RawImage>().enabled = false;
-                    //all changes in the buy_sell prefab
-                    buy_sellPrefab[i].GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "buy";
-                    //Adds a new onclick listener to buy a building
-                    buy_sellPrefab[i].GetComponentInChildren<Button>().onClick.RemoveAllListeners();
-                    buy_sellPrefab[i].GetComponentInChildren<Button>().onClick.AddListener(() => BuyBuilding(b.id));
-                }
-                Debug.Log("Set Remote Lists");
+                UpdateBuilding(mode);
+                
                 SetMarketPrefabs();
                 break;
             case 1:
@@ -116,33 +101,8 @@ public class ProducerMarketController : MonoBehaviour
                 marketButton.colors = disabledCb;
                 installedButton.colors = normalCb;
 
-                for (int i = 0; i < installedBuildingList.Count; i++)
-                {
-                    Building b = installedBuildingList[i];
-                    //all changes in the production prefab
-                    productionPrefab[i].GetComponent<Text>().text = b.production.ToString() + " kWh";
-                    //all changes in the pollution prefab
-                    pollutionPrefab[i].GetComponent<Text>().text = b.pollution.ToString() + " %";
-                    //all changes in the price_behaviour prefab
-                    price_behaviourPrefab[i].GetComponentInChildren<Text>().text = b.behaviour.ToString() + " %";
-                    if (b.behaviour > 0)
-                    {
-                        price_behaviourPrefab[i].GetComponentInChildren<RawImage>().texture = greenArrow;
-                    }
-                    else if (b.behaviour < 0)
-                    {
-                        price_behaviourPrefab[i].GetComponentInChildren<RawImage>().texture = redArrow;
-                    }
-                    else
-                    {
-                        price_behaviourPrefab[i].GetComponentInChildren<RawImage>().enabled = false;
-                    }
-                    //all changes in the buy_sell prefab
-                    buy_sellPrefab[i].GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "sell";
-                    //Adds a new onlick listener to sell a building
-                    buy_sellPrefab[i].GetComponentInChildren<Button>().onClick.RemoveAllListeners();
-                    buy_sellPrefab[i].GetComponentInChildren<Button>().onClick.AddListener(() => SellBuilding(b.id));
-                }
+                UpdateBuilding(mode);
+
                 Debug.Log("Set Remote Lists");
                 SetMarketPrefabs();
                 break;
@@ -166,6 +126,7 @@ public class ProducerMarketController : MonoBehaviour
 
         pollution += buildingList[index].pollution;
         GameObject.Find("PollutionSlider").GetComponent<Slider>().value += buildingList[index].pollution;
+        GameObject.Find("HapSlider").GetComponent<Slider>().value -=
 
         installedBuildingList[index].amount++;
         installedBuildingList[index].pollution += buildingList[index].pollution;
@@ -196,6 +157,11 @@ public class ProducerMarketController : MonoBehaviour
             installedBuildingList[index].pollution -= buildingList[index].pollution;
             installedBuildingList[index].production -= buildingList[index].production;
 
+            if(installedBuildingList[index].production < 0)
+            {
+                installedBuildingList[index].production = 0;
+            }
+
             productionPrefab[index].GetComponent<Text>().text = installedBuildingList[index].production.ToString() + " kWh";
             pollutionPrefab[index].GetComponent<Text>().text = installedBuildingList[index].pollution.ToString() + " %";
             buy_sellPrefab[index].GetComponentInChildren<Text>().text = installedBuildingList[index].amount.ToString();
@@ -203,19 +169,60 @@ public class ProducerMarketController : MonoBehaviour
         }
     }
 
-    public void ChangeBehaviour(int index, int answerIsCorrect)
+    public void UpdateBuilding(int index)
     {
-        if (answerIsCorrect == 1)
+        switch (index)
         {
-            installedBuildingList[index].behaviour = UnityEngine.Random.Range(1, 11);
+            case 0:
+                for (int i = 0; i < buildingList.Count; i++)
+                {
+                    Building b = buildingList[i];
+                    //all changes in the production prefab
+                    productionPrefab[i].GetComponent<Text>().text = b.production.ToString() + " kWh";
+                    //all changes in the pollution prefab
+                    pollutionPrefab[i].GetComponent<Text>().text = b.pollution.ToString() + " %";
+                    //all changes in the price_behaviour prefab
+                    price_behaviourPrefab[i].GetComponentInChildren<Text>().text = "$ " + b.price.ToString();
+                    price_behaviourPrefab[i].GetComponentInChildren<RawImage>().enabled = false;
+                    //all changes in the buy_sell prefab
+                    buy_sellPrefab[i].GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "buy";
+                    //Adds a new onclick listener to buy a building
+                    buy_sellPrefab[i].GetComponentInChildren<Button>().onClick.RemoveAllListeners();
+                    buy_sellPrefab[i].GetComponentInChildren<Button>().onClick.AddListener(() => BuyBuilding(b.id));
+                }
+                break;
+            case 1:
+                for (int i = 0; i < installedBuildingList.Count; i++)
+                {
+                    Building b = installedBuildingList[i];
+                    //all changes in the production prefab
+                    productionPrefab[i].GetComponent<Text>().text = b.production.ToString() + " kWh";
+                    //all changes in the pollution prefab
+                    pollutionPrefab[i].GetComponent<Text>().text = b.pollution.ToString() + " %";
+                    //all changes in the price_behaviour prefab
+                    price_behaviourPrefab[i].GetComponentInChildren<Text>().text = b.behaviour.ToString() + " %";
+                    if (b.behaviour > 0)
+                    {
+                        price_behaviourPrefab[i].GetComponentInChildren<RawImage>().texture = greenArrow;
+                    }
+                    else if (b.behaviour < 0)
+                    {
+                        price_behaviourPrefab[i].GetComponentInChildren<RawImage>().texture = redArrow;
+                    }
+                    else
+                    {
+                        price_behaviourPrefab[i].GetComponentInChildren<RawImage>().enabled = false;
+                    }
+                    //all changes in the buy_sell prefab
+                    buy_sellPrefab[i].GetComponentInChildren<Button>().GetComponentInChildren<Text>().text = "sell";
+                    //Adds a new onlick listener to sell a building
+                    buy_sellPrefab[i].GetComponentInChildren<Button>().onClick.RemoveAllListeners();
+                    buy_sellPrefab[i].GetComponentInChildren<Button>().onClick.AddListener(() => SellBuilding(b.id));
+                }
+                break;
         }
-        else if (answerIsCorrect == 0)
-        {
-            installedBuildingList[index].behaviour = UnityEngine.Random.Range(-1, -11);
-        }
-        installedBuildingList[index].production += (installedBuildingList[index].production * (installedBuildingList[index].behaviour) * 10);
-
         SetMarketPrefabs();
+
     }
 
     private void FillBuildingList()

@@ -1,196 +1,193 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- xml used for the scripts for the supplier eventsystem (popups) -->
+<!-- xml used for the scripts for the producer eventsystem (popups) -->
 <scripts>
   <popup>
     <text>
-Ooh no, a colleague-supplier went bankrupt... You have taken in his customers! Good for you, but..
+      Oh no! Your forecast for your energy production is wrong!
 
-What do you have to do with your energy supply now?
+      What action will you undertake?
     </text>
     <answers>
-      <answer influence ="3">Go to the energy market and buy new supply</answer>
-      <answer influence ="-2">This doesn't change a thing, I just have more customers and more profit</answer>
-      <answer influence ="-3">I have more profit now</answer>
+      <answer influence ="3">Import more energy from other producers.</answer>
+      <answer influence ="-2">There is nothing I can do.</answer>
     </answers>
   </popup>
   <popup>
     <text>
-You get a phone call from a customer. He tells you the whole street has a power outage.
+      Following the climate protests in Brussels, the Belgian Government has decided to close down all non-renewable energy sources and fully rely on renewable energy. (Implying the government bought enough renewable energy sources to sustain the needs of Belgium.)
 
-How do you react?
+      Why is this a bad choice?
     </text>
     <answers>
-      <answer influence ="-2">'We can't help you right now. We are aware of the situation. You will just have to wait a few hours'</answer>
-      <answer influence ="-1">'Thanks for letting us know, we are aware of the problem. We are going to see what we can do. Your issue should be resolved in a couple of hours'</answer>
-      <answer influence ="3">'Thanks for calling. We will dispatch some technicians to resolve the issue. We will call you back when we have more information. If you have any questions in the meantime, please feel free to contact us'</answer>
+      <answer influence ="-2">Many people will lose their job, because a lot of power stations will be shutdown.</answer>
+      <answer influence ="-1">This is in fact not a bad choice. Relying on renewable energy sources gives us the opportunity to reduce pollution and fight climate change.</answer>
+      <answer influence ="3">Because renewable energy sources are not always reliable, and therefore can cause power outages if the produced quota does not meet the consumed quota.</answer>
     </answers>
   </popup>
   <popup>
     <text>
-Incoming phone call: 'Hello, I got an invoice for my electricity usage but I think there's been a mistake. I don't have an MMR meter but a smart meter, so I think the amount of money I have to pay isn't correct.
+      You have received a new forecast! It indicates that the total amount of energy produced by both your renewable and non-renewable energy sources will be higher than necessary to fulfill the energy consumption for today, but will decrease heavily tomorrow because of a cloudy day.
 
-How do you react?
+      What action will you undertake?
     </text>
     <answers>
-      <answer influence ="2" >'We will check it with the DGO and call you back at a later time. There might have been a mistake during administration. Thanks for calling, we will contact you as soon as possible'</answer>
-      <answer influence ="-2">'Hi Madam, you have to call the DGO himself if you have questions about the meter installation. We can’t fix your problem. Have a nice day!'</answer>
-      <answer influence ="-3">'Thanks for letting us know. You were registered to have an MMR meter. If you have a smart meter, we will send a technician over as soon as possible to gather the information on your SMR as well as do a meter reading. Many thanks, have a nice day'</answer>
+      <answer influence ="-1" >Decrease/Increase production of my non-renewable energy sources accordingly</answer>
+      <answer influence ="2">Leave my non-renewable energy sources be. They will produce too much the 1st day, but will produce enough the 2nd day.</answer>
+      <answer influence ="-1">Decrease production of my non-renewable energy sources so I don't have an overproduction on the 1st day.</answer>
     </answers>
   </popup>
 
   <popup>
     <text>
-The Belgian Red Devils are playing the world cup in Russia. You have to forecast if they are going to win or lose.
-
-If you buy a lot of energy, and Belgium wins, you will have lots of benefits. If they lose, there will be a loss of energy and money. If you play safe and don't buy too much energy (you just want to see and wait if the Belgians are going to win),
-you will have to pay double of the prices for the energy. It's up to you!
+      The Production of energy through renewable energies does pose quite the challenge.
+      As the amount of energy being produced is inconsistent, this will help need to be balanced by input from conventional power stations, which is called ...
     </text>
     <answers>
-      <answer influence ="2" >You play safe and don't buy too much energy</answer>
-      <answer influence ="-1">You choose to have lots of energy</answer>
+      <answer influence ="2" >Spinning reserves</answer>
+      <answer influence ="-1">Non-spinning reserves</answer>
+      <answer influence ="-2">replacement reserves</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+      BONUS
+
+      How much energy from a coal power plant makes it to customers as electricity?
+    </text>
+    <answers>
+      <answer influence ="-1" >A quarter</answer>
+      <answer influence ="1">A third</answer>
+      <answer influence ="-1">Half</answer>
+      <answer influence ="-1">Two-thirds</answer>
     </answers>
     <note>
-The Belgians have lost, we will conquer the world another time..
+      About a third of the energy from a steam coal power plant makes it to customers as electricity. A very efficient type of natural gas plant, called combined cycle, typically converts about 40% of the fuel into electricity,
+      with advanced units capable of 60% efficiency.
     </note>
   </popup>
   <popup>
     <text>
-Hi, I have a vacation house in the woods where my invoices are delivered. I didn’t know this was possible. Of course I want my invoices get send to my official home address. Can you fix that?
+      BONUS
+
+      What country is the premier source of steel for nuclear power plants?
     </text>
     <answers>
-      <answer influence ="-2" >'Hi, yeah, it’s not possible to have 2 adresses the invoices can get send to. I will call you back later, after I have more information. Have a nice day!'</answer>
-      <answer influence ="3">'Hi, that can be true because you can have a delivery address and a billing address at the same time. We will adjust your address to the one you prefer. Thanks for calling, have a nice day!'</answer>
+      <answer influence ="-1" >US</answer>
+      <answer influence ="1">Japan</answer>
+      <answer influence ="-1">Chile</answer>
+      <answer influence ="-1">Scotland</answer>
     </answers>
+    <note>
+      Japan Steel Works long was the only foundry that could forge a reactor vessel in one piece, seen as essential to reduce risk of leaks.
+      But China and Russia now have the capacity, and new facilities are under construction.
+    </note>
   </popup>
   <popup>
     <text>
-You are going to invest in a new software program to help your administration:
+      BONUS
 
-What do you do?
+      What global treaty has slashed world greenhouse gas emissions by 11 gigatons a year?
     </text>
     <answers>
-      <answer influence ="-3" >'UMAX by Itinerys: implementation cost estimated to 200.000€ and their solution has a 60% fit with our requirements'</answer>
-      <answer influence ="-3">'SAP: implementation cost estimated to 400.000€ and their solution has a 80% fit with our requirements'</answer>
-      <answer influence ="3">'MECOMS by MECOMS a Ferranti company: implementation cost estimated to 200.000€ and their solution has a 80% fit with our requirements'</answer>
+      <answer influence ="-1" >The Kyoto protocol</answer>
+      <answer influence ="-1" >The United Nations Frakework Convention on Climate Change</answer>
+      <answer influence ="1" >The Montreal Protocol</answer>
+      <answer influence ="-1" >The United Nations Convention on the Law of the Sea</answer>
     </answers>
+    <note>
+      The 1990 Montreal Protocol, in phasing out ozone-depleted substances with high global warming potential, had the side benefit of eliminating the equivalent of 11 gigatons a year of carbon dioxide emissions by 2010.
+      (about 5 to 6 times the target set for the first period of the Kyoto Protocol on climate change)
+    </note>
   </popup>
   <popup>
     <text>
-You’ve send out a batch of 10.000 periodic invoices, but there was a bug in your software system.
+      BONUS
 
-What are you going to do?
+      Estimates of what U.S. fuel resource have grown 40% or more since 2006?
     </text>
     <answers>
-      <answer influence ="-1" >'Nothing – ride out the storm'</answer>
-      <answer influence ="-3">'Close the company'</answer>
-      <answer influence ="3">'Upscale the call centre with extra agents, post messages on social media and website and get in touch with the software vendor for a solution'</answer>
+      <answer influence ="1" >Natural gas</answer>
+      <answer influence ="-1" >Coal</answer>
+      <answer influence ="-1" >wind</answer>
+      <answer influence ="-1" >Geothermal</answer>
     </answers>
+    <note>
+      Estimates of U.S. natural gas have grown 40% or more since 2006, thanks to the success of hydraulic fracturing technology, making huge reserves now recoverable.
+    </note>
   </popup>
   <popup>
     <text>
-A customer calls in to tell us he’s moving out his property.
+      BONUS
 
-What are you going to do?
+      Do any cars run on coal
     </text>
     <answers>
-      <answer influence ="-3" >'Nothing'</answer>
-      <answer influence ="1">'Send him an end note and close the contract'</answer>
-      <answer influence ="3">'Send him an end note, close the contract, send the information to market parties who need to know'</answer>
+      <answer influence ="-1">Yes</answer>
+      <answer influence ="1">No</answer>
     </answers>
+    <note>
+      No cars run directly on coal, but about 30% of South Africa's transportation needs are met by a diesel fuel that is processed from coal.
+      When oil prices soared in the U.S., there was a frenzy of interest in coal-to-liquids there, although there are concerns about its high-carbon intensity.
+    </note>
   </popup>
   <popup>
     <text>
-We received information from the market that an existing customer of ours has switched to another supplier?
+BONUS
 
-What are you going to do?
+What solution is said to have potential for 57% of needed carbon cuts by 2030?
     </text>
     <answers>
-      <answer influence ="-3" >'Call that customer and tell him he shouldn’t do that'</answer>
-      <answer influence ="1">'Send him an end note, close the contract'</answer>
-      <answer influence ="3">'Check if it’s a valid switch – if not send a rejection to the market – if yes – send him an end note and close the contract'</answer>
+      <answer influence ="-1" >Space-based solar systems</answer>
+      <answer influence ="1">Energy efficiency</answer>
+      <answer influence ="-1">Carbon capture and storage</answer>
+      <answer influence ="-1">Nanotechnology</answer>
     </answers>
+    <note>
+      The International Energy Agency's scenario for stabilizing the atmospheric concentration of carbon dioxide at 450 parts per million would get 57% of the cuts from efficiency gains.
+    </note>
   </popup>
   <popup>
     <text>
-We receive measurements for a gas meter.
+BONUS
 
-The measurement is expressed in:
+Are there any choices for electricity generation that don't rely on water?
     </text>
     <answers>
-      <answer influence ="-1" >'kwh'</answer>
-      <answer influence ="3">'M3'</answer>
-      <answer influence ="-3">'liters'</answer>
+      <answer influence ="-1">Yes</answer>
+      <answer influence ="1">No</answer>
     </answers>
+    <note>
+      No. Coal, nuclear, natural gas, and solar thermal plants all produce electricity by boiling water into steam to turn turbines. 
+      Wind and solar photovoltaic power use much less water, but regular water use is still needed to keep the blades nd panels clean or their operation degrades
+    </note>
   </popup>
   <popup>
     <text>
-We receive measurements for an electricity meter
+BONUS
 
-The measurement is expressed in:
+Does ethanol always deliver lower fuel economy than gasoline?
     </text>
     <answers>
-      <answer influence ="3" >'kwh'</answer>
-      <answer influence ="-3">'M3'</answer>
-      <answer influence ="-3">'liters'</answer>
+      <answer influence ="1" >Yes</answer>
+      <answer influence ="-1">No</answer>
     </answers>
+    <note>
+      Yes. Because of ethanol's lower energy content, it takes 1.03 gallons (3.90 liters) of E10 (the most common blend, which is gasoline with 10% ethanol) to travel as far as 1 gallon (3.79 liters) of regular gasoline.
+      It takes 1.33 gallons (5.03 liters) if the blend is increased to 85% ethanol
+    </note>
   </popup>
   <popup>
     <text>
-We supply electricity and gas to our customers. When a customer uses both and we are sending invoices:
+BONUS
 
-The measurement is expressed in:
+Can solar power provide electricity when the sun isn't shining?
     </text>
     <answers>
-      <answer influence ="-1" >'We always send separate invoices for gas and electricity '</answer>
-      <answer influence ="1">'We always send one invoice combining gas and electricity '</answer>
-      <answer influence ="2">'When possible we send one invoice combining gas and electricity '</answer>
+      <answer influence ="1" >Yes</answer>
+      <answer influence ="-1">No</answer>
     </answers>
-  </popup>
-  <popup>
-    <text>
-In exceptional cases we need to manualy change an invoice.
-
-This costs time. What are you going to about it:
-    </text>
-    <answers>
-      <answer influence ="3" >'It only happens a 2 times per month and the manual change takes 10 minutes – we keep doing so '</answer>
-      <answer influence ="1">'We asked our software vendor to automise it – that will cost 50.000€ - we confirmed the change'</answer>
-      <answer influence ="-3">'We call these customers and tell them to look for another supplier'</answer>
-    </answers>
-  </popup>
-  <popup>
-    <text>
-      A Customer calls in because he had a Sauna installed a few months ago (which will most probably have a huge impact on his/her electricity consumption).
-      Which kind of invoice could we issue to avoid a very high next periodical invoice?
-    </text>
-    <answers>
-      <answer influence ="3" >'Intermediate Invoice'</answer>
-      <answer influence ="-2">'Correction note'</answer>
-      <answer influence ="-3">'Incidental note'</answer>
-    </answers>
-  </popup>
-
-  <popup>
-    <text>
-      A customer calls in to let the supplier know that he currently cannot pay his bills / invoices.
-      What are your options as supplier?
-
-    </text>
-    <answers>
-      <answer influence ="3" >'Postpone the due dates of the invoices or put together a payment plan '</answer>
-      <answer influence ="-3">'Write off the customer'</answer>
-      <answer influence ="-3">'Immediately stop delivering energy to the customer'</answer>
-    </answers>
-  </popup>
-
-  <popup>
-    <text>
-      A customer calls in to let us know that he went bankrupt, this means we will have to “write off” the invoice, this is a loss we might need to suffer.
-    </text>
-    <answers>
-      <answer influence ="-3" >'Postpone the due dates of the invoices or put together a payment plan '</answer>
-      <answer influence ="3">'Write off the customers '</answer>
-      <answer influence ="-3">'Immediately stop delivering energy to the customer'</answer>
-    </answers>
+    <note>
+      Many solar energy systems have battery storage, allowing users to draw energy at night. Large solar thermal power projects are coming online that use molten salt to store energy for use after dark.
+    </note>
   </popup>
 </scripts>
