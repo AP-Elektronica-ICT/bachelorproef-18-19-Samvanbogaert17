@@ -8,4 +8,10 @@ public class CloseWindow : MonoBehaviour {
         CameraControl.showingPopUp = false;
         this.GetComponent<Canvas>().enabled = false;
     }
+
+    public void ClosePanel()
+    {
+        CameraControl.showingPopUp = false;
+        this.GetComponent<GameObject>().SetActive(false);
+    }
 }
