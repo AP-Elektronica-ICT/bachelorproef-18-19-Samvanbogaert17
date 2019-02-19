@@ -66,3 +66,11 @@ Popup systeem verder afgewerkt, nodige bugs moeten nog verwijderd worden.
 15/02/19 - Dag 13
 
 Voorbereiden van VGV 1
+
+18/02/19 - Dag 14
+
+Bugfixing van marketCanvas & ContractCanvas
+
+19/02/19 - Dag 15
+
+Aanmaken van weather systeem + vragen toegevoegd over producer
