@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class OpenWindow : MonoBehaviour
 {
-
     public Button btn;
     public Canvas canvas;
     public void Start()
@@ -29,11 +28,8 @@ public class OpenWindow : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "Producer")
         {
-            if (!CameraControl.showingPopUp)
-            {
-                CameraControl.showingPopUp = true;
-                canvas.enabled = true;
-            }
+                CameraControl.showingPopUp = !CameraControl.showingPopUp;
+                canvas.enabled = !canvas.enabled;
         }
     }
 }
