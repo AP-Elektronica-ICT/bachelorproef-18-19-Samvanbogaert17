@@ -78,25 +78,25 @@ public class ProducerContractController : MonoBehaviour
 
     public void FillContractsList()
     {
-        contractList.Add(new Contract(0, "Eneco", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(1, "ENGIE Electrabel", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(2, "Enovos", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(3, "Essent", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(4, "Lampiris", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(5, "Luminus", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(6, "Mega", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(7, "Poweo", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(8, "Total", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(9, "Watz", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(10, "Aspiravi Energy", Random.Range(1, 000) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(11, "EBEM", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(12, "Ecopower", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(13, "Elegant", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(14, "Energie2030", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(15, "OCTA+", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(16, "Sociaal Tarief", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(17, "Trevion", Random.Range(1, 1000) * 1000, Random.Range(1, 10) * 1000));
-        contractList.Add(new Contract(18, "Wase Wind", Random.Range(1, 100) * 1000, Random.Range(1, 10) * 1000));
+        contractList.Add(new Contract(0, "Eneco", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(1, "ENGIE Electrabel", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(2, "Enovos", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(3, "Essent", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(4, "Lampiris", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(5, "Luminus", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(6, "Mega", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(7, "Poweo", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(8, "Total", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(9, "Watz", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(10, "Aspiravi Energy", Random.Range(1, 000) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(11, "EBEM", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(12, "Ecopower", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(13, "Elegant", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(14, "Energie2030", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(15, "OCTA+", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(16, "Sociaal Tarief", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(17, "Trevion", Random.Range(1, 1000) * 1000, Random.Range(1, 100) * 1000));
+        contractList.Add(new Contract(18, "Wase Wind", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
     }
 
     public void RefreshContractsList()

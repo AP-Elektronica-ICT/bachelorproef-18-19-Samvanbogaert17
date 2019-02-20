@@ -35,6 +35,11 @@ public class ProducerCheckEndOfGame : MonoBehaviour
             {
                 gameOver();
             }
+
+            if(ProducerEventSystem.satisfaction <= 0)
+            {
+                gameOver();
+            }
         }
     }
     // Gamewon screen

@@ -105,7 +105,8 @@ public class ProducerQuizController : MonoBehaviour
                 ProducerCheckEndOfGame.NumberOfCorrectAnswers = 0;
             }
             ProducerCheckEndOfGame.NumberOfCorrectAnswers++;
-            money += influence * 1000;
+            money = int.Parse(moneyTxt.text);
+            money += influence * 10000;
             moneyTxt.text = money.ToString();
         }
         DataScript.AddScore(influence * 100);
@@ -122,6 +123,15 @@ public class ProducerQuizController : MonoBehaviour
             {
                 answerBtns[i].GetComponent<Image>().color = Color.red;
             }
+        }
+    }
+
+    public void ResetBtns()
+    {
+        for(int i = 0; i < answerBtns.Length; i++)
+        {
+            answerBtns[i].GetComponent<Image>().color = Color.white;
+            answerBtns[i].interactable = true;
         }
     }
 }
