@@ -5,7 +5,7 @@
 * **Stagecoördinator:** Dhr. Smets Marc - marc.smets@ap.be
 * **Stagementor:** Mevr. Braspenning Cindy - Cindy.Braspenning@mecoms.be
 * **Stagebegeleider:** Dhr. Horsmans Serge - serge.horsmans@ap.be
-* **Opleidingshoof:** Dhr. Masset Yves - yves.masset@ap.be
+* **Opleidingshoofd:** Dhr. Masset Yves - yves.masset@ap.be
 
 ## Onderwerp
 
