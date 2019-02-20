@@ -74,3 +74,8 @@ Bugfixing van marketCanvas & ContractCanvas
 19/02/19 - Dag 15
 
 Aanmaken van weather systeem + vragen toegevoegd over producer
+
+20/02/19 - Dag 16
+
+Afmaken van Producer level
+Start van DGO level - problemCanvas
