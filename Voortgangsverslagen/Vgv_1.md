@@ -388,7 +388,7 @@ Het spel is ook enkel speelbaar op 1920x1080, anders worden bepaalde canvassen e
 2. Sprint 1 (Week 3-4): Ontwikkelen van Producer Level
 3. Sprint 2 (Week 5-6): Ontwikkelen van DGO Level
 4. Sprint 3 (Week 7-8): Ontwikkelen van Consumer Level
-5. Sprint 4 (Week 9-10): Bugfixen en afwerken van reeds bestaande onderdelen
-6. Sprint 5 (Week 11-12): Ontwikkelen van TGO Level
+5. Sprint 4 (Week 9-10): Ontwikkelen van TGO Level
+6. Sprint 5 (Week 11-12): Bugfixen en afwerken van reeds bestaande onderdelen
 7. Sprint 6 (Week 13-14): Bugfixen van het volledige project
 8. Week 15: Afwerken project en scriptie
