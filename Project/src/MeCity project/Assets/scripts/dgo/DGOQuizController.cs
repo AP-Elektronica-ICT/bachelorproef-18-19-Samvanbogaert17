@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Xml;
 
-public class ProducerQuizController : MonoBehaviour
+public class DGOQuizController : MonoBehaviour
 {
     public Canvas eventCanvas;
     public Button btn;
@@ -32,7 +32,7 @@ public class ProducerQuizController : MonoBehaviour
         }
         // load the xml script
         TextAsset xmlData = new TextAsset();
-        xmlData = (TextAsset)Resources.Load("ProducerScriptsXML", typeof(TextAsset));
+        xmlData = (TextAsset)Resources.Load("DGOScriptsXML", typeof(TextAsset));
         doc.LoadXml(xmlData.text);
         int range = doc.GetElementsByTagName("text").Count;
 
@@ -91,25 +91,25 @@ public class ProducerQuizController : MonoBehaviour
 
         if (influence < 0)
         {
-            if (ProducerCheckEndOfGame.NumberOfCorrectAnswers > 0)
+            if (DGOCheckEndOfGame.NumberOfCorrectAnswers > 0)
             {
-                ProducerCheckEndOfGame.NumberOfCorrectAnswers = 0;
+                DGOCheckEndOfGame.NumberOfCorrectAnswers = 0;
             }
-            ProducerCheckEndOfGame.NumberOfCorrectAnswers--;
+            DGOCheckEndOfGame.NumberOfCorrectAnswers--;
         }
         if (influence > 0)
         {
-            if (ProducerCheckEndOfGame.NumberOfCorrectAnswers < 0)
+            if (DGOCheckEndOfGame.NumberOfCorrectAnswers < 0)
             {
-                ProducerCheckEndOfGame.NumberOfCorrectAnswers = 0;
+                DGOCheckEndOfGame.NumberOfCorrectAnswers = 0;
             }
-            ProducerCheckEndOfGame.NumberOfCorrectAnswers++;
+            DGOCheckEndOfGame.NumberOfCorrectAnswers++;
             money = int.Parse(moneyTxt.text);
             money += influence * 10000;
             moneyTxt.text = money.ToString();
         }
         DataScript.AddScore(influence * 100);
-        ProducerEventSystem.satisfaction += influence * 10;
+        DGOEventSystem.satisfaction += influence * 10;
 
 
         for (int i = 0; i < list.Count; i++)
