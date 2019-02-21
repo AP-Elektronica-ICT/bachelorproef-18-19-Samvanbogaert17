@@ -14,19 +14,19 @@ die de speler op een leuke, maar toch informatieve wijze de werking van alle sec
 
 High-level overzicht van alle sectoren:
 
-* Producer / Producent: Deze produceert alle energie en verkoopt deze door aan de Supplier / Leverancier.
+* Producer / Producent: Deze produceert alle energie en verkoopt deze aan de Supplier / Leverancier.
 * TGO (Transmission Grid Operator): Het doel van de TGO is de hoogspanning die gegenereerd is door de producent om te zetten naar een lagere hoogspanning.
 * DGO (Distribution Grid Operator): Het doel van de DGO is de lagere hoogspanning van de TGO om te zetten naar laagspanning dat geschikt is voor huishoudelijk gebruik. Ook houdt de DGO zich bezig met het onderhoud van het elektriciteitsnet en het uitlezen, installeren, vervangen en verwijderen van de elektriciteitsmeters bij de consumenten.
 * Supplier / Leverancier: De leverancier koopt energie van de producent en verkoopt deze door aan de consument en regelt ook de facturatie hiervan. 
 * Consumer / Consument: De consument zelf kiest dus bij welke leverancier hij zijn energie aankoopt.
 
-Het gewenste resultaat tegen het einde van de BAP zal het verwezelijken zijn van de ontbrekende levels (producer, TGO, DGO, Consumer) en de reeds aanwezige zaken te bugfixen.  
+Het gewenste resultaat tegen het einde van de BAP zal het verwezelijken zijn van de ontbrekende levels (Producer, TGO, DGO, Consumer) en de reeds aanwezige zaken te bugfixen.  
 Elke level zal zijn eigen unieke werking hebben.
 
-Dit project was, zoals eerder vermeld, al reeds in ontwikkeling door andere jobstudenten die tijdens de zomer van 2018 van start zijn gegaan met het ontwikkelen van dit project.
+Dit project was, zoals eerder vermeld, reeds opgestart door andere jobstudenten die tijdens de zomer van 2018 van start zijn gegaan.
 Er was al reeds een spel aanwezig, waarin ook al enkele zaken aanwezig waren, zoals:
 * **Log in Menu**
-	* **Username Text Field**: Veld om de username van de in te vullen, zodat deze opgeslagen kan worden in de highscores lijst.
+	* **Username Text Field**: Veld om de username van de speler in te vullen, zodat deze opgeslagen kan worden in de highscores lijst.
 * **Main Menu**
 	* **Levels Button**: Knop om naar het Levels Menu te navigeren.
 	* **Highscore Button**: Knop om naar het Highscore Menu te navigeren.
@@ -34,7 +34,7 @@ Er was al reeds een spel aanwezig, waarin ook al enkele zaken aanwezig waren, zo
 * **Highscore Menu**
 	* **Highscore Lijst**: Lijst van alle spelers met hun bijhorende score.
 * **Levels Menu**
-	* **Introdution Button**: Knop om het Introductie level te starten.
+	* **Introdution Button**: Knop om het Introduction level te starten.
 	* **Producer Button**: Knop om het Producer level te starten.
 	* **TGO Button**: Knop om het TGO level te starten.
 	* **DGO Button** Knop om het DGO level te starten.
@@ -50,27 +50,27 @@ Er was al reeds een spel aanwezig, waarin ook al enkele zaken aanwezig waren, zo
 
 In de producer level is het de taak van de speler om zoveel mogelijk contracten aan de 'suppliers' te verkopen, en genoeg energie producerende gebouwen aan te kopen.
 Sommige energie producerende gebouwen produceren ook vervuiling en dit wordt dan ook in rekening gebracht. Indien het vervuilingsgehalte van de stad te hoog is, zal de speler automatisch de level verliezen.
-Ook gebouwen met groene energie hebben hun eigen voor en nadelen. Gebouwen die groene energie produceren zijn meestal afhankelijk van het weer of andere omstandigheden.
+Ook gebouwen met groene energie hebben hun eigen voor- en nadelen. Gebouwen die groene energie produceren zijn meestal afhankelijk van het weer of andere omstandigheden.
 
-Doorheen de level, op een willekeurige interval, zal het weer dan ook veranderen.
-Indien het weer meer of minder gunstig is, zullen de 'grijze' energie producerende gebouwen meer of minder moeten produceren afhankelijk van het weer.
-Door de energie productie van deze gebouwen te doen stijgen of dalen, zal dit ook enige extra vervuiling met zich meebrengen.
+Doorheen de level, op een willekeurig interval, zal het weer dan ook veranderen.
+Door veranderende weersomstandigheden, en dus ook de energie productie van 'groene' gebouwen, zal de productie van 'grijze' gebouwen omgekeerd evenredig moeten wijzigen om het energiegehalte in balans te houden.  
+Door de energie productie van deze gebouwen te doen stijgen of dalen, zal dit ook extra vervuiling met zich meebrengen.
 
-De speler kan extra gebouwen aankopen via het 'Market Menu'. Hier kan de speler zien hoeveel elk gebouw kost, produceert, wat voor type energie het gebouw produceert en de hoeveel vervuiling dat dit gebouw procentueel met zich meebrengt.
-Ook kan de speler hier zien hoeveel gebouwen hij van elk type heeft en de bijhorende statistieken hiervan (= totale productie, vervuiling en het eventuele gedrag in productie afhankelijk van het weer).
+De speler kan extra gebouwen aankopen via het 'Market Menu'. Hier kan de speler zien hoeveel elk gebouw kost en produceert, wat voor type energie het gebouw produceert en de hoeveelheid vervuiling dat dit gebouw procentueel met zich meebrengt.
+Tevens kan de speler hier zien hoeveel gebouwen hij van elk type heeft en de bijhorende statistieken hiervan (= totale productie, vervuiling en het eventuele gedrag in productie afhankelijk van het weer).
 
-Eerder aangehaald zal de speler dus contracten moeten verkopen aan de 'suppliers'.  
-Deze zullen aangeboden worden na een bepaald interval via een popup.
+Zoals eerder vermeld zal de speler contracten moeten verkopen aan de 'suppliers'.  
+Deze zullen aangeboden worden na een bepaald interval via een pop-up.
 Op elk contract zal te zien zijn hoeveel energie de speler aan de leverancier verkoopt en hoeveel winst hij maakt door dit contract te accepteren.
 
-Elk contract zal terecht komen op het 'Contract Menu'.
+Elk contract zal terechtkomen op het 'Contract Menu'.
 Op dit menu is te zien welke contracten de speler in zijn bezit heeft.
-Ook is er een optie om een bepaald contract op te zeggen.
-Dit zal vooral nodig zijn als de speler te weinig energie produceert en dus een contract moet opzeggen.
+Tevens is er een optie om een bepaald contract op te zeggen.
+Dit zal vooral nodig zijn als de speler te weinig energie produceert en daardoor een contract moet opzeggen.
 Indien de speler dit niet doet, zal de algemene 'happiness' dalen en ook hierdoor kan de speler dus de level verliezen.
 
-Er zullen doorheen de level ook andere, gelijkaardige popups verschijnen als de popups van de contractaanbiedingen.
-Deze popups duiden aan dat de speler een vraag kan beantwoorden in verband met de producer.
+Er zullen doorheen de level ook andere, gelijkaardige pop-ups verschijnen zoals de pop-ups van de contractaanbiedingen.
+Deze pop-ups duiden aan dat de speler een vraag kan beantwoorden in verband met de producer.
 De speler kan kiezen om deze vraag te weigeren of te accepteren.
 Om de speler toch aan te moedigen om tijdig een vraag te beantwoorden, zal de 'happiness' doorheen de level blijven dalen.
 Elk juist antwoord zal beloond worden met een bonus in score en 'happiness'.
@@ -88,7 +88,7 @@ Elk juist antwoord zal beloond worden met een bonus in score en 'happiness'.
 *enkel één van deze voorwaarden is voldoende om het spel te winnen*
 
 * Geld van de speler > 1.000.000
-* Aantal consistent correct beantwoordde vragen > 20
+* Aantal consistent correct beantwoorde vragen > 20
 * Aantal aangenomen contracten > 14
 
 #### Technisch
@@ -107,11 +107,11 @@ De producer level zal volgende zaken bevatten:
 		* **Pollution Slider**: Geeft de vervuiling van de stad weer.
 	* **Happiness Panel**
 		* **Happiness Slider**: Geeft het algemene geluk weer van de stad.
-	* **Contract popup**
-		* **Contract content**: Geeft de naam van de leverancier weer, zowel als de hoeveelheid verkochte energie en de winst voor de speler.
-		* **Accept Button/Update Button**: Knop om contract te accepteren/updaten.
-		* **Decline Button**: Knop om contract te weigeren.
-	* **Quiz Popup**
+	* **Contract Pop-up**
+		* **Contract content**: Geeft de naam van de leverancier weer, alsook de hoeveelheid verkochte energie en de winst voor de speler.
+		* **Accept Button/Update Button**: Knop om een contract te accepteren/updaten.
+		* **Decline Button**: Knop om een contract te weigeren.
+	* **Quiz Pop-up**
 		* **Accept Button**: Knop om de quiz te starten.
 		* **Decline Button**: Knop om de quiz te weigeren.
 * **Market Canvas**
@@ -125,31 +125,31 @@ De producer level zal volgende zaken bevatten:
 			* **Pollution Text**: Geeft weer hoeveel vervuiling dit gebouw met zich meebrengt, uitgedrukt in een percentage.
 			* **Price Text**: Geeft weer hoeveel het gebouw kost.
 			* **Buy button**: Knop om een gebouw te kopen.
-		* **Market Button**: Schakelt het market canvas over naar het Market Panel.
-		* **Installed Button**: Schakelt het market canvas over naar het Installed Panel.
+		* **Market Button**: Schakelt het Market Canvas over naar het Market Panel.
+		* **Installed Button**: Schakelt het Market Canvas over naar het Installed Panel.
 	* **Installed Panel**
-		* **InstalledGrid**
+		* **Installed Grid**
 			* **Building Type Text**: Geeft weer wat voor type gebouw de speler kan aankopen.
-			* **Energy type Text**: Geeft weer wat voor type energie het gebouw produceert.
+			* **Energy Type Text**: Geeft weer wat voor type energie het gebouw produceert.
 			* **Production Text**: Geeft weer hoeveel energie dit gebouw gemiddeld zal produceren, uitgedrukt in kWh.
 			* **Pollution Text**: Geeft weer hoeveel vervuiling dit gebouw met zich meebrengt, uitgedukt in een percentage.
 			* **Behaviour Prefab**
 				* **Behaviour Percentage Text**: Geeft de stijging of daling weer van de productie van de geïnstalleerde gebouwen, uitgedrukt in een percentage.
-				* **Behaviour Arrow**: Pijl dat weergeeft of het een positieve stijging of negatieve daling is.
+				* **Behaviour Arrow**: Pijl die weergeeft of het een positieve stijging of negatieve daling is.
 			**Sell Button**: Knop om een gebouw te verkopen.
 * **Contract Canvas**
 	* **Close Button**
 	* **Contract Grid**
-		* **Supplier Name**: geeft de naam van de leverancier weer.
-		* **Energy Sold**: geeft weer hoeveel energie de speler levert aan de leverancier, uitgedrukt in kWh.
-		* **Profit**: geeft weer hoeveel winst de speler maakt op het contract.
+		* **Supplier Name**: Geeft de naam van de leverancier weer.
+		* **Energy Sold**: Geeft weer hoeveel energie de speler levert aan de leverancier, uitgedrukt in kWh.
+		* **Profit**: Geeft weer hoeveel winst de speler maakt op het contract.
 		* **Cancel** Button: knop om het contract te beëindigen.
 * **Quiz Canvas**
 	* **Question Text**: Willekeurig geselecteerde vraag.
 	* **Answer Buttons**: Knoppen met de antwoorden van desbetreffende vraag.
 * **Pauze Canvas**
 	* **Continue button**: Spel verderzetten.
-	* **Exit Button**: Spel beëindigen en terugkeren naar de main menu.
+	* **Exit Button**: Spel beëindigen en terugkeren naar het Main Menu.
 
 
 #### Mockups & Designs
@@ -185,22 +185,22 @@ Verdere uitwerking voor de TGO level is zeker en vast nog nodig, maar dit is voo
 
 #### Algemene Werking / Gameplay
 
-In de DGO level, zal de speler met 'workers' te werk gaan om problemen op te lossen die zich in de stad zullen voordoen.
-Elk probleem zal een zijn eigen 'severity' of moeilijkheidsgraad hebben. Sommige problemen zullen dus langer duren voor dat deze problemen opgelost zijn.
-De speler krijgt ook de mogelijkheid om bij elk probleem extra workers toe te voegen of te verwijderen, en zo de tijd dat nodig is om het probleem op te lossen te verminderen.
+In de DGO level zal de speler met 'workers' te werk gaan om problemen op te lossen die zich in de stad zullen voordoen.
+Elk probleem zal zijn eigen 'severity' of moeilijkheidsgraad hebben. Sommige problemen zullen dus langer duren voordat ze opgelost zijn.
+De speler krijgt ook de mogelijkheid om bij elk probleem extra workers toe te voegen of te verwijderen om zo de tijd, die nodig is om het probleem op te lossen, te verminderen.
 
-De speler kan zien welke problemen er zich voordoen in het 'Problems Menu' dat de speler kan openen via het happiness panel
+De speler kan zien welke problemen zich voordoen in het 'Problems Menu' die de speler kan openen via het Happiness Panel.
 
 De speler zal een beloning krijgen per opgelost probleem in de vorm van geld, waarmee de speler een extra worker kan aankopen.
 De prijs per worker zal exponentieel stijgen naarmate de speler meer workers bezit.
 
 Ook deze level zal werken met een algemene 'happiness'.
-Indien de speler geen workers inzet om een probleem om te lossen, zal per tijdseenheid de 'happiness' dalen afhankelijk van de 'severity' van het probleem.
+Indien de speler geen workers inzet om een probleem op te lossen, zal per tijdseenheid de 'happiness' dalen afhankelijk van de 'severity' van het probleem.
 
-Ook dit level zal een quiz systeem bevatten dat zal werken met popups.
-De speler kan kiezen om dit te accepteren of te weigeren.
-Door de vraag correct te beantwoorden, zal de speler een bonus krijgen in 'happiness'
-door de vraag te weigeren, zal de algemene 'happiness' dalen.
+Tevens zal deze level een quiz systeem bevatten dat werkt met pop-ups.
+De speler kan kiezen om een vraag te accepteren of te weigeren.
+Door de vraag correct te beantwoorden, zal de speler een bonus krijgen in 'happiness'.
+Indien de vraag geweigerd wordt, zal de algemene 'happiness' dalen.
 Om de speler toch aan te moedigen om regelmatig een vraag te accepteren, zal de 'happiness' doorheen de level blijven dalen.
 
 **Korte samenvatting van de Game over voorwaarden:**
@@ -215,7 +215,7 @@ Om de speler toch aan te moedigen om regelmatig een vraag te accepteren, zal de 
 *enkel één van deze voorwaarden is voldoende om het spel te winnen*
 
 * Aantal opgeloste problemen > 50
-* Aantal consistent correct beantwoordde vragen > 20
+* Aantal consistent correct beantwoorde vragen > 20
 
 #### Technisch
 
@@ -237,10 +237,10 @@ De DGO level zal volgende zaken bevatten:
 	* **Buy Button**: Knop om een nieuwe worker aan te kopen.
 * **Problems Canvas**
 	* **Close Button**: Knop om het Problems Canvas te sluiten.
-	* **Available Worker Text**: Geeft de hoeveelheid resterende, inzetbare workers weer van de speler.
+	* **Available Worker Text**: Geeft de hoeveelheid resterende, inzetbare workers van de speler weer.
 	* **Problems Grid**:
 		* **Problem Description Text**: Korte beschrijving van het probleem.
-		* **Time Remaining Text**: Resterende tijd om probleem op te lossen.
+		* **Time Remaining Text**: Resterende tijd om een probleem op te lossen.
 		* **Workers Deployed Prefab**
 			* **Workers Deployed Text**: Aantal ingezette workers om een bepaald probleem op te lossen.
 			* **Add Worker Button**: Knop om een worker toe te voegen om een bepaald probleem op te lossen.
@@ -250,7 +250,7 @@ De DGO level zal volgende zaken bevatten:
 	* **Answer Buttons**: Knoppen met de antwoorden van desbetreffende vraag.
 * **Pauze Canvas**
 	* **Continue button**: Spel verderzetten.
-	* **Exit Button**: Spel beëindigen en terugkeren naar de main menu.
+	* **Exit Button**: Spel beëindigen en terugkeren naar de Main Menu.
 
 #### Mockups & Designs
 
@@ -275,32 +275,32 @@ De DGO level zal volgende zaken bevatten:
 #### Algemene Werking / Gameplay
 
 In deze level is het de bedoeling om de speler de beste keuzes te laten maken als consument.
-De speler zal in de aanvang van de level enkele keuzes moeten maken waarmee hij de rest van de level mee zal verder zetten.
+De speler zal bij aanvang van de level enkele keuzes moeten maken waarmee hij de rest van de level zal verderzetten.
 Elke keuze zal ook voor- en nadelen met zich meebrengen. 
 Deze level is vooral een grote quiz waarvan de vragen en antwoorden afhankelijk zijn van de keuzes van de speler.
 
-Deze keuzes kunnen inhouden, maar zijn niet gelimiteerd tot:
+De volgende keuzes zijn enkele voorbeelden waartussen de speler kan kiezen:
 
-* Zonne Panelen
+* Zonnepanelen
 	* Voordelen:
 		* Genereert energie indien er voldoende zonlicht aanwezig is.
 	* Nadelen:
 		* Hoge kostprijs.
 * Contract van leverancier
-	* Contract met eenvoudig tarief
+	* Contract met enkelvoudig tarief
 		* Voordelen:
-			* Dagtarief ligt lager dan dagtarief van tweevoudigtarief.
+			* Dagtarief ligt lager dan dagtarief van tweevoudig tarief.
 		* Nadelen:
-			* Nachttarief is hetzelfde als dagtarief en ligt ook hoger dan nachttarief van tweevoudigtarief.
+			* Nachttarief is hetzelfde als dagtarief en ligt ook hoger dan nachttarief van tweevoudig tarief.
 	* Contract met tweevoudig tarief
 		* Voordelen:
-			* Dagtarief ligt hoger dan dagtarief van eenvoudigtarief.
+			* Dagtarief ligt hoger dan dagtarief van enkelvoudig tarief.
 		* Nadelen:
-			* Nachttarief is goedkoper dan nachttarief van eenvoudigtarief.
+			* Nachttarief is goedkoper dan nachttarief van enkelvoudig tarief.
 * Installeren van een Smart Meter
 	* Voordelen: 
-		* Houdt energieverbruik bij en stuurt deze automatisch door naar leverancier, manueel nakijken van meter door DGO is niet meer nodig.
-		* (indien zonnepanelen: Houdt bij hoeveel energie de zonnepanelen hebben opgeleverd)
+		* Houdt energieverbruik bij en stuurt deze automatisch door naar de leverancier. Het manueel nakijken van de meter door de DGO is niet meer nodig.
+		* (indien zonnepanelen: Houdt de energieproductie van de zonnepanelen bij.)
 	* Nadelen:
 		* Privacyrisico
 
@@ -310,7 +310,7 @@ Deze keuzes kunnen inhouden, maar zijn niet gelimiteerd tot:
 
 **Korte samenvatting van de Game Won voorwaarden:**
 
-* Aantal consistent correct beantwoordde vragen > 30
+* Aantal consistent correct beantwoorde vragen > 30
 
 #### Mockups & Designs
 
@@ -327,11 +327,11 @@ Bij aanvang van de level:
 		* **Player Score Text**: Geeft de naam en de score van de speler weer. 
 	* **Pause Button**: Knop om het spel te pauzeren en om het Pauze Canvas te openen.
 * **Pauze Canvas**
-	* **Continue button**: Spel verderzetten.
-	* **Exit Button**: Spel beëindigen en terugkeren naar de main menu.
+	* **Continue Button**: Spel verderzetten.
+	* **Exit Button**: Spel beëindigen en terugkeren naar het Main Menu.
 * **Inventory Canvas**
-	* **ChoicePanel**
-		* **Choice Title Text**: Geeft de titel weer van de keuze.
+	* **Choice Panel**
+		* **Choice Title Text**: Geeft de titel van de keuze weer.
 		* **Choice 1 Panel**
 			* **Advantages**: Voordelen van de 1ste keuze.
 			* **Disadvantages**: Nadelen van de 1ste keuze.
@@ -344,8 +344,8 @@ Na aanvang van de level:
 
 * **UI Canvas**
 	* **Player Score Panel**
-		* **Player Score Text**: Geeft de naam en de score van de speler weer 
-	* **Pause Button**: Knop om het spel te pauzeren en om het Pauze Canvas te openen
+		* **Player Score Text**: Geeft de naam en de score van de speler weer.
+	* **Pause Button**: Knop om het spel te pauzeren en om het Pauze Canvas te openen.
 	* **Inventory Panel**
 		* **Choice 1 Square**
 			* **Details Text**
@@ -355,23 +355,23 @@ Na aanvang van de level:
 			* **Details Text**
 		* **...**
 * **Pauze Canvas**
-	* **Continue button**: Spel verderzetten
-	* **Exit Button**: Spel beëindigen en terugkeren naar het main menu
+	* **Continue Button**: Spel verderzetten.
+	* **Exit Button**: Spel beëindigen en terugkeren naar het Main Menu.
 * **Quiz Canvas**
-	* **Question Text**: Willekeurig geselecteerde vraag
-	* **Answer Buttons**: Knoppen met de antwoorden van desbetreffende vraag
+	* **Question Text**: Willekeurig geselecteerde vraag.
+	* **Answer Buttons**: Knoppen met de antwoorden van desbetreffende vraag.
 
 ### Bug Fixing
 
-Ook van de reeds aanwezige onderdelen in het project zijn er de nodige verbeteringen nodig.
+Ook de reeds aanwezige onderdelen in het project vereisen de nodige verbeteringen.
 
 De highscores worden momenteel opgeslagen in een bestand op een vaste filepath dat afhankelijk is van de filepath van het project.
-Indien de locatie van dit highscores bestand dus wijzigt, dan zijn de highscores niet meer functioneel.
+Indien de locatie van dit highscores bestand wijzigt, zijn deze niet meer functioneel.
 
-De kleur van het correcte antwoord tijdens de quiz op de supplier level worden niet altijd correct weergegeven.
-Ook op de volgende vraag is krijgen de knoppen dezelfde kleur als het antwoord van de vorige vraag.
+De kleur van het juiste antwoord tijdens de quiz op de supplier level wordt niet altijd correct weergegeven.
+Ook op de volgende vraag krijgen de knoppen dezelfde kleur als de kleur van het antwoord op de vorige vraag.
 
-Het spel is ook enkel speelbaar op 1920x1080, anders worden bepaalde canvassen en panels niet correct mee geschaald.
+Het spel is ook enkel speelbaar op een resolutie van 1920x1080, anders worden bepaalde canvassen en panels niet correct mee geschaald.
 
 
 ## Keywords
@@ -384,7 +384,7 @@ Het spel is ook enkel speelbaar op 1920x1080, anders worden bepaalde canvassen e
 * Producent / Producer
 * Transmission Grid Operator
 * Distribution Grid Operator
-* leveranciers / Suppliers
+* Leveranciers / Suppliers
 * Consument / Consumer
 
 
