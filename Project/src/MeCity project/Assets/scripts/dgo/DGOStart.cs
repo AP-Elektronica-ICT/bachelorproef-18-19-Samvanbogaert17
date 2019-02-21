@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class DGOStart : MonoBehaviour {
     public Canvas problemCanvas;
+    public Canvas workerCanvas;
     public Canvas eventCanvas;
     public Canvas pauseCanvas;
     public Canvas introCanvas;
@@ -13,6 +14,7 @@ public class DGOStart : MonoBehaviour {
 	void Start () {
         introCanvas.enabled = true;
         problemCanvas.enabled = false;
+        workerCanvas.enabled = false;
         eventCanvas.enabled = false;
         pauseCanvas.enabled = false;
         endOfGameCanvas.enabled = false;

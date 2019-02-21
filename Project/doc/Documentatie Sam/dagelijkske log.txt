@@ -79,3 +79,11 @@ Aanmaken van weather systeem + vragen toegevoegd over producer
 
 Afmaken van Producer level
 Start van DGO level - problemCanvas
+
+21/02/19 - Dag 17
+
+Verder ontwikkelen van DGO level
+ProblemCanvas verder afwerken
+WorkerCanvas afwerken
+UI aanpassen
+Scripts overnemen en aanpassen voor DGO level
