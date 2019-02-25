@@ -109,7 +109,7 @@ public class DGOQuizController : MonoBehaviour
             moneyTxt.text = money.ToString();
         }
         DataScript.AddScore(influence * 100);
-        DGOEventSystem.satisfaction += influence * 10;
+        DGOProblemController.satisfaction += influence * 10;
 
 
         for (int i = 0; i < list.Count; i++)

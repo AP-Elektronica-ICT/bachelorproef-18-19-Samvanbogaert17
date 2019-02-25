@@ -3,88 +3,132 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
+using System.Linq;
 
 public class DGOProblemController : MonoBehaviour
 {
     public Text availableWorkersCountxt;
     public Text unsolvedProblemsCountTxt;
     public Text solvedProblemsCountTxt;
+    public Text moneyTxt;
 
     private int availableWorkers;
     private int unsolvedProblems;
     private int solvedProblems;
+    private int money;
+    [HideInInspector] public static float satisfaction = 5000;
 
     [HideInInspector] public List <Problem> problemList = new List <Problem>();
-    [HideInInspector] public List <Problem> ongoingProblemList = new List<Problem>();
+    [HideInInspector] public Dictionary<int, Problem> ongoingProblemList = new Dictionary<int, Problem>();
 
     //Lists of GameObjects needed for the ProblemCanvas
-    private List<GameObject> problemPrefab = new List<GameObject>();
-    private List<GameObject> durationPrefab = new List<GameObject>();
-    private List<GameObject> deployedWorkerPrefab = new List<GameObject>();
-    private List<GameObject> cancelPrefab = new List<GameObject>();
+    private Dictionary<int, GameObject> problemPrefab = new Dictionary<int, GameObject>();
+    private Dictionary<int, GameObject> durationPrefab = new Dictionary<int, GameObject>();
+    private Dictionary<int, GameObject> deployedWorkerPrefab = new Dictionary<int, GameObject>();
+    private Dictionary<int, GameObject> cancelPrefab = new Dictionary<int, GameObject>();
 
     private int frameCounter;
     // Use this for initialization
     void Start()
     {
+        GameObject.Find("HapSlider").GetComponent<Slider>().value = satisfaction;
         GetProblemPrefabs();
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        for (int i = 0; i < ongoingProblemList.Count; i++)
+        if(ongoingProblemList.Count > 0)
         {
-            if(ongoingProblemList[i].durationInSeconds <= 0)
+            for (int i = 0; i <= FindObjectOfType<DGOEventSystem>().index+1; i++)
             {
-                RemoveProblem(i);
-                unsolvedProblems--;
-                solvedProblems++;
-
-                solvedProblemsCountTxt.text = solvedProblems.ToString();
-                unsolvedProblemsCountTxt.text = unsolvedProblems.ToString();
-
-            }
-            if (ongoingProblemList[i].deployedWorkers > 0)
-            {
-                if(Time.frameCount % (60 / ongoingProblemList[i].deployedWorkers) == 0)
+                if (ongoingProblemList.ContainsKey(i))
                 {
-                    ongoingProblemList[i].durationInSeconds--;
-                    var timeSpan = TimeSpan.FromSeconds(ongoingProblemList[i].durationInSeconds);
-                    durationPrefab[i].GetComponent<Text>().text = timeSpan.Minutes + ":" + timeSpan.Seconds;
+                    if (ongoingProblemList[i].durationInSeconds <= 0)
+                    {
+                        money = int.Parse(moneyTxt.text);
+                        money += 1000 * ongoingProblemList[i].severity;
+                        moneyTxt.text = money.ToString();
+
+                        satisfaction += 150 * ongoingProblemList[i].severity;
+                        GameObject.Find("HapSlider").GetComponent<Slider>().value = satisfaction;
+
+                        availableWorkers = int.Parse(availableWorkersCountxt.text);
+                        availableWorkers += ongoingProblemList[i].deployedWorkers;
+                        availableWorkersCountxt.text = availableWorkers.ToString();
+
+                        RemoveProblem(i);
+                        solvedProblems++;
+
+                        solvedProblemsCountTxt.text = solvedProblems.ToString();
+                        unsolvedProblemsCountTxt.text = unsolvedProblems.ToString();
+                    }
+                    else if (ongoingProblemList[i].deployedWorkers > 0)
+                    {
+                        if (Time.frameCount % (60 / ongoingProblemList[i].deployedWorkers) == 0)
+                        {
+                            ongoingProblemList[i].durationInSeconds--;
+                            var timeSpan = TimeSpan.FromSeconds(ongoingProblemList[i].durationInSeconds);
+                            //Leading zeroes
+                            if(timeSpan.Seconds < 10)
+                            {
+                                durationPrefab[i].GetComponent<Text>().text = timeSpan.Minutes + ":" + "0" + timeSpan.Seconds;
+                            }
+                            else
+                            {
+                                durationPrefab[i].GetComponent<Text>().text = timeSpan.Minutes + ":" + timeSpan.Seconds;
+                            }
+                            //
+                        }
+                    }
+                    else if (ongoingProblemList[i].deployedWorkers == 0)
+                    {
+                        satisfaction -= ongoingProblemList[i].severity;
+                        GameObject.Find("HapSlider").GetComponent<Slider>().value = satisfaction;
+                    }
                 }
             }
         }
     }
 
-    public void AddProblem(int rndindex)
+    public void AddProblem(int rndindex, int index)
     {
-        ongoingProblemList.Add(new Problem(problemList[rndindex].id, problemList[rndindex].title, problemList[rndindex].severity , problemList[rndindex].durationInSeconds));
-        FindObjectOfType<DGOProblemGridFiller>().AddProblem(ongoingProblemList.Count - 1);
+        ongoingProblemList.Add(index, new Problem(problemList[rndindex].id, problemList[rndindex].title, problemList[rndindex].severity , problemList[rndindex].durationInSeconds));
+        FindObjectOfType<DGOProblemGridFiller>().AddProblem(index);
         unsolvedProblems++;
         unsolvedProblemsCountTxt.text = unsolvedProblems.ToString();
     }
 
     public void RemoveProblem(int index)
     {
-        ongoingProblemList.RemoveAt(index);
         FindObjectOfType<DGOProblemGridFiller>().RemoveProblem(index);
+        ongoingProblemList.Remove(index);
         unsolvedProblems--;
         unsolvedProblemsCountTxt.text = unsolvedProblems.ToString();
     }
 
     public void AddWorker(int index)
     {
-        ongoingProblemList[index].deployedWorkers++;
-        deployedWorkerPrefab[index].GetComponentInChildren<Text>().text = ongoingProblemList[index].deployedWorkers.ToString();
+        availableWorkers = int.Parse(availableWorkersCountxt.text);
+        if(availableWorkers > 0)
+        {
+            ongoingProblemList[index].deployedWorkers++;
+            deployedWorkerPrefab[index].GetComponentInChildren<Text>().text = ongoingProblemList[index].deployedWorkers.ToString();
+
+            availableWorkers--;
+            availableWorkersCountxt.text = availableWorkers.ToString();
+        }
     }
     public void RemoveWorker(int index)
     {
-        if(ongoingProblemList[index].deployedWorkers > 0)
+        availableWorkers = int.Parse(availableWorkersCountxt.text);
+        if (ongoingProblemList[index].deployedWorkers > 0)
         {
             ongoingProblemList[index].deployedWorkers--;
             deployedWorkerPrefab[index].GetComponentInChildren<Text>().text = ongoingProblemList[index].deployedWorkers.ToString();
+
+            availableWorkers++;
+            availableWorkersCountxt.text = availableWorkers.ToString();
         }
     }
 
