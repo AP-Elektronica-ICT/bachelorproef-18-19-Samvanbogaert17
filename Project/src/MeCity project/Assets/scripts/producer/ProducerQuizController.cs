@@ -109,7 +109,7 @@ public class ProducerQuizController : MonoBehaviour
             moneyTxt.text = money.ToString();
         }
         DataScript.AddScore(influence * 100);
-        ProducerEventSystem.satisfaction += influence * 10;
+        ProducerEventSystem.satisfaction += influence * 50;
 
 
         for (int i = 0; i < list.Count; i++)

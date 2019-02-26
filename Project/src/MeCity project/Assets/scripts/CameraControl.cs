@@ -45,11 +45,11 @@ public class CameraControl : MonoBehaviour
     private void rotate()
     {
         // rotate camera right and left by pressing spacebar and moving the cursor to the edge of the screen
-        if (Input.mousePosition.x >= Screen.width * 0.95 && Input.GetKey("space"))
+        if (Input.mousePosition.x >= Screen.width * 0.95 )//&& Input.GetKey("space"))
         {
             transform.RotateAround(transform.position, Vector3.up, 1.0f);
         }
-        if (Input.mousePosition.x <= Screen.width * 0.05 && Input.GetKey("space"))
+        if (Input.mousePosition.x <= Screen.width * 0.05 )//&& Input.GetKey("space"))
         {
             transform.RotateAround(transform.position, Vector3.down, 1.0f);
         }
@@ -85,7 +85,7 @@ public class CameraControl : MonoBehaviour
     private void pause(string sceneName)
     {
         // press escape to pause the game
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!pauseCanvas.isActiveAndEnabled)
             {
@@ -108,17 +108,6 @@ public class CameraControl : MonoBehaviour
                 move();
                 rotate();
             }
-            // for testing: add or subtract the statisfaction by pressing W and S
-            /*
-            if (Input.GetKey(KeyCode.W))
-            {
-                Satisfaction.satisfaction++;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                Satisfaction.satisfaction--;
-            }
-            */
         }
     }
 }
