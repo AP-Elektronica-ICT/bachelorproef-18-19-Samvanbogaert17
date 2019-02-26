@@ -93,3 +93,9 @@ Scripts overnemen en aanpassen voor DGO level
 verder afwerken van DGO level
 ProblemCanvas afgewerkt
 WorkerCanvas afgewerkt
+
+26/02/19 - Dag 19
+
+finishing touches Producer level
+Afbeelding in producer level gewijzigd
+kleine tweaks op producer scripts
