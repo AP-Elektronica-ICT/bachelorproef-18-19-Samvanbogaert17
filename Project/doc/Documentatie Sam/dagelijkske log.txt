@@ -87,3 +87,9 @@ ProblemCanvas verder afwerken
 WorkerCanvas afwerken
 UI aanpassen
 Scripts overnemen en aanpassen voor DGO level
+
+25/02/19 - Dag 18
+
+verder afwerken van DGO level
+ProblemCanvas afgewerkt
+WorkerCanvas afgewerkt
