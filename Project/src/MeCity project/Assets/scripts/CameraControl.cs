@@ -5,7 +5,7 @@ public class CameraControl : MonoBehaviour
 {
     public Canvas pauseCanvas;
     public static bool showingPopUp = false;
-    private bool paused;
+    public static bool paused;
 
     // Script used for the ingame camera control
     void Update()
@@ -108,6 +108,10 @@ public class CameraControl : MonoBehaviour
                 move();
                 rotate();
             }
+        }
+        if (paused)
+        {
+            transform.RotateAround(transform.position, Vector3.up, 0.1f);
         }
     }
 }

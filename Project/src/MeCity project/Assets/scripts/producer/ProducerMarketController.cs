@@ -228,16 +228,22 @@ public class ProducerMarketController : MonoBehaviour
     private void FillBuildingList()
     {
         //Add all Green type buildings
-        buildingList.Add(new Building(0, "Solarpanel farm", "Green", 30000, 0, 10000));
-        buildingList.Add(new Building(1, "Hydroelectric plant", "Green", 275000, 0, 70000));
-        buildingList.Add(new Building(2, "Wind turbine farm", "Green", 80000, 0, 25000));
+        buildingList.Add(new Building(0, "Solar farm", "Green", 30000, 0, 10000));
+        buildingList.Add(new Building(1, "Hydro-electric plant", "Green", 275000, 0, 70000));
+        buildingList.Add(new Building(2, "Wind farm", "Green", 80000, 0, 25000));
         buildingList.Add(new Building(3, "Geothermal station", "Green", 150000, 0, 40000));
 
         //Add all Gray type buildings
-        buildingList.Add(new Building(4, "Nuclear power plant", "Gray", 1000000, 20, 250000));
-        buildingList.Add(new Building(5, "Fossil fuel power station", "Gray", 100000, 10, 50000));
+        buildingList.Add(new Building(4, "Nuclear plant", "Gray", 1000000, 30, 250000));
+        buildingList.Add(new Building(5, "Industrial power plant", "Gray", 30000, 10, 27500));
+        buildingList.Add(new Building(6, "Coal plant", "Gray", 600000, 20, 600000));
 
         //DO the same for installed buildinglist
+
+        for(int i = 0; i < buildingList.Count; i++)
+        {
+            installedBuildingList.Add(new Building(buildingList[i].id, buildingList[i].name, buildingList[i].type, 0, 0, buildingList[i].price));
+        }
 
         //Add all Green type buildings
         installedBuildingList.Add(new Building(0, "Solarpanel farm", "Green", 0, 0, 10000));

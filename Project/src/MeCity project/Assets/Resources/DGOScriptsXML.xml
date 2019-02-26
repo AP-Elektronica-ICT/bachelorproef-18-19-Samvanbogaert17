@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- xml used for the scripts for the dgo eventsystem (popups) -->
+<scripts>
+  <popup>
+    <text>
+DGO stands for ...
+    </text>
+    <answers>
+      <answer influence ="1">Distribution Grid Operator</answer>
+      <answer influence ="-1">Distribution Grid Overviewer</answer>
+      <answer influence ="-1">District Grid Operator</answer>
+      <answer influence ="-1">District Grid Overviewer</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+The Distribution network takes electricity, gas or water from the transmission system and ... the voltage or ... the pressure.
+    </text>
+    <answers>
+      <answer influence ="2">Lowers/Reduces</answer>
+      <answer influence ="-1">Increases/Raises</answer>
+      <answer influence ="-2">Lowers/Raises</answer>
+      <answer influence ="-2">Increases/Reduces</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+Can customers switch DGO while remaining in the same physical location?
+    </text>
+    <answers>
+      <answer influence ="-1" >Yes</answer>
+      <answer influence ="2">No</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+What is the main task of the DGO?
+    </text>
+    <answers>
+      <answer influence ="2" >the distribution of energy between the high voltage or high pressure grids and the end customer's connections.</answer>
+      <answer influence ="-1">Installing, maintaining, removing or replacing the energy meters.</answer>
+      <answer influence ="-2">Maintaining the grid.</answer>
+    </answers>
+  </popup>
+</scripts>

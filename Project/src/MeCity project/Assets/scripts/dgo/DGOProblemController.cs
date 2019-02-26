@@ -27,6 +27,7 @@ public class DGOProblemController : MonoBehaviour
     private Dictionary<int, GameObject> deployedWorkerPrefab = new Dictionary<int, GameObject>();
     private Dictionary<int, GameObject> cancelPrefab = new Dictionary<int, GameObject>();
 
+    private System.Random random = new System.Random();
     private int frameCounter;
     // Use this for initialization
     void Start()
@@ -134,12 +135,19 @@ public class DGOProblemController : MonoBehaviour
 
     public void FillProblemList()
     {
-        problemList.Add(new Problem(0, "A customer needs his meterreadings taken.", 1, 10));
-        problemList.Add(new Problem(1, "A customer needs his meter replaced", 1, 10));
-        problemList.Add(new Problem(2, "A customer needs his meter removed", 1, 10));
-        problemList.Add(new Problem(3, "A customer needs his new meter installed", 1, 10));
-        problemList.Add(new Problem(4, "The grid needs maintaining", 2, 15));
-        problemList.Add(new Problem(5, "A high voltage transformer broke down", 3, 100));
+        problemList.Add(new Problem(0, "A customer needs his meterreadings taken.", 1));
+        problemList.Add(new Problem(1, "A customer needs his meter replaced", 1));
+        problemList.Add(new Problem(2, "A customer needs his meter removed", 1));
+        problemList.Add(new Problem(3, "A customer needs his new meter installed", 1));
+        problemList.Add(new Problem(4, "The grid connections needs maintaining", 2));
+        problemList.Add(new Problem(5, "A high voltage transformer broke down", 3));
+        problemList.Add(new Problem(6, "A customer reported a misreading and needs his readings retaken", 1));
+        problemList.Add(new Problem(7, "Your employees are on strike! extra workers need to be deployed!", 2));
+        problemList.Add(new Problem(8, "The GPRS-network is disrupted! online meterreadings are not possible!", 2));
+        problemList.Add(new Problem(9, "A customer has a malfunctioning electricity connection", 1));
+        problemList.Add(new Problem(10, "A neighbourhood substation needs maintaining", 2));
+        problemList.Add(new Problem(11, "A neighbourhood substation has broken down and needs fixing", 2));
+        problemList.Add(new Problem(12, "A city-wide blackout has occured!", 4));
     }
 
     private void GetProblemPrefabs()
@@ -166,11 +174,13 @@ public class DGOProblemController : MonoBehaviour
         public int deployedWorkers { get; set; }
         public string title { get; set; }
         public string desc { get; set; }
-        public Problem(int id, string title, int severity, int durationInSeconds, int deployedWorkers = 0, string desc = "")
+        public Problem(int id, string title, int severity, int durationInSeconds = 60, int deployedWorkers = 0, string desc = "")
         {
+            System.Random rnd = new System.Random();
+
             this.id = id;
             this.severity = severity;
-            this.durationInSeconds = durationInSeconds;
+            this.durationInSeconds = rnd.Next(1, durationInSeconds * severity);
             this.deployedWorkers = deployedWorkers;
             this.title = title;
             this.desc = desc;

@@ -99,3 +99,6 @@ WorkerCanvas afgewerkt
 finishing touches Producer level
 Afbeelding in producer level gewijzigd
 kleine tweaks op producer scripts
+Nieuw concept 'Upgrades' ontwikkeld voor DGO level
+Upgrades Canvas ontwikkeld.
+Kleine tweaks op algemene scripts

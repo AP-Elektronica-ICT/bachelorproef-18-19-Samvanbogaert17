@@ -26,17 +26,24 @@ public class DGOEventSystem : MonoBehaviour
     private int problemFrameCounter = 1;
     private int rndIndex;
     [HideInInspector] public int index = 0;
+    [HideInInspector] 
 
+    //Additional code formatting information
+    //you will often see a number followed by '* 60'. for example 1 * 60 or 5 * 60.
+    //the 1 and 5 in the above case represent an amount in seconds
+    //60 in the above case represents 60 frames or 1 second.
+    //this is to make the code more readable and easier to calculate with
     public void Start()
     {
         //Fill the contract list in ProducerContract Controller. This happens here because otherwise you get NullReferenceExceptions
         FindObjectOfType<DGOProblemController>().FillProblemList();
+        //share memory with other problemlists. will make code more readable.
         problemList = FindObjectOfType<DGOProblemController>().problemList;
         ongoingProblemList = FindObjectOfType<DGOProblemController>().ongoingProblemList;
         random = new System.Random();
         rndIndex = random.Next(0, problemList.Count);
-        eventTimer = random.Next(1500, 2100);
-        problemTimer = random.Next(1500, 2100);
+        eventTimer = random.Next(15*60, 25*60);
+        problemTimer = random.Next(15*60, 25*60);
     }
     public void Update()
     {
@@ -48,7 +55,7 @@ public class DGOEventSystem : MonoBehaviour
             {
                 if (popUps[i] != null)
                 {
-                    if (Time.frameCount - popUps[i].CreatedTimeInFrames >= 600)
+                    if (Time.frameCount - popUps[i].CreatedTimeInFrames >= 10 * 60)
                     {
                         Destroy(popUps[i].Prefab);
                         popUps[i] = null;
@@ -56,25 +63,25 @@ public class DGOEventSystem : MonoBehaviour
                 }
             }
             //Every 5 seconds, the city happiness goes down. (This is done to enforce the player to keep on answerring the events).
-            if (Time.frameCount % 300 == 0)
+            if (Time.frameCount % 5 * 60 == 0)
             {
                 FindObjectOfType<DGOCheckEndOfGame>().enabled = true;
             }
-            //At a random time between 15 and 25 seconds an invoice will be shown for the player to receive money based on the consumed energy since last invoice.
+            //At a random time between 15 and 25 seconds a problem will occur for the player to solve.
             if (problemFrameCounter % problemTimer == 0 || Input.GetKeyDown(KeyCode.O))
             {
                 showProblem();
                 FindObjectOfType<DGOProblemController>().AddProblem(rndIndex, index);
                 rndIndex = random.Next(0, problemList.Count);
                 index++;
-                problemTimer = random.Next(900, 1500);
+                problemTimer = random.Next(5 * 60, 15 * 60);
                 problemFrameCounter = 0;
             }
             //At a random time between 15 and 25 seconds an event will be shown for the player to answer.
             if (eventFrameCounter % eventTimer == 0 || Input.GetKeyDown(KeyCode.P))
             {
                 showPopUp();
-                eventTimer = random.Next(900, 1500);
+                eventTimer = random.Next(15 * 60, 25 * 60);
                 eventFrameCounter = 0;
             }
             eventFrameCounter++;
@@ -94,7 +101,7 @@ public class DGOEventSystem : MonoBehaviour
                 popUps[i].Prefab.transform.position = new Vector2(popUps[i].Prefab.transform.position.x, popUps[i].Prefab.transform.position.y - (i * 250));
                 popUps[i].Prefab.GetComponentsInChildren<Button>()[0].onClick.AddListener(() =>
                 {
-                    //If another screen is already showing, we cannot show the event. The player will have to chose what he spends his time on.
+                    //If another screen is already showing, we cannot show the event. The player will have to choose what he spends his time on.
                     if (!CameraControl.showingPopUp)
                     {
                         CameraControl.showingPopUp = true;
@@ -104,7 +111,6 @@ public class DGOEventSystem : MonoBehaviour
                         eventCanvas.enabled = true;
                     }
                 });
-                //If an event gets denied, customer satisfaction plumits. This is to punish the player for not answerring the questions.
                 popUps[i].Prefab.GetComponentsInChildren<Button>()[1].onClick.AddListener(() =>
                 {
                     Destroy(popUps[i].Prefab);
