@@ -102,3 +102,9 @@ kleine tweaks op producer scripts
 Nieuw concept 'Upgrades' ontwikkeld voor DGO level
 Upgrades Canvas ontwikkeld.
 Kleine tweaks op algemene scripts
+
+27/02/19 - Dag 20
+
+UpgradeCanvas functionaliteit toegevoegd
+ProblemCanvas fixed
+Balancing van problemen aangepast

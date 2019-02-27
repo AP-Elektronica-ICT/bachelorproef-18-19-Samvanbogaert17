@@ -105,7 +105,7 @@ public class DGOQuizController : MonoBehaviour
             }
             DGOCheckEndOfGame.NumberOfCorrectAnswers++;
             money = int.Parse(moneyTxt.text);
-            money += influence * 10000;
+            money += influence * 1000;
             moneyTxt.text = money.ToString();
         }
         DataScript.AddScore(influence * 100);

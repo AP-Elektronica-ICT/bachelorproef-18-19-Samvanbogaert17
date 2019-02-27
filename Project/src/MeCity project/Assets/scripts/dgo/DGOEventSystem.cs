@@ -6,6 +6,12 @@ using Problem = DGOProblemController.Problem;
 
 public class DGOEventSystem : MonoBehaviour
 {
+    //Additional code formatting information
+    //you will often see a number followed by '* 60'. for example 1 * 60 or 5 * 60.
+    //the 1 and 5 in the above case represent an amount in seconds
+    //60 in the above case represents 60 frames or 1 second.
+    //this is to make the code more readable and easier to calculate with
+
     //These are the prefabs the pop ups are based on.
     public GameObject EventPopUpPrefab;
     public GameObject ProblemPopUpPrefab;
@@ -18,30 +24,27 @@ public class DGOEventSystem : MonoBehaviour
 
     private List<Problem> problemList = new List<Problem>();
     private Dictionary<int, Problem> ongoingProblemList = new Dictionary<int, Problem>();
-    //private Dictionary<int, Problem> ongoingContractsList = new Dictionary<int, Contract>();
 
     private int eventTimer, problemTimer;
     private PopUp[] popUps = new PopUp[3];
     private int eventFrameCounter = 1;
     private int problemFrameCounter = 1;
     private int rndIndex;
-    [HideInInspector] public int index = 0;
-    [HideInInspector] 
 
-    //Additional code formatting information
-    //you will often see a number followed by '* 60'. for example 1 * 60 or 5 * 60.
-    //the 1 and 5 in the above case represent an amount in seconds
-    //60 in the above case represents 60 frames or 1 second.
-    //this is to make the code more readable and easier to calculate with
+    [HideInInspector] public int problemTimerMinVal = 10 * 60;
+    [HideInInspector] public int problemTimerMaxVal = 20 * 60;
+    [HideInInspector] public int index = 0;
+
     public void Start()
     {
-        //Fill the contract list in ProducerContract Controller. This happens here because otherwise you get NullReferenceExceptions
+        //Fill the problem list in DGO Problem Controller. This happens here because otherwise you get NullReferenceExceptions
         FindObjectOfType<DGOProblemController>().FillProblemList();
-        //share memory with other problemlists. will make code more readable.
+        //share memory with other problem lists. this will make code more readable.
         problemList = FindObjectOfType<DGOProblemController>().problemList;
         ongoingProblemList = FindObjectOfType<DGOProblemController>().ongoingProblemList;
         random = new System.Random();
         rndIndex = random.Next(0, problemList.Count);
+
         eventTimer = random.Next(15*60, 25*60);
         problemTimer = random.Next(15*60, 25*60);
     }
@@ -67,14 +70,14 @@ public class DGOEventSystem : MonoBehaviour
             {
                 FindObjectOfType<DGOCheckEndOfGame>().enabled = true;
             }
-            //At a random time between 15 and 25 seconds a problem will occur for the player to solve.
+            //At a random time between 5 and 15 seconds a problem will occur for the player to solve.
             if (problemFrameCounter % problemTimer == 0 || Input.GetKeyDown(KeyCode.O))
             {
                 showProblem();
                 FindObjectOfType<DGOProblemController>().AddProblem(rndIndex, index);
                 rndIndex = random.Next(0, problemList.Count);
                 index++;
-                problemTimer = random.Next(5 * 60, 15 * 60);
+                problemTimer = random.Next(problemTimerMinVal, problemTimerMaxVal);
                 problemFrameCounter = 0;
             }
             //At a random time between 15 and 25 seconds an event will be shown for the player to answer.

@@ -16,9 +16,9 @@ public class DGOProblemController : MonoBehaviour
     private int unsolvedProblems;
     private int solvedProblems;
     private int money;
-    [HideInInspector] public static float satisfaction = 5000;
+    [HideInInspector] public static float satisfaction = 100000;
 
-    [HideInInspector] public List <Problem> problemList = new List <Problem>();
+    [HideInInspector] public List<Problem> problemList = new List<Problem>();
     [HideInInspector] public Dictionary<int, Problem> ongoingProblemList = new Dictionary<int, Problem>();
 
     //Lists of GameObjects needed for the ProblemCanvas
@@ -39,53 +39,56 @@ public class DGOProblemController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ongoingProblemList.Count > 0)
+        if (!CameraControl.paused && !CameraControl.showingPopUp)
         {
-            for (int i = 0; i <= FindObjectOfType<DGOEventSystem>().index+1; i++)
+            if (ongoingProblemList.Count > 0)
             {
-                if (ongoingProblemList.ContainsKey(i))
+                for (int i = 0; i <= FindObjectOfType<DGOEventSystem>().index + 1; i++)
                 {
-                    if (ongoingProblemList[i].durationInSeconds <= 0)
+                    if (ongoingProblemList.ContainsKey(i))
                     {
-                        money = int.Parse(moneyTxt.text);
-                        money += 1000 * ongoingProblemList[i].severity;
-                        moneyTxt.text = money.ToString();
-
-                        satisfaction += 150 * ongoingProblemList[i].severity;
-                        GameObject.Find("HapSlider").GetComponent<Slider>().value = satisfaction;
-
-                        availableWorkers = int.Parse(availableWorkersCountxt.text);
-                        availableWorkers += ongoingProblemList[i].deployedWorkers;
-                        availableWorkersCountxt.text = availableWorkers.ToString();
-
-                        RemoveProblem(i);
-                        solvedProblems++;
-
-                        solvedProblemsCountTxt.text = solvedProblems.ToString();
-                        unsolvedProblemsCountTxt.text = unsolvedProblems.ToString();
-                    }
-                    else if (ongoingProblemList[i].deployedWorkers > 0)
-                    {
-                        if (Time.frameCount % (60 / ongoingProblemList[i].deployedWorkers) == 0)
+                        if (ongoingProblemList[i].durationInSeconds <= 0)
                         {
-                            ongoingProblemList[i].durationInSeconds--;
-                            var timeSpan = TimeSpan.FromSeconds(ongoingProblemList[i].durationInSeconds);
-                            //Leading zeroes
-                            if(timeSpan.Seconds < 10)
-                            {
-                                durationPrefab[i].GetComponent<Text>().text = timeSpan.Minutes + ":" + "0" + timeSpan.Seconds;
-                            }
-                            else
-                            {
-                                durationPrefab[i].GetComponent<Text>().text = timeSpan.Minutes + ":" + timeSpan.Seconds;
-                            }
-                            //
+                            money = int.Parse(moneyTxt.text);
+                            money += 100 * ongoingProblemList[i].severity;
+                            moneyTxt.text = money.ToString();
+
+                            satisfaction += 150 * ongoingProblemList[i].severity;
+                            GameObject.Find("HapSlider").GetComponent<Slider>().value = satisfaction;
+
+                            availableWorkers = int.Parse(availableWorkersCountxt.text);
+                            availableWorkers += ongoingProblemList[i].deployedWorkers;
+                            availableWorkersCountxt.text = availableWorkers.ToString();
+
+                            RemoveProblem(i);
+                            solvedProblems++;
+
+                            solvedProblemsCountTxt.text = solvedProblems.ToString();
+                            unsolvedProblemsCountTxt.text = unsolvedProblems.ToString();
                         }
-                    }
-                    else if (ongoingProblemList[i].deployedWorkers == 0)
-                    {
-                        satisfaction -= ongoingProblemList[i].severity;
-                        GameObject.Find("HapSlider").GetComponent<Slider>().value = satisfaction;
+                        else if (ongoingProblemList[i].deployedWorkers > 0)
+                        {
+                            if (Time.frameCount % (60 / ongoingProblemList[i].deployedWorkers) == 0)
+                            {
+                                ongoingProblemList[i].durationInSeconds--;
+                                var timeSpan = TimeSpan.FromSeconds(ongoingProblemList[i].durationInSeconds);
+                                //Leading zeroes
+                                if (timeSpan.Seconds < 10)
+                                {
+                                    durationPrefab[i].GetComponent<Text>().text = timeSpan.Minutes + ":" + "0" + timeSpan.Seconds;
+                                }
+                                else
+                                {
+                                    durationPrefab[i].GetComponent<Text>().text = timeSpan.Minutes + ":" + timeSpan.Seconds;
+                                }
+                                //
+                            }
+                        }
+                        else if (ongoingProblemList[i].deployedWorkers == 0)
+                        {
+                            satisfaction -= ongoingProblemList[i].severity;
+                            GameObject.Find("HapSlider").GetComponent<Slider>().value = satisfaction;
+                        }
                     }
                 }
             }
@@ -94,7 +97,10 @@ public class DGOProblemController : MonoBehaviour
 
     public void AddProblem(int rndindex, int index)
     {
-        ongoingProblemList.Add(index, new Problem(problemList[rndindex].id, problemList[rndindex].title, problemList[rndindex].severity , problemList[rndindex].durationInSeconds));
+        ongoingProblemList.Add(index, new Problem(problemList[rndindex].id, problemList[rndindex].title, problemList[rndindex].severity / 10, problemList[rndindex].durationInSeconds));
+        Debug.Log(problemList[rndindex].severity);
+        Debug.Log(ongoingProblemList[index].severity);
+        Debug.Log(ongoingProblemList[index].durationInSeconds);
         FindObjectOfType<DGOProblemGridFiller>().AddProblem(index);
         unsolvedProblems++;
         unsolvedProblemsCountTxt.text = unsolvedProblems.ToString();
@@ -111,7 +117,7 @@ public class DGOProblemController : MonoBehaviour
     public void AddWorker(int index)
     {
         availableWorkers = int.Parse(availableWorkersCountxt.text);
-        if(availableWorkers > 0)
+        if (availableWorkers > 0)
         {
             ongoingProblemList[index].deployedWorkers++;
             deployedWorkerPrefab[index].GetComponentInChildren<Text>().text = ongoingProblemList[index].deployedWorkers.ToString();
@@ -174,16 +180,16 @@ public class DGOProblemController : MonoBehaviour
         public int deployedWorkers { get; set; }
         public string title { get; set; }
         public string desc { get; set; }
-        public Problem(int id, string title, int severity, int durationInSeconds = 60, int deployedWorkers = 0, string desc = "")
+        public Problem(int _id, string _title, int _severity, int _durationInSeconds = 30, int _deployedWorkers = 0, string _desc = "")
         {
             System.Random rnd = new System.Random();
 
-            this.id = id;
-            this.severity = severity;
-            this.durationInSeconds = rnd.Next(1, durationInSeconds * severity);
-            this.deployedWorkers = deployedWorkers;
-            this.title = title;
-            this.desc = desc;
+            this.id = _id;
+            this.severity = _severity * 10;
+            this.durationInSeconds = rnd.Next(1, _durationInSeconds * _severity);
+            this.deployedWorkers = _deployedWorkers;
+            this.title = _title;
+            this.desc = _desc;
         }
     }
 }

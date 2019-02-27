@@ -72,7 +72,7 @@ public class DGOIntroduction : MonoBehaviour
     private void LoadText(int number)
     {
         TextAsset xmlData = new TextAsset();
-        xmlData = (TextAsset)Resources.Load("ProducerIntroXML", typeof(TextAsset));
+        xmlData = (TextAsset)Resources.Load("DGOIntroXML", typeof(TextAsset));
         doc.LoadXml(xmlData.text);
         XmlNodeList list = doc.GetElementsByTagName("text");
         txtField.text = list[number].InnerText;
