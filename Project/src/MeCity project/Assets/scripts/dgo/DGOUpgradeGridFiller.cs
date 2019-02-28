@@ -18,8 +18,6 @@ public class DGOUpgradeGridFiller : MonoBehaviour
     private int money;
 
     private List<Upgrade> upgradeList = new List<Upgrade>();
-    private List<Problem> problemList = new List<Problem>();
-    private List<Problem> ongoingProblemList = new List<Problem>();
 
     private List<GameObject> titlePrefab = new List<GameObject>();
     private List<GameObject> effectPrefab = new List<GameObject>();
@@ -33,12 +31,6 @@ public class DGOUpgradeGridFiller : MonoBehaviour
     void Start()
     {
         FillUpgradeList();
-
-        problemList = FindObjectOfType<DGOProblemController>().problemList;
-        foreach (KeyValuePair<int, Problem> keypair in FindObjectOfType<DGOProblemController>().ongoingProblemList)
-        {
-            ongoingProblemList.Add(keypair.Value);
-        }
 
         upgradeTitleTransform = upgradeTitleGrid.transform;
         upgradeEffectTransform = upgradeEffectGrid.transform;
@@ -89,15 +81,26 @@ public class DGOUpgradeGridFiller : MonoBehaviour
                 FindObjectOfType<DGOEventSystem>().problemTimerMinVal += u.effect;
                 break;
             case 2: //decreases duration of a problem
-                foreach (Problem p in problemList.Concat(ongoingProblemList))
+                foreach (Problem p in FindObjectOfType<DGOProblemController>().problemList)
                 {
-                    p.durationInSeconds -= u.effect * 10;
+                    if(p.durationInSeconds - u.effect * 20 > 10)
+                    {
+                        p.durationInSeconds -= u.effect * 10;
+                    }
+                    else
+                    {
+                        p.durationInSeconds = 10;
+                    }
                 }
                 break;
             case 3: //decreases happiness decline of a problem
-                foreach (Problem p in problemList.Concat(ongoingProblemList))
+                foreach (Problem p in FindObjectOfType<DGOProblemController>().problemList)
                 {
-                    p.severity -= u.effect;
+                    if(p.happinessDecrease - u.effect > 1)
+                    {
+                        p.happinessDecrease -= u.effect;
+                    }
+                    Debug.Log(p.severity);
                 }
                 break;
         }

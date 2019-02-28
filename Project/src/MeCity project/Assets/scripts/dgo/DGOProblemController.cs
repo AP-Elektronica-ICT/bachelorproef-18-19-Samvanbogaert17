@@ -11,12 +11,14 @@ public class DGOProblemController : MonoBehaviour
     public Text unsolvedProblemsCountTxt;
     public Text solvedProblemsCountTxt;
     public Text moneyTxt;
+    public Text happinessTxt;
 
     private int availableWorkers;
     private int unsolvedProblems;
     private int solvedProblems;
     private int money;
-    [HideInInspector] public static float satisfaction = 100000;
+    private Slider hapSlider;
+    [HideInInspector] public static float satisfaction;
 
     [HideInInspector] public List<Problem> problemList = new List<Problem>();
     [HideInInspector] public Dictionary<int, Problem> ongoingProblemList = new Dictionary<int, Problem>();
@@ -27,19 +29,22 @@ public class DGOProblemController : MonoBehaviour
     private Dictionary<int, GameObject> deployedWorkerPrefab = new Dictionary<int, GameObject>();
     private Dictionary<int, GameObject> cancelPrefab = new Dictionary<int, GameObject>();
 
-    private System.Random random = new System.Random();
     private int frameCounter;
     // Use this for initialization
     void Start()
     {
-        GameObject.Find("HapSlider").GetComponent<Slider>().value = satisfaction;
+        hapSlider = GameObject.Find("HapSlider").GetComponent<Slider>();
+        satisfaction = hapSlider.maxValue;
+        hapSlider.value = satisfaction;
         GetProblemPrefabs();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!CameraControl.paused && !CameraControl.showingPopUp)
+        happinessTxt.text = Math.Round((hapSlider.value / hapSlider.maxValue * 100)).ToString() + '%';
+
+        if (!CameraControl.paused && !CameraControl.inQuiz)
         {
             if (ongoingProblemList.Count > 0)
             {
@@ -50,11 +55,11 @@ public class DGOProblemController : MonoBehaviour
                         if (ongoingProblemList[i].durationInSeconds <= 0)
                         {
                             money = int.Parse(moneyTxt.text);
-                            money += 100 * ongoingProblemList[i].severity;
+                            money += 1000 * ongoingProblemList[i].severity;
                             moneyTxt.text = money.ToString();
 
-                            satisfaction += 150 * ongoingProblemList[i].severity;
-                            GameObject.Find("HapSlider").GetComponent<Slider>().value = satisfaction;
+                            satisfaction += 1500 * ongoingProblemList[i].severity;
+                            hapSlider.value = satisfaction;
 
                             availableWorkers = int.Parse(availableWorkersCountxt.text);
                             availableWorkers += ongoingProblemList[i].deployedWorkers;
@@ -86,8 +91,8 @@ public class DGOProblemController : MonoBehaviour
                         }
                         else if (ongoingProblemList[i].deployedWorkers == 0)
                         {
-                            satisfaction -= ongoingProblemList[i].severity;
-                            GameObject.Find("HapSlider").GetComponent<Slider>().value = satisfaction;
+                            satisfaction -= (float)ongoingProblemList[i].happinessDecrease;
+                            hapSlider.value = satisfaction;
                         }
                     }
                 }
@@ -97,10 +102,7 @@ public class DGOProblemController : MonoBehaviour
 
     public void AddProblem(int rndindex, int index)
     {
-        ongoingProblemList.Add(index, new Problem(problemList[rndindex].id, problemList[rndindex].title, problemList[rndindex].severity / 10, problemList[rndindex].durationInSeconds));
-        Debug.Log(problemList[rndindex].severity);
-        Debug.Log(ongoingProblemList[index].severity);
-        Debug.Log(ongoingProblemList[index].durationInSeconds);
+        ongoingProblemList.Add(index, new Problem(problemList[rndindex].id, problemList[rndindex].title, problemList[rndindex].severity, problemList[rndindex].durationInSeconds));
         FindObjectOfType<DGOProblemGridFiller>().AddProblem(index);
         unsolvedProblems++;
         unsolvedProblemsCountTxt.text = unsolvedProblems.ToString();
@@ -112,6 +114,12 @@ public class DGOProblemController : MonoBehaviour
         ongoingProblemList.Remove(index);
         unsolvedProblems--;
         unsolvedProblemsCountTxt.text = unsolvedProblems.ToString();
+    }
+
+    public void RemoveHappiness(int index)
+    {
+        satisfaction -= ongoingProblemList[index].severity * 5000;
+        hapSlider.value = satisfaction;
     }
 
     public void AddWorker(int index)
@@ -176,6 +184,7 @@ public class DGOProblemController : MonoBehaviour
     {
         public int id { get; set; }
         public int severity { get; set; }
+        public double happinessDecrease;
         public int durationInSeconds { get; set; }
         public int deployedWorkers { get; set; }
         public string title { get; set; }
@@ -184,12 +193,20 @@ public class DGOProblemController : MonoBehaviour
         {
             System.Random rnd = new System.Random();
 
-            this.id = _id;
-            this.severity = _severity * 10;
-            this.durationInSeconds = rnd.Next(1, _durationInSeconds * _severity);
-            this.deployedWorkers = _deployedWorkers;
-            this.title = _title;
-            this.desc = _desc;
+            id = _id;
+            severity = _severity;
+            happinessDecrease = _severity * 10;
+            if(_durationInSeconds == 30)
+            {
+                durationInSeconds = rnd.Next(10, _durationInSeconds * _severity);
+            }
+            else
+            {
+                durationInSeconds = _durationInSeconds;
+            }
+            deployedWorkers = _deployedWorkers;
+            title = _title;
+            desc = _desc;
         }
     }
 }

@@ -28,7 +28,7 @@ public class DGOCheckEndOfGame : MonoBehaviour
             }
 
             //LOSE
-            if (int.Parse(problemsUnsolvedCountTxt.text) > 25)
+            if (int.Parse(problemsUnsolvedCountTxt.text) > 10)
             {
                 gameOver();
             }

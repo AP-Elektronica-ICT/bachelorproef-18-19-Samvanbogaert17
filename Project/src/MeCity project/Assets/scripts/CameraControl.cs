@@ -6,6 +6,7 @@ public class CameraControl : MonoBehaviour
     public Canvas pauseCanvas;
     public static bool showingPopUp = false;
     public static bool paused;
+    public static bool inQuiz = false;
 
     // Script used for the ingame camera control
     void Update()

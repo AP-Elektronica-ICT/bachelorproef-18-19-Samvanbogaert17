@@ -29,6 +29,8 @@ public class ProducerQuizController : MonoBehaviour
         {
             answerBtns[i].gameObject.SetActive(false);
             answerBtns[i].onClick.RemoveAllListeners();
+            answerBtns[i].GetComponent<Image>().color = Color.white;
+            answerBtns[i].interactable = true;
         }
         // load the xml script
         TextAsset xmlData = new TextAsset();

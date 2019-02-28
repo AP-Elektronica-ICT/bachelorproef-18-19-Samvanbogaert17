@@ -29,6 +29,8 @@ public class DGOQuizController : MonoBehaviour
         {
             answerBtns[i].gameObject.SetActive(false);
             answerBtns[i].onClick.RemoveAllListeners();
+            answerBtns[i].GetComponent<Image>().color = Color.white;
+            answerBtns[i].interactable = true;
         }
         // load the xml script
         TextAsset xmlData = new TextAsset();
@@ -71,11 +73,17 @@ public class DGOQuizController : MonoBehaviour
         int ansCount = elemList[number].ChildNodes[1].ChildNodes.Count;
         XmlNodeList tekstList = doc.GetElementsByTagName("text");
         tekstvak.text = tekstList[number].InnerText;
-
+        //Add questionText to QnA question list
+        FindObjectOfType<QnAscore>().questionList.Add(tekstList[number].InnerText);
         // for each popup, the answers to the questions are given in the xml file, we search the number of answers
         //and generate this number of buttons, the answer texts are placed next to the buttons
         for (int i = 0; i < ansCount; i++)
         {
+            if(int.Parse(elemList[number].ChildNodes[1].ChildNodes[i].Attributes["influence"].Value) > 0)
+            {
+                FindObjectOfType<QnAscore>().correctAnsList.Add(tekstList[i].InnerText);
+            }
+
             answerBtns[i].gameObject.SetActive(true);
             answerBtns[i].GetComponentsInChildren<Text>()[1].text = elemList[number].ChildNodes[1].ChildNodes[i].InnerText;
         }
@@ -85,9 +93,14 @@ public class DGOQuizController : MonoBehaviour
     private void BtnAnswer(int btn, int number)
     {
         CameraControl.showingPopUp = false;
+        CameraControl.inQuiz = false;
         XmlNodeList elemlist = doc.GetElementsByTagName("popup");
         XmlNodeList list = elemlist[number].ChildNodes[1].ChildNodes;
         int influence = int.Parse(list[btn].Attributes["influence"].Value);
+
+        XmlNodeList tekstList = doc.GetElementsByTagName("text");
+        FindObjectOfType<QnAscore>().playerAnsList.Add(tekstList[number].InnerText);
+        FindObjectOfType<QnAscore>().addPanel();
 
         if (influence < 0)
         {
@@ -122,15 +135,6 @@ public class DGOQuizController : MonoBehaviour
             {
                 answerBtns[i].GetComponent<Image>().color = Color.red;
             }
-        }
-    }
-
-    public void ResetBtns()
-    {
-        for(int i = 0; i < answerBtns.Length; i++)
-        {
-            answerBtns[i].GetComponent<Image>().color = Color.white;
-            answerBtns[i].interactable = true;
         }
     }
 }

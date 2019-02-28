@@ -23,7 +23,6 @@ public class DGOEventSystem : MonoBehaviour
     [HideInInspector] public static System.Random random;
 
     private List<Problem> problemList = new List<Problem>();
-    private Dictionary<int, Problem> ongoingProblemList = new Dictionary<int, Problem>();
 
     private int eventTimer, problemTimer;
     private PopUp[] popUps = new PopUp[3];
@@ -41,7 +40,6 @@ public class DGOEventSystem : MonoBehaviour
         FindObjectOfType<DGOProblemController>().FillProblemList();
         //share memory with other problem lists. this will make code more readable.
         problemList = FindObjectOfType<DGOProblemController>().problemList;
-        ongoingProblemList = FindObjectOfType<DGOProblemController>().ongoingProblemList;
         random = new System.Random();
         rndIndex = random.Next(0, problemList.Count);
 
@@ -71,14 +69,17 @@ public class DGOEventSystem : MonoBehaviour
                 FindObjectOfType<DGOCheckEndOfGame>().enabled = true;
             }
             //At a random time between 5 and 15 seconds a problem will occur for the player to solve.
-            if (problemFrameCounter % problemTimer == 0 || Input.GetKeyDown(KeyCode.O))
+            if(!CameraControl.inQuiz && !CameraControl.paused)
             {
-                showProblem();
-                FindObjectOfType<DGOProblemController>().AddProblem(rndIndex, index);
-                rndIndex = random.Next(0, problemList.Count);
-                index++;
-                problemTimer = random.Next(problemTimerMinVal, problemTimerMaxVal);
-                problemFrameCounter = 0;
+                if (problemFrameCounter % problemTimer == 0 || Input.GetKeyDown(KeyCode.O))
+                {
+                    showProblem();
+                    FindObjectOfType<DGOProblemController>().AddProblem(rndIndex, index);
+                    rndIndex = random.Next(0, problemList.Count);
+                    index++;
+                    problemTimer = random.Next(problemTimerMinVal, problemTimerMaxVal);
+                    problemFrameCounter = 0;
+                }
             }
             //At a random time between 15 and 25 seconds an event will be shown for the player to answer.
             if (eventFrameCounter % eventTimer == 0 || Input.GetKeyDown(KeyCode.P))
@@ -107,6 +108,7 @@ public class DGOEventSystem : MonoBehaviour
                     //If another screen is already showing, we cannot show the event. The player will have to choose what he spends his time on.
                     if (!CameraControl.showingPopUp)
                     {
+                        CameraControl.inQuiz = true;
                         CameraControl.showingPopUp = true;
                         Destroy(popUps[i].Prefab);
                         popUps[i] = null;

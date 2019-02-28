@@ -15,9 +15,6 @@ public class DGOProblemGridFiller : MonoBehaviour
 
     private Transform problemTitleTransform;
     private Transform problemTransform;
-
-    private int globalindex;
-
     //Lists of GameObjects needed for the ProblemCanvas
     [HideInInspector] public Dictionary<int, GameObject> problemPrefab = new Dictionary<int, GameObject>();
     [HideInInspector] public Dictionary<int, GameObject> durationPrefab = new Dictionary<int, GameObject>();
@@ -33,10 +30,8 @@ public class DGOProblemGridFiller : MonoBehaviour
         problemTitleTransform = ProblemTitleGrid.transform;
         problemTransform = ProblemGrid.transform;
 
-        //InitializeProblemCanvas();
         problemList = FindObjectOfType<DGOProblemController>().problemList;
         ongoingProblemList = FindObjectOfType<DGOProblemController>().ongoingProblemList;
-        globalindex = FindObjectOfType<DGOEventSystem>().index;
     }
 
     // Update is called once per frame
@@ -57,7 +52,7 @@ public class DGOProblemGridFiller : MonoBehaviour
         problemPrefab[index].GetComponent<Text>().text = p.title;
         problemPrefab[index].GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
         var timeSpan = TimeSpan.FromSeconds(p.durationInSeconds);
-        if(timeSpan.Seconds < 10)
+        if (timeSpan.Seconds < 10)
         {
             durationPrefab[index].GetComponent<Text>().text = timeSpan.Minutes + ":" + "0" + timeSpan.Seconds;
         }
@@ -77,7 +72,11 @@ public class DGOProblemGridFiller : MonoBehaviour
         });
 
         cancelPrefab[index].GetComponent<Button>().GetComponentInChildren<Text>().text = "Cancel";
-        cancelPrefab[index].GetComponent<Button>().onClick.AddListener(() => FindObjectOfType<DGOProblemController>().RemoveProblem(index));
+        cancelPrefab[index].GetComponent<Button>().onClick.AddListener(() =>
+        {
+            FindObjectOfType<DGOProblemController>().RemoveHappiness(index);
+            FindObjectOfType<DGOProblemController>().RemoveProblem(index);
+        });
     }
 
     public void RemoveProblem(int index)

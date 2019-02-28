@@ -108,3 +108,9 @@ Kleine tweaks op algemene scripts
 UpgradeCanvas functionaliteit toegevoegd
 ProblemCanvas fixed
 Balancing van problemen aangepast
+
+28/02/19 - Dag 21
+
+Afwerken van DGO level
+kleine tweaks op producerLvl
+Start van QnACanvas

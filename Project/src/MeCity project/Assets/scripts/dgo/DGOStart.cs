@@ -9,6 +9,7 @@ public class DGOStart : MonoBehaviour {
     public Canvas pauseCanvas;
     public Canvas introCanvas;
     public Canvas endOfGameCanvas;
+    public Canvas scoreCanvas;
     public Text txtPlayer;
     
     // script used for disabling the canvasses at the start and to update the player name and score field
@@ -20,6 +21,7 @@ public class DGOStart : MonoBehaviour {
         eventCanvas.enabled = false;
         pauseCanvas.enabled = false;
         endOfGameCanvas.enabled = false;
+        scoreCanvas.enabled = false;
 	}
     private void Update()
     {
