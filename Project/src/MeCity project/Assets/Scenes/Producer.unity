@@ -13272,7 +13272,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 452946614}
-  - component: {fileID: 452946615}
+  - component: {fileID: 452946616}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -13327,7 +13327,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &452946615
+--- !u!114 &452946616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13336,7 +13336,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 452946613}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 744b30ab26dc2484599f4fd90fab1b4b, type: 3}
+  m_Script: {fileID: 11500000, guid: c668c70b259f72d40bffa93a10a3a137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   introCanvas: {fileID: 1762067351}
@@ -13344,11 +13344,12 @@ MonoBehaviour:
   btnNext: {fileID: 106381580}
   image: {fileID: 206365654}
   txtField: {fileID: 1589716815}
-  imgIntro: {fileID: 2800000, guid: 3197cedf42cf2924b8bf031542126277, type: 3}
-  imgUI: {fileID: 2800000, guid: 3197cedf42cf2924b8bf031542126277, type: 3}
-  imgMarketPopup: {fileID: 2800000, guid: 143db54f671358242a09d39a43908bed, type: 3}
-  imgContractsPopup: {fileID: 2800000, guid: 25a5e49a168fda64b99ad3c2b7140ab6, type: 3}
-  imgEventPopup: {fileID: 2800000, guid: 0b917d3ee5707b04fb5118857e22d084, type: 3}
+  imgArray:
+  - {fileID: 2800000, guid: 3197cedf42cf2924b8bf031542126277, type: 3}
+  - {fileID: 2800000, guid: 3197cedf42cf2924b8bf031542126277, type: 3}
+  - {fileID: 2800000, guid: 143db54f671358242a09d39a43908bed, type: 3}
+  - {fileID: 2800000, guid: 25a5e49a168fda64b99ad3c2b7140ab6, type: 3}
+  - {fileID: 2800000, guid: 0b917d3ee5707b04fb5118857e22d084, type: 3}
 --- !u!1001 &455670937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14605,9 +14606,9 @@ GameObject:
   - component: {fileID: 482524769}
   - component: {fileID: 482524773}
   - component: {fileID: 482524778}
-  - component: {fileID: 482524774}
   - component: {fileID: 482524775}
   - component: {fileID: 482524776}
+  - component: {fileID: 482524774}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -14715,17 +14716,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 482524768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 388efccab0ef07a45aeef2f0ecdf4bba, type: 3}
+  m_Script: {fileID: 11500000, guid: 28143e7fd6a15784593167caf6620c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  marketCanvas: {fileID: 88669594}
-  ContractsCanvas: {fileID: 1311575610}
-  eventCanvas: {fileID: 1514396294}
-  pauseCanvas: {fileID: 375624674}
   introCanvas: {fileID: 1762067351}
-  endOfGameCanvas: {fileID: 1596810710}
-  scoreCanvas: {fileID: 1692838566}
   txtPlayer: {fileID: 1811189069}
+  canvasArray:
+  - {fileID: 88669594}
+  - {fileID: 1311575610}
+  - {fileID: 1514396294}
+  - {fileID: 375624674}
+  - {fileID: 1596810710}
+  - {fileID: 1692838566}
 --- !u!114 &482524775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52629,7 +52631,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00000063480843, y: -0.53760743}
+  m_AnchoredPosition: {x: 0.0000005451812, y: -0.46167043}
   m_SizeDelta: {x: -10.6, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1589716814
