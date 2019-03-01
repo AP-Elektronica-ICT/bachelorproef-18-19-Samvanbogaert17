@@ -7,6 +7,8 @@ public class CameraControl : MonoBehaviour
     public static bool showingPopUp = false;
     public static bool paused;
     public static bool inQuiz = false;
+    [Tooltip("Do not include Pause Canvas and UI canvas")]
+    public Canvas[] amountOfCanvasses;
 
     // Script used for the ingame camera control
     void Update()
@@ -88,7 +90,7 @@ public class CameraControl : MonoBehaviour
         // press escape to pause the game
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!pauseCanvas.isActiveAndEnabled)
+            if (!pauseCanvas.isActiveAndEnabled && DisabledAllActiveCanvases())
             {
                 paused = true;
                 Time.timeScale = 0;
@@ -100,7 +102,6 @@ public class CameraControl : MonoBehaviour
                 Time.timeScale = 1;
                 pauseCanvas.enabled = false;
             }
-
         }
         if (!paused)
         {
@@ -114,5 +115,19 @@ public class CameraControl : MonoBehaviour
         {
             transform.RotateAround(transform.position, Vector3.up, 0.1f);
         }
+    }
+
+    public bool DisabledAllActiveCanvases()
+    {
+        bool actionIsDone = false;
+        for (int i = 0; i < amountOfCanvasses.Length; i++)
+        {
+            if (amountOfCanvasses[i].isActiveAndEnabled)
+            {
+                amountOfCanvasses[i].enabled = false;
+                actionIsDone = true;
+            }
+        }
+        return actionIsDone;
     }
 }

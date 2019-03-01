@@ -61,10 +61,6 @@ public class DGOProblemController : MonoBehaviour
                             satisfaction += 1500 * ongoingProblemList[i].severity;
                             hapSlider.value = satisfaction;
 
-                            availableWorkers = int.Parse(availableWorkersCountxt.text);
-                            availableWorkers += ongoingProblemList[i].deployedWorkers;
-                            availableWorkersCountxt.text = availableWorkers.ToString();
-
                             RemoveProblem(i);
                             solvedProblems++;
 
@@ -111,7 +107,13 @@ public class DGOProblemController : MonoBehaviour
     public void RemoveProblem(int index)
     {
         FindObjectOfType<DGOProblemGridFiller>().RemoveProblem(index);
+
+        availableWorkers = int.Parse(availableWorkersCountxt.text);
+        availableWorkers += ongoingProblemList[index].deployedWorkers;
+        availableWorkersCountxt.text = availableWorkers.ToString();
+
         ongoingProblemList.Remove(index);
+
         unsolvedProblems--;
         unsolvedProblemsCountTxt.text = unsolvedProblems.ToString();
     }

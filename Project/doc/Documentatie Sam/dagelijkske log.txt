@@ -114,3 +114,9 @@ Balancing van problemen aangepast
 Afwerken van DGO level
 kleine tweaks op producerLvl
 Start van QnACanvas
+
+01/03/19 - Dag 22
+
+Afwerken ScoreCanvas
+Code refactoring van LevelStart, LevelIntroduction en algemene QuizController
+Afwerken 

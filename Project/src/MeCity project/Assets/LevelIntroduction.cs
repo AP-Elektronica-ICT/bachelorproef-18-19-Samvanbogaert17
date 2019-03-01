@@ -1,19 +1,17 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Xml;
+using UnityEngine.SceneManagement;
 
-public class DGOIntroduction : MonoBehaviour
+public class LevelIntroduction : MonoBehaviour
 {
     public Canvas introCanvas;
     public Canvas uiCanvas;
     public Button btnNext;
     public RawImage image;
     public Text txtField;
-    public Texture imgIntro;
-    public Texture imgUI;
-    public Texture imgProblemPopup;
-    public Texture imgWorkerPopup;
-    public Texture imgEventPopup;
+    [Tooltip("Make sure the images correspond to the text in the IntroXML file")]
+    public Texture[] imgArray;
     private XmlDocument doc = new XmlDocument();
 
     // script used for the level introduction
@@ -39,27 +37,12 @@ public class DGOIntroduction : MonoBehaviour
 
     public void LoadIntro(int number)
     {
-        switch (number)
-        {
-            case 0:
-                image.texture = imgIntro;
-                break;
-            case 1:
-                image.texture = imgUI;
-                break;
-            case 2:
-                image.texture = imgProblemPopup;
-                break;
-            case 3:
-                image.texture = imgWorkerPopup;
-                break;
-            case 4:
-                image.texture = imgEventPopup;
-                break;
-        }
+        //Make sure the images correspond to the text in the IntroXML file
+        image.texture = imgArray[number];
+
         LoadText(number);
         btnNext.onClick.RemoveAllListeners();
-        if(number + 1 != 5)
+        if (number + 1 != imgArray.Length)
         {
             btnNext.onClick.AddListener(() => LoadIntro(number + 1));
         }
@@ -72,7 +55,9 @@ public class DGOIntroduction : MonoBehaviour
     private void LoadText(int number)
     {
         TextAsset xmlData = new TextAsset();
-        xmlData = (TextAsset)Resources.Load("DGOIntroXML", typeof(TextAsset));
+
+        string filename = SceneManager.GetActiveScene().name + "IntroXML";
+        xmlData = (TextAsset)Resources.Load(filename, typeof(TextAsset));
         doc.LoadXml(xmlData.text);
         XmlNodeList list = doc.GetElementsByTagName("text");
         txtField.text = list[number].InnerText;

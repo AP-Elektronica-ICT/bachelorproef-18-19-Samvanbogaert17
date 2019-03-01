@@ -43,8 +43,8 @@ public class DGOEventSystem : MonoBehaviour
         random = new System.Random();
         rndIndex = random.Next(0, problemList.Count);
 
-        eventTimer = random.Next(15*60, 25*60);
-        problemTimer = random.Next(15*60, 25*60);
+        eventTimer = random.Next(15 * 60, 25 * 60);
+        problemTimer = random.Next(15 * 60, 25 * 60);
     }
     public void Update()
     {
@@ -69,7 +69,7 @@ public class DGOEventSystem : MonoBehaviour
                 FindObjectOfType<DGOCheckEndOfGame>().enabled = true;
             }
             //At a random time between 5 and 15 seconds a problem will occur for the player to solve.
-            if(!CameraControl.inQuiz && !CameraControl.paused)
+            if (!CameraControl.inQuiz && !CameraControl.paused)
             {
                 if (problemFrameCounter % problemTimer == 0 || Input.GetKeyDown(KeyCode.O))
                 {
@@ -103,6 +103,7 @@ public class DGOEventSystem : MonoBehaviour
             {
                 popUps[i] = new PopUp(Time.frameCount, Instantiate(EventPopUpPrefab, UICanvas.transform));
                 popUps[i].Prefab.transform.position = new Vector2(popUps[i].Prefab.transform.position.x, popUps[i].Prefab.transform.position.y - (i * 250));
+
                 popUps[i].Prefab.GetComponentsInChildren<Button>()[0].onClick.AddListener(() =>
                 {
                     //If another screen is already showing, we cannot show the event. The player will have to choose what he spends his time on.
@@ -112,7 +113,7 @@ public class DGOEventSystem : MonoBehaviour
                         CameraControl.showingPopUp = true;
                         Destroy(popUps[i].Prefab);
                         popUps[i] = null;
-                        FindObjectOfType<DGOQuizController>().Task();
+                        FindObjectOfType<QuizController>().Task();
                         eventCanvas.enabled = true;
                     }
                 });
