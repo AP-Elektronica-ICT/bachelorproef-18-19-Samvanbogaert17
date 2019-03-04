@@ -16,10 +16,13 @@ public class QuizController : MonoBehaviour
     private int money;
     private int number;
     private bool answered = false;
+    private int lastNum = 0;
+    private string sceneName;
 
     // script used for the event popups
     public void Start()
     {
+        sceneName = SceneManager.GetActiveScene().name;
         btn.onClick.AddListener(Task);
         money = int.Parse(moneyTxt.text);
     }
@@ -39,7 +42,7 @@ public class QuizController : MonoBehaviour
         TextAsset xmlData = new TextAsset();
         //Make sure the file name is the name of the scene + 'ScriptsXML'
         //e.g. scene name is 'FirstLevel' then filename should be FirstLevelScriptsXML
-        string filename = SceneManager.GetActiveScene().name + "ScriptsXML";
+        string filename = sceneName + "ScriptsXML";
         xmlData = (TextAsset)Resources.Load(filename, typeof(TextAsset));
         doc.LoadXml(xmlData.text);
         int range = doc.GetElementsByTagName("text").Count;
@@ -68,6 +71,11 @@ public class QuizController : MonoBehaviour
     {
         System.Random r = new System.Random();
         int x = r.Next(maxRange);
+        while(x == lastNum)
+        {
+            x = r.Next(maxRange);
+        }
+        lastNum = x;
         return x;
     }
 
@@ -116,6 +124,19 @@ public class QuizController : MonoBehaviour
         FindObjectOfType<QnAscore>().playerAnsList.Add(elemlist[number].ChildNodes[1].ChildNodes[btn].InnerText);
         //
 
+        switch (sceneName)
+        {
+            case "Producer":
+                break;
+            case "TGO":
+                break;
+            case "DGO":
+                break;
+            case "Supplier":
+                break;
+            case "Consumer":
+                break;
+        }
         if (influence < 0)
         {
             if (DGOCheckEndOfGame.NumberOfCorrectAnswers > 0)

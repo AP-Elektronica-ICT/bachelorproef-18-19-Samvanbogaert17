@@ -119,4 +119,9 @@ Start van QnACanvas
 
 Afwerken ScoreCanvas
 Code refactoring van LevelStart, LevelIntroduction en algemene QuizController
-Afwerken 
+Afwerken
+
+04/03/19 - Dag 23
+
+Code Refactoring
+Canvassen aanpassen voor meerdere resoluties 

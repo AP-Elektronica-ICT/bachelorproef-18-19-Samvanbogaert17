@@ -42,4 +42,14 @@ What is the main task of the DGO?
       <answer influence ="-2">Maintaining the grid.</answer>
     </answers>
   </popup>
+  <popup>
+    <text>
+When a consumer has an MMR with two rows of figures, the consumer will likely have a double tariff and will use two timeframes with a different price per unit.
+The time when a device needs to switch from one timeframe to another is set by the DGO.
+    </text>
+    <answers>
+      <answer influence ="-2">No</answer>
+      <answer influence ="2">Yes</answer>
+    </answers>
+  </popup>
 </scripts>

@@ -245,7 +245,7 @@ public class ProducerMarketController : MonoBehaviour
             installedBuildingList.Add(new Building(buildingList[i].id, buildingList[i].name, buildingList[i].type, 0, 0, buildingList[i].price));
         }
 
-        //Add all Green type buildings
+        /*//Add all Green type buildings
         installedBuildingList.Add(new Building(0, "Solarpanel farm", "Green", 0, 0, 10000));
         installedBuildingList.Add(new Building(1, "Hydroelectric plant", "Green", 0, 0, 70000));
         installedBuildingList.Add(new Building(2, "Wind turbine farm", "Green", 0, 0, 25000));
@@ -253,7 +253,7 @@ public class ProducerMarketController : MonoBehaviour
 
         //Add all Gray type buildings
         installedBuildingList.Add(new Building(4, "Nuclear power plant", "Gray", 0, 0, 250000));
-        installedBuildingList.Add(new Building(5, "Fossil fuel power station", "Gray", 0, 0, 5000));
+        installedBuildingList.Add(new Building(5, "Fossil fuel power station", "Gray", 0, 0, 5000));*/
     }
     private void GetMarketPrefabs()
     {
