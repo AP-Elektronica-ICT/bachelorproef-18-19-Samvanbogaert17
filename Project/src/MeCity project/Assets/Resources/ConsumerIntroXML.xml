@@ -35,12 +35,14 @@
     </text>
   </dilemma>
   <multiple-choice>
-    Multiple choice questions are your regular questions that you can also find throughout other levels in the game.
-    
-    You will be presented with a question with possible answers. 
-    
-    If you guessed the answer correctly, you will receive a bonus.
-    
-    If you guessed the answer incorrectly, you will receive a penalty.
+    <text>
+      Multiple choice questions are your regular questions that you can also find throughout other levels in the game.
+
+      You will be presented with a question with possible answers.
+
+      If you guessed the answer correctly, you will receive a bonus.
+
+      If you guessed the answer incorrectly, you will receive a penalty.
+    </text>
   </multiple-choice>
 </scripts>

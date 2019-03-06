@@ -14427,7 +14427,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 482524768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28143e7fd6a15784593167caf6620c78, type: 3}
+  m_Script: {fileID: 11500000, guid: 48ae1396cba661044b8baeb080acf8f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   introCanvas: {fileID: 1646066193}
@@ -14484,7 +14484,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 482524768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4115d31dc65a30141975414920c05b0f, type: 3}
+  m_Script: {fileID: 11500000, guid: e909a0ad254dd9e418bd16563a27c85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   endOfGameCanvas: {fileID: 1596810710}
@@ -14510,7 +14510,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 482524768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c668c70b259f72d40bffa93a10a3a137, type: 3}
+  m_Script: {fileID: 11500000, guid: fd4ca0fb85100fa43ae01d2766d7223c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   introCanvas: {fileID: 1646066193}
@@ -32244,7 +32244,7 @@ GameObject:
   - component: {fileID: 1027628822}
   - component: {fileID: 1027628821}
   m_Layer: 5
-  m_Name: Text
+  m_Name: MoneyTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52435,11 +52435,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 416532944005061315, guid: 197059102c9a24a4dad2c98d1c738ac7,
-        type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 1692838566}
     - target: {fileID: 416532943927478844, guid: 197059102c9a24a4dad2c98d1c738ac7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -52450,6 +52445,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadTitleScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 416532944005061315, guid: 197059102c9a24a4dad2c98d1c738ac7,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1692838566}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 197059102c9a24a4dad2c98d1c738ac7, type: 3}
 --- !u!223 &1596810710 stripped
@@ -54272,11 +54272,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5820183543842141807, guid: a14effcabb15c7c47a463f0c6ffb2cd1,
-        type: 3}
-      propertyPath: audio
-      value: 
-      objectReference: {fileID: 374239836}
     - target: {fileID: 4653635691681503730, guid: a14effcabb15c7c47a463f0c6ffb2cd1,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -54307,6 +54302,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5820183543842141807, guid: a14effcabb15c7c47a463f0c6ffb2cd1,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 374239836}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a14effcabb15c7c47a463f0c6ffb2cd1, type: 3}
 --- !u!114 &1646066188 stripped
