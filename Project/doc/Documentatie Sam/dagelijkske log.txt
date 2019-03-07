@@ -126,11 +126,16 @@ Afwerken
 Code Refactoring
 Canvassen aanpassen voor meerdere resoluties 
 
-05/06/19 - Dag 24
+05/03/19 - Dag 24
 
 Afwerken van Mockups Consumerlevel
 
-06/06/19 - Dag 25
+06/03/19 - Dag 25
 
 Start van Consumerlevel
 Start van Dilemma Canvas & Quiz Canvas
+
+07/03/19 - Dag 26
+
+Aanvullen van Multiple Choice en Dilemma's
+Tussentijdse presentatie voorbereiden

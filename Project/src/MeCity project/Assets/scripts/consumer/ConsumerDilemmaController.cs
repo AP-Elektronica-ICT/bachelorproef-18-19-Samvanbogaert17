@@ -15,7 +15,9 @@ public class ConsumerDilemmaController : MonoBehaviour
     public Slider energySlider;
 
     private XmlDocument dilemmaDoc = new XmlDocument();
-    private int number;
+    private XmlNodeList elemList;
+
+    private int number = 0;
     private bool answered = false;
     private int lastNum = 0;
     private string sceneName;
@@ -45,17 +47,18 @@ public class ConsumerDilemmaController : MonoBehaviour
         for (int i = 0; i < answerBtns.Length; i++)
         {
             answerBtns[i].onClick.RemoveAllListeners();
-            answerBtns[i].GetComponent<Image>().color = Color.white;
             answerBtns[i].interactable = true;
         }
         // load the xml script
         TextAsset xmlData = new TextAsset();
+
         //Make sure the file name is the name of the scene + 'ScriptsXML'
         //e.g. scene name is 'FirstLevel' then filename should be FirstLevelScriptsXML
+        sceneName = SceneManager.GetActiveScene().name;
         string filename = sceneName + "ScriptsXML";
         xmlData = (TextAsset)Resources.Load(filename, typeof(TextAsset));
         dilemmaDoc.LoadXml(xmlData.text);
-        int range = dilemmaDoc.GetElementsByTagName("text").Count;
+        int range = dilemmaDoc.GetElementsByTagName("dtext").Count;
 
         // generate a random number to show up a random popup
         int randomgetal = RandomNumber(range);
@@ -93,7 +96,7 @@ public class ConsumerDilemmaController : MonoBehaviour
     private void ReadXML(int number)
     {
         // Search for text tags in the xml file
-        XmlNodeList elemList = dilemmaDoc.GetElementsByTagName("popup");
+        XmlNodeList elemList = dilemmaDoc.GetElementsByTagName("dilemma");
         int ansCount = elemList[number].ChildNodes[1].ChildNodes.Count;
         XmlNodeList tekstList = dilemmaDoc.GetElementsByTagName("text");
         questionTxt.text = tekstList[number].InnerText;
@@ -107,18 +110,15 @@ public class ConsumerDilemmaController : MonoBehaviour
         }
     }
 
-    // every button contains an influence this is used to move the happiness slider right or left. This number is given in the xml file
     private void BtnAnswer(int btn, int number)
     {
         answered = true;
         CameraControl.showingPopUp = false;
         CameraControl.inQuiz = false;
-        XmlNodeList elemlist = dilemmaDoc.GetElementsByTagName("popup");
-        XmlNodeList list = elemlist[number].ChildNodes[1].ChildNodes;
+        XmlNodeList list = elemList[number].ChildNodes[1].ChildNodes;
         consumption += float.Parse(list[btn].Attributes["consumption"].Value);
         money += float.Parse(list[btn].Attributes["money"].Value);
         energy += float.Parse(list[btn].Attributes["energy"].Value);
-        XmlNodeList tekstList = dilemmaDoc.GetElementsByTagName("text");
 
         if(consumption > prevConsumption || money > prevMoney || energy > prevEnergy)
         {
@@ -172,5 +172,51 @@ public class ConsumerDilemmaController : MonoBehaviour
         prevConsumption = consumption;
         prevMoney = money;
         prevEnergy = energy;
+    }
+
+    //start dilemma function - only called at the beginning of the level
+    public void StartDilemma(int mode)
+    {
+        answered = false;
+        // hide all buttons so they are not visible when there are for example 3 answers (5 buttons in total)
+        for (int i = 0; i < answerBtns.Length; i++)
+        {
+            answerBtns[i].onClick.RemoveAllListeners();
+            answerBtns[i].interactable = true;
+        }
+        // load the xml script
+        TextAsset xmlData = new TextAsset();
+        sceneName = SceneManager.GetActiveScene().name;
+        string filename = sceneName + "ScriptsXML";
+        Debug.Log(filename);
+        xmlData = (TextAsset)Resources.Load(filename, typeof(TextAsset));
+        dilemmaDoc.LoadXml(xmlData.text);
+
+        // read XML
+        // Search for text tags in the xml file
+        elemList = dilemmaDoc.GetElementsByTagName("startdilemma");
+        Debug.Log(dilemmaDoc.GetElementsByTagName("startdilemma"));
+        int ansCount = elemList[mode].ChildNodes[1].ChildNodes.Count;
+        XmlNodeList tekstList = dilemmaDoc.GetElementsByTagName("sdtext");
+        questionTxt.text = tekstList[mode].InnerText;
+        //
+        for (int i = 0; i < ansCount; i++)
+        {
+            answerBtns[i].gameObject.SetActive(true);
+            answerBtns[i].GetComponentInChildren<Text>().text = elemList[mode].ChildNodes[1].ChildNodes[i].InnerText;
+        }
+        //
+        for (int i = 0; i < answerBtns.Length; i++)
+        {
+            int temp = i;
+            answerBtns[temp].onClick.AddListener(() =>
+            {
+                BtnAnswer(temp, mode);
+                foreach (Button btn in answerBtns)
+                {
+                    btn.interactable = false;
+                }
+            });
+        }
     }
 }

@@ -7,10 +7,11 @@ public class ConsumerLevelController : MonoBehaviour
 {
     public Canvas dilemmaCanvas;
     public Text question;
+    public Button[] choiceBtns;
     public Button choice1Btn;
     public Button choice2Btn;
     public Text choice1Txt;
-    public Text choice2;
+    public Text choice2Txt;
     public RawImage[] invSlots;
     public Slider consumptionSlider;
     public Slider moneySlider;
@@ -33,8 +34,8 @@ public class ConsumerLevelController : MonoBehaviour
         energy = energySlider.value;
 
         dilemmaCanvas.enabled = true;
-        choice1Btn.onClick.AddListener(() => Init(0, 0));
-        choice1Btn.onClick.AddListener(() => Init(0, 1));
+        Init(0);
+
     }
 
     // Update is called once per frame
@@ -44,24 +45,51 @@ public class ConsumerLevelController : MonoBehaviour
     }
 
     //choices before start of the level
-    private void Init(int num, int choice)
+    private void Init(int num)
     {
-        choice1Btn.onClick.RemoveAllListeners();
-        choice2Btn.onClick.RemoveAllListeners();
         switch (num)
         {
             case 0:
-                invSlots[num].texture = solarpanels[choice];
-                choice1Btn.onClick.AddListener(() => Init(1, 0));
-                choice2Btn.onClick.AddListener(() => Init(1, 1));
+                FindObjectOfType<ConsumerDilemmaController>().StartDilemma(num);
+                for (int i = 0; i < choiceBtns.Length; i++)
+                {
+                    int temp = i;
+                    choiceBtns[i].onClick.RemoveAllListeners();
+                    choiceBtns[i].onClick.AddListener(() =>
+                    {
+                        Debug.Log(invSlots.Length);
+                        invSlots[num].texture = solarpanels[temp];
+                        Init(1);
+                    });
+                }
                 break;
             case 1:
-                invSlots[num].texture = tariffs[choice];
-                choice1Btn.onClick.AddListener(() => Init(2, 0));
-                choice2Btn.onClick.AddListener(() => Init(2, 1));
+                FindObjectOfType<ConsumerDilemmaController>().StartDilemma(num);
+                for (int i = 0; i < choiceBtns.Length; i++)
+                {
+                    int temp = i;
+                    choiceBtns[i].onClick.RemoveAllListeners();
+                    choiceBtns[i].onClick.AddListener(() =>
+                    {
+                        invSlots[num].texture = tariffs[temp];
+                        Init(2);
+                    });
+                }
                 break;
             case 2:
-                invSlots[num].texture = tariffs[choice];
+                FindObjectOfType<ConsumerDilemmaController>().StartDilemma(num);
+                for (int i = 0; i < choiceBtns.Length; i++)
+                {
+                    int temp = i;
+                    choiceBtns[i].onClick.RemoveAllListeners();
+                    choiceBtns[i].onClick.AddListener(() =>
+                    {
+                        invSlots[num].texture = suppliers[temp];
+                        Init(3);
+                    });
+                }
+                break;
+            case 3:
                 dilemmaCanvas.enabled = false;
                 AskQuestion(rnd.Next(0, 2));
                 break;

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- xml used for the scripts for the dgo eventsystem (popups) -->
+<scripts>
+  <popup>
+    <text>
+Consider a customer requesting a new connection to be installed in a regulated market.
+Which parties would he have had to contact?
+    </text>
+    <answers>
+      <answer influence ="1">Just the Supplier</answer>
+      <answer influence ="-2">The DGO and the Supplier</answer>
+      <answer influence ="-1">Just the DGO</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+Consider a customer requesting a new connection to be installed in a deregulated market.
+Which parties would he have had to contact?
+    </text>
+    <answers>
+      <answer influence ="-2">Just the DGO</answer>
+      <answer influence ="-2">Just the Supplier</answer>
+      <answer influence ="2">the DGO and the Supplier</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+Can customers switch DGO while remaining in the same physical location?
+    </text>
+    <answers>
+      <answer influence ="-1" >Yes</answer>
+      <answer influence ="2">No</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+BONUS
+
+How much does the average household dishwasher cost to run over a year?
+    </text>
+    <answers>
+      <answer influence ="-1" >£18</answer>
+      <answer influence ="2">£40</answer>
+      <answer influence ="-2">£1750</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+BONUS
+
+How many times a year does the average UK household boil a kettle?
+    </text>
+    <answers>
+      <answer influence ="-2">Around 350 times</answer>
+      <answer influence ="2">Around 1500 times</answer>
+      <answer influence ="2">Around 6000 times</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+      BONUS
+
+      On average, what proportion of a household's annual electricity bill do TVs, game consoles and other entertainment equipment account for?
+    </text>
+    <answers>
+      <answer influence ="-1">6%</answer>
+      <answer influence ="2">10%</answer>
+      <answer influence ="-2">90%</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+      BONUS
+
+      Which uses more electricity - a laptop or a desktop PC?
+    </text>
+    <answers>
+      <answer influence ="2">A desktop PC</answer>
+      <answer influence ="-1">A laptop</answer>
+      <answer influence ="-2">Both use the same amount of electricity</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+      BONUS
+
+      WHat is the difference in energy cost per year between using a standard lightbulb and a low-energy lightbulb (based on four hours' use every day)?
+    </text>
+    <answers>
+      <answer influence ="-2">£1.15</answer>
+      <answer influence ="2">£9.65</answer>
+      <answer influence ="-1">£11.97</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+      BONUS
+
+      If you leave the tap running when you brush your teeth, how much water do you waste per minute?
+    </text>
+    <answers>
+      <answer influence ="-1">A couple of pints</answer>
+      <answer influence ="2">A fish bowl's worth (6 litres)</answer>
+      <answer influence ="-2">A paddling pool's worth (165 litres)</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+      BONUS
+
+      How much energy would we save per year if everyone across the UK unplugged their mobile phone chargers when not in use?
+    </text>
+    <answers>
+      <answer influence ="-2">Enough to power 10 homes for a year</answer>
+      <answer influence ="-1">Enough to power 20,000 homes for a year</answer>
+      <answer influence ="2">Enough to power 115,000 homes for a year</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+      BONUS
+
+      If yo leave a PC monitor switched on overnight, it wastes the same amount of energy as it would take to:
+    </text>
+    <answers>
+      <answer influence ="-2">Microwave 1 dinner</answer>
+      <answer influence ="-1">Microwave 3 dinners</answer>
+      <answer influence ="2">Microwave 6 dinners</answer>
+    </answers>
+  </popup>
+
+  <!-- Dilemma's and Starting Dilemma's -->
+  <!-- important formatting: choices always need 3 attributes, but can be left empty to return an empty string -->
+
+  <!-- template: <choice consumption="" money="" energy=""></choice>-->
+  
+  <!-- Starting Dilemma's -->
+  
+  <startdilemma>
+    <sdtext>
+      Solar Panels?
+    </sdtext>
+    <choices>
+      <choice consumption="" money="-2" energy="2">Install Solar panels</choice>
+      <choice consumption="" money="" energy="">Don't Solar panels</choice>
+    </choices>
+  </startdilemma>
+  <startdilemma>
+    <sdtext>
+      Tariff Type?
+    </sdtext>
+    <choices>
+      <choice consumption="" money="-2" energy="2">Install Solar panels</choice>
+      <choice></choice>
+    </choices>
+  </startdilemma>
+  <startdilemma>
+    <sdtext>
+      Supplier?
+    </sdtext>
+    <choices>
+      <choice consumption="2" money="-2" energy="">Engie</choice>
+      <choice consumption="2" money="-2" energy="">Luminus</choice>
+    </choices>
+  </startdilemma>
+  <dilemma identifier="2:2">
+    <dtext>
+      Your DGO has offered to replace your normal meter with a smart meter, saving you a lot of money in the long term.
+    </dtext>
+    <choices>
+      <choice consumption="" money="-1" energy="1">Accept to install the smart meter</choice>
+      <choice consumption="" money="" energy="-1">Refuse to install the smart meter</choice>
+    </choices>
+  </dilemma>
+</scripts>

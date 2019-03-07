@@ -16582,6 +16582,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 1514532724}
+  uiCanvas: {fileID: 0}
+  pauseBtn: {fileID: 0}
+  amountOfCanvasses: []
 --- !u!114 &482524774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18211,7 +18214,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -424.02155}
+  m_AnchoredPosition: {x: 0.000002109861, y: -424.02155}
   m_SizeDelta: {x: -10.6, y: 848.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &532037419
@@ -43779,7 +43782,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000030517578, y: -0.07882758}
+  m_AnchoredPosition: {x: -0.000013676393, y: -0.000014305115}
   m_SizeDelta: {x: -10.6, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1191630767
@@ -62232,7 +62235,6 @@ MonoBehaviour:
   pauseCanvas: {fileID: 375624674}
   btn: {fileID: 1682883932}
   canvas: {fileID: 1738918281}
-  intro: {fileID: 0}
 --- !u!114 &1682883932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70098,7 +70100,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 730577982}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0
+  m_Size: 0.0006659374
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -76227,7 +76229,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 810782711}
   m_HandleRect: {fileID: 810782710}
   m_Direction: 2
-  m_Value: 0.99999595
+  m_Value: 0.999996
   m_Size: 0
   m_NumberOfSteps: 0
   m_OnValueChanged:
