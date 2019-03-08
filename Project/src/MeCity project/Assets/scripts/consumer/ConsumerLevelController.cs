@@ -6,12 +6,10 @@ using UnityEngine.UI;
 public class ConsumerLevelController : MonoBehaviour
 {
     public Canvas dilemmaCanvas;
+    public Canvas quizCanvas;
     public Text question;
+    public Button[] CloseBtns;
     public Button[] choiceBtns;
-    public Button choice1Btn;
-    public Button choice2Btn;
-    public Text choice1Txt;
-    public Text choice2Txt;
     public RawImage[] invSlots;
     public Slider consumptionSlider;
     public Slider moneySlider;
@@ -21,7 +19,8 @@ public class ConsumerLevelController : MonoBehaviour
     public Texture[] tariffs;
     public Texture[] suppliers;
 
-    private System.Random rnd = new System.Random();
+    private System.Random random = new System.Random();
+    private int rnd;
 
     private float consumption;
     private float money;
@@ -29,6 +28,8 @@ public class ConsumerLevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rnd = random.Next(0, 2);
+
         consumption = consumptionSlider.value;
         money = moneySlider.value;
         energy = energySlider.value;
@@ -36,6 +37,16 @@ public class ConsumerLevelController : MonoBehaviour
         dilemmaCanvas.enabled = true;
         Init(0);
 
+        foreach (Button btn in CloseBtns)
+        {
+            btn.enabled = false;
+            btn.GetComponent<Image>().color = Color.clear;
+            btn.GetComponentInChildren<Text>().color = Color.clear;
+            btn.onClick.AddListener(() =>
+            {
+                AskQuestion(rnd);
+            });
+        }
     }
 
     // Update is called once per frame
@@ -47,6 +58,10 @@ public class ConsumerLevelController : MonoBehaviour
     //choices before start of the level
     private void Init(int num)
     {
+        for(int i = 0; i < choiceBtns.Length; i++)
+        {
+            choiceBtns[i].onClick.RemoveAllListeners();
+        }
         switch (num)
         {
             case 0:
@@ -54,10 +69,8 @@ public class ConsumerLevelController : MonoBehaviour
                 for (int i = 0; i < choiceBtns.Length; i++)
                 {
                     int temp = i;
-                    choiceBtns[i].onClick.RemoveAllListeners();
                     choiceBtns[i].onClick.AddListener(() =>
                     {
-                        Debug.Log(invSlots.Length);
                         invSlots[num].texture = solarpanels[temp];
                         Init(1);
                     });
@@ -68,7 +81,6 @@ public class ConsumerLevelController : MonoBehaviour
                 for (int i = 0; i < choiceBtns.Length; i++)
                 {
                     int temp = i;
-                    choiceBtns[i].onClick.RemoveAllListeners();
                     choiceBtns[i].onClick.AddListener(() =>
                     {
                         invSlots[num].texture = tariffs[temp];
@@ -81,7 +93,6 @@ public class ConsumerLevelController : MonoBehaviour
                 for (int i = 0; i < choiceBtns.Length; i++)
                 {
                     int temp = i;
-                    choiceBtns[i].onClick.RemoveAllListeners();
                     choiceBtns[i].onClick.AddListener(() =>
                     {
                         invSlots[num].texture = suppliers[temp];
@@ -90,30 +101,33 @@ public class ConsumerLevelController : MonoBehaviour
                 }
                 break;
             case 3:
+                foreach(Button btn in CloseBtns)
+                {
+                    btn.enabled = true;
+                    btn.GetComponent<Image>().color = Color.white;
+                    btn.GetComponentInChildren<Text>().color = Color.black;
+                }
                 dilemmaCanvas.enabled = false;
-                AskQuestion(rnd.Next(0, 2));
+                AskQuestion(rnd);
                 break;
         }
     }
 
-    private void AskQuestion(int mode)
+    public void AskQuestion(int mode)
     {
+        rnd = random.Next(0, 2);
+        quizCanvas.enabled = false;
+        dilemmaCanvas.enabled = false;
         switch (mode)
         {
             case 0:
                 FindObjectOfType<ConsumerDilemmaController>().Dilemma();
+                dilemmaCanvas.enabled = true;
                 break;
             case 1:
                 FindObjectOfType<ConsumerQuizController>().MultipleChoice();
+                quizCanvas.enabled = true;
                 break;
-        }
-    }
-
-    private abstract class Question
-    {
-        private Question(int id, string Question, string note = "")
-        {
-
         }
     }
 }

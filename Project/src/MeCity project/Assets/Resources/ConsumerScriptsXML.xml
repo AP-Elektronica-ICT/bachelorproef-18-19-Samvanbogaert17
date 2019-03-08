@@ -141,8 +141,8 @@ How many times a year does the average UK household boil a kettle?
       Solar Panels?
     </sdtext>
     <choices>
-      <choice consumption="" money="-2" energy="2">Install Solar panels</choice>
-      <choice consumption="" money="" energy="">Don't Solar panels</choice>
+      <choice consumption="0" money="-2" energy="2">Install Solar panels</choice>
+      <choice consumption="0" money="0" energy="">Don't Solar panels</choice>
     </choices>
   </startdilemma>
   <startdilemma>
@@ -150,8 +150,8 @@ How many times a year does the average UK household boil a kettle?
       Tariff Type?
     </sdtext>
     <choices>
-      <choice consumption="" money="-2" energy="2">Install Solar panels</choice>
-      <choice></choice>
+      <choice consumption="0" money="0" energy="0">Single Tariff</choice>
+      <choice consumption="0" money="0" energy="0">Double Tariff</choice>
     </choices>
   </startdilemma>
   <startdilemma>
@@ -159,17 +159,17 @@ How many times a year does the average UK household boil a kettle?
       Supplier?
     </sdtext>
     <choices>
-      <choice consumption="2" money="-2" energy="">Engie</choice>
-      <choice consumption="2" money="-2" energy="">Luminus</choice>
+      <choice consumption="2" money="-2" energy="0">Engie</choice>
+      <choice consumption="2" money="-2" energy="0">Luminus</choice>
     </choices>
   </startdilemma>
-  <dilemma identifier="2:2">
+  <dilemma>
     <dtext>
       Your DGO has offered to replace your normal meter with a smart meter, saving you a lot of money in the long term.
     </dtext>
     <choices>
-      <choice consumption="" money="-1" energy="1">Accept to install the smart meter</choice>
-      <choice consumption="" money="" energy="-1">Refuse to install the smart meter</choice>
+      <choice consumption="0" money="-1" energy="1">Accept to install the smart meter</choice>
+      <choice consumption="0" money="0" energy="-1">Refuse to install the smart meter</choice>
     </choices>
   </dilemma>
 </scripts>

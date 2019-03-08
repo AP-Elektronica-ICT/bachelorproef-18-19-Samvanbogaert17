@@ -18,7 +18,6 @@ public class ConsumerDilemmaController : MonoBehaviour
     private XmlNodeList elemList;
 
     private int number = 0;
-    private bool answered = false;
     private int lastNum = 0;
     private string sceneName;
 
@@ -31,7 +30,7 @@ public class ConsumerDilemmaController : MonoBehaviour
 
 
     // script used for the event popups
-    public void Start()
+    void Start()
     {
         consumption = prevConsumption = consumptionSlider.value;
         money = prevMoney = moneySlider.value;
@@ -40,15 +39,24 @@ public class ConsumerDilemmaController : MonoBehaviour
         sceneName = SceneManager.GetActiveScene().name;
     }
 
+    void Update()
+    {
+        changeConsumption(consumption, prevConsumption);
+        changeMoney(money, prevMoney);
+        changeEnergy(energy, prevEnergy);
+        
+    }
+
     public void Dilemma()
     {
-        answered = false;
         // hide all buttons so they are not visible when there are for example 3 answers (5 buttons in total)
         for (int i = 0; i < answerBtns.Length; i++)
         {
             answerBtns[i].onClick.RemoveAllListeners();
             answerBtns[i].interactable = true;
         }
+        
+        
         // load the xml script
         TextAsset xmlData = new TextAsset();
 
@@ -59,13 +67,13 @@ public class ConsumerDilemmaController : MonoBehaviour
         xmlData = (TextAsset)Resources.Load(filename, typeof(TextAsset));
         dilemmaDoc.LoadXml(xmlData.text);
         int range = dilemmaDoc.GetElementsByTagName("dtext").Count;
-
+        
         // generate a random number to show up a random popup
         int randomgetal = RandomNumber(range);
         number = randomgetal;
         // Read the random popup in the xml file
         ReadXML(randomgetal);
-
+        
         for (int i = 0; i < answerBtns.Length; i++)
         {
             int temp = i;
@@ -78,6 +86,7 @@ public class ConsumerDilemmaController : MonoBehaviour
                 }
             });
         }
+        
     }
     // Generating a random number
     private int RandomNumber(int maxRange)
@@ -98,7 +107,7 @@ public class ConsumerDilemmaController : MonoBehaviour
         // Search for text tags in the xml file
         XmlNodeList elemList = dilemmaDoc.GetElementsByTagName("dilemma");
         int ansCount = elemList[number].ChildNodes[1].ChildNodes.Count;
-        XmlNodeList tekstList = dilemmaDoc.GetElementsByTagName("text");
+        XmlNodeList tekstList = dilemmaDoc.GetElementsByTagName("dtext");
         questionTxt.text = tekstList[number].InnerText;
 
         // for each popup, the answers to the questions are given in the xml file, we search the number of answers
@@ -112,72 +121,68 @@ public class ConsumerDilemmaController : MonoBehaviour
 
     private void BtnAnswer(int btn, int number)
     {
-        answered = true;
         CameraControl.showingPopUp = false;
         CameraControl.inQuiz = false;
         XmlNodeList list = elemList[number].ChildNodes[1].ChildNodes;
-        consumption += float.Parse(list[btn].Attributes["consumption"].Value);
-        money += float.Parse(list[btn].Attributes["money"].Value);
-        energy += float.Parse(list[btn].Attributes["energy"].Value);
+        consumption += float.Parse(list[btn].Attributes["consumption"].Value)*100;
+        money += float.Parse(list[btn].Attributes["money"].Value)*100;
+        energy += float.Parse(list[btn].Attributes["energy"].Value)*100;
+    }
 
-        if(consumption > prevConsumption || money > prevMoney || energy > prevEnergy)
+    private void changeConsumption(float curr, float prev)
+    {
+        if (consumption != prevConsumption)
         {
-            if(consumption != prevConsumption)
+            if (consumption > prevConsumption)
             {
-                while(consumptionSlider.value < consumption)
-                {
-                    consumptionSlider.value++;
-                }
+                consumptionSlider.value++;
+                prevConsumption++;
             }
-            if(money != prevMoney)
+            else
             {
-                while (moneySlider.value < money)
-                {
-                    moneySlider.value++;
-                }
-            }
-            if(energy != prevEnergy)
-            {
-                while (energySlider.value < energy)
-                {
-                    energySlider.value++;
-                }
+                consumptionSlider.value--;
+                prevConsumption--;
             }
         }
-        else
+    }
+
+    private void changeMoney(float curr, float prev)
+    {
+        if (money != prevMoney)
         {
-            if (consumption != prevConsumption)
+            if (money > prevMoney)
             {
-                while (consumptionSlider.value > consumption)
-                {
-                    consumptionSlider.value--;
-                }
+                moneySlider.value++;
+                prevMoney++;
             }
-            if (money != prevMoney)
+            else
             {
-                while (moneySlider.value > money)
-                {
-                    moneySlider.value--;
-                }
-            }
-            if (energy != prevEnergy)
-            {
-                while (energySlider.value > energy)
-                {
-                    energySlider.value--;
-                }
+                moneySlider.value--;
+                prevMoney--;
             }
         }
+    }
 
-        prevConsumption = consumption;
-        prevMoney = money;
-        prevEnergy = energy;
+    private void changeEnergy(float curr, float prev)
+    {
+        if (energy != prevEnergy)
+        {
+            if (energy > prevEnergy)
+            {
+                energySlider.value++;
+                prevEnergy++;
+            }
+            else
+            {
+                energySlider.value--;
+                prevEnergy--;
+            }
+        }
     }
 
     //start dilemma function - only called at the beginning of the level
     public void StartDilemma(int mode)
     {
-        answered = false;
         // hide all buttons so they are not visible when there are for example 3 answers (5 buttons in total)
         for (int i = 0; i < answerBtns.Length; i++)
         {
@@ -188,14 +193,12 @@ public class ConsumerDilemmaController : MonoBehaviour
         TextAsset xmlData = new TextAsset();
         sceneName = SceneManager.GetActiveScene().name;
         string filename = sceneName + "ScriptsXML";
-        Debug.Log(filename);
         xmlData = (TextAsset)Resources.Load(filename, typeof(TextAsset));
         dilemmaDoc.LoadXml(xmlData.text);
 
         // read XML
         // Search for text tags in the xml file
         elemList = dilemmaDoc.GetElementsByTagName("startdilemma");
-        Debug.Log(dilemmaDoc.GetElementsByTagName("startdilemma"));
         int ansCount = elemList[mode].ChildNodes[1].ChildNodes.Count;
         XmlNodeList tekstList = dilemmaDoc.GetElementsByTagName("sdtext");
         questionTxt.text = tekstList[mode].InnerText;
@@ -209,6 +212,7 @@ public class ConsumerDilemmaController : MonoBehaviour
         for (int i = 0; i < answerBtns.Length; i++)
         {
             int temp = i;
+            answerBtns[temp].onClick.RemoveAllListeners();
             answerBtns[temp].onClick.AddListener(() =>
             {
                 BtnAnswer(temp, mode);

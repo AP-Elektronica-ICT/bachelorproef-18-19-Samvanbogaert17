@@ -139,3 +139,8 @@ Start van Dilemma Canvas & Quiz Canvas
 
 Aanvullen van Multiple Choice en Dilemma's
 Tussentijdse presentatie voorbereiden
+
+08/03/19 - Dag 27
+
+Fixed supplier level: canvasses compatible with more resolutions + bugfixing
+Further developed consumer level: bugfixing
