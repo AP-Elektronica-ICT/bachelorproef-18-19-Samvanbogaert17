@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scripts>
+  <intro>
+    <text>
+      This is the Consumer Level. This level will all be about you and the choices you make or should make.
+
+      In this level we are going to focus on consumer consciousness and make you a better and happier consumer!
+
+      Before the level starts, you are going to make some character defining choices. These choises will further impact the result of other questions that will follow throughout the level.
+    </text>
+  </intro>
+  <ui>
+    <text>
+      Let's explain your user interface.
+
+      On the bottom left you can see 3 sliders (From left to right: Energy consumption, wealth and usage of green or regular energy).
+
+      In the middle you can see your inventory. Here you can find what choices you made during the beginning of the level.
+
+      By clicking on one of the items in your inventory, you can view what pro's and con's they have and what other effect they have on the results of other questions.
+    </text>
+  </ui>
+  <questions>
+    <text>
+      As mentioned earlier, you will receive questions throughout the game. These questions will come in different forms, such as dilemma's, regular multiple choice questions or 
+    </text>
+  </questions>
+  <dilemma>
+    <text>
+      Whenever you receive a dilemma, you will be presented with two choices.
+      
+      Some choices will have pro's, some will have con's and some will have both.
+      
+      So it is up to you to try and make the right decision.
+    </text>
+  </dilemma>
+  <multiple-choice>
+    <text>
+      Multiple choice questions are your regular questions that you can also find throughout other levels in the game.
+
+      You will be presented with a question with possible answers.
+
+      If you guessed the answer correctly, you will receive a bonus.
+
+      If you guessed the answer incorrectly, you will receive a penalty.
+    </text>
+  </multiple-choice>
+</scripts>

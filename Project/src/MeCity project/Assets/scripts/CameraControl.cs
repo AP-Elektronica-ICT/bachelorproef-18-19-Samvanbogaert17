@@ -1,16 +1,46 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CameraControl : MonoBehaviour
 {
     public Canvas pauseCanvas;
+    public Canvas uiCanvas;
+    public Button pauseBtn;
     public static bool showingPopUp = false;
-    private bool paused;
+    public static bool paused;
+    public static bool inQuiz = false;
+    [Tooltip("Do not include Pause Canvas and UI canvas")]
+    public Canvas[] amountOfCanvasses;
+    private string sceneName;
 
+    void Start()
+    {
+        sceneName = SceneManager.GetActiveScene().name;
+        pauseBtn.onClick.AddListener(() => pause());
+    }
     // Script used for the ingame camera control
     void Update()
     {
-        pause(SceneManager.GetActiveScene().name);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pause();
+        }
+        // on certain levels moving and rotating the camera will not be possible
+        if (sceneName != "Consumer" && sceneName != "Producer")
+        {
+            if (!paused)
+            {
+                move();
+                rotate();
+
+            }
+            //makes the camera rotate when the game is paused
+            if (paused)
+            {
+                transform.RotateAround(transform.position, Vector3.up, 0.1f);
+            }
+        }
     }
     // move the camera by pressing the arrow keys
     private void move()
@@ -36,7 +66,8 @@ public class CameraControl : MonoBehaviour
         if (transform.position.x >= -250 && transform.position.x <= 170 && transform.position.z >= -200 && transform.position.z <= 250)
         {
             transform.position = new Vector3(transform.position.x, yPosition, transform.position.z);
-        } else
+        }
+        else
         {
             transform.position = oldPosition;
         }
@@ -45,11 +76,11 @@ public class CameraControl : MonoBehaviour
     private void rotate()
     {
         // rotate camera right and left by pressing spacebar and moving the cursor to the edge of the screen
-        if (Input.mousePosition.x >= Screen.width * 0.95 && Input.GetKey("space"))
+        if (Input.mousePosition.x >= Screen.width * 0.95)//&& Input.GetKey("space"))
         {
             transform.RotateAround(transform.position, Vector3.up, 1.0f);
         }
-        if (Input.mousePosition.x <= Screen.width * 0.05 && Input.GetKey("space"))
+        if (Input.mousePosition.x <= Screen.width * 0.05)//&& Input.GetKey("space"))
         {
             transform.RotateAround(transform.position, Vector3.down, 1.0f);
         }
@@ -82,43 +113,36 @@ public class CameraControl : MonoBehaviour
         }
     }
 
-    private void pause(string sceneName)
+    private void pause()
     {
-        // press escape to pause the game
-        if (Input.GetKey(KeyCode.Escape))
+        if (!pauseCanvas.isActiveAndEnabled && !DisabledAllActiveCanvases())
         {
-            if (!pauseCanvas.isActiveAndEnabled)
-            {
-                paused = true;
-                Time.timeScale = 0;
-                pauseCanvas.enabled = true;
-            }
-            else
-            {
-                paused = false;
-                Time.timeScale = 1;
-                pauseCanvas.enabled = false;
-            }
+            paused = true;
+            Time.timeScale = 0;
+            pauseCanvas.enabled = true;
+            uiCanvas.enabled = false;
+        }
+        else
+        {
+            paused = false;
+            Time.timeScale = 1;
+            pauseCanvas.enabled = false;
+            uiCanvas.enabled = true;
+        }
+    }
 
-        }
-        if (!paused)
+    public bool DisabledAllActiveCanvases()
+    {
+        bool actionIsDone = false;
+        for (int i = 0; i < amountOfCanvasses.Length; i++)
         {
-            if(sceneName != "Consumer" && sceneName != "Producer")
+            if (amountOfCanvasses[i].isActiveAndEnabled)
             {
-                move();
-                rotate();
+                amountOfCanvasses[i].enabled = false;
+                actionIsDone = true;
             }
-            // for testing: add or subtract the statisfaction by pressing W and S
-            /*
-            if (Input.GetKey(KeyCode.W))
-            {
-                Satisfaction.satisfaction++;
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                Satisfaction.satisfaction--;
-            }
-            */
         }
+        Debug.Log(actionIsDone);
+        return actionIsDone;
     }
 }

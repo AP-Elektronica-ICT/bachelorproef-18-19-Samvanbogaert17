@@ -72,7 +72,20 @@ public class ProducerContractController : MonoBehaviour
 
     public void UpdateContract(int index)
     {
+        money = int.Parse(moneyTxt.text);
+        producing = int.Parse(producingTxt.text);
+
+        money -= ongoingContractsList[index].profit;
+        producing -= ongoingContractsList[index].amountSold;
+
         ongoingContractsList[index] = contractList[index];
+
+        money += ongoingContractsList[index].profit;
+        producing += ongoingContractsList[index].amountSold;
+
+        moneyTxt.text = money.ToString();
+        producingTxt.text = producing.ToString();
+
         FindObjectOfType<ProducerContractGridFiller>().UpdateContract(index);
     }
 

@@ -2,115 +2,94 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Contract = ProducerContractController.Contract;
+using Problem = DGOProblemController.Problem;
 
 public class DGOEventSystem : MonoBehaviour
 {
+    //Additional code formatting information
+    //you will often see a number followed by '* 60'. for example 1 * 60 or 5 * 60.
+    //the 1 and 5 in the above case represent an amount in seconds
+    //60 in the above case represents 60 frames or 1 second.
+    //this is to make the code more readable and easier to calculate with
+
     //These are the prefabs the pop ups are based on.
     public GameObject EventPopUpPrefab;
-    public GameObject ContractPopUpPrefab;
-    public GameObject WeatherPopUp;
+    public GameObject ProblemPopUpPrefab;
 
-    public Canvas contractsCanvas;
+    public Canvas problemCanvas;
     public Canvas UICanvas;
     public Canvas eventCanvas;
 
-    public Text producingTxt;
-    public Text totalProducingTxt;
-
-    private int producing;
-    private int totalProducing;
-
     [HideInInspector] public static System.Random random;
-    [HideInInspector] public static float satisfaction = 500; // min: 0; max: 1000
 
-    private List<WeatherEvent> weatherEventList = new List<WeatherEvent>();
-    private List<Contract> contractList = new List<Contract>();
-    private Dictionary<int, Contract> ongoingContractsList = new Dictionary<int, Contract>();
+    private List<Problem> problemList = new List<Problem>();
 
-    private int eventTimer, contractTimer, weatherTimer;
+    private int eventTimer, problemTimer;
     private PopUp[] popUps = new PopUp[3];
     private int eventFrameCounter = 1;
-    private int contractFrameCounter = 1;
-    private int weatherFrameCounter = 1;
+    private int problemFrameCounter = 1;
     private int rndIndex;
-    private int rndWeatherIndex;
+
+    [HideInInspector] public int problemTimerMinVal = 10 * 60;
+    [HideInInspector] public int problemTimerMaxVal = 20 * 60;
+    [HideInInspector] public int index = 0;
 
     public void Start()
     {
-        //Fill the weather events list with weather events
-        FillWeatherEventList();
-        //Fill the contract list in ProducerContract Controller. This happens here because otherwise you get NullReferenceExceptions
-        FindObjectOfType<ProducerContractController>().FillContractsList();
-        contractList = FindObjectOfType<ProducerContractController>().contractList;
-        ongoingContractsList = FindObjectOfType<ProducerContractController>().ongoingContractsList;
+        //Fill the problem list in DGO Problem Controller. This happens here because otherwise you get NullReferenceExceptions
+        FindObjectOfType<DGOProblemController>().FillProblemList();
+        //share memory with other problem lists. this will make code more readable.
+        problemList = FindObjectOfType<DGOProblemController>().problemList;
         random = new System.Random();
-        rndWeatherIndex = random.Next(0, weatherEventList.Count);
-        rndIndex = random.Next(0, contractList.Count);
-        eventTimer = random.Next(1500, 2100);
-        contractTimer = random.Next(1500, 2100);
-        weatherTimer = random.Next(1800, 3600);
-        GameObject.Find("HapSlider").GetComponent<Slider>().value = satisfaction;
+        rndIndex = random.Next(0, problemList.Count);
 
-        producing = int.Parse(producingTxt.text);
-        totalProducing = int.Parse(totalProducingTxt.text);
+        eventTimer = random.Next(15 * 60, 25 * 60);
+        problemTimer = random.Next(15 * 60, 25 * 60);
     }
     public void Update()
     {
         //Only update if game is running
         if (Time.timeScale == 1)
         {
-            if(int.Parse(producingTxt.text) < 0)
-            {
-                satisfaction -= 0.25f;
-                GameObject.Find("HapSlider").GetComponent<Slider>().value = satisfaction;
-            }
             //Check for all existing popups if they have been visible for 10 seconds. If so, they are deleted.
             for (int i = 0; i < popUps.Length; i++)
             {
                 if (popUps[i] != null)
                 {
-                    if (Time.frameCount - popUps[i].CreatedTimeInFrames >= 600)
+                    if (Time.frameCount - popUps[i].CreatedTimeInFrames >= 10 * 60)
                     {
                         Destroy(popUps[i].Prefab);
                         popUps[i] = null;
-                        rndIndex = random.Next(0, contractList.Count);
                     }
                 }
             }
             //Every 5 seconds, the city happiness goes down. (This is done to enforce the player to keep on answerring the events).
-            if (Time.frameCount % 300 == 0)
+            if (Time.frameCount % 5 * 60 == 0)
             {
-                FindObjectOfType<ProducerCheckEndOfGame>().enabled = true;
-                satisfaction -= 0.5f;
-                GameObject.Find("HapSlider").GetComponent<Slider>().value -= 0.5f;
-
-
+                FindObjectOfType<DGOCheckEndOfGame>().enabled = true;
             }
-            //At a random time between 15 and 25 seconds an invoice will be shown for the player to receive money based on the consumed energy since last invoice.
-            if (contractFrameCounter % contractTimer == 0 || Input.GetKeyDown(KeyCode.O))
+            //At a random time between 5 and 15 seconds a problem will occur for the player to solve.
+            if (!CameraControl.inQuiz && !CameraControl.paused)
             {
-                showContract();
-                contractTimer = random.Next(900, 1500);
-                contractFrameCounter = 0;
+                if (problemFrameCounter % problemTimer == 0 || Input.GetKeyDown(KeyCode.O))
+                {
+                    showProblem();
+                    FindObjectOfType<DGOProblemController>().AddProblem(rndIndex, index);
+                    rndIndex = random.Next(0, problemList.Count);
+                    index++;
+                    problemTimer = random.Next(problemTimerMinVal, problemTimerMaxVal);
+                    problemFrameCounter = 0;
+                }
             }
             //At a random time between 15 and 25 seconds an event will be shown for the player to answer.
             if (eventFrameCounter % eventTimer == 0 || Input.GetKeyDown(KeyCode.P))
             {
                 showPopUp();
-                eventTimer = random.Next(900, 1500);
+                eventTimer = random.Next(15 * 60, 25 * 60);
                 eventFrameCounter = 0;
             }
-            //At a random time between 30 and 60 seconds a weather event will be triggered to change behaviour in producing buildings.
-            if (weatherFrameCounter % weatherTimer == 0 || Input.GetKeyDown(KeyCode.I))
-            {
-                showWeatherEvent(rndWeatherIndex);
-                weatherTimer = random.Next(1800, 3600);
-                weatherFrameCounter = 0;
-            }
             eventFrameCounter++;
-            contractFrameCounter++;
-            weatherFrameCounter++;
+            problemFrameCounter++;
         }
     }
 
@@ -124,19 +103,20 @@ public class DGOEventSystem : MonoBehaviour
             {
                 popUps[i] = new PopUp(Time.frameCount, Instantiate(EventPopUpPrefab, UICanvas.transform));
                 popUps[i].Prefab.transform.position = new Vector2(popUps[i].Prefab.transform.position.x, popUps[i].Prefab.transform.position.y - (i * 250));
+
                 popUps[i].Prefab.GetComponentsInChildren<Button>()[0].onClick.AddListener(() =>
                 {
-                    //If another screen is already showing, we cannot show the event. The player will have to chose what he spends his time on.
+                    //If another screen is already showing, we cannot show the event. The player will have to choose what he spends his time on.
                     if (!CameraControl.showingPopUp)
                     {
+                        CameraControl.inQuiz = true;
                         CameraControl.showingPopUp = true;
                         Destroy(popUps[i].Prefab);
                         popUps[i] = null;
-                        FindObjectOfType<ProducerQuizController>().Task();
+                        FindObjectOfType<QuizController>().Task();
                         eventCanvas.enabled = true;
                     }
                 });
-                //If an event gets denied, customer satisfaction plumits. This is to punish the player for not answerring the questions.
                 popUps[i].Prefab.GetComponentsInChildren<Button>()[1].onClick.AddListener(() =>
                 {
                     Destroy(popUps[i].Prefab);
@@ -147,79 +127,20 @@ public class DGOEventSystem : MonoBehaviour
         }
     }
 
-    //A contract will be shown. The player can choose to accept or decline a contract
-    public void showContract()
+    //A problem will be shown.
+    public void showProblem()
     {
         for (int i = 0; i < popUps.Length; i++)
         {
             if (popUps[i] == null)
             {
-                popUps[i] = new PopUp(Time.frameCount, Instantiate(ContractPopUpPrefab, UICanvas.transform));
+                popUps[i] = new PopUp(Time.frameCount, Instantiate(ProblemPopUpPrefab, UICanvas.transform));
                 popUps[i].Prefab.transform.position = new Vector2(popUps[i].Prefab.transform.position.x, popUps[i].Prefab.transform.position.y - (i * 250));
-                //Update the contract if it is already ongoing
-                if (ongoingContractsList.ContainsKey(rndIndex))
-                {
-                    //Styling of Title
-                    popUps[i].Prefab.GetComponentsInChildren<Text>()[0].text = ongoingContractsList[rndIndex].name;
-                    popUps[i].Prefab.GetComponentsInChildren<Text>()[0].fontSize = 12;
-                    popUps[i].Prefab.GetComponentsInChildren<Text>()[0].fontStyle = FontStyle.Bold;
-                    //Styling of Text
-                    popUps[i].Prefab.GetComponentsInChildren<Text>()[1].text = String.Format("Amount Sold: {0:n}\nYour Profit: {1:n}", contractList[rndIndex].amountSold, contractList[rndIndex].profit);
-                    popUps[i].Prefab.GetComponentsInChildren<Text>()[1].fontSize = 12;
-                    popUps[i].Prefab.GetComponentsInChildren<Button>()[0].GetComponentInChildren<Text>().text = "Update";
-                    popUps[i].Prefab.GetComponentsInChildren<Button>()[1].GetComponentInChildren<Text>().text = "Decline";
-                    //Remove onClick Listeners
-                    popUps[i].Prefab.GetComponentsInChildren<Button>()[0].onClick.RemoveAllListeners();
-                    popUps[i].Prefab.GetComponentsInChildren<Button>()[1].onClick.RemoveAllListeners();
-                    //Accept Contract
-                    popUps[i].Prefab.GetComponentsInChildren<Button>()[0].onClick.AddListener(() =>
-                    {
-                        Destroy(popUps[i].Prefab);
-                        popUps[i] = null;
-                        FindObjectOfType<ProducerContractController>().UpdateContract(rndIndex);
 
-                        FindObjectOfType<ProducerContractController>().RefreshContractsList();
-                        rndIndex = random.Next(0, contractList.Count);
-                    });
-                    //Decline Contract
-                    popUps[i].Prefab.GetComponentsInChildren<Button>()[1].onClick.AddListener(() =>
-                    {
-                        Destroy(popUps[i].Prefab);
-                        popUps[i] = null;
-                    });
-                }
-                //Accept the new contract if the contract isn't already ongoing
-                else
-                {
-                    //Styling of Title
-                    popUps[i].Prefab.GetComponentsInChildren<Text>()[0].text = contractList[rndIndex].name;
-                    popUps[i].Prefab.GetComponentsInChildren<Text>()[0].fontSize = 12;
-                    popUps[i].Prefab.GetComponentsInChildren<Text>()[0].fontStyle = FontStyle.Bold;
-                    //Styling of Text
-                    popUps[i].Prefab.GetComponentsInChildren<Text>()[1].text = String.Format("Amount Sold: {0:n}\nYour Profit: {1:n}", contractList[rndIndex].amountSold, contractList[rndIndex].profit);
-                    popUps[i].Prefab.GetComponentsInChildren<Text>()[1].fontSize = 12;
-                    popUps[i].Prefab.GetComponentsInChildren<Button>()[0].GetComponentInChildren<Text>().text = "Accept";
-                    popUps[i].Prefab.GetComponentsInChildren<Button>()[1].GetComponentInChildren<Text>().text = "Decline";
-                    //Remove onClick Listeners
-                    popUps[i].Prefab.GetComponentsInChildren<Button>()[0].onClick.RemoveAllListeners();
-                    popUps[i].Prefab.GetComponentsInChildren<Button>()[1].onClick.RemoveAllListeners();
-                    //Accept Contract
-                    popUps[i].Prefab.GetComponentsInChildren<Button>()[0].onClick.AddListener(() =>
-                    {
-                        Destroy(popUps[i].Prefab);
-                        popUps[i] = null;
-                        FindObjectOfType<ProducerContractController>().AcceptContract(rndIndex);
-                        FindObjectOfType<ProducerContractController>().RefreshContractsList();
-                        rndIndex = random.Next(0, contractList.Count);
-
-                    });
-                    //Decline Contract
-                    popUps[i].Prefab.GetComponentsInChildren<Button>()[1].onClick.AddListener(() =>
-                    {
-                        Destroy(popUps[i].Prefab);
-                        popUps[i] = null;
-                    });
-                }
+                //Styling of Title/Text
+                popUps[i].Prefab.GetComponentsInChildren<Text>()[1].text = problemList[rndIndex].title;
+                popUps[i].Prefab.GetComponentsInChildren<Text>()[1].fontSize = 12;
+                popUps[i].Prefab.GetComponentsInChildren<Text>()[1].fontStyle = FontStyle.Bold;
 
                 break;
             }

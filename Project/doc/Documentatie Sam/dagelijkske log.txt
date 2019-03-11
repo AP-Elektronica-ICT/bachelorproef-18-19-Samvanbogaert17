@@ -79,3 +79,68 @@ Aanmaken van weather systeem + vragen toegevoegd over producer
 
 Afmaken van Producer level
 Start van DGO level - problemCanvas
+
+21/02/19 - Dag 17
+
+Verder ontwikkelen van DGO level
+ProblemCanvas verder afwerken
+WorkerCanvas afwerken
+UI aanpassen
+Scripts overnemen en aanpassen voor DGO level
+
+25/02/19 - Dag 18
+
+verder afwerken van DGO level
+ProblemCanvas afgewerkt
+WorkerCanvas afgewerkt
+
+26/02/19 - Dag 19
+
+finishing touches Producer level
+Afbeelding in producer level gewijzigd
+kleine tweaks op producer scripts
+Nieuw concept 'Upgrades' ontwikkeld voor DGO level
+Upgrades Canvas ontwikkeld.
+Kleine tweaks op algemene scripts
+
+27/02/19 - Dag 20
+
+UpgradeCanvas functionaliteit toegevoegd
+ProblemCanvas fixed
+Balancing van problemen aangepast
+
+28/02/19 - Dag 21
+
+Afwerken van DGO level
+kleine tweaks op producerLvl
+Start van QnACanvas
+
+01/03/19 - Dag 22
+
+Afwerken ScoreCanvas
+Code refactoring van LevelStart, LevelIntroduction en algemene QuizController
+Afwerken
+
+04/03/19 - Dag 23
+
+Code Refactoring
+Canvassen aanpassen voor meerdere resoluties 
+
+05/03/19 - Dag 24
+
+Afwerken van Mockups Consumerlevel
+
+06/03/19 - Dag 25
+
+Start van Consumerlevel
+Start van Dilemma Canvas & Quiz Canvas
+
+07/03/19 - Dag 26
+
+Aanvullen van Multiple Choice en Dilemma's
+Tussentijdse presentatie voorbereiden
+
+08/03/19 - Dag 27
+
+Fixed supplier level: canvasses compatible with more resolutions + bugfixing
+Further developed consumer level: bugfixing

@@ -15,8 +15,10 @@ public class ClosePauseMenu : MonoBehaviour
     public void Task()
     {
         CameraControl.showingPopUp = false;
+        CameraControl.paused = false;
         Time.timeScale = 1;
         canvas.enabled = true;
         pauseCanvas.enabled = false;
+
     }
 }

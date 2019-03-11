@@ -4,11 +4,11 @@
     <text>
 In this level we will be discussing everything you need to know about the Producer.
 
-The main goal of this level is to produce enough electricity to sell to the suppliers. This can be achieved by buying buildings that produces said electricity and then selling it back to the suppliers via contracts.
+The main goal of this level is to produce enough electricity to sell to the suppliers. This can be achieved by buying buildings that produce electricity and then selling it back to the suppliers through contracts.
 
-But be careful! 'Grey' buildings produce pollution and this can cause happiness to decrease.
+But be careful! non-renewable energy producing buildings ('gray' buildings) produce pollution and this can cause happiness to decrease.
 
-Buying 'green' buildings is the obvious answer you might think, but not always.
+Buying renewable energy producing buildings ('green' buildings) is the obvious answer you might think, but not always.
 
 Solely relying on green buildings can cause problems. These buildings are not very reliable since they rely on the weather, but weather can vary extremely hard from time to time.
 
@@ -42,23 +42,31 @@ By Clicking on the energy panel, You will open the market. On the market you can
     <text>
 If you want to buy more buildings, you can go to the energy market by clicking on the energy button on the right side below.
 
-Here you can choose what kind of building you want to buy.
+Here you can choose what kind of building you want to buy. Each building has its own energy type, expected production, and pollution level.
+
+By clicking on the 'installed button', you will see all the buildings you have installed and also how much each type of building is producing in total.
+
+You will also notice the behaviour column, this will indicate the influence of the weather on this type of building.
     </text>
   </market>
   <contracts>
     <text>
 if your want to sell your energy back to suppliers, you can go to the contracts menu by clicking on the money button on the right side below.
 
-Here you can choose to renew expired contracts, or accept new contracts from new suppliers.
+Here you can view how much energy you are selling to a supplier, what your profit is on that contract and a cancel button in case you want to cancel a contract.
+
+By cancelling a contract, you will lose the profit but you will regain the amount of energy you sold.
     </text>
   </contracts>
   <events>
     <text>
-During the game you will get different events. If you choose to accept this event, the quiz menu will appear and will present you with a question that you can answer.
+During the game you will get different pop-ups. If you choose to accept the quiz pop-up, the quiz menu will appear and will present you with a question that you can answer.
 
 If a question is answered correctly, then you will receive bonus points and also a small money reward, depending on the difficulty of the question.
 
 If a question is answered incorrectly, you will receive a similar penalty in score.
+
+Another form of pop-up will be the contract pop-up. These pop-ups are offers from different suppliers that want to buy energy from you and give you a profit for it.
 
 You will also receive random weather events that will influence the production of certain buildings.
 

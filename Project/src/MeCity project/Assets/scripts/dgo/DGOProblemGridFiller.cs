@@ -8,20 +8,30 @@ using System;
 public class DGOProblemGridFiller : MonoBehaviour
 {
     public GameObject TextPrefab;
+    public GameObject DeployWorkerPrefab;
     public GameObject CancelPrefab;
+    public GameObject ProblemTitleGrid;
+    public GameObject ProblemGrid;
 
+    private Transform problemTitleTransform;
+    private Transform problemTransform;
     //Lists of GameObjects needed for the ProblemCanvas
-    [HideInInspector] public List<GameObject> problemPrefab = new List<GameObject>();
-    [HideInInspector] public List<GameObject> timeRemainingPrefab = new List<GameObject>();
-    [HideInInspector] public List<GameObject> cancelPrefab = new List<GameObject>();
+    [HideInInspector] public Dictionary<int, GameObject> problemPrefab = new Dictionary<int, GameObject>();
+    [HideInInspector] public Dictionary<int, GameObject> durationPrefab = new Dictionary<int, GameObject>();
+    [HideInInspector] public Dictionary<int, GameObject> deployedWorkerPrefab = new Dictionary<int, GameObject>();
+    [HideInInspector] public Dictionary<int, GameObject> cancelPrefab = new Dictionary<int, GameObject>();
 
-    [HideInInspector] public Dictionary<int, Problem> problemList = new Dictionary<int, Problem>();
-
+    [HideInInspector] public List<Problem> problemList = new List<Problem>();
+    [HideInInspector] public Dictionary<int, Problem> ongoingProblemList = new Dictionary<int, Problem>();
 
     // Use this for initialization
     void Start()
     {
-        InitializeProblemCanvas();
+        problemTitleTransform = ProblemTitleGrid.transform;
+        problemTransform = ProblemGrid.transform;
+
+        problemList = FindObjectOfType<DGOProblemController>().problemList;
+        ongoingProblemList = FindObjectOfType<DGOProblemController>().ongoingProblemList;
     }
 
     // Update is called once per frame
@@ -30,23 +40,55 @@ public class DGOProblemGridFiller : MonoBehaviour
 
     }
 
-    public void InitializeProblemCanvas()
+    public void AddProblem(int index)
     {
-        problemList = FindObjectOfType<DGOProblemController>().problemList;
-        for (int i = 0; i < problemList.Count; i++)
+        Problem p = ongoingProblemList[index];
+
+        problemPrefab.Add(index, Instantiate(TextPrefab, problemTitleTransform));
+        durationPrefab.Add(index, Instantiate(TextPrefab, problemTransform));
+        deployedWorkerPrefab.Add(index, Instantiate(DeployWorkerPrefab, problemTransform));
+        cancelPrefab.Add(index, Instantiate(CancelPrefab, problemTransform));
+
+        problemPrefab[index].GetComponent<Text>().text = p.title;
+        problemPrefab[index].GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
+        var timeSpan = TimeSpan.FromSeconds(p.durationInSeconds);
+        if (timeSpan.Seconds < 10)
         {
-            Problem p = problemList[i];
-
-            problemPrefab.Add(Instantiate(TextPrefab, transform));
-            timeRemainingPrefab.Add(Instantiate(TextPrefab, transform));
-            cancelPrefab.Add(Instantiate(TextPrefab, transform));
-
-            problemPrefab[i].GetComponent<Text>().text = p.title;
-            var timeSpan = TimeSpan.FromSeconds(p.timeRemainingInSeconds);
-            timeRemainingPrefab[i].GetComponent<Text>().text = timeSpan.Minutes + ":" + timeSpan.Seconds;
-
-            cancelPrefab[i].GetComponent<Button>().GetComponentInChildren<Text>().text = "cancel";
-            cancelPrefab[i].GetComponent<Button>().onClick.AddListener(() => FindObjectOfType<DGOProblemController>().RemoveProblem(p.id));
+            durationPrefab[index].GetComponent<Text>().text = timeSpan.Minutes + ":" + "0" + timeSpan.Seconds;
         }
+        else
+        {
+            durationPrefab[index].GetComponent<Text>().text = timeSpan.Minutes + ":" + timeSpan.Seconds;
+        }
+
+        deployedWorkerPrefab[index].GetComponentInChildren<Text>().text = p.deployedWorkers.ToString();
+        deployedWorkerPrefab[index].GetComponentsInChildren<Button>()[0].onClick.AddListener(() =>
+        {
+            FindObjectOfType<DGOProblemController>().AddWorker(index);
+        });
+        deployedWorkerPrefab[index].GetComponentsInChildren<Button>()[1].onClick.AddListener(() =>
+        {
+            FindObjectOfType<DGOProblemController>().RemoveWorker(index);
+        });
+
+        cancelPrefab[index].GetComponent<Button>().GetComponentInChildren<Text>().text = "Cancel";
+        cancelPrefab[index].GetComponent<Button>().onClick.AddListener(() =>
+        {
+            FindObjectOfType<DGOProblemController>().RemoveHappiness(index);
+            FindObjectOfType<DGOProblemController>().RemoveProblem(index);
+        });
+    }
+
+    public void RemoveProblem(int index)
+    {
+        Destroy(problemPrefab[index]);
+        Destroy(durationPrefab[index]);
+        Destroy(deployedWorkerPrefab[index]);
+        Destroy(cancelPrefab[index]);
+
+        problemPrefab.Remove(index);
+        durationPrefab.Remove(index);
+        deployedWorkerPrefab.Remove(index);
+        cancelPrefab.Remove(index);
     }
 }

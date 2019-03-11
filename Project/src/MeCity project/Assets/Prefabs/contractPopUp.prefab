@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 222753364696003750}
   - component: {fileID: 114607413296201270}
   m_Layer: 5
-  m_Name: contract
+  m_Name: contractPopUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -509,10 +509,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 283.26, y: 126.14}
-  m_SizeDelta: {x: -600.53, y: -353.59}
+  m_AnchoredPosition: {x: -120, y: -100}
+  m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &222753364696003750
 CanvasRenderer:
