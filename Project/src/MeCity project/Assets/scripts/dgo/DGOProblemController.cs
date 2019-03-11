@@ -191,14 +191,14 @@ public class DGOProblemController : MonoBehaviour
         public int deployedWorkers { get; set; }
         public string title { get; set; }
         public string desc { get; set; }
-        public Problem(int _id, string _title, int _severity, int _durationInSeconds = 30, int _deployedWorkers = 0, string _desc = "")
+        public Problem(int _id, string _title, int _severity, int _durationInSeconds = 60, int _deployedWorkers = 0, string _desc = "")
         {
             System.Random rnd = new System.Random();
 
             id = _id;
             severity = _severity;
             happinessDecrease = _severity * 10;
-            if(_durationInSeconds == 30)
+            if(_durationInSeconds == 60)
             {
                 durationInSeconds = rnd.Next(10, _durationInSeconds * _severity);
             }

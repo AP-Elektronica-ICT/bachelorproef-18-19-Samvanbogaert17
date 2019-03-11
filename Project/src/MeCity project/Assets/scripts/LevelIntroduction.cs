@@ -60,6 +60,7 @@ public class LevelIntroduction : MonoBehaviour
         }
         else
         {
+            prevBtn.onClick.AddListener(() => LoadIntro(number - 1));
             nextBtn.onClick.AddListener(Quit);
         }
     }

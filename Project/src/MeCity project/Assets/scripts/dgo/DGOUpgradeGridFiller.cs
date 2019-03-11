@@ -39,12 +39,6 @@ public class DGOUpgradeGridFiller : MonoBehaviour
         Initialize();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void Initialize()
     {
         for (int i = 0; i < upgradeList.Count; i++)

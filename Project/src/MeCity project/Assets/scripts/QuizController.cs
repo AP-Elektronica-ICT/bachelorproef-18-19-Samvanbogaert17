@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Xml;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class QuizController : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class QuizController : MonoBehaviour
     private int lastNum = 0;
     private string sceneName;
 
-    // script used for the event popups
+    // script used for the quiz canvas
     public void Start()
     {
         sceneName = SceneManager.GetActiveScene().name;
@@ -55,6 +56,7 @@ public class QuizController : MonoBehaviour
 
         for (int i = 0; i < answerBtns.Length; i++)
         {
+
             int temp = i;
             answerBtns[temp].onClick.AddListener(() =>
             {
@@ -71,7 +73,7 @@ public class QuizController : MonoBehaviour
     {
         System.Random r = new System.Random();
         int x = r.Next(maxRange);
-        while(x == lastNum)
+        while (x == lastNum)
         {
             x = r.Next(maxRange);
         }

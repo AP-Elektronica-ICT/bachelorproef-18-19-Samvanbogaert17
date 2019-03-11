@@ -8,7 +8,6 @@ public class ConsumerLevelController : MonoBehaviour
     public Canvas dilemmaCanvas;
     public Canvas quizCanvas;
     public Text question;
-    public Button[] CloseBtns;
     public Button[] choiceBtns;
     public RawImage[] invSlots;
     public Slider consumptionSlider;
@@ -19,46 +18,45 @@ public class ConsumerLevelController : MonoBehaviour
     public Texture[] tariffs;
     public Texture[] suppliers;
 
-    private System.Random random = new System.Random();
-    private int rnd;
-
     private float consumption;
     private float money;
     private float energy;
+
+    private int frameCounter = 0;
+    private bool timePassed = false;
+    [HideInInspector] public bool questionAnswered = false;
+    [HideInInspector] public bool started = false;
     // Start is called before the first frame update
     void Start()
     {
-        rnd = random.Next(0, 2);
-
         consumption = consumptionSlider.value;
         money = moneySlider.value;
         energy = energySlider.value;
 
         dilemmaCanvas.enabled = true;
         Init(0);
-
-        foreach (Button btn in CloseBtns)
-        {
-            btn.enabled = false;
-            btn.GetComponent<Image>().color = Color.clear;
-            btn.GetComponentInChildren<Text>().color = Color.clear;
-            btn.onClick.AddListener(() =>
-            {
-                AskQuestion(rnd);
-            });
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (questionAnswered == true)
+        {
+            frameCounter++;
+            if (frameCounter % (6 * 60) == 0)
+            {
+                timePassed = true;
+                frameCounter = 0;
+                AskQuestion();
 
+            }
+        }
     }
 
     //choices before start of the level
     private void Init(int num)
     {
-        for(int i = 0; i < choiceBtns.Length; i++)
+        for (int i = 0; i < choiceBtns.Length; i++)
         {
             choiceBtns[i].onClick.RemoveAllListeners();
         }
@@ -71,7 +69,7 @@ public class ConsumerLevelController : MonoBehaviour
                     int temp = i;
                     choiceBtns[i].onClick.AddListener(() =>
                     {
-                        invSlots[num].texture = solarpanels[temp];
+                        invSlots[num].texture = suppliers[temp];
                         Init(1);
                     });
                 }
@@ -95,39 +93,40 @@ public class ConsumerLevelController : MonoBehaviour
                     int temp = i;
                     choiceBtns[i].onClick.AddListener(() =>
                     {
-                        invSlots[num].texture = suppliers[temp];
+                        invSlots[num].texture = solarpanels[temp];
                         Init(3);
                     });
                 }
                 break;
             case 3:
-                foreach(Button btn in CloseBtns)
-                {
-                    btn.enabled = true;
-                    btn.GetComponent<Image>().color = Color.white;
-                    btn.GetComponentInChildren<Text>().color = Color.black;
-                }
                 dilemmaCanvas.enabled = false;
-                AskQuestion(rnd);
+                started = true;
+                questionAnswered = true;
                 break;
         }
     }
 
-    public void AskQuestion(int mode)
+    public void AskQuestion()
     {
-        rnd = random.Next(0, 2);
-        quizCanvas.enabled = false;
-        dilemmaCanvas.enabled = false;
-        switch (mode)
+        System.Random random = new System.Random();
+        int rnd = random.Next(0, 2);
+        if (questionAnswered && timePassed)
         {
-            case 0:
-                FindObjectOfType<ConsumerDilemmaController>().Dilemma();
-                dilemmaCanvas.enabled = true;
-                break;
-            case 1:
-                FindObjectOfType<ConsumerQuizController>().MultipleChoice();
-                quizCanvas.enabled = true;
-                break;
+            quizCanvas.enabled = false;
+            dilemmaCanvas.enabled = false;
+            switch (rnd)
+            {
+                case 0:
+                    FindObjectOfType<ConsumerDilemmaController>().Dilemma();
+                    dilemmaCanvas.enabled = true;
+                    break;
+                case 1:
+                    FindObjectOfType<ConsumerQuizController>().MultipleChoice();
+                    quizCanvas.enabled = true;
+                    break;
+            }
+            questionAnswered = timePassed = false;
         }
+
     }
 }

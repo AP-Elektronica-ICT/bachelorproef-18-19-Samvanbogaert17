@@ -27,8 +27,6 @@ public class ConsumerDilemmaController : MonoBehaviour
     private float consumption;
     private float money;
     private float energy;
-
-
     // script used for the event popups
     void Start()
     {
@@ -44,7 +42,6 @@ public class ConsumerDilemmaController : MonoBehaviour
         changeConsumption(consumption, prevConsumption);
         changeMoney(money, prevMoney);
         changeEnergy(energy, prevEnergy);
-        
     }
 
     public void Dilemma()
@@ -84,6 +81,7 @@ public class ConsumerDilemmaController : MonoBehaviour
                 {
                     btn.interactable = false;
                 }
+                FindObjectOfType<ConsumerLevelController>().questionAnswered = true;
             });
         }
         
@@ -105,7 +103,7 @@ public class ConsumerDilemmaController : MonoBehaviour
     private void ReadXML(int number)
     {
         // Search for text tags in the xml file
-        XmlNodeList elemList = dilemmaDoc.GetElementsByTagName("dilemma");
+        elemList = dilemmaDoc.GetElementsByTagName("dilemma");
         int ansCount = elemList[number].ChildNodes[1].ChildNodes.Count;
         XmlNodeList tekstList = dilemmaDoc.GetElementsByTagName("dtext");
         questionTxt.text = tekstList[number].InnerText;
@@ -115,7 +113,7 @@ public class ConsumerDilemmaController : MonoBehaviour
         for (int i = 0; i < ansCount; i++)
         {
             answerBtns[i].gameObject.SetActive(true);
-            answerBtns[i].GetComponentsInChildren<Text>()[1].text = elemList[number].ChildNodes[1].ChildNodes[i].InnerText;
+            answerBtns[i].GetComponentInChildren<Text>().text = elemList[number].ChildNodes[1].ChildNodes[i].InnerText;
         }
     }
 

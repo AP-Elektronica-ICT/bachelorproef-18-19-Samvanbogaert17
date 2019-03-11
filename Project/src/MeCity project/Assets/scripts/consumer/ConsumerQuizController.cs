@@ -65,6 +65,7 @@ public class ConsumerQuizController : MonoBehaviour
                 {
                     btn.interactable = false;
                 }
+                FindObjectOfType<ConsumerLevelController>().questionAnswered = true;
             });
         }
     }
@@ -131,6 +132,7 @@ public class ConsumerQuizController : MonoBehaviour
         {
             if (int.Parse(list[i].Attributes["influence"].Value) > 0)
             {
+                FindObjectOfType<ConsumerCheckEndOfGame>().correctAnsCount++;
                 answerBtns[i].GetComponent<Image>().color = Color.green;
             }
             else

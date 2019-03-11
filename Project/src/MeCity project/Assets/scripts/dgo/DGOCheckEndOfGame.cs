@@ -14,7 +14,7 @@ public class DGOCheckEndOfGame : MonoBehaviour
         if (!EndOfGame.triggered)
         {
             //WIN
-            if (int.Parse(problemsSolvedCountTxt.text) > 50)
+            if (int.Parse(problemsSolvedCountTxt.text) > 30)
             {
                 FindObjectOfType<EndOfGame>().gameWon();
             }
