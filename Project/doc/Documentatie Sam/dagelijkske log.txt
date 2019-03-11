@@ -144,3 +144,10 @@ Tussentijdse presentatie voorbereiden
 
 Fixed supplier level: canvasses compatible with more resolutions + bugfixing
 Further developed consumer level: bugfixing
+Einde sprint 1
+
+09/03/19 - Dag 28
+
+Start van sprint 2
+Functionaliteit afwerken van Consumer Level
+Kleine bugfixes in DGO level
