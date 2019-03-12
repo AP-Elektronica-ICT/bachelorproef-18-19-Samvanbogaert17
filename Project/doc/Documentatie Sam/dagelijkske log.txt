@@ -146,8 +146,14 @@ Fixed supplier level: canvasses compatible with more resolutions + bugfixing
 Further developed consumer level: bugfixing
 Einde sprint 1
 
-09/03/19 - Dag 28
+11/03/19 - Dag 28
 
 Start van sprint 2
 Functionaliteit afwerken van Consumer Level
 Kleine bugfixes in DGO level
+
+12/03/19 - Dag 29
+
+Code refactoring van EndOfGame
+Bugfixing van alle levels
+Antwoorden staan op een willekeurige volgorde
