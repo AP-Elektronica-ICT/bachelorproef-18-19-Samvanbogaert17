@@ -48938,16 +48938,16 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3631076301367788912, guid: a69d5444c37eb1b45a633d0fff3132c9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00003743686
+      objectReference: {fileID: 0}
     - target: {fileID: 3191827528021617528, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
       propertyPath: moneyTxt
       value: 
       objectReference: {fileID: 1027628821}
-    - target: {fileID: 3631076301367788912, guid: a69d5444c37eb1b45a633d0fff3132c9,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.00003048338
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69d5444c37eb1b45a633d0fff3132c9, type: 3}
 --- !u!223 &1514396294 stripped
@@ -63404,6 +63404,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 33027408735925782, guid: 0b642ecb3485b2949831ad4ab28549c8,
+        type: 3}
+      propertyPath: ViewScoreBtn
+      value: 
+      objectReference: {fileID: 1596810712}
     - target: {fileID: 8646762948151591747, guid: 0b642ecb3485b2949831ad4ab28549c8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
