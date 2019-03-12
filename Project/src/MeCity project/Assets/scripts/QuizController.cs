@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Xml;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System.Linq;
 
 public class QuizController : MonoBehaviour
 {
@@ -20,9 +21,18 @@ public class QuizController : MonoBehaviour
     private int lastNum = 0;
     private string sceneName;
 
+    private System.Random rng = new System.Random();
+    private List<Vector3> defaultPos = new List<Vector3>();
+    private List<Vector3> shuffledPos = new List<Vector3>();
+
     // script used for the quiz canvas
     public void Start()
     {
+        for(int i = 0; i < answerBtns.Length; i++)
+        {
+            defaultPos.Add(answerBtns[i].transform.localPosition);
+        }
+
         sceneName = SceneManager.GetActiveScene().name;
         btn.onClick.AddListener(Task);
         money = int.Parse(moneyTxt.text);
@@ -30,12 +40,14 @@ public class QuizController : MonoBehaviour
 
     public void Task()
     {
+        shuffledPos.Clear();
         answered = false;
         // hide all buttons so they are not visible when there are for example 3 answers (5 buttons in total)
         for (int i = 0; i < answerBtns.Length; i++)
         {
             answerBtns[i].gameObject.SetActive(false);
             answerBtns[i].onClick.RemoveAllListeners();
+            answerBtns[i].transform.localPosition = defaultPos[i];
             answerBtns[i].GetComponent<Image>().color = Color.white;
             answerBtns[i].interactable = true;
         }
@@ -96,6 +108,15 @@ public class QuizController : MonoBehaviour
         {
             answerBtns[i].gameObject.SetActive(true);
             answerBtns[i].GetComponentsInChildren<Text>()[1].text = elemList[number].ChildNodes[1].ChildNodes[i].InnerText;
+            //add positions to shuffle array
+            shuffledPos.Add(answerBtns[i].transform.localPosition);
+            //
+        }
+        //shuffle the positions inside the array
+        Shuffle(shuffledPos);
+        for(int i = 0; i < ansCount; i++)
+        {
+            answerBtns[i].transform.localPosition = shuffledPos[i];
         }
     }
 
@@ -157,5 +178,10 @@ public class QuizController : MonoBehaviour
                 answerBtns[i].GetComponent<Image>().color = Color.red;
             }
         }
+    }
+
+    private void Shuffle(List<Vector3> shufflelist)
+    {
+        shuffledPos = shufflelist.OrderBy(x => rng.Next()).ToList();
     }
 }
