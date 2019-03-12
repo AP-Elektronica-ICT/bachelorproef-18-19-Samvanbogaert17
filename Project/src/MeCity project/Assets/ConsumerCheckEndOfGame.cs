@@ -15,9 +15,24 @@ public class ConsumerCheckEndOfGame : MonoBehaviour
         if (!EndOfGame.triggered)
         {
             //WIN
-            if(correctAnsCount > 50)
+            if(correctAnsCount > 25)
             {
                 FindObjectOfType<EndOfGame>().gameWon();
+            }
+            if (FindObjectOfType<ConsumerLevelController>().started == true)
+            {
+                if (consumptionSlider.value >= 1000)
+                {
+                    FindObjectOfType<EndOfGame>().gameWon();
+                }
+                if (moneySlider.value >= 1000)
+                {
+                    FindObjectOfType<EndOfGame>().gameWon();
+                }
+                if (energySlider.value >= 1000)
+                {
+                    FindObjectOfType<EndOfGame>().gameWon();
+                }
             }
             //LOSE
             if (FindObjectOfType<ConsumerLevelController>().started == true)

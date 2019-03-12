@@ -53,7 +53,7 @@ How many times a year does the average UK household boil a kettle?
     <answers>
       <answer influence ="-2">Around 350 times</answer>
       <answer influence ="2">Around 1500 times</answer>
-      <answer influence ="2">Around 6000 times</answer>
+      <answer influence ="-2">Around 6000 times</answer>
     </answers>
   </popup>
   <popup>
@@ -185,7 +185,7 @@ How many times a year does the average UK household boil a kettle?
       Do you take it?
     </dtext>
     <choices>
-      <choice consumption="-2" money="2" energy="0">Accept the offer.</choice>
+      <choice consumption="-2" money="3" energy="0">Accept the offer.</choice>
       <choice consumption="0" money="0" energy="0">Don't accept the offer.</choice>
     </choices>
   </dilemma>
@@ -196,7 +196,7 @@ How many times a year does the average UK household boil a kettle?
       Invest in a new car?
     </dtext>
     <choices>
-      <choice consumption="0" money="-4" energy="4">Buy the car!</choice>
+      <choice consumption="0" money="-3" energy="4">Buy the car!</choice>
       <choice consumption="0" money="0" energy="-2">You dissappoint Elon by not buying a car.</choice>
     </choices>
   </dilemma>
@@ -210,8 +210,8 @@ How many times a year does the average UK household boil a kettle?
       The smart washing machine is more expensive, but will probably save you a lot of money in the long term.
     </dtext>
     <choices>
-      <choice consumption="2" money="-2" energy="0">Buy the regular washing machine.</choice>
-      <choice consumption="1" money="-3" energy="0">Buy the smart washing machine.</choice>
+      <choice consumption="2" money="-2" energy="-1">Buy the regular washing machine.</choice>
+      <choice consumption="1" money="-3" energy="1">Buy the smart washing machine.</choice>
     </choices>
   </dilemma>
   <dilemma>
@@ -233,7 +233,7 @@ How many times a year does the average UK household boil a kettle?
     </dtext>
     <choices>
       <choice consumption="0" money="-1" energy="0">Refuse the offer and stay with your current supplier.</choice>
-      <choice consumption="0" money="1" energy="0">Leave your current supplier and accept the new contract.</choice>
+      <choice consumption="0" money="2" energy="0">Leave your current supplier and accept the new contract.</choice>
     </choices>
   </dilemma>
 </scripts>
