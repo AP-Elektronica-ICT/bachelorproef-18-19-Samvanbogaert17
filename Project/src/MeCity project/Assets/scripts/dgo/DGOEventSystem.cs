@@ -63,11 +63,7 @@ public class DGOEventSystem : MonoBehaviour
                     }
                 }
             }
-            //Every 5 seconds, the city happiness goes down. (This is done to enforce the player to keep on answerring the events).
-            if (Time.frameCount % 5 * 60 == 0)
-            {
-                FindObjectOfType<DGOCheckEndOfGame>().enabled = true;
-            }
+
             //At a random time between 5 and 15 seconds a problem will occur for the player to solve.
             if (!CameraControl.inQuiz && !CameraControl.paused)
             {

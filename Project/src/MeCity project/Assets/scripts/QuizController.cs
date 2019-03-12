@@ -125,42 +125,26 @@ public class QuizController : MonoBehaviour
         //Add player answer to PlayerAnswerList
         FindObjectOfType<QnAscore>().playerAnsList.Add(elemlist[number].ChildNodes[1].ChildNodes[btn].InnerText);
         //
-
-        switch (sceneName)
-        {
-            case "Producer":
-                break;
-            case "TGO":
-                break;
-            case "DGO":
-                break;
-            case "Supplier":
-                break;
-            case "Consumer":
-                break;
-        }
         if (influence < 0)
         {
-            if (DGOCheckEndOfGame.NumberOfCorrectAnswers > 0)
+            if (EndOfGame.NumberOfCorrectAnswers > 0)
             {
-                DGOCheckEndOfGame.NumberOfCorrectAnswers = 0;
+                EndOfGame.NumberOfCorrectAnswers = 0;
             }
-            DGOCheckEndOfGame.NumberOfCorrectAnswers--;
+            EndOfGame.NumberOfCorrectAnswers--;
         }
         if (influence > 0)
         {
-            if (DGOCheckEndOfGame.NumberOfCorrectAnswers < 0)
+            if (EndOfGame.NumberOfCorrectAnswers < 0)
             {
-                DGOCheckEndOfGame.NumberOfCorrectAnswers = 0;
+                EndOfGame.NumberOfCorrectAnswers = 0;
             }
-            DGOCheckEndOfGame.NumberOfCorrectAnswers++;
+            EndOfGame.NumberOfCorrectAnswers++;
             money = int.Parse(moneyTxt.text);
             money += influence * 1000;
             moneyTxt.text = money.ToString();
         }
         DataScript.AddScore(influence * 100);
-        DGOProblemController.satisfaction += influence * 10;
-
 
         for (int i = 0; i < list.Count; i++)
         {

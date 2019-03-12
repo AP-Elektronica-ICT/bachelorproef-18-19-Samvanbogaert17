@@ -1361,7 +1361,7 @@ PrefabInstance:
     - target: {fileID: 3631076301367788912, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00004571416
+      value: -0.000055598488
       objectReference: {fileID: 0}
     - target: {fileID: 3191827528021617528, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
@@ -15949,7 +15949,6 @@ GameObject:
   - component: {fileID: 482524773}
   - component: {fileID: 482524776}
   - component: {fileID: 482524778}
-  - component: {fileID: 482524774}
   - component: {fileID: 482524775}
   - component: {fileID: 482524777}
   - component: {fileID: 482524779}
@@ -16055,19 +16054,6 @@ MonoBehaviour:
   - {fileID: 762808222}
   - {fileID: 1228309534}
   - {fileID: 36459215}
---- !u!114 &482524774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482524768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec215ea5073160247b699713c363fcc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moneytxt: {fileID: 681805747}
 --- !u!114 &482524775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16080,6 +16066,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e909a0ad254dd9e418bd16563a27c85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  consumptionSlider: {fileID: 0}
+  moneySlider: {fileID: 0}
+  energySlider: {fileID: 0}
+  moneyTxt: {fileID: 681805747}
+  problemsSolvedCountTxt: {fileID: 0}
+  problemsUnsolvedCountTxt: {fileID: 0}
   endOfGameCanvas: {fileID: 762808222}
   resultTxt: {fileID: 762808223}
 --- !u!114 &482524776
@@ -35204,6 +35196,11 @@ PrefabInstance:
       propertyPath: uiCanvas
       value: 
       objectReference: {fileID: 1738918281}
+    - target: {fileID: 2775818314949706775, guid: 0b7c3f55d36839b49b628788261e7eb5,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 374239836}
     - target: {fileID: 2775818313724221348, guid: 0b7c3f55d36839b49b628788261e7eb5,
         type: 3}
       propertyPath: canvas
@@ -35224,11 +35221,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadTitleScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 2775818314949706775, guid: 0b7c3f55d36839b49b628788261e7eb5,
-        type: 3}
-      propertyPath: audio
-      value: 
-      objectReference: {fileID: 374239836}
     - target: {fileID: 2775818313895062245, guid: 0b7c3f55d36839b49b628788261e7eb5,
         type: 3}
       propertyPath: m_Transition
@@ -41722,16 +41714,16 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5820183543842141807, guid: a14effcabb15c7c47a463f0c6ffb2cd1,
-        type: 3}
-      propertyPath: audio
-      value: 
-      objectReference: {fileID: 374239836}
     - target: {fileID: 7022367932138829796, guid: a14effcabb15c7c47a463f0c6ffb2cd1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5820183543842141807, guid: a14effcabb15c7c47a463f0c6ffb2cd1,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 374239836}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a14effcabb15c7c47a463f0c6ffb2cd1, type: 3}
 --- !u!223 &1184159555 stripped

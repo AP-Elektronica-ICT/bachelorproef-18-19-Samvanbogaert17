@@ -14315,7 +14315,6 @@ GameObject:
   - component: {fileID: 482524778}
   - component: {fileID: 482524776}
   - component: {fileID: 482524774}
-  - component: {fileID: 482524775}
   - component: {fileID: 482524777}
   - component: {fileID: 482524779}
   m_Layer: 0
@@ -14439,19 +14438,6 @@ MonoBehaviour:
   - {fileID: 375624674}
   - {fileID: 1596810710}
   - {fileID: 1692838566}
---- !u!114 &482524775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482524768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd5c14e7f9038854ea47f8113084dda1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moneytxt: {fileID: 1027628821}
 --- !u!114 &482524776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14487,6 +14473,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e909a0ad254dd9e418bd16563a27c85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  consumptionSlider: {fileID: 0}
+  moneySlider: {fileID: 0}
+  energySlider: {fileID: 0}
+  moneyTxt: {fileID: 1027628821}
+  problemsSolvedCountTxt: {fileID: 0}
+  problemsUnsolvedCountTxt: {fileID: 0}
   endOfGameCanvas: {fileID: 1596810710}
   resultTxt: {fileID: 1596810711}
 --- !u!114 &482524778
@@ -26802,7 +26794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 375624674}
   btn: {fileID: 900049384}
-  canvas: {fileID: 325258122}
+  uiCanvas: {fileID: 0}
 --- !u!95 &900049383
 Animator:
   serializedVersion: 3
@@ -34007,7 +33999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 375624674}
   btn: {fileID: 1080016175}
-  canvas: {fileID: 325258122}
+  uiCanvas: {fileID: 0}
 --- !u!114 &1080016175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48941,7 +48933,7 @@ PrefabInstance:
     - target: {fileID: 3631076301367788912, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00003743686
+      value: -0.000005900292
       objectReference: {fileID: 0}
     - target: {fileID: 3191827528021617528, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
@@ -52634,7 +52626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 375624674}
   btn: {fileID: 1602160484}
-  canvas: {fileID: 325258122}
+  uiCanvas: {fileID: 0}
 --- !u!114 &1602160484
 MonoBehaviour:
   m_ObjectHideFlags: 0
