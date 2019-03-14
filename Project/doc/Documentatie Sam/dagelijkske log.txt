@@ -157,3 +157,11 @@ Kleine bugfixes in DGO level
 Code refactoring van EndOfGame
 Bugfixing van alle levels
 Antwoorden staan op een willekeurige volgorde
+
+14/03/19 - Dag 30 - Half way
+
+Mockups maken voor TGO level
+Start van TGO level
+-level introductie
+-level start
+-1ste minigame: memory
