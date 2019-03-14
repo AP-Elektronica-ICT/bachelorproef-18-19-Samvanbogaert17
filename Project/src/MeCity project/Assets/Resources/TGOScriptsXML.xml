@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- xml used for the scripts for the dgo eventsystem (popups) -->
+<scripts>
+  <popup>
+    <text>
+Consider a customer requesting a new connection to be installed in a regulated market.
+Which parties would he have had to contact?
+    </text>
+    <answers>
+      <answer influence ="1">Just the Supplier</answer>
+      <answer influence ="-2">The DGO and the Supplier</answer>
+      <answer influence ="-1">Just the DGO</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+Consider a customer requesting a new connection to be installed in a deregulated market.
+Which parties would he have had to contact?
+    </text>
+    <answers>
+      <answer influence ="-2">Just the DGO</answer>
+      <answer influence ="-2">Just the Supplier</answer>
+      <answer influence ="2">the DGO and the Supplier</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+Can customers switch DGO while remaining in the same physical location?
+    </text>
+    <answers>
+      <answer influence ="-1" >Yes</answer>
+      <answer influence ="2">No</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+BONUS
+
+How much does the average household dishwasher cost to run over a year?
+    </text>
+    <answers>
+      <answer influence ="-1" >£18</answer>
+      <answer influence ="2">£40</answer>
+      <answer influence ="-2">£1750</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+BONUS
+
+How many times a year does the average UK household boil a kettle?
+    </text>
+    <answers>
+      <answer influence ="-2">Around 350 times</answer>
+      <answer influence ="2">Around 1500 times</answer>
+      <answer influence ="-2">Around 6000 times</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+      BONUS
+
+      On average, what proportion of a household's annual electricity bill do TVs, game consoles and other entertainment equipment account for?
+    </text>
+    <answers>
+      <answer influence ="-1">6%</answer>
+      <answer influence ="2">10%</answer>
+      <answer influence ="-2">90%</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+      BONUS
+
+      Which uses more electricity - a laptop or a desktop PC?
+    </text>
+    <answers>
+      <answer influence ="2">A desktop PC</answer>
+      <answer influence ="-1">A laptop</answer>
+      <answer influence ="-2">Both use the same amount of electricity</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+      BONUS
+
+      What is the difference in energy cost per year between using a standard lightbulb and a low-energy lightbulb (based on four hours' use every day)?
+    </text>
+    <answers>
+      <answer influence ="-2">£1.15</answer>
+      <answer influence ="2">£9.65</answer>
+      <answer influence ="-1">£11.97</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+      BONUS
+
+      If you leave the tap running when you brush your teeth, how much water do you waste per minute?
+    </text>
+    <answers>
+      <answer influence ="-1">A couple of pints</answer>
+      <answer influence ="2">A fish bowl's worth (6 litres)</answer>
+      <answer influence ="-2">A paddling pool's worth (165 litres)</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+      BONUS
+
+      How much energy would we save per year if everyone across the UK unplugged their mobile phone chargers when not in use?
+    </text>
+    <answers>
+      <answer influence ="-2">Enough to power 10 homes for a year</answer>
+      <answer influence ="-1">Enough to power 20,000 homes for a year</answer>
+      <answer influence ="2">Enough to power 115,000 homes for a year</answer>
+    </answers>
+  </popup>
+  <popup>
+    <text>
+      BONUS
+
+      If yo leave a PC monitor switched on overnight, it wastes the same amount of energy as it would take to:
+    </text>
+    <answers>
+      <answer influence ="-2">Microwave 1 dinner</answer>
+      <answer influence ="-1">Microwave 3 dinners</answer>
+      <answer influence ="2">Microwave 6 dinners</answer>
+    </answers>
+  </popup>
+
+  <!-- Dilemma's and Starting Dilemma's -->
+  <!-- important formatting: choices always need 3 attributes, but can be left empty to return an empty string -->
+
+  <!-- template: <choice consumption="" money="" energy=""></choice>-->
+  
+  <!-- Starting Dilemma's -->
+  <startdilemma>
+    <sdtext>
+      In order to have electricity, you need to sign a contract with a supplier.
+    </sdtext>
+    <choices>
+      <choice consumption="5" money="-5" energy="0">Engie</choice>
+      <choice consumption="5" money="-5" energy="0">Luminus</choice>
+    </choices>
+  </startdilemma>
+  <startdilemma>
+    <sdtext>
+      You will also need to choose a type of tariff.
+      
+      Single Tariff will cost you more throughout the entire day, but will cost less than the day tariff of a Double Tariff contract.
+      Double Tariff has the benefits of having a much cheaper night tariff, but will come at the cost of having a higher day tariff.
+    </sdtext>
+    <choices>
+      <choice consumption="0" money="0" energy="0">Single Tariff</choice>
+      <choice consumption="0" money="0" energy="0">Double Tariff</choice>
+    </choices>
+  </startdilemma>
+  <startdilemma>
+    <sdtext>
+      You heard that people are investing in solar panels.
+      
+      Should you invest in solar panels?
+    </sdtext>
+    <choices>
+      <choice consumption="0" money="-2" energy="2">Install solar panels</choice>
+      <choice consumption="0" money="0" energy="">Don't solar panels</choice>
+    </choices>
+  </startdilemma>
+  <dilemma>
+    <dtext>
+      Your DGO has offered to replace your normal meter with a smart meter, saving you a lot of money in the long term.
+    </dtext>
+    <choices>
+      <choice consumption="0" money="-1" energy="1">Accept to install the smart meter.</choice>
+      <choice consumption="0" money="0" energy="-1">Refuse to install the smart meter.</choice>
+    </choices>
+  </dilemma>
+  <dilemma>
+    <dtext>
+      You are being offered a promotion at your job!
+      
+      Longer hours for a better paygrade!
+      
+      Do you take it?
+    </dtext>
+    <choices>
+      <choice consumption="-2" money="3" energy="0">Accept the offer.</choice>
+      <choice consumption="0" money="0" energy="0">Don't accept the offer.</choice>
+    </choices>
+  </dilemma>
+  <dilemma>
+    <dtext>
+      Tesla has released a new car thats highly energy efficient!
+      
+      Invest in a new car?
+    </dtext>
+    <choices>
+      <choice consumption="0" money="-3" energy="4">Buy the car!</choice>
+      <choice consumption="0" money="0" energy="-2">You dissappoint Elon by not buying a car.</choice>
+    </choices>
+  </dilemma>
+  <dilemma>
+    <dtext>
+      Your washing machine broke down and you need a new one?
+      
+      Do you choose a regular washing machine or a smart washing machine?
+      
+      The regular washing machine is cheaper although it will probably consume more energy at a higher price.
+      The smart washing machine is more expensive, but will probably save you a lot of money in the long term.
+    </dtext>
+    <choices>
+      <choice consumption="2" money="-2" energy="-1">Buy the regular washing machine.</choice>
+      <choice consumption="1" money="-3" energy="1">Buy the smart washing machine.</choice>
+    </choices>
+  </dilemma>
+  <dilemma>
+    <dtext>
+      You got your energy bill, but you notice that the values are not correct and you are paying too little.
+      
+      Do you call the company and correct the mistake? or do you leave it be?
+    </dtext>
+    <choices>
+      <choice consumption="0" money="-1" energy="0">Call the company and correct the mistake.</choice>
+      <choice consumption="0" money="-2" energy="0">Don't call the company and enjoy the profit you just made.</choice>
+    </choices>
+  </dilemma>
+  <dilemma>
+    <dtext>
+      You have received an offer from your suppliers' competitor.
+      
+      The tariff is better than your current tariff, but you'll have to pay a small fee to your current supplier for leaving early
+    </dtext>
+    <choices>
+      <choice consumption="0" money="-1" energy="0">Refuse the offer and stay with your current supplier.</choice>
+      <choice consumption="0" money="2" energy="0">Leave your current supplier and accept the new contract.</choice>
+    </choices>
+  </dilemma>
+</scripts>
