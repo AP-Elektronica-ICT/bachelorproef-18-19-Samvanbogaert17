@@ -26,7 +26,7 @@ public class OpenWindow : MonoBehaviour
                 canvas.enabled = true;
             }
         }
-        else if (SceneManager.GetActiveScene().name == "Producer" || SceneManager.GetActiveScene().name == "DGO")
+        else if (SceneManager.GetActiveScene().name == "Producer" || SceneManager.GetActiveScene().name == "DGO" || SceneManager.GetActiveScene().name == "TGO")
         {
                 CameraControl.showingPopUp = !CameraControl.showingPopUp;
                 canvas.enabled = !canvas.enabled;

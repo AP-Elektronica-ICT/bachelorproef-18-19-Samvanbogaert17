@@ -35,7 +35,6 @@ public class QuizController : MonoBehaviour
 
         sceneName = SceneManager.GetActiveScene().name;
         btn.onClick.AddListener(Task);
-        money = int.Parse(moneyTxt.text);
     }
 
     public void Task()
@@ -161,9 +160,14 @@ public class QuizController : MonoBehaviour
                 EndOfGame.NumberOfCorrectAnswers = 0;
             }
             EndOfGame.NumberOfCorrectAnswers++;
-            money = int.Parse(moneyTxt.text);
-            money += influence * 1000;
-            moneyTxt.text = money.ToString();
+            switch (sceneName)
+            {
+                default:
+                    AdjustMoney(influence * 1000);
+                    break;
+                case "TGO":
+                    break;
+            }
         }
         DataScript.AddScore(influence * 100);
 
@@ -183,5 +187,12 @@ public class QuizController : MonoBehaviour
     private void Shuffle(List<Vector3> shufflelist)
     {
         shuffledPos = shufflelist.OrderBy(x => rng.Next()).ToList();
+    }
+
+    private void AdjustMoney(int _money)
+    {
+        money = int.Parse(moneyTxt.text);
+        money += _money;
+        moneyTxt.text = money.ToString();
     }
 }
