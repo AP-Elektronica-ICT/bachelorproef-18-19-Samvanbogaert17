@@ -8,6 +8,8 @@ public class ProducerContractController : MonoBehaviour
     public Text moneyTxt;
     public Text producingTxt;
 
+    public Slider hapSlider;
+
     private int money;
     private int producing;
 
@@ -65,6 +67,8 @@ public class ProducerContractController : MonoBehaviour
 
         moneyTxt.text = money.ToString();
         producingTxt.text = producing.ToString();
+
+        hapSlider.value += ongoingContractsList[index].amountSold / 1000;
 
         FindObjectOfType<ProducerContractGridFiller>().AddContract(index);
         GameObject.FindWithTag("ContractCount").GetComponent<Text>().text = ongoingContractsList.Count + " / " + contractList.Count;

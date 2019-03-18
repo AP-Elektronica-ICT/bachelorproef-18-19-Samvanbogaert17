@@ -11,6 +11,7 @@ public class LevelIntroduction : MonoBehaviour
     public Button prevBtn;
     public Button skipBtn;
     public RawImage image;
+    public Scrollbar txtScrollbar;
     public Text txtField;
     [Tooltip("Make sure the images correspond to the text in the IntroXML file")]
     public Texture[] imgArray;
@@ -63,6 +64,8 @@ public class LevelIntroduction : MonoBehaviour
             prevBtn.onClick.AddListener(() => LoadIntro(number - 1));
             nextBtn.onClick.AddListener(Quit);
         }
+
+        txtScrollbar.value = 1;
     }
 
     private void LoadText(int number)
