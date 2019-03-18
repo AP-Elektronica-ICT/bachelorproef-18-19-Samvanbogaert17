@@ -169,3 +169,4 @@ Start van TGO level
 18/03/09 - Dag 31
 
 Bugfixing na testing van producer level en DGO level
+Start van eerste minigame: Memory
