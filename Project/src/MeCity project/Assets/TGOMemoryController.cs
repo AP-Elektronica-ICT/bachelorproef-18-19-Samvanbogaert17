@@ -19,18 +19,11 @@ public class TGOMemoryController : MonoBehaviour
 
     private List<int> answersPicked = new List<int>();
     private int ansCount = 0;
-    private bool initialized = false;
     // Start is called before the first frame update
     void Start()
     {
         memoryGridTransform = memoryGrid.transform;
         Init();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void Init()
@@ -56,7 +49,6 @@ public class TGOMemoryController : MonoBehaviour
         }
 
         ShuffleClass.Shuffle(answerList);
-        initialized = true;
     }
 
     private void OnClick(int index)
@@ -91,15 +83,6 @@ public class TGOMemoryController : MonoBehaviour
         }
     }
 
-    private void ResetList()
-    {
-        for (int i = 0; i < prefabList.Count; i++)
-        {
-            prefabList[i].SetActive(true);
-        }
-        ResetImages();
-    }
-
     private void ResetImages()
     {
         for (int i = 0; i < prefabList.Count; i++)
@@ -110,7 +93,9 @@ public class TGOMemoryController : MonoBehaviour
 
     public void StartGame()
     {
-        ResetList();
+        ansCount = 0;
+        answersPicked.Clear();
+        ResetImages();
         ShuffleClass.Shuffle(answerList);
     }
 }
