@@ -83,19 +83,17 @@ public class TGOMemoryController : MonoBehaviour
         }
     }
 
-    private void ResetImages()
-    {
-        for (int i = 0; i < prefabList.Count; i++)
-        {
-            prefabList[i].GetComponent<RawImage>().texture = meganDefault;
-        }
-    }
-
     public void StartGame()
     {
         ansCount = 0;
         answersPicked.Clear();
-        ResetImages();
+
+        for (int i = 0; i < prefabList.Count; i++)
+        {
+            prefabList[i].GetComponent<RawImage>().texture = meganDefault;
+            prefabList[i].GetComponent<Button>().interactable = true;
+        }
+
         ShuffleClass.Shuffle(answerList);
     }
 }
