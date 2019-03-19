@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,38 +10,27 @@ public class TGOMemoryController : MonoBehaviour
     public Texture meganDefault;
     public Texture[] imgArray;
     public GameObject meganPrefab;
+    public GameObject memoryGrid;
+
+    private Transform memoryGridTransform;
+
     private List<GameObject> prefabList = new List<GameObject>();
     private List<Texture> answerList = new List<Texture>();
 
-    private int[] answersPicked = new int[2];
+    private List<int> answersPicked = new List<int>();
     private int ansCount = 0;
     private bool initialized = false;
-    private System.Random rnd = new System.Random();
     // Start is called before the first frame update
     void Start()
     {
+        memoryGridTransform = memoryGrid.transform;
         Init();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (initialized)
-        {
-            if(ansCount == 2)
-            {
-                if(answersPicked[0] == answersPicked[1])
-                {
-                    DataScript.AddScore(1000);
-                    prefabList[answersPicked[0]].SetActive(false);
-                    prefabList[answersPicked[1]].SetActive(false);
-                }
-                ResetImages();
-                answersPicked[0] = 0;
-                answersPicked[1] = 0;
-                ansCount = 0;
-            }
-        }  
+
     }
 
     private void Init()
@@ -51,13 +41,13 @@ public class TGOMemoryController : MonoBehaviour
         {
             int temp = i;
 
-            prefabList.Add(Instantiate(meganPrefab, transform));
+            prefabList.Add(Instantiate(meganPrefab, memoryGridTransform));
             prefabList[i].GetComponent<Button>().onClick.AddListener(() =>
             {
                 OnClick(temp);
             });
 
-            if(i % 2 == 0 && i != 0)
+            if (i % 2 == 0 && i != 0)
             {
                 ind++;
             }
@@ -65,25 +55,45 @@ public class TGOMemoryController : MonoBehaviour
             answerList.Add(imgArray[ind]);
         }
 
-        Randomize();
+        ShuffleClass.Shuffle(answerList);
         initialized = true;
-    }
-
-    private void Randomize()
-    {
-        answerList.OrderBy(x => rnd.Next());
     }
 
     private void OnClick(int index)
     {
+        if (ansCount == 2 && answerList[answersPicked[0]] != answerList[answersPicked[1]])
+        {
+            prefabList[answersPicked[0]].GetComponent<RawImage>().texture = meganDefault;
+            prefabList[answersPicked[1]].GetComponent<RawImage>().texture = meganDefault;
+            answersPicked.Clear();
+            ansCount = 0;
+        }
         prefabList[index].GetComponent<RawImage>().texture = answerList[index];
-        answersPicked[ansCount] = index;
+        answersPicked.Add(index);
+
         ansCount++;
+
+        if (ansCount == 2)
+        {
+            if(answersPicked[0] == answersPicked[1])
+            {
+                answersPicked.Clear();
+                ansCount = 0;
+            }
+            else if(answerList[answersPicked[0]] == answerList[answersPicked[1]])
+            {
+                DataScript.AddScore(1000);
+                prefabList[answersPicked[0]].GetComponent<Button>().interactable = false;
+                prefabList[answersPicked[1]].GetComponent<Button>().interactable = false;
+                answersPicked.Clear();
+                ansCount = 0;
+            }
+        }
     }
 
     private void ResetList()
     {
-        for(int i = 0; i < prefabList.Count; i++)
+        for (int i = 0; i < prefabList.Count; i++)
         {
             prefabList[i].SetActive(true);
         }
@@ -101,6 +111,25 @@ public class TGOMemoryController : MonoBehaviour
     public void StartGame()
     {
         ResetList();
-        Randomize();
+        ShuffleClass.Shuffle(answerList);
+    }
+}
+
+public static class ShuffleClass
+{
+    private static System.Random rnd = new System.Random();
+
+    //Fisher-Yates shuffle method - used to shuffle a list
+    public static void Shuffle<T>(this IList<T> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rnd.Next(n + 1);
+            T value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
     }
 }
