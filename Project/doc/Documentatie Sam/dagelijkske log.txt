@@ -166,7 +166,13 @@ Start van TGO level
 -level start
 -1ste minigame: memory
 
-18/03/09 - Dag 31
+18/03/19 - Dag 31
 
 Bugfixing na testing van producer level en DGO level
 Start van eerste minigame: Memory
+
+19/03/19 - Dag 32
+
+Einde van eerste minigame: Memory
+Start van tweede minigame: Breakout
+Positie van paddle gelijkstellen aan mouse input
