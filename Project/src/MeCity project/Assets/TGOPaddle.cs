@@ -17,7 +17,7 @@ public class TGOPaddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float xPos = transform.localPosition.x + (Input.GetAxis("Horizontal") * paddleSpeed);
+        float xPos = Input.mousePosition.x - screen.sizeDelta.x + player.sizeDelta.x / 2;
         playerPos = new Vector3(Mathf.Clamp(xPos, -screen.sizeDelta.x/2 + player.sizeDelta.x/2, screen.sizeDelta.x/2 - player.sizeDelta.x / 2), -175f, 0);
         transform.localPosition = playerPos;
     }

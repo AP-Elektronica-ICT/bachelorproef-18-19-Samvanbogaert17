@@ -4,57 +4,46 @@ using UnityEngine;
 
 public class TGOBreakoutController : MonoBehaviour
 {
-    public GameObject breakoutPanel;
-    public GameObject player;
-    public GameObject Ball;
-    public GameObject[] platformPrefabs;
-
-    private List<GameObject> platforms = new List<GameObject>();
-
-    private int rows = 4;
-    private int columns = 16;
-
-    private Vector2 playerpos;
-    private Vector2 speed = new Vector2(4, -4);
-
-    bool gameStarted = false;
-
-    private Transform breakoutTransform;
+    public int bricks = 20;
+    public int lives = 3;
+    public GameObject paddle;
+    public GameObject ball;
+    public static TGOBreakoutController instance = null;
     // Start is called before the first frame update
     void Start()
     {
-        playerpos = player.transform.position;
-        breakoutTransform = breakoutPanel.transform;
-
-        Instantiate(player, breakoutTransform);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetButton("Fire1") && !gameStarted)
+        if(instance = null)
         {
-            gameStarted = true;
-            playerControl();
+            instance = this;
+        }
+        else if(instance != this)
+        {
+            Destroy(gameObject);
         }
     }
 
-    private void Init()
+
+    public void Setup()
     {
-        for(int i = 0; i < rows; i++)
-        {
-            for(int j = 0; j < columns; j++)
-            {
-                platforms.Add(Instantiate(platformPrefabs[i], breakoutTransform));
-            }
-        }
+
     }
 
-    private void playerControl()
+    public void LoseLife()
     {
-        playerpos.y = 50;
-        playerpos.x = Input.GetAxis("Mouse X");
+        lives--;
+        SetupPaddle();
+    }
 
-        player.transform.position = playerpos;
+    void SetupPaddle()
+    {
+        TGOBall.ballInPlay = false;
+        ball.transform.SetParent(paddle.transform);
+        ball.transform.localPosition = new Vector2(0, 40);
+        paddle.transform.position = new Vector2(300, -175);
+    }
+
+    void Reset()
+    {
+        
     }
 }
