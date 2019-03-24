@@ -181,3 +181,11 @@ Positie van paddle gelijkstellen aan mouse input
 
 Verdere afwerking van Breakout minigame
 Mechanics afgewerkt, start van lose life en game over condities
+
+21/03/19 - Dag 34
+
+Verder bugfixen en afwerken van Breakout
+
+22/03/19 - Dag 35
+
+Verder bugfixen en afwerken van Breakout
