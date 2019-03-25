@@ -30,8 +30,8 @@ public class DGOEventSystem : MonoBehaviour
     private int problemFrameCounter = 1;
     private int rndIndex;
 
-    [HideInInspector] public int problemTimerMinVal = 10 * 60;
-    [HideInInspector] public int problemTimerMaxVal = 20 * 60;
+    [HideInInspector] public int problemTimerMinVal = 15 * 60;  //minimum time that needs to pass for a problem to appear
+    [HideInInspector] public int problemTimerMaxVal = 30 * 60;  //maximum time for a problem to appear
     [HideInInspector] public int index = 0;
 
     public void Start()
@@ -63,11 +63,7 @@ public class DGOEventSystem : MonoBehaviour
                     }
                 }
             }
-            //Every 5 seconds, the city happiness goes down. (This is done to enforce the player to keep on answerring the events).
-            if (Time.frameCount % 5 * 60 == 0)
-            {
-                FindObjectOfType<DGOCheckEndOfGame>().enabled = true;
-            }
+
             //At a random time between 5 and 15 seconds a problem will occur for the player to solve.
             if (!CameraControl.inQuiz && !CameraControl.paused)
             {

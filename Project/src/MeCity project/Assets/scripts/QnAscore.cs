@@ -22,6 +22,7 @@ public class QnAscore : MonoBehaviour
 
     private int ansCorrectCount;
     private int ansWrongCount;
+    private bool initialized = false;
 
     // Start is called before the first frame update
     void Start()
@@ -66,19 +67,23 @@ public class QnAscore : MonoBehaviour
     }
     public void Init()
     {
-        for(int i = 0; i < questionList.Count; i++)
+        if (!initialized)
         {
-            if(correctAnsList[i] == playerAnsList[i])
+            for (int i = 0; i < questionList.Count; i++)
             {
-                ansCorrectCount++;
+                if (correctAnsList[i] == playerAnsList[i])
+                {
+                    ansCorrectCount++;
+                }
+                else
+                {
+                    ansWrongCount++;
+                }
             }
-            else
-            {
-                ansWrongCount++;
-            }
-        }
 
-        ansCorrectCountTxt.text = ansCorrectCount.ToString();
-        ansWrongCountTxt.text = ansWrongCount.ToString();
+            ansCorrectCountTxt.text = ansCorrectCount.ToString();
+            ansWrongCountTxt.text = ansWrongCount.ToString();
+            initialized = true;
+        }
     }
 }

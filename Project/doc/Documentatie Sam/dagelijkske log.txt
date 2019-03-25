@@ -144,3 +144,48 @@ Tussentijdse presentatie voorbereiden
 
 Fixed supplier level: canvasses compatible with more resolutions + bugfixing
 Further developed consumer level: bugfixing
+Einde sprint 1
+
+11/03/19 - Dag 28
+
+Start van sprint 2
+Functionaliteit afwerken van Consumer Level
+Kleine bugfixes in DGO level
+
+12/03/19 - Dag 29
+
+Code refactoring van EndOfGame
+Bugfixing van alle levels
+Antwoorden staan op een willekeurige volgorde
+
+14/03/19 - Dag 30 - Half way
+
+Mockups maken voor TGO level
+Start van TGO level
+-level introductie
+-level start
+-1ste minigame: memory
+
+18/03/19 - Dag 31
+
+Bugfixing na testing van producer level en DGO level
+Start van eerste minigame: Memory
+
+19/03/19 - Dag 32
+
+Einde van eerste minigame: Memory
+Start van tweede minigame: Breakout
+Positie van paddle gelijkstellen aan mouse input
+
+20/03/19 - Dag 33
+
+Verdere afwerking van Breakout minigame
+Mechanics afgewerkt, start van lose life en game over condities
+
+21/03/19 - Dag 34
+
+Verder bugfixen en afwerken van Breakout
+
+22/03/19 - Dag 35
+
+Verder bugfixen en afwerken van Breakout

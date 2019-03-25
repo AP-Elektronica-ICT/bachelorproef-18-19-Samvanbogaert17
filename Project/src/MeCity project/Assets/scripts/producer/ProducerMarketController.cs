@@ -147,6 +147,9 @@ public class ProducerMarketController : MonoBehaviour
             money += buildingList[index].price / 2;
             moneyTxt.text = money.ToString();
 
+            producing -= buildingList[index].production;
+            producingTxt.text = producing.ToString();
+
             totalProducing -= buildingList[index].production;
             totalProducingTxt.text = totalProducing.ToString();
 

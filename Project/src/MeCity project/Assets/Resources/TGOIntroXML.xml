@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scripts>
+  <intro>
+    <text>
+      This is the TGO level.
+
+      The TGO or Transmissing Grid Operator is responsible for the transmission or transport of high voltage, produced by the producer, to high voltage customers or step down transformers.
+      
+      The TGO is also responsible for the maintenance of the transmision lines that transport the high voltage.
+      
+      An example of a TGO in Belgium is Elia, Belgium's electricity transmission system operator.
+      
+      Core activities of Elia are:
+      
+      1. infrastructure management: the maintenance and development of the net and the connection of electric installations on the net.
+      
+      2. system management: granting access to the net, tracking the currents on the net to keep a good overview of the functionality of the net and to achieve a good balance between consumption and production of electricity.
+      
+      3. market facilitator: development of initiatives to improve the functionality of the electricity market.
+      
+      Since there isn't much else to say about the TGO, you will be playing minigames that will represent a certain task the TGO has to complete to achieve a good functionality over the net.
+    </text>
+  </intro>
+  <ui>
+    <text>
+      Let's explain your user interface.
+      
+      Next to the pause button is the minigames button.
+      
+      By clicking on the minigames button, you will open the minigames menu where you can select from a variety of minigames.
+    </text>
+  </ui>
+  <memory>
+    <text>
+      The first minigame is 'memory'. In this minigame you need to find image pairs to earn points.
+      
+      You can find a pair by turning around 2 images and if they are a pair, they will be removed from the board.
+      
+      If the 2 images are not a pair, then the image will be turnt over again and you have to select a new pair of images.
+    </text>
+  </memory>
+  <breakout>
+    <text>
+The second minigame is 'breakout'. In this minigame you control a panel that will redirect a ball to other breakable panels.
+
+To win the game, you have to destroy all other panels.
+    </text>
+  </breakout>
+  <simon-says>
+    <text>
+The third minigame is 'simon says'. In this minigame you need to repeat a sequence of colors.
+
+After each sequence, a random color is added to the end of the sequence.
+
+You earn points based on the length of the sequence.
+    </text>
+  </simon-says>
+  <mastermind>
+    <text>
+      The fourth minigame is 'mastermind'. In this minigame you need to guess the 4 colour code.
+      
+      Ypu can achieve this by choosing 4 colours and after every selection, you get feedback about the correct position or color that are present in your selection.
+      
+      This feedback can help you decide which colors you need to take next or in what position you need to place them.
+    </text>
+  </mastermind>
+</scripts>

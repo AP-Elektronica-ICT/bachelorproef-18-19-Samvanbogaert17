@@ -5,7 +5,7 @@ public class ClosePauseMenu : MonoBehaviour
 {
     public Canvas pauseCanvas;
     public Button btn;
-    public Canvas canvas;
+    public Canvas uiCanvas;
 
     // script used to close the pause canvas
     public void Start()
@@ -17,7 +17,7 @@ public class ClosePauseMenu : MonoBehaviour
         CameraControl.showingPopUp = false;
         CameraControl.paused = false;
         Time.timeScale = 1;
-        canvas.enabled = true;
+        uiCanvas.enabled = true;
         pauseCanvas.enabled = false;
 
     }

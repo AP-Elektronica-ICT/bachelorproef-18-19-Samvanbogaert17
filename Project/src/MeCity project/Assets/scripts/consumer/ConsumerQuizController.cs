@@ -132,7 +132,7 @@ public class ConsumerQuizController : MonoBehaviour
         {
             if (int.Parse(list[i].Attributes["influence"].Value) > 0)
             {
-                FindObjectOfType<ConsumerCheckEndOfGame>().correctAnsCount++;
+                EndOfGame.NumberOfCorrectAnswers++;
                 answerBtns[i].GetComponent<Image>().color = Color.green;
             }
             else
