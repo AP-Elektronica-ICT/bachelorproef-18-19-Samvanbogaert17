@@ -189,3 +189,8 @@ Verder bugfixen en afwerken van Breakout
 22/03/19 - Dag 35
 
 Verder bugfixen en afwerken van Breakout
+
+25/03/19 - Dag 36
+
+Afwerken van Breakout minigame
+Bugfixing van alle levels
