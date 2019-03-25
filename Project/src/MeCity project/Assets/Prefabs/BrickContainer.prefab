@@ -34,7 +34,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 32}
+  m_SizeDelta: {x: 62.5, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5966165143350556048
 GameObject:
@@ -75,7 +75,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 32}
+  m_SizeDelta: {x: 62.5, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5966165143350556045
 CanvasRenderer:
@@ -139,7 +139,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 100, y: 32}
+  m_Size: {x: 62.5, y: 20}
   m_EdgeRadius: 0
 --- !u!114 &5966165143350556046
 MonoBehaviour:
@@ -161,11 +161,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5966165141712984933}
     m_Modifications:
-    - target: {fileID: 3171693077263588463, guid: 61b714d34bb5bdb449f6f5465f241537,
-        type: 3}
-      propertyPath: m_Name
-      value: Brick
-      objectReference: {fileID: 0}
     - target: {fileID: 793148481648757617, guid: 61b714d34bb5bdb449f6f5465f241537,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -234,12 +229,12 @@ PrefabInstance:
     - target: {fileID: 793148481648757617, guid: 61b714d34bb5bdb449f6f5465f241537,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 62.5
       objectReference: {fileID: 0}
     - target: {fileID: 793148481648757617, guid: 61b714d34bb5bdb449f6f5465f241537,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 32
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 793148481648757617, guid: 61b714d34bb5bdb449f6f5465f241537,
         type: 3}
@@ -270,6 +265,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3171693077263588463, guid: 61b714d34bb5bdb449f6f5465f241537,
+        type: 3}
+      propertyPath: m_Name
+      value: Brick
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038193413307890908, guid: 61b714d34bb5bdb449f6f5465f241537,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 62.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038193413307890908, guid: 61b714d34bb5bdb449f6f5465f241537,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61b714d34bb5bdb449f6f5465f241537, type: 3}

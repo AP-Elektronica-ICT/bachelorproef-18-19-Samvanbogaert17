@@ -8,28 +8,51 @@ public class TGOBrickGrid : MonoBehaviour
     public GameObject brickPrefab;
     public Texture[] textures;
 
-    private List<GameObject> bricks = new List<GameObject>();
-    private int bricksCount = 20;
+    private List<GameObject> bricksList = new List<GameObject>();
+    private int bricksCount;
     private int textureCount = 0;
+    private int columns;
 
     // Start is called before the first frame update
     void Start()
     {
-        //bricksCount = TGOBreakoutController.instance.bricks;
-
+        columns = GetComponentInChildren<GridLayoutGroup>().constraintCount;
+        bricksCount = FindObjectOfType<TGOBreakoutController>().bricks;
         Init();
     }
 
-    void Init()
+    private void Init()
     {
+        Debug.Log(bricksCount / textures.Length);
         for (int i = 0; i < bricksCount; i++)
         {
-            if (i % 5 == 0) //5 = (bricksCount / textures.Length)
+            if (i % columns == 0) 
             {
-                brickPrefab.GetComponentInChildren<RawImage>().texture = textures[textureCount];
+                if(textureCount == textures.Length)
+                {
+                    textureCount = 0;
+                    brickPrefab.GetComponentInChildren<RawImage>().texture = textures[textureCount];
+                }
+                else
+                {
+                    brickPrefab.GetComponentInChildren<RawImage>().texture = textures[textureCount];
+                }
                 textureCount++;
             }
-            bricks.Add(Instantiate(brickPrefab, transform));
+            bricksList.Add(Instantiate(brickPrefab, transform));
         }
+        textureCount = 0;
+    }
+
+    public void Reset()
+    {
+        for(int i = 0; i < bricksCount; i++)
+        {
+            Destroy(bricksList[i]);
+        }
+
+        bricksList.Clear();
+
+        Init();
     }
 }
