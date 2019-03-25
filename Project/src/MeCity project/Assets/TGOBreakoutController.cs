@@ -17,6 +17,7 @@ public class TGOBreakoutController : MonoBehaviour
     {
         brickCounter = bricks;
         livesTxt.text = lives.ToString();
+        paddle.GetComponentInChildren<Text>().text = "Press me to start";
     }
 
     void Update()
@@ -30,6 +31,7 @@ public class TGOBreakoutController : MonoBehaviour
     public void Setup()
     {
         TGOBall.ballInPlay = false;
+        paddle.GetComponentInChildren<Text>().text = "Press me to start";
         ball.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         ball.transform.SetParent(paddle.transform);
         ball.transform.localPosition = new Vector2(0, 40);
@@ -51,7 +53,7 @@ public class TGOBreakoutController : MonoBehaviour
         }
     }
 
-    void Reset()
+    public void Reset()
     {
         brickCounter = bricks;
         lives = 3;

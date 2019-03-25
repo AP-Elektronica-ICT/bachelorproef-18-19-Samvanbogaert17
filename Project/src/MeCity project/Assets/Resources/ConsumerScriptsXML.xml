@@ -164,7 +164,7 @@ How many times a year does the average UK household boil a kettle?
     </sdtext>
     <choices>
       <choice consumption="0" money="-2" energy="2">Install solar panels</choice>
-      <choice consumption="0" money="0" energy="">Don't solar panels</choice>
+      <choice consumption="0" money="0" energy="0">Don't solar panels</choice>
     </choices>
   </startdilemma>
   <dilemma>

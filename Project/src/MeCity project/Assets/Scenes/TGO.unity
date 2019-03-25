@@ -2042,6 +2042,7 @@ GameObject:
   - component: {fileID: 71189941}
   - component: {fileID: 71189940}
   - component: {fileID: 71189945}
+  - component: {fileID: 71189944}
   m_Layer: 5
   m_Name: MinigamesCanvas
   m_TagString: Untagged
@@ -2129,6 +2130,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &71189944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71189939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2118a9ecc9a6ca47bd35fa340b4422e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minigamesBtn: {fileID: 570998208}
+  minigameBtnsArray:
+  - {fileID: 1987947571}
+  - {fileID: 918262735}
+  - {fileID: 1533082858}
+  - {fileID: 1637114112}
 --- !u!114 &71189945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14485,7 +14504,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482524768}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 24d7da826fb8ae3459d5579ea9e28da4, type: 3}
   m_Name: 
@@ -14494,11 +14513,13 @@ MonoBehaviour:
   uiCanvas: {fileID: 325258122}
   pauseBtn: {fileID: 1602160484}
   amountOfCanvasses:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 514184136}
+  - {fileID: 1476894466}
+  - {fileID: 1178375009}
+  - {fileID: 864185296}
+  - {fileID: 71189942}
+  - {fileID: 1418761208}
+  - {fileID: 1992462295}
 --- !u!114 &482524774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16561,6 +16582,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1418761210}
         m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 71189944}
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26506,6 +26538,11 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 2601050402000908564, guid: 3e29d1957a14dd344be38d75e28fac89,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e29d1957a14dd344be38d75e28fac89, type: 3}
 --- !u!1001 &857355818
@@ -27497,6 +27534,7 @@ MonoBehaviour:
   paddle: {fileID: 1196888270}
   ball: {fileID: 1205669868}
   livesTxt: {fileID: 592534202}
+  brickCounter: 0
 --- !u!114 &896620711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38620,7 +38658,7 @@ PrefabInstance:
     - target: {fileID: 3631076301367788912, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00005340576
+      value: 0.000022888184
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69d5444c37eb1b45a633d0fff3132c9, type: 3}
@@ -39304,6 +39342,60 @@ MonoBehaviour:
   screen: {fileID: 896620709}
   testPrefab: {fileID: 4977728478407287403, guid: 3e29d1957a14dd344be38d75e28fac89,
     type: 3}
+--- !u!114 &1196888273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196888270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1196888275}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1196888275 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4977728478407287397, guid: 3e29d1957a14dd344be38d75e28fac89,
+    type: 3}
+  m_PrefabInstance: {fileID: 851370688}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196888270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1197747668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39706,6 +39798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77a9adc93b116b45b62c7a0aeaf340e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paddle: {fileID: 1196888270}
   breakoutPanel: {fileID: 896620708}
   breakoutCanvas: {fileID: 1992462295}
   ballInitialVelocity: 300
@@ -47213,8 +47306,8 @@ MonoBehaviour:
   imgArray:
   - {fileID: 2800000, guid: fcfbde7c81a05d24f932cff15e1aee14, type: 3}
   - {fileID: 2800000, guid: a963b0bf781ea644dbd0a343033be390, type: 3}
-  - {fileID: 2800000, guid: 5e00f9c69f86ccf4ab4e81c1ea33bc05, type: 3}
-  - {fileID: 2800000, guid: 9c6e87a4ab60a404f8e63827929d28f6, type: 3}
+  - {fileID: 2800000, guid: 9e7bcaabe23dac44e880f13d835cbbb4, type: 3}
+  - {fileID: 2800000, guid: 693099dcb0a997241b8d8225e6c31efc, type: 3}
   - {fileID: 2800000, guid: fdfd1affd2214c84a95aa2d64af08df1, type: 3}
   - {fileID: 2800000, guid: 7f180a8794719b642b55b32c6ae78da3, type: 3}
   - {fileID: 2800000, guid: d24e28143058cb143905a3bf4ef29f36, type: 3}
@@ -65402,8 +65495,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: StartGame
+      - m_Target: {fileID: 71189944}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 896620710}
+        m_MethodName: Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

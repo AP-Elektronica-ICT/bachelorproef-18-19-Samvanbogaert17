@@ -5,18 +5,33 @@ using UnityEngine.UI;
 
 public class TGOMinigamesController : MonoBehaviour
 {
-    public Canvas minigamesCanvas;
-    public Button minigameBtn;
-
+    public Button minigamesBtn;
+    public Button[] minigameBtnsArray;
+    bool GameStarted = false;
     // Start is called before the first frame update
     void Start()
     {
-
+        foreach(Button btn in minigameBtnsArray)
+        {
+            btn.onClick.AddListener(OnClick);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameStarted)
+        {
+            minigamesBtn.interactable = false;
+        }
+        else
+        {
+            minigamesBtn.interactable = true;
+        }
+    }
+
+    public void OnClick()
+    {
+        GameStarted = !GameStarted;
     }
 }
