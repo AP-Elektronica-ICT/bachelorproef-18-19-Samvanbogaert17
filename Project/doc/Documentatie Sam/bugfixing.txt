@@ -8,4 +8,3 @@ BUGS:
  
  - TGO level: can't pause while minigame menu is open
  - TGO levle: can't pause while minigame is open
- - TGO level: breakout continues playing after quitting

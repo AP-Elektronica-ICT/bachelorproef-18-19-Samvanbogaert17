@@ -194,3 +194,8 @@ Verder bugfixen en afwerken van Breakout
 
 Afwerken van Breakout minigame
 Bugfixing van alle levels
+
+26/03/19 - Dag 37
+
+Starten van Simon Says minigame
+Start van het maken van VGV 2
