@@ -7,6 +7,9 @@ public class TGOSimonsaysController : MonoBehaviour
 {
     public Button[] btnArray;
     public RawImage[] imgArray;
+    public AudioClip[] AudioArray;
+
+    private AudioSource source = new AudioSource();
 
     private Color[] defaultColors = new Color[4];
     private Color[] highlightedColors = new Color[4];
@@ -18,23 +21,31 @@ public class TGOSimonsaysController : MonoBehaviour
     private List<int> correctList = new List<int>();
 
     private int frameCounter = 0;
+    private int sequenceCounter = 0;
+
+    private bool gameStarted = false;
     // Start is called before the first frame update
     void Start()
     {
+        source = GetComponent<AudioSource>();
+        source.playOnAwake = false;
         Init();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (simonList.Count > 0)
+        if (gameStarted)
         {
-            CompareLists();
-        }
-        frameCounter++;
-        if (frameCounter > 120)
-        {
-            frameCounter = 0;
+            if (simonList.Count > 0)
+            {
+                CompareLists();
+            }
+            frameCounter++;
+            if (frameCounter > 120)
+            {
+                frameCounter = 0;
+            }
         }
     }
 
@@ -46,9 +57,15 @@ public class TGOSimonsaysController : MonoBehaviour
             btnArray[i].onClick.AddListener(() =>
             {
                 playerList.Add(temp);
+                PlaySound(temp);
             });
 
             defaultColors[i] = imgArray[i].color;
+        }
+
+        for(int i = 0; i < AudioArray.Length; i++)
+        {
+            Debug.Log(AudioArray[i].length);
         }
 
 
@@ -76,6 +93,21 @@ public class TGOSimonsaysController : MonoBehaviour
         AddToList();
     }
 
+    public void StartGame()
+    {
+        gameStarted = true;
+    }
+
+    public void EndGame()
+    {
+        gameStarted = false;
+    }
+
+    void PlaySound(int index)
+    {
+        source.PlayOneShot(AudioArray[index]);
+    }
+
     void CompareLists()
     {
         if (simonList.Count == playerList.Count)
@@ -93,32 +125,23 @@ public class TGOSimonsaysController : MonoBehaviour
         {
             if(frameCounter == 60)
             {
-
+                imgArray[simonList[sequenceCounter]].color = highlightedColors[simonList[sequenceCounter]];
+                //PlaySound(simonList[sequenceCounter]);
+                /*if (sequenceCounter > 1)
+                {
+                    imgArray[simonList[sequenceCounter - 1]].color = defaultColors[simonList[sequenceCounter - 1]];
+                    AudioArray[sequenceCounter -1] = 
+                }*/
             }
             else if(frameCounter == 120)
             {
+                imgArray[simonList[sequenceCounter]].color = defaultColors[simonList[sequenceCounter]];
+                sequenceCounter++;
+                if(sequenceCounter == simonList.Count)
+                {
+                    sequenceCounter = 0;
+                }
                 frameCounter = 0;
-            }
-            for (int i = 0; i < simonList.Count; i++)
-            {
-
-                if (frameCounter == 60)
-                {
-                    
-                    imgArray[simonList[i]].color = highlightedColors[simonList[i]];
-                    if(i > 1)
-                    {
-                        imgArray[simonList[i - 1]].color = defaultColors[simonList[i - 1]];
-                    }
-
-                }
-                if (frameCounter == 120)
-                {
-                    imgArray[simonList[i]].color = defaultColors[simonList[i]];
-                    frameCounter = 0;
-                }
-
-
             }
         }
     }
