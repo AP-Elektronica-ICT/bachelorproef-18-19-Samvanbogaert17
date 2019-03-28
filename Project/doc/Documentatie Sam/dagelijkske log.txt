@@ -199,3 +199,8 @@ Bugfixing van alle levels
 
 Starten van Simon Says minigame
 Start van het maken van VGV 2
+
+28/03/19 - Dag 38
+
+Nieuwe methode om Simon Says te maken
+Afmaken van Professionalisering Rapport
