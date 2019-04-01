@@ -77,7 +77,6 @@ public class addFish : MonoBehaviour
 
         avg = avg / fishes.Count;
 
-        System.Random random = new System.Random();
         for (int i = 0; i < fishes.Count; i++)
         {
             string test = lines[i];
