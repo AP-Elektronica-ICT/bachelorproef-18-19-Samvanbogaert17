@@ -204,3 +204,8 @@ Start van het maken van VGV 2
 
 Nieuwe methode om Simon Says te maken
 Afmaken van Professionalisering Rapport
+
+01/04/19 - Dag 39
+
+Simon says minigame afgewerkt
+Begonnen aan UI van Mastermind
