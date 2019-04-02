@@ -2,23 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class TGOMastermindDropHandler : MonoBehaviour, IDropHandler
 {
+    public GameObject answer
+    {
+        get
+        {
+            if(transform.childCount > 0)
+            {
+                Destroy(transform.GetChild(0).gameObject);
+            }
+            return null;
+        }
+    }
     public void OnDrop(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (!answer)
+        {
+            TGOMastermindDragHandler.itemBeingDragged.transform.SetParent(transform);
+        }
     }
 }

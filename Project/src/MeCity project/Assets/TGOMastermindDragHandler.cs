@@ -3,27 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TGOMastermindDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
+public class TGOMastermindDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    public static GameObject itemBeingDragged;
+    private Vector2 startPos;
+    Transform startParent;
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        itemBeingDragged = Instantiate(gameObject, transform);
+        transform.localPosition = startPos;
+        startParent = transform.parent;
+        GetComponent<CanvasGroup>().blocksRaycasts = false;
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        itemBeingDragged = null;
+        GetComponent<CanvasGroup>().blocksRaycasts = true;
+        if(transform.parent == startParent)
+        {
+            transform.localPosition = startPos;
+        }
     }
 }
