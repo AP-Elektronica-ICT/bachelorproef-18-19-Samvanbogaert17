@@ -209,3 +209,9 @@ Afmaken van Professionalisering Rapport
 
 Simon says minigame afgewerkt
 Begonnen aan UI van Mastermind
+
+02/04/19 - Dag 40
+
+Mastermind drag & drop finished
+Mastermind answering system finished
+Mastermind hintSystem WIP
