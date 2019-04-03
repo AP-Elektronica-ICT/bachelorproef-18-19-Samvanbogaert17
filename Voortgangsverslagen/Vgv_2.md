@@ -78,7 +78,7 @@ Het project is op een zeer gebruiksvriendelijke manier opgesteld.
 * Variabelen kunnen zeer snel aangepast worden in de Inspector van Unity of in de .cs bestanden zelf.
 * Extra levels kunnen ook zeer snel aangemaakt worden en kunnen gemakkelijk geïntegreerd worden in het spel.
 * Nieuwe vragen of informatie toevoegen kan men ook zeer snel bereiken door deze vragen of informatie toe te voegen aan het corresponderende bestand dat men kan terugvinden in de documentatie.
-* Het zal ech
+* Het zal echter moeilijker zijn om de highscores opnieuw te laten werken indien het spel op een nieuwe omgeving geplaatst wordt. Hiervoor dient nog een oplossing gezocht te worden.
 
 ## Extra informatie
 ### Bijscholingen
