@@ -19,11 +19,10 @@ public class TGOMastermind : MonoBehaviour
     private Color[] gameHints = new Color[4];
     private bool[] isAnswered = new bool[4];
 
-    private Transform prevAnswerPanelTransform;
     private List<GameObject> prevAnswers = new List<GameObject>();
 
     public Button confirmBtn;
-    public Button startBtn;
+    public Button restartBtn;
 
     private System.Random rnd = new System.Random();
 
@@ -31,19 +30,17 @@ public class TGOMastermind : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        prevAnswerPanelTransform = prevAnswerPanel.transform;
-        GetCombination();
+        //Adds Confirm method to confirmBtn
+        confirmBtn.onClick.AddListener(Confirm);
 
-        confirmBtn.onClick.AddListener(() =>
-        {
-            Confirm();
-        });
+        //Adds StartGame method to restartBtn
+        restartBtn.onClick.AddListener(StartGame);
     }
 
     void Confirm()
     {
         //Initial check to see if player has filled in every color
-        for(int i = 0; i < isAnswered.Length; i++)
+        for(int i = 0; i < answerSlots.Length; i++)
         {
             if(answerSlots[i].childCount > 0)
             {
@@ -55,43 +52,35 @@ public class TGOMastermind : MonoBehaviour
             }
         }
 
+        //Checks if all answers are filled in
         if (isAnswered.All(x => x == true))
         {
+            //Resets hint colors to white & sets playerColorCounter to 0
+            ResetHints();
             //set player answers
-            for(int i = 0; i < playerAnswers.Length; i++)
+            for (int i = 0; i < playerAnswers.Length; i++)
             {
                 playerAnswers[i] = answerSlots[i].GetChild(0).GetComponent<RawImage>().color;
-            }
-            //
-            for (int i = 0; i < possibleAnswers.Length; i++){
-                for(int j = 0; j < gameAnswers.Length; j++)
+                for(int j = 0; j < possibleAnswers.Length; j++)
                 {
-                    if(gameAnswers[j] == possibleAnswers[i].color)
+                    if(playerAnswers[i] == possibleAnswers[j].color)
                     {
-                        playerColorCounter[i]++;
+                        playerColorCounter[j]++;
                     }
                 }
             }
-            //Resets hint colors to white
-            ResetHints();
             //checks if colors are present in the solution
             CheckPosition();
             //checks if the colors on the positions match
             CheckColor();
             //Adds answer to the previous answer panel
             AddPrevAnswer(playerAnswers, gameHints);
-
-            //if the player has guessed the answer
-            if (playerAnswers == gameAnswers)
-            {
-
-            }
-
         }
     }
 
     void GetCombination()
     {
+        gameColorCounter = new int[8];
         for (int i = 0; i < gameAnswers.Length; i++)
         {
             gameAnswers[i] = possibleAnswers[rnd.Next(0, possibleAnswers.Length)].color;
@@ -108,7 +97,8 @@ public class TGOMastermind : MonoBehaviour
 
     void AddPrevAnswer(Color[] answerArray, Color[] hintArray)
     {
-        GameObject prevAnswer = Instantiate(prevAnswerPrefab, prevAnswerPanelTransform);
+        GameObject prevAnswer = Instantiate(prevAnswerPrefab, prevAnswerPanel.transform);
+        prevAnswer.transform.SetAsFirstSibling();
 
         for (int i = 0; i < answerArray.Length; i++)
         {
@@ -132,13 +122,21 @@ public class TGOMastermind : MonoBehaviour
     void CheckPosition()
     {
         hintCount = 0;
+        int occurance = 0;
         for (int i = 0; i < gameColorCounter.Length; i++)
         {
-            if(playerColorCounter[i] >= gameColorCounter[i])
+            occurance = 0;
+            Debug.Log(i + ":  " + playerColorCounter[i] + " | " + gameColorCounter[i]);
+            for(int j = 0; j < gameColorCounter[i]; j++)
             {
-                gameHints[hintCount] = new Color(1f, 1f, 0f);
-                hintCount++;
+                if (occurance < playerColorCounter[i] && playerColorCounter[i] != 0)
+                {
+                    gameHints[hintCount] = new Color(1f, 1f, 0f);
+                    hintCount++;
+                }
+                occurance++;
             }
+            
         }
     }
 
@@ -153,13 +151,33 @@ public class TGOMastermind : MonoBehaviour
                 hintCount++;
             }
         }
+
+        if(playerAnswers == gameAnswers)
+        {
+            restartBtn.interactable = true;
+        }
     }
 
     void ResetHints()
     {
+        //resets hints to white
         for(int i = 0;  i < gameHints.Length; i++)
         {
             gameHints[i] = new Color(1f, 1f, 1f);
         }
+        //resets playerColorCounter
+        for(int i = 0; i < playerColorCounter.Length; i++)
+        {
+            playerColorCounter[i] = 0;
+        }
+    }
+
+    public void StartGame()
+    {
+        restartBtn.interactable = false;
+
+        ClearPrevAnswers();
+
+        GetCombination();
     }
 }

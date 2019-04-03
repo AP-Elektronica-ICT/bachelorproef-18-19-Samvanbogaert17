@@ -29,7 +29,7 @@ public class QnAscore : MonoBehaviour
     {
         ViewScoreBtn.onClick.AddListener(() =>
         {
-            FindObjectOfType<CameraControl>().DisabledAllActiveCanvases();
+            FindObjectOfType<CameraControl>().DisableAllCanvases();
             Init();
             Next(0);
         });

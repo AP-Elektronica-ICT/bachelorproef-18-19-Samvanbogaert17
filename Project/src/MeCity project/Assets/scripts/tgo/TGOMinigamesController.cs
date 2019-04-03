@@ -20,6 +20,13 @@ public class TGOMinigamesController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    public void OnClick()
+    {
+        GameStarted = !GameStarted;
+
         if (GameStarted)
         {
             minigamesBtn.interactable = false;
@@ -28,10 +35,5 @@ public class TGOMinigamesController : MonoBehaviour
         {
             minigamesBtn.interactable = true;
         }
-    }
-
-    public void OnClick()
-    {
-        GameStarted = !GameStarted;
     }
 }

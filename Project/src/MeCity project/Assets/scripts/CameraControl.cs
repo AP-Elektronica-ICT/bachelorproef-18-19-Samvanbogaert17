@@ -13,26 +13,34 @@ public class CameraControl : MonoBehaviour
     [Tooltip("Do not include Pause Canvas and UI canvas")]
     public Canvas[] amountOfCanvasses;
     private string sceneName;
+    private Canvas prevCanvas;
 
     void Start()
     {
         sceneName = SceneManager.GetActiveScene().name;
-        pauseBtn.onClick.AddListener(() => pause());
+        pauseBtn.onClick.AddListener(() => Pause());
     }
     // Script used for the ingame camera control
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pause();
+            if (paused)
+            {
+                Unpause();
+            }
+            else
+            {
+                Pause();
+            }
         }
         // on certain levels moving and rotating the camera will not be possible
         if (sceneName != "Consumer" && sceneName != "Producer")
         {
             if (!paused)
             {
-                move();
-                rotate();
+                Move();
+                Rotate();
 
             }
             //makes the camera rotate when the game is paused
@@ -43,7 +51,7 @@ public class CameraControl : MonoBehaviour
         }
     }
     // move the camera by pressing the arrow keys
-    private void move()
+    private void Move()
     {
         var yPosition = transform.position.y;
         var oldPosition = transform.position;
@@ -73,7 +81,7 @@ public class CameraControl : MonoBehaviour
         }
     }
 
-    private void rotate()
+    private void Rotate()
     {
         // rotate camera right and left by pressing spacebar and moving the cursor to the edge of the screen
         if (Input.mousePosition.x >= Screen.width * 0.95)//&& Input.GetKey("space"))
@@ -113,36 +121,43 @@ public class CameraControl : MonoBehaviour
         }
     }
 
-    private void pause()
+    public void Pause()
     {
-        if (!pauseCanvas.isActiveAndEnabled && !DisabledAllActiveCanvases())
+        if (!pauseCanvas.isActiveAndEnabled)
         {
             paused = true;
             Time.timeScale = 0;
+            DisableAllCanvases();
             pauseCanvas.enabled = true;
             uiCanvas.enabled = false;
         }
-        else
+    }
+
+    public void Unpause()
+    {
+        if (pauseCanvas.isActiveAndEnabled)
         {
             paused = false;
             Time.timeScale = 1;
+            if (prevCanvas != null)
+            {
+                prevCanvas.enabled = true;
+            }
             pauseCanvas.enabled = false;
             uiCanvas.enabled = true;
         }
     }
 
-    public bool DisabledAllActiveCanvases()
+    public void DisableAllCanvases()
     {
-        bool actionIsDone = false;
+        prevCanvas = null;
         for (int i = 0; i < amountOfCanvasses.Length; i++)
         {
             if (amountOfCanvasses[i].isActiveAndEnabled)
             {
+                prevCanvas = amountOfCanvasses[i];
                 amountOfCanvasses[i].enabled = false;
-                actionIsDone = true;
             }
         }
-        Debug.Log(actionIsDone);
-        return actionIsDone;
     }
 }

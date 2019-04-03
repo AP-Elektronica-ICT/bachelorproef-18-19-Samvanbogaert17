@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2775818313724221351}
   - component: {fileID: 2775818313724221370}
   - component: {fileID: 2775818313724221371}
-  - component: {fileID: 2775818313724221348}
   - component: {fileID: 2775818313724221349}
   m_Layer: 5
   m_Name: Exit
@@ -77,21 +76,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &2775818313724221348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2775818313724221344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d230fc021f4bd740848fbe1b820845c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseCanvas: {fileID: 2775818315180972798}
-  btn: {fileID: 2775818313724221349}
-  canvas: {fileID: 0}
 --- !u!114 &2775818313724221349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +141,6 @@ GameObject:
   - component: {fileID: 2775818313895062267}
   - component: {fileID: 2775818313895062244}
   - component: {fileID: 2775818313895062245}
-  - component: {fileID: 2775818313895062246}
   m_Layer: 5
   m_Name: ContinueBtn
   m_TagString: Untagged
@@ -264,21 +247,6 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2775818313895062246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2775818313895062241}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d230fc021f4bd740848fbe1b820845c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseCanvas: {fileID: 2775818315180972798}
-  btn: {fileID: 2775818313895062245}
-  canvas: {fileID: 0}
 --- !u!1 &2775818314263061054
 GameObject:
   m_ObjectHideFlags: 0
