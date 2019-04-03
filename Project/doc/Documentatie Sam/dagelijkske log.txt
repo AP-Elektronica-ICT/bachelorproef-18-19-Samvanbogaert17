@@ -215,3 +215,9 @@ Begonnen aan UI van Mastermind
 Mastermind drag & drop finished
 Mastermind answering system finished
 Mastermind hintSystem WIP
+
+03/04/19 - Dag 41
+
+Mastermind afgewerkt
+Pause bug fixed
+Global audio mute WIP
