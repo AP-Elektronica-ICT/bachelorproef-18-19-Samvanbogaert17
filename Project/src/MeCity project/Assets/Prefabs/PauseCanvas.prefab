@@ -767,9 +767,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'When the explanation finished you can freely move the camera using the
-    arrow keys on your keyboard, zoom in- and out using the mouse scrollwheel, look
-    up, down, right and left by moving the cursor on the edges of the screen.
+  m_Text: 'You can freely move the camera using the arrow keys on your keyboard, zoom
+    in- and out using the mouse scrollwheel and right and left by moving the cursor
+    on the edges of the screen.
 
 
     This game is in development mode, problems can occur.'
