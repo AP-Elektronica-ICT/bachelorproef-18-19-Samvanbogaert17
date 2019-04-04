@@ -13,7 +13,6 @@ public class AudioHandler : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        scene = SceneManager.GetActiveScene().name;
         if (instance != null)
         {
             Destroy(gameObject);

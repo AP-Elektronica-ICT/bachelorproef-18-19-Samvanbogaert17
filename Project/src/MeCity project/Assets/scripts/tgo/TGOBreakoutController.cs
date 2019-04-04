@@ -51,6 +51,7 @@ public class TGOBreakoutController : MonoBehaviour
             livesTxt.text = lives.ToString();
             Setup();
         }
+        FindObjectOfType<TGOBall>().GetRandomAngle();
     }
 
     public void Reset()
@@ -59,6 +60,7 @@ public class TGOBreakoutController : MonoBehaviour
         lives = 3;
         livesTxt.text = lives.ToString();
         FindObjectOfType<TGOBrickGrid>().Reset();
+        FindObjectOfType<TGOBall>().GetRandomAngle();
         Setup();
     }
 }

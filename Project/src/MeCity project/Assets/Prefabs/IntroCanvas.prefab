@@ -1152,10 +1152,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btn: {fileID: 8496529725181809954}
-  audio: {fileID: 0}
   img: {fileID: 4141792133703500062}
-  mute: {fileID: 2800000, guid: b58c4aee7023075408e292ea9b6a1742, type: 3}
-  unmute: {fileID: 2800000, guid: 5e00f9c69f86ccf4ab4e81c1ea33bc05, type: 3}
+  muted: {fileID: 2800000, guid: 5e00f9c69f86ccf4ab4e81c1ea33bc05, type: 3}
+  unmuted: {fileID: 2800000, guid: b58c4aee7023075408e292ea9b6a1742, type: 3}
 --- !u!1 &3993102995311803415
 GameObject:
   m_ObjectHideFlags: 0

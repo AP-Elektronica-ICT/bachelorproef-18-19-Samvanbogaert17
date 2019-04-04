@@ -10,6 +10,8 @@ public class TGOBall : MonoBehaviour
     public Canvas breakoutCanvas;
     public float ballInitialVelocity = 600f;
 
+    private System.Random rnd = new System.Random();
+    private float angle;
 
     private bool paddleIsPressed;
     private Rigidbody2D rb;
@@ -17,6 +19,7 @@ public class TGOBall : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetRandomAngle();
         paddle.GetComponent<Button>().onClick.AddListener(IsPressed);
         rb = GetComponent<Rigidbody2D>();
     }
@@ -29,7 +32,7 @@ public class TGOBall : MonoBehaviour
             transform.parent = breakoutPanel.transform;
             ballInPlay = true;
             rb.gravityScale = 0;
-            rb.velocity = new Vector2(ballInitialVelocity, ballInitialVelocity);
+            rb.velocity = new Vector2(ballInitialVelocity * (Mathf.Cos(angle)), ballInitialVelocity * Mathf.Sin(angle));
             paddleIsPressed = false;
         }
     }
@@ -38,6 +41,17 @@ public class TGOBall : MonoBehaviour
     {
         paddleIsPressed = true;
         paddle.GetComponentInChildren<Text>().text = "";
+    }
+
+    public void GetRandomAngle()
+    {
+        angle = rnd.Next(45, 136);
+        while (angle < 95 && angle > 85)
+        {
+            angle = rnd.Next(45, 136);
+        }
+
+        angle *= (Mathf.PI / 180);
     }
 
 }
