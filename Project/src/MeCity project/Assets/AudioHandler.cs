@@ -8,7 +8,7 @@ public class AudioHandler : MonoBehaviour
     static AudioHandler instance = null;
     [SerializeField] private AudioClip menuMusic;
     [SerializeField] private AudioClip levelMusic;
-    [SerializeField] private AudioSource source;
+    public AudioSource source;
     private string scene;
     // Start is called before the first frame update
     void Awake()
@@ -49,12 +49,11 @@ public class AudioHandler : MonoBehaviour
         if (PlayerPrefs.GetInt("Muted", 0) == 0)
         {
             PlayerPrefs.SetInt("Muted", 1);
-            source.volume = 1;
         }
         else
         {
             PlayerPrefs.SetInt("Muted", 0);
-            source.volume = 0;
+            
         }
     }
 

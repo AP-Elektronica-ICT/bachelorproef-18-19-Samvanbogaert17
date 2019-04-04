@@ -6,8 +6,8 @@ public class audioMute : MonoBehaviour {
     private AudioHandler audioHandler;
     public Button btn;
     public RawImage img;
-    public Texture mute;
-    public Texture unmute;
+    public Texture muted;
+    public Texture unmuted;
 
     // script used for the mute/unmute audio button
     // first set the image texture to unmute
@@ -23,15 +23,19 @@ public class audioMute : MonoBehaviour {
         UpdateIcon();
     }
 
-    void UpdateIcon()
+    public void UpdateIcon()
     {
+        audioHandler = FindObjectOfType<AudioHandler>();
         if (PlayerPrefs.GetInt("Muted", 0) == 0)
         {
-            img.texture = unmute;
+            img.texture = unmuted;
+            audioHandler.source.volume = 1;
+
         }
         else
         {
-            img.texture = mute;
+            img.texture = muted;
+            audioHandler.source.volume = 0;
         }
     }
 }
