@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ContractCount
   - AnsPanel
+  - Level
+  - Menu
   layers:
   - Default
   - TransparentFX

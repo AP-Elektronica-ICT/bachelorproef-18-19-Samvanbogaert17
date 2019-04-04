@@ -199,7 +199,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btn: {fileID: 298246097}
-  audio: {fileID: 1395063057}
   img: {fileID: 298246094}
   mute: {fileID: 2800000, guid: b58c4aee7023075408e292ea9b6a1742, type: 3}
   unmute: {fileID: 2800000, guid: 5e00f9c69f86ccf4ab4e81c1ea33bc05, type: 3}
@@ -1386,12 +1385,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1395063057 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4224833936931181766, guid: 72435d7ff32e70c42ae3a2d71bb22ab4,
-    type: 3}
-  m_PrefabInstance: {fileID: 4224833935607770583}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1399091920
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,5 +2417,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 4224833936931181764, guid: 72435d7ff32e70c42ae3a2d71bb22ab4,
+        type: 3}
+      propertyPath: mainMenuMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: cb38067ff1d7d2142b90333e930f7db9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72435d7ff32e70c42ae3a2d71bb22ab4, type: 3}
