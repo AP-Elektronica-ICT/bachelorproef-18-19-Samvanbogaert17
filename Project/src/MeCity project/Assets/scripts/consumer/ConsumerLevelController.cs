@@ -40,10 +40,12 @@ public class ConsumerLevelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //A question is answered
         if (questionAnswered == true)
         {
             frameCounter++;
-            if (frameCounter % (6 * 60) == 0)
+            //5 seconds have passed - Ask a random question or dilemma
+            if (frameCounter % (5 * 60) == 0)
             {
                 timePassed = true;
                 frameCounter = 0;

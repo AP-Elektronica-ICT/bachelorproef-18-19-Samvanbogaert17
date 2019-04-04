@@ -30,15 +30,18 @@ public class ConsumerDilemmaController : MonoBehaviour
     // script used for the event popups
     void Start()
     {
+        //Set values of consumption, money and energy
         consumption = prevConsumption = consumptionSlider.value;
         money = prevMoney = moneySlider.value;
         energy = prevEnergy = energySlider.value;
 
+        //Gets active scene name - used for getting the right XML file
         sceneName = SceneManager.GetActiveScene().name;
     }
 
     void Update()
     {
+        //constantly updates consumption, money or energy
         changeConsumption(consumption, prevConsumption);
         changeMoney(money, prevMoney);
         changeEnergy(energy, prevEnergy);
