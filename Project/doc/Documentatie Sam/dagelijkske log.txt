@@ -221,3 +221,9 @@ Mastermind hintSystem WIP
 Mastermind afgewerkt
 Pause bug fixed
 Global audio mute WIP
+
+04/04/19 - Dag 42
+
+Global audio mute fixed
+Music changes from menu to level and level to menu
+gestart aan scriptie
