@@ -227,3 +227,8 @@ Global audio mute WIP
 Global audio mute fixed
 Music changes from menu to level and level to menu
 gestart aan scriptie
+
+05/04/19 - Dag 43
+
+Kleine bugs gefixed + Introductie broken?
+Start aan Scriptie (wordcount = 2797)
