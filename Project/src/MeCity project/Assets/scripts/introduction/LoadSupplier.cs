@@ -12,14 +12,13 @@ public class LoadSupplier : MonoBehaviour {
     // script used to load the supplier canvas
     private void Start()
     {
-        Update();
+        btn.onClick.AddListener(Task);
     }
     private void Update()
     {
-         if (!Camera.main.GetComponent<Animation>().isPlaying)
+        if (!Camera.main.GetComponent<Animation>().isPlaying)
         {
-            btn.onClick.AddListener(Task);
-          
+            
         }
     }
     public void Task()
