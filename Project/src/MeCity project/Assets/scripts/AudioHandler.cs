@@ -8,6 +8,7 @@ public class AudioHandler : MonoBehaviour
     static AudioHandler instance = null;
     [SerializeField] private AudioClip menuMusic;
     [SerializeField] private AudioClip levelMusic;
+    [SerializeField] private AudioClip introMusic;
     public AudioSource source;
     private string scene;
     // Start is called before the first frame update
@@ -35,6 +36,10 @@ public class AudioHandler : MonoBehaviour
             if (scene.IsOneOf("Producer","TGO","DGO","Supplier","Consumer"))
             {
                 PlayLevelMusic();
+            }
+            else if (scene.IsOneOf("Introduction"))
+            {
+                PlayIntroductionMusic();
             }
             else
             {
@@ -93,6 +98,25 @@ public class AudioHandler : MonoBehaviour
     {
         PlayLevelMusicStatic();
     } 
+
+    public static void PlayIntroductionMusicStatic()
+    {
+        if (instance != null)
+        {
+            if (instance.source != null)
+            {
+                instance.source.Stop();
+                instance.source.clip = instance.introMusic;
+                instance.source.Play();
+            }
+        }
+    }
+
+    //wrapper method for PlayIntroductionMusicStatic
+    public void PlayIntroductionMusic()
+    {
+        PlayIntroductionMusicStatic();
+    }
 }
 
 public static class Helper
