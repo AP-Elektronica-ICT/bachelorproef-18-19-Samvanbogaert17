@@ -1,46 +1,43 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Xml;
-using UnityEngine.SceneManagement;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class QuizController : MonoBehaviour
+public class CorrectOrderController : MonoBehaviour
 {
-    public Canvas quizCanvas;
-    public Button btn;
-    public Button[] answerBtns;
-    public Text[] teksts;
+    public Button closeBtn;
+    public Button confirmBtn;
     public Text questionTxt;
-    public Text moneyTxt;
+    public Button[] answerBtns;
+    public Text[] answerTxts;
+    private Text[] correctAnsTxts;
 
+    private int randomNumber;
+    private int lastNumber;
     private XmlDocument doc = new XmlDocument();
-    private int money;
-    private int number;
-    //private bool answered = false;
-    private int lastNum = 0;
     private string sceneName;
-
-    private System.Random rng = new System.Random();
+    private System.Random rnd = new System.Random();
     private List<Vector3> defaultPos = new List<Vector3>();
     private List<Vector3> shuffledPos = new List<Vector3>();
-
-    // script used for the quiz canvas
-    public void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         for(int i = 0; i < answerBtns.Length; i++)
         {
             defaultPos.Add(answerBtns[i].transform.localPosition);
         }
-
         sceneName = SceneManager.GetActiveScene().name;
-        btn.onClick.AddListener(Task);
+        closeBtn.onClick.AddListener(Task);
+
     }
 
     public void Task()
     {
         shuffledPos.Clear();
-        //answered = false;
+
         // hide all buttons so they are not visible when there are for example 3 answers (5 buttons in total)
         for (int i = 0; i < answerBtns.Length; i++)
         {
@@ -60,10 +57,10 @@ public class QuizController : MonoBehaviour
         int range = doc.GetElementsByTagName("text").Count;
 
         // generate a random number to show up a random popup
-        int randomgetal = RandomNumber(range);
-        number = randomgetal;
+        int _randomNumber = RandomNumber(range);
+        randomNumber = _randomNumber;
         // Read the random popup in the xml file
-        ReadXML(randomgetal);
+        ReadXML(randomNumber);
 
         for (int i = 0; i < answerBtns.Length; i++)
         {
@@ -71,7 +68,7 @@ public class QuizController : MonoBehaviour
             int temp = i;
             answerBtns[temp].onClick.AddListener(() =>
             {
-                BtnAnswer(temp, number);
+                BtnAnswer(temp, randomNumber);
                 foreach (Button btn in answerBtns)
                 {
                     btn.interactable = false;
@@ -79,16 +76,17 @@ public class QuizController : MonoBehaviour
             });
         }
     }
+
     // Generating a random number
     private int RandomNumber(int maxRange)
     {
         System.Random r = new System.Random();
         int x = r.Next(maxRange);
-        while (x == lastNum)
+        while (x == lastNumber)
         {
             x = r.Next(maxRange);
         }
-        lastNum = x;
+        lastNumber = x;
         return x;
     }
 
@@ -99,7 +97,7 @@ public class QuizController : MonoBehaviour
         XmlNodeList elemList = doc.GetElementsByTagName("popup");
         int ansCount = elemList[number].ChildNodes[1].ChildNodes.Count;
         XmlNodeList tekstList = doc.GetElementsByTagName("text");
-        questionTxt.text = tekstList[number].InnerText;
+        tekstvak.text = tekstList[number].InnerText;
 
         // for each popup, the answers to the questions are given in the xml file, we search the number of answers
         //and generate this number of buttons, the answer texts are placed next to the buttons
@@ -113,7 +111,7 @@ public class QuizController : MonoBehaviour
         }
         //shuffle the positions inside the array
         Shuffle(shuffledPos);
-        for(int i = 0; i < ansCount; i++)
+        for (int i = 0; i < ansCount; i++)
         {
             answerBtns[i].transform.localPosition = shuffledPos[i];
         }
@@ -160,16 +158,6 @@ public class QuizController : MonoBehaviour
                 EndOfGame.NumberOfCorrectAnswers = 0;
             }
             EndOfGame.NumberOfCorrectAnswers++;
-            switch (sceneName)
-            {
-                case "Producer":
-                case "DGO":
-                case "Supplier":
-                    AdjustMoney(influence * 1000);
-                    break;
-                default:
-                    break;
-            }
         }
         DataScript.AddScore(influence * 100);
 
@@ -188,13 +176,11 @@ public class QuizController : MonoBehaviour
 
     private void Shuffle(List<Vector3> shufflelist)
     {
-        shuffledPos = shufflelist.OrderBy(x => rng.Next()).ToList();
+        shuffledPos = shufflelist.OrderBy(x => rnd.Next()).ToList();
     }
 
-    private void AdjustMoney(int _money)
+    void Confirm()
     {
-        money = int.Parse(moneyTxt.text);
-        money += _money;
-        moneyTxt.text = money.ToString();
+
     }
 }

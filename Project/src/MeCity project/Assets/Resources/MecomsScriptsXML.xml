@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Multiple choice questions -->
+<scripts>
+  <question>
+    <text>
+Consider a customer requesting a new connection to be installed in a regulated market.
+Which parties would he have had to contact?
+    </text>
+    <answers>
+      <answer influence ="1">Just the Supplier</answer>
+      <answer influence ="-2">The DGO and the Supplier</answer>
+      <answer influence ="-1">Just the DGO</answer>
+    </answers>
+  </question>
+
+  <!-- Odd one out questions -->
+  
+  <OddOneOut>
+    <text>Which one of these activities isn't part of 'Prepare Billing'</text>
+  </OddOneOut>
+  <answers>
+    <answer influence ="1">Consolidate invoices</answer>
+    <answer influence ="-1"> Determine billing selection</answer>
+    <answer influence ="-1">Manage external invoice lines</answer>
+    <answer influence ="-1">Manage blocked accounts</answer>
+  </answers>
+
+
+  <!-- Correct order questions -->
+  <CorrectOrder>
+      <text>Put these 'Process Billing Run' activities in the correct order</text>
+    <answers>
+      <answer orderpos ="1">Process billing run results</answer>
+      <answer orderpos ="2">Consolidate invoices</answer>
+      <answer orderpos ="3">Process invoice validation</answer>
+      <answer orderpos ="4">Post invoices</answer>
+      <answer orderpos ="5">Settle invoices</answer>
+    </answers>
+  </CorrectOrder>
+
+  <CorrectOrder>
+    <text>Put these 'Create a discount' steps in the right order</text>
+    <answers>
+      <answer orderpos="1">Specify the type of discount required</answer>
+      <answer orderpos="2">Select whether the discount should be calculated based on either a currency or rather as a percentage</answer>
+      <answer orderpos="3">Specify the exact fashion of how the discount should be awarded</answer>
+      <answer orderpos="4">Add conditions to the discount</answer>
+
+    </answers>
+  </CorrectOrder>
+</scripts>

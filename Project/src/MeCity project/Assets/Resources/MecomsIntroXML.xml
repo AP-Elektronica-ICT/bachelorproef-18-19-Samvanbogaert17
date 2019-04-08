@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scripts>
+  <intro>
+    <text>
+This is the Mecoms level. In this level you will be taught the basics of the Mecoms product and a variety of processes that run in the Mecoms product.
+
+You will be presented questions in a variety of forms which I will explain later.
+    </text>
+  </intro>
+  <pickCanvas>
+    <text>
+Let's explain the UI a bit.
+
+At the start of a level or after you exit a question menu, you will presented with the Pick Canvas.
+
+Here you can choose what kind of question you want to answer next, or choose to pick a random question.
+    </text>
+  </pickCanvas>
+  <multipleChoice>
+    <text>
+If you selected the multiple choice question, you will be presented with a regular question and answers related to the question.
+
+These questions will be much like you might have seen in other levels of the game.
+    </text>
+  </multipleChoice>
+  <oddOneOut>
+    <text>
+If you selected the odd one out question, you will be presented with a subject and certain items related to that subject and one item that isn't related to that subject.
+
+It's your job to find which one it is, simple as that.
+    </text>
+  </oddOneOut>
+  <correctOrder>
+    <text>
+If you selected the correct order question, you will be presented with a subject and certain items related to that subject.
+
+The items will be shuffled and need to be rearranged to the correct order.
+    </text>
+  </correctOrder>
+  <documentation>
+    A good way to find answers to all of the questions, besides blindly guessing and hoping for the right answer, is to search in the documentation.
+    
+    All documentation about the Mecoms product can be found on 'idocs.mecoms.com'.
+    
+    Here you will find all the in's and out's of the Mecoms product and also how to do certain tasks within the Mecoms environment.
+  </documentation>
+</scripts>
