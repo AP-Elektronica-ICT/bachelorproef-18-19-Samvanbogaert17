@@ -31,6 +31,7 @@ public class CorrectOrderController : MonoBehaviour
         }
         sceneName = SceneManager.GetActiveScene().name;
         closeBtn.onClick.AddListener(Task);
+        Task();
     }
 
     public void Task()
@@ -53,7 +54,7 @@ public class CorrectOrderController : MonoBehaviour
         string filename = sceneName + "ScriptsXML";
         xmlData = (TextAsset)Resources.Load(filename, typeof(TextAsset));
         doc.LoadXml(xmlData.text);
-        int range = doc.GetElementsByTagName("text").Count;
+        int range = doc.GetElementsByTagName("cotext").Count;
 
         // generate a random number to show up a random popup
         int _randomNumber = RandomNumber(range);
@@ -81,9 +82,9 @@ public class CorrectOrderController : MonoBehaviour
     private void ReadXML(int number)
     {
         // Search for text tags in the xml file
-        XmlNodeList elemList = doc.GetElementsByTagName("popup");
+        XmlNodeList elemList = doc.GetElementsByTagName("CorrectOrder");
         ansCount = elemList[number].ChildNodes[1].ChildNodes.Count;
-        XmlNodeList tekstList = doc.GetElementsByTagName("text");
+        XmlNodeList tekstList = doc.GetElementsByTagName("cotext");
         questionTxt.text = tekstList[number].InnerText;
 
         // for each popup, the answers to the questions are given in the xml file, we search the number of answers

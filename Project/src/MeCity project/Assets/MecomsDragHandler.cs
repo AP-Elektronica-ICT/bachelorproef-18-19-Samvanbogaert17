@@ -10,7 +10,7 @@ public class MecomsDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler,
     Transform startParent;
     public void OnBeginDrag(PointerEventData eventData)
     {
-        itemBeingDragged = Instantiate(gameObject, transform);
+        itemBeingDragged = gameObject;
         transform.localPosition = startPos;
         startParent = transform.parent;
         GetComponent<CanvasGroup>().blocksRaycasts = false;

@@ -2,10 +2,10 @@
 <!-- Multiple choice questions -->
 <scripts>
   <question>
-    <text>
+    <mctext>
 Consider a customer requesting a new connection to be installed in a regulated market.
 Which parties would he have had to contact?
-    </text>
+    </mctext>
     <answers>
       <answer influence ="1">Just the Supplier</answer>
       <answer influence ="-2">The DGO and the Supplier</answer>
@@ -16,7 +16,7 @@ Which parties would he have had to contact?
   <!-- Odd one out questions -->
   
   <OddOneOut>
-    <text>Which one of these activities isn't part of 'Prepare Billing'</text>
+    <oootext>Which one of these activities isn't part of 'Prepare Billing'</oootext>
   </OddOneOut>
   <answers>
     <answer influence ="1">Consolidate invoices</answer>
@@ -28,7 +28,7 @@ Which parties would he have had to contact?
 
   <!-- Correct order questions -->
   <CorrectOrder>
-      <text>Put these 'Process Billing Run' activities in the correct order</text>
+      <cotext>Put these 'Process Billing Run' activities in the correct order</cotext>
     <answers>
       <answer orderpos ="1">Process billing run results</answer>
       <answer orderpos ="2">Consolidate invoices</answer>
@@ -39,7 +39,7 @@ Which parties would he have had to contact?
   </CorrectOrder>
 
   <CorrectOrder>
-    <text>Put these 'Create a discount' steps in the right order</text>
+    <cotext>Put these 'Create a discount' steps in the right order</cotext>
     <answers>
       <answer orderpos="1">Specify the type of discount required</answer>
       <answer orderpos="2">Select whether the discount should be calculated based on either a currency or rather as a percentage</answer>
