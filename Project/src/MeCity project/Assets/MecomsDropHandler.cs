@@ -20,7 +20,7 @@ public class MecomsDropHandler : MonoBehaviour, IDropHandler
     {
         if (!answer)
         {
-            TGOMastermindDragHandler.itemBeingDragged.transform.SetParent(transform);
+            MecomsDragHandler.itemBeingDragged.transform.SetParent(transform);
         }
     }
 }
