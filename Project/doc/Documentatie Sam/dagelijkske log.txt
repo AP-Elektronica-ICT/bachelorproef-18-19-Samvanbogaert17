@@ -236,3 +236,7 @@ Start aan Scriptie (wordcount = 2797)
 08/04/19 - Dag 44
 
 voorbereiden en starten van Mecoms level
+
+09/04/19 - Dag 45
+
+Functionaliteit van Mecoms level afwerken
