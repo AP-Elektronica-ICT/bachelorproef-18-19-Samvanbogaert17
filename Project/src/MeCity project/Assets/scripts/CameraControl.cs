@@ -36,18 +36,12 @@ public class CameraControl : MonoBehaviour
             }
         }
         // on certain levels moving and rotating the camera will not be possible
-        if (sceneName != "Consumer" && sceneName != "Producer")
+        if (sceneName != "Consumer" && sceneName != "Producer" && sceneName != "Introduction")
         {
             if (!paused)
             {
-                for (int i = 0; i < amountOfCanvasses.Length; i++)
-                {
-                    if (amountOfCanvasses[i].enabled)
-                    {
-                        Move();
-                        Rotate();
-                    }
-                }
+                Move();
+                Rotate();
             }
             //makes the camera rotate when the game is paused
             if (paused)
