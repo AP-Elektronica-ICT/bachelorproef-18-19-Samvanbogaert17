@@ -2,6 +2,7 @@
 
 public class StartIntroduction : MonoBehaviour {
 
+    public Canvas infoCanvas;
     public Canvas meganCanvas;
     public Canvas startCanvas;
     public Canvas supplierCanvas;
@@ -13,6 +14,7 @@ public class StartIntroduction : MonoBehaviour {
     // script used to start the introduction level
     // disable all the canvasses except for the ui canvas (logo and pause button)
     void Start () {
+        infoCanvas.enabled = true;
         meganCanvas.enabled = false;
         supplierCanvas.enabled = false;
         startCanvas.enabled = false;

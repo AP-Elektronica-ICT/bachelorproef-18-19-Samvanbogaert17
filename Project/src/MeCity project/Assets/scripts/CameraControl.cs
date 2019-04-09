@@ -17,6 +17,7 @@ public class CameraControl : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 1;
         sceneName = SceneManager.GetActiveScene().name;
         pauseBtn.onClick.AddListener(() => Pause());
     }
@@ -39,9 +40,14 @@ public class CameraControl : MonoBehaviour
         {
             if (!paused)
             {
-                Move();
-                Rotate();
-
+                for (int i = 0; i < amountOfCanvasses.Length; i++)
+                {
+                    if (amountOfCanvasses[i].enabled)
+                    {
+                        Move();
+                        Rotate();
+                    }
+                }
             }
             //makes the camera rotate when the game is paused
             if (paused)
