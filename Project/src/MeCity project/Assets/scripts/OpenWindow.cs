@@ -31,5 +31,10 @@ public class OpenWindow : MonoBehaviour
                 CameraControl.showingPopUp = !CameraControl.showingPopUp;
                 canvas.enabled = !canvas.enabled;
         }
+        else
+        {
+            Debug.Log("opened");
+            canvas.enabled = true;
+        }
     }
 }

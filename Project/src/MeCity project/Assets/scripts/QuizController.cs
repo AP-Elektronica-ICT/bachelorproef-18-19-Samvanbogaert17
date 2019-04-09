@@ -7,6 +7,11 @@ using System.Linq;
 
 public class QuizController : MonoBehaviour
 {
+    public string parenttag = "popup";
+    public string childquestiontag = "text";
+    public string childattribute = "influence";
+        
+
     public Canvas quizCanvas;
     public Button btn;
     public Button[] answerBtns;
@@ -35,6 +40,7 @@ public class QuizController : MonoBehaviour
 
         sceneName = SceneManager.GetActiveScene().name;
         btn.onClick.AddListener(Task);
+        Task();
     }
 
     public void Task()
@@ -57,7 +63,7 @@ public class QuizController : MonoBehaviour
         string filename = sceneName + "ScriptsXML";
         xmlData = (TextAsset)Resources.Load(filename, typeof(TextAsset));
         doc.LoadXml(xmlData.text);
-        int range = doc.GetElementsByTagName("text").Count;
+        int range = doc.GetElementsByTagName(childquestiontag).Count;
 
         // generate a random number to show up a random popup
         int randomgetal = RandomNumber(range);
@@ -96,9 +102,9 @@ public class QuizController : MonoBehaviour
     private void ReadXML(int number)
     {
         // Search for text tags in the xml file
-        XmlNodeList elemList = doc.GetElementsByTagName("popup");
+        XmlNodeList elemList = doc.GetElementsByTagName(parenttag);
         int ansCount = elemList[number].ChildNodes[1].ChildNodes.Count;
-        XmlNodeList tekstList = doc.GetElementsByTagName("text");
+        XmlNodeList tekstList = doc.GetElementsByTagName(childquestiontag);
         questionTxt.text = tekstList[number].InnerText;
 
         // for each popup, the answers to the questions are given in the xml file, we search the number of answers
@@ -125,10 +131,10 @@ public class QuizController : MonoBehaviour
         //answered = true;
         CameraControl.showingPopUp = false;
         CameraControl.inQuiz = false;
-        XmlNodeList elemlist = doc.GetElementsByTagName("popup");
+        XmlNodeList elemlist = doc.GetElementsByTagName(parenttag);
         XmlNodeList list = elemlist[number].ChildNodes[1].ChildNodes;
-        int influence = int.Parse(list[btn].Attributes["influence"].Value);
-        XmlNodeList tekstList = doc.GetElementsByTagName("text");
+        int influence = int.Parse(list[btn].Attributes[childattribute].Value);
+        XmlNodeList tekstList = doc.GetElementsByTagName(childquestiontag);
 
         //All code for ScoreCanvas
         //
@@ -137,7 +143,7 @@ public class QuizController : MonoBehaviour
         //check which answer is correct answer and add to CorrectAnswerList
         for (int i = 0; i < elemlist[number].ChildNodes[1].ChildNodes.Count; i++)
         {
-            if (int.Parse(elemlist[number].ChildNodes[1].ChildNodes[i].Attributes["influence"].Value) > 0)
+            if (int.Parse(elemlist[number].ChildNodes[1].ChildNodes[i].Attributes[childattribute].Value) > 0)
             {
                 FindObjectOfType<QnAscore>().correctAnsList.Add(elemlist[number].ChildNodes[1].ChildNodes[i].InnerText);
             }
@@ -175,7 +181,7 @@ public class QuizController : MonoBehaviour
 
         for (int i = 0; i < list.Count; i++)
         {
-            if (int.Parse(list[i].Attributes["influence"].Value) > 0)
+            if (int.Parse(list[i].Attributes[childattribute].Value) > 0)
             {
                 answerBtns[i].GetComponent<Image>().color = Color.green;
             }

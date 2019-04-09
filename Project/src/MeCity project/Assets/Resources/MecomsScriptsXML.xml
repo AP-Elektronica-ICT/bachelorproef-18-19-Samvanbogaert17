@@ -3,8 +3,32 @@
 <scripts>
   <question>
     <mctext>
-Consider a customer requesting a new connection to be installed in a regulated market.
+1. Consider a customer requesting a new connection to be installed in a regulated market.
 Which parties would he have had to contact?
+    </mctext>
+    <answers>
+      <answer influence ="1">Just the Supplier</answer>
+      <answer influence ="-2">The DGO and the Supplier</answer>
+      <answer influence ="-1">Just the DGO</answer>
+    </answers>
+  </question>
+
+  <question>
+  <mctext>
+    2. Consider a customer requesting a new connection to be installed in a regulated market.
+    Which parties would he have had to contact?
+  </mctext>
+  <answers>
+    <answer influence ="1">Just the Supplier</answer>
+    <answer influence ="-2">The DGO and the Supplier</answer>
+    <answer influence ="-1">Just the DGO</answer>
+  </answers>
+  </question>
+
+  <question>
+    <mctext>
+      3. Consider a customer requesting a new connection to be installed in a regulated market.
+      Which parties would he have had to contact?
     </mctext>
     <answers>
       <answer influence ="1">Just the Supplier</answer>
@@ -16,19 +40,40 @@ Which parties would he have had to contact?
   <!-- Odd one out questions -->
   
   <OddOneOut>
-    <oootext>Which one of these activities isn't part of 'Prepare Billing'</oootext>
-  </OddOneOut>
+    <oootext>1. Which one of these activities isn't part of 'Prepare Billing'</oootext>
   <answers>
     <answer influence ="1">Consolidate invoices</answer>
     <answer influence ="-1"> Determine billing selection</answer>
     <answer influence ="-1">Manage external invoice lines</answer>
     <answer influence ="-1">Manage blocked accounts</answer>
   </answers>
+  </OddOneOut>
+
+  <OddOneOut>
+    <oootext>2. Which one of these activities isn't part of 'Prepare Billing'</oootext>
+    <answers>
+      <answer influence ="1">Consolidate invoices</answer>
+      <answer influence ="-1"> Determine billing selection</answer>
+      <answer influence ="-1">Manage external invoice lines</answer>
+      <answer influence ="-1">Manage blocked accounts</answer>
+    </answers>
+  </OddOneOut>
+
+  <OddOneOut>
+    <oootext>3. Which one of these activities isn't part of 'Prepare Billing'</oootext>
+    <answers>
+      <answer influence ="1">Consolidate invoices</answer>
+      <answer influence ="-1"> Determine billing selection</answer>
+      <answer influence ="-1">Manage external invoice lines</answer>
+      <answer influence ="-1">Manage blocked accounts</answer>
+    </answers>
+  </OddOneOut>
+
 
 
   <!-- Correct order questions -->
   <CorrectOrder>
-      <cotext>Put these 'Process Billing Run' activities in the correct order</cotext>
+      <cotext>1. Put these 'Process Billing Run' activities in the correct order</cotext>
     <answers>
       <answer orderpos ="1">Process billing run results</answer>
       <answer orderpos ="2">Consolidate invoices</answer>
@@ -46,6 +91,17 @@ Which parties would he have had to contact?
       <answer orderpos="3">Specify the exact fashion of how the discount should be awarded</answer>
       <answer orderpos="4">Add conditions to the discount</answer>
 
+    </answers>
+  </CorrectOrder>
+
+  <CorrectOrder>
+    <cotext>2. Put these 'Process Billing Run' activities in the correct order</cotext>
+    <answers>
+      <answer orderpos ="1">Process billing run results</answer>
+      <answer orderpos ="2">Consolidate invoices</answer>
+      <answer orderpos ="3">Process invoice validation</answer>
+      <answer orderpos ="4">Post invoices</answer>
+      <answer orderpos ="5">Settle invoices</answer>
     </answers>
   </CorrectOrder>
 </scripts>

@@ -5,40 +5,52 @@ using UnityEngine;
 public class MecomsLevelController : MonoBehaviour
 {
     public Canvas pickCanvas;
+    public Canvas quizCanvas;
+    public Canvas correctOrderCanvas;
+    public Canvas oddOneOutCanvas;
     // Start is called before the first frame update
-    void Start()
-    {
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void EnablePickCanvas()
+    public void EnablePickCanvas()
     {
         pickCanvas.enabled = true;
     }
 
-    void DisablePickCanvas()
+    public void DisablePickCanvas()
     {
         pickCanvas.enabled = false;
     }
 
-    void AskMultipleChoice()
+    public void OpenMultipleChoice()
     {
-        FindObjectOfType<QuizController>().Task();
+        quizCanvas.enabled = true;
     }
 
-    void AskCorrectOrder()
+    public void OpenCorrectOrder()
     {
-
+        correctOrderCanvas.enabled = true;
     }
 
-    void AskOddOneOut()
+    public void OpenOddOneOut()
     {
+        oddOneOutCanvas.enabled = true;
+    }
+
+    public void OpenRandom()
+    {
+        System.Random rnd = new System.Random();
+        int num = rnd.Next(3);
+        switch (num)
+        {
+            case 0:
+                OpenMultipleChoice();
+                break;
+            case 1:
+                OpenCorrectOrder();
+                break;
+            case 2:
+                OpenOddOneOut();
+                break;
+        }
 
     }
 }

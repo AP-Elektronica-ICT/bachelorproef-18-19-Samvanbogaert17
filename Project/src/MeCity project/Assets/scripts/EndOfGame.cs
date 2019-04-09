@@ -41,28 +41,28 @@ public class EndOfGame : MonoBehaviour
                     //WIN
                     if (float.Parse(moneyTxt.text) > 10000000)
                     {
-                        FindObjectOfType<EndOfGame>().gameWon();
+                        GameWon();
                     }
 
                     if (NumberOfCorrectAnswers == 20)
                     {
-                        FindObjectOfType<EndOfGame>().gameWon();
+                        GameWon();
                     }
 
                     //LOSE
                     if (float.Parse(moneyTxt.text) < 0)
                     {
-                        FindObjectOfType<EndOfGame>().gameOver();
+                        GameOver();
                     }
 
                     if (ProducerMarketController.pollution >= 100)
                     {
-                        FindObjectOfType<EndOfGame>().gameOver();
+                        GameOver();
                     }
 
                     if (ProducerEventSystem.satisfaction <= 0)
                     {
-                        FindObjectOfType<EndOfGame>().gameOver();
+                        GameOver();
                     }
                     break;
                 case "TGO":
@@ -71,76 +71,76 @@ public class EndOfGame : MonoBehaviour
                     //WIN
                     if (int.Parse(problemsSolvedCountTxt.text) > 30)
                     {
-                        FindObjectOfType<EndOfGame>().gameWon();
+                        GameWon();
                     }
 
                     if (NumberOfCorrectAnswers == 20)
                     {
-                        FindObjectOfType<EndOfGame>().gameWon();
+                        GameWon();
                     }
 
                     //LOSE
                     if (int.Parse(problemsUnsolvedCountTxt.text) > 10)
                     {
-                        FindObjectOfType<EndOfGame>().gameOver();
+                        GameOver();
                     }
 
                     if (DGOProblemController.satisfaction <= 0)
                     {
-                        FindObjectOfType<EndOfGame>().gameOver();
+                        GameOver();
                     }
 
                     if (int.Parse(moneyTxt.text) < 0)
                     {
-                        FindObjectOfType<EndOfGame>().gameOver();
+                        GameOver();
                     }
                     break;
                 case "Supplier":
                     //WIN
                     if (float.Parse(moneyTxt.text) > 10000000)
                     {
-                        FindObjectOfType<EndOfGame>().gameWon();
+                        GameWon();
                     }
 
                     if (NumberOfCorrectAnswers == 20)
                     {
-                        FindObjectOfType<EndOfGame>().gameWon();
+                        GameWon();
                     }
                     if ((Satisfaction.numberOfCustomers / 136f) > 0.8)
                     {
-                        FindObjectOfType<EndOfGame>().gameWon();
+                        GameWon();
                     }
 
                     //LOSE
                     if (float.Parse(moneyTxt.text) < 0)
                     {
-                        FindObjectOfType<EndOfGame>().gameOver();
+                        GameOver();
                     }
 
                     if (NumberOfCorrectAnswers == -10)
                     {
-                        FindObjectOfType<EndOfGame>().gameOver();
+                        GameOver();
                     }
                     break;
                 case "Consumer":
                     //WIN
                     if (NumberOfCorrectAnswers > 25)
                     {
-                        FindObjectOfType<EndOfGame>().gameWon();
+                        GameWon();
                     }
                     if (FindObjectOfType<ConsumerLevelController>().started == true)
                     {
                         if (consumptionSlider.value >= 1000)
                         {
-                            FindObjectOfType<EndOfGame>().gameWon();
+                            GameWon();
                         }
                         if (moneySlider.value >= 1000)
                         {
-                            FindObjectOfType<EndOfGame>().gameWon();
+                            GameWon();
                         }
                         if (energySlider.value >= 1000)
                         {
-                            FindObjectOfType<EndOfGame>().gameWon();
+                            GameWon();
                         }
                     }
                     //LOSE
@@ -148,23 +148,30 @@ public class EndOfGame : MonoBehaviour
                     {
                         if (consumptionSlider.value <= 0)
                         {
-                            FindObjectOfType<EndOfGame>().gameOver();
+                            GameOver();
                         }
                         if (moneySlider.value <= 0)
                         {
-                            FindObjectOfType<EndOfGame>().gameOver();
+                            GameOver();
                         }
                         if (energySlider.value <= 0)
                         {
-                            FindObjectOfType<EndOfGame>().gameOver();
+                            GameOver();
                         }
+                    }
+                    break;
+                case "Mecoms":
+                    //WIN
+                    if(NumberOfCorrectAnswers >= 100)
+                    {
+                        GameWon();
                     }
                     break;
             }
         }
     }
     // Gamewon screen
-    public void gameWon()
+    public void GameWon()
     {
         triggered = true;
         string resultText = "CONGRATULATIONS!!!";
@@ -176,7 +183,7 @@ public class EndOfGame : MonoBehaviour
         endOfGameCanvas.enabled = true;
     }
     // Gameover screen
-    public void gameOver()
+    public void GameOver()
     {
         triggered = true;
         string resultText = "GAME OVER!!!";
