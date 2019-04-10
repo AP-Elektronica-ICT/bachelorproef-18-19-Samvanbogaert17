@@ -60,6 +60,12 @@ public class QuitGame : MonoBehaviour {
         SceneManager.LoadScene("DGO");
     }
 
+    // loads the Mecoms level/scene
+    public void LoadMecoms()
+    {
+        SceneManager.LoadScene("Mecoms");
+    }
+
     // loads the highscore screen/scene
     public void LoadHighscores()
     {
