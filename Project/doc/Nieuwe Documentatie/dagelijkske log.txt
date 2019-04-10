@@ -240,3 +240,8 @@ voorbereiden en starten van Mecoms level
 09/04/19 - Dag 45
 
 Functionaliteit van Mecoms level afwerken
+
+10/04/19 - Dag 46
+
+Scriptie aangepast (wordcount = 3725)
+Start van refactoring van Highscore menu

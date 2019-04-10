@@ -73,7 +73,7 @@ Which parties would he have had to contact?
 
   <!-- Correct order questions -->
   <CorrectOrder>
-      <cotext>1. Put these 'Process Billing Run' activities in the correct order</cotext>
+      <cotext>1. Put these 'Process Billing Run' steps in the correct order</cotext>
     <answers>
       <answer orderpos ="1">Process billing run results</answer>
       <answer orderpos ="2">Consolidate invoices</answer>
@@ -95,7 +95,7 @@ Which parties would he have had to contact?
   </CorrectOrder>
 
   <CorrectOrder>
-    <cotext>2. Put these 'Process Billing Run' activities in the correct order</cotext>
+    <cotext>2. Put these 'Process Billing Run' steps in the correct order</cotext>
     <answers>
       <answer orderpos ="1">Process billing run results</answer>
       <answer orderpos ="2">Consolidate invoices</answer>
