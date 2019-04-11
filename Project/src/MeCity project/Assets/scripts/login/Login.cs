@@ -45,6 +45,7 @@ public class Login : MonoBehaviour
                 // save the player name and score
                 DataScript.SetName(naam);
                 DataScript.SetScore(10);
+
                 SceneManager.LoadScene("titlescreen");
             }
         }

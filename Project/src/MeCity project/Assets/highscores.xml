@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<HighscoreDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <list>
+    <HighscoreEntry>
+      <username>Sam</username>
+      <highscore>500</highscore>
+    </HighscoreEntry>
+    <HighscoreEntry>
+      <username>Sam 2</username>
+      <highscore>1500</highscore>
+    </HighscoreEntry>
+    <HighscoreEntry>
+      <username>Guiseppe</username>
+      <highscore>1010</highscore>
+    </HighscoreEntry>
+  </list>
+</HighscoreDatabase>

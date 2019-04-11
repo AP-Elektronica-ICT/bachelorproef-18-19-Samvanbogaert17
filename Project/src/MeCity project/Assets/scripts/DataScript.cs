@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class DataScript {
+
     private static string name="";
     private static float score=0;
 
