@@ -57,22 +57,28 @@ public class XMLManager : MonoBehaviour
 
     public void AddHighscore(string username, string highscore)
     {
-        HighscoreEntry entry = new HighscoreEntry();
-        entry.username = username;
-        entry.highscore = highscore;
-        db.list.Add(entry);
+        if (!username.IsOneOf("", ":"))
+        {
+            HighscoreEntry entry = new HighscoreEntry();
+            entry.username = username;
+            entry.highscore = highscore;
+            db.list.Add(entry);
+        }
     }
 
     public void ModifyHighscore(string username, string highscore)
     {
-        int index = db.list.FindIndex(item => item.username == username);
-        if(int.Parse(highscore) > int.Parse(db.list[index].highscore))
+        if (!username.IsOneOf("", ":"))
         {
-            db.list[index].highscore = highscore;
+            int index = db.list.FindIndex(item => item.username == username);
+            if (int.Parse(highscore) > int.Parse(db.list[index].highscore))
+            {
+                db.list[index].highscore = highscore;
+            }
         }
     }
-
 }
+
 [Serializable]
 public class HighscoreEntry
 {

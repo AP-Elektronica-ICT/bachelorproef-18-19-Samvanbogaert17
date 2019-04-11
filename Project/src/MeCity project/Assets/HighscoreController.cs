@@ -38,8 +38,11 @@ public class HighscoreController : MonoBehaviour
         foreach (HighscoreEntry entry in XMLManager.instance.db.list)
         {
             GameObject highscore = Instantiate(highscorePrefab, gridTransform);
-            highscore.GetComponentsInChildren<Text>()[0].text = entry.username;
-            highscore.GetComponentsInChildren<Text>()[1].text = entry.highscore;
+            highscore.GetComponentInChildren<Image>().color = XMLManager.instance.db.list.FindIndex(item => item == entry) % 2 == 0 ?
+                new Color(0.8f,0.8f,0.8f, 0.4f): 
+                new Color(0.8f,0.8f,0.8f,0f);
+            highscore.GetComponentInChildren<Image>().GetComponentsInChildren<Text>()[0].text = entry.username;
+            highscore.GetComponentInChildren<Image>().GetComponentsInChildren<Text>()[1].text = entry.highscore;
         }
     }
 }
