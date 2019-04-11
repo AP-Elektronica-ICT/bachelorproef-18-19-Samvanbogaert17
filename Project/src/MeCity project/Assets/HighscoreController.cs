@@ -23,6 +23,7 @@ public class HighscoreController : MonoBehaviour
         {
             XMLManager.instance.AddHighscore(DataScript.GetName(), DataScript.GetScore().ToString());
         }
+        XMLManager.instance.ReorderHighscores();
         XMLManager.instance.SaveHighscores();
         DisplayHighscores();
     }

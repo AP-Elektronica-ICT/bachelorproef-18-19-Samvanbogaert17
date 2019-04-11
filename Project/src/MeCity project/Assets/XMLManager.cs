@@ -5,13 +5,18 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
 using System;
+using System.Linq;
 
 public class XMLManager : MonoBehaviour
 {
     public static XMLManager instance;
 
+    private string localFilePath; //saves file to a local folder in the game files
+    private string sharedFilePath = @"I:\svboga\MeCity Highscores/highscores.xml"; //saves file to a global folder in the Ferranti Environment. 
+
     private void Awake()
     {
+        localFilePath = Application.dataPath + "/highscores.xml";
         instance = this;
     }
 
@@ -22,7 +27,7 @@ public class XMLManager : MonoBehaviour
     {
         //open a new xml file
         XmlSerializer serializer = new XmlSerializer(typeof(HighscoreDatabase));
-        FileStream stream = new FileStream(Application.dataPath + "/highscores.xml", FileMode.Create);
+        FileStream stream = new FileStream(sharedFilePath, FileMode.Create, FileAccess.ReadWrite);
         serializer.Serialize(stream, db);
         stream.Close();
     }
@@ -31,9 +36,23 @@ public class XMLManager : MonoBehaviour
     public void LoadHighscores()
     {
         XmlSerializer serializer = new XmlSerializer(typeof(HighscoreDatabase));
-        FileStream stream = new FileStream(Application.dataPath + "/highscores.xml", FileMode.Open);
-        db = serializer.Deserialize(stream) as HighscoreDatabase;
-        stream.Close();
+        if (File.Exists(sharedFilePath))
+        {
+            FileStream stream = new FileStream(sharedFilePath, FileMode.Open, FileAccess.ReadWrite);
+            db = serializer.Deserialize(stream) as HighscoreDatabase;
+            stream.Close();
+        }
+        else
+        {
+            SaveHighscores();
+        }
+
+    }
+
+    // Reorder db highest to lowest score
+    public void ReorderHighscores()
+    {
+        db.list = db.list.OrderByDescending(item => int.Parse(item.highscore)).ToList();
     }
 
     public void AddHighscore(string username, string highscore)
