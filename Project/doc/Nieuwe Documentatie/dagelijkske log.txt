@@ -249,3 +249,10 @@ Start van refactoring van Highscore menu
 11/04/19 - Dag 47
 
 Afwerken van de nieuwe highscore menu
+Start van nieuwe minigame Hangman
+
+12/04/19 - Dag 48
+
+Afwerken van nieuwe minigame Hangman
+Start van nieuwe minigame 'Catcher'
+verder werken aan scriptie
