@@ -42092,7 +42092,7 @@ PrefabInstance:
     - target: {fileID: 3631076301367788912, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000007625794
+      value: 0.0000076293945
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69d5444c37eb1b45a633d0fff3132c9, type: 3}
@@ -66028,6 +66028,7 @@ GameObject:
   - component: {fileID: 1802714006}
   - component: {fileID: 1802714005}
   - component: {fileID: 1802714004}
+  - component: {fileID: 1802714008}
   m_Layer: 5
   m_Name: Catchercanvas
   m_TagString: Untagged
@@ -66114,6 +66115,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1802714008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802714003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1263c89832728b244a75d4cac765bc09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningPrefab: {fileID: 0}
+  catcher: {fileID: 0}
+  bottomWall: {fileID: 0}
 --- !u!1001 &1804654450
 PrefabInstance:
   m_ObjectHideFlags: 0
