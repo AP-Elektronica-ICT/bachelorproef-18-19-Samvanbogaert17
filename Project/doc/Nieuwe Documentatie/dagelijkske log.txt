@@ -256,3 +256,7 @@ Start van nieuwe minigame Hangman
 Afwerken van nieuwe minigame Hangman
 Start van nieuwe minigame 'Catcher'
 verder werken aan scriptie
+
+15/04/19 - Dag 49
+
+Verder werken aan Catcher minigame

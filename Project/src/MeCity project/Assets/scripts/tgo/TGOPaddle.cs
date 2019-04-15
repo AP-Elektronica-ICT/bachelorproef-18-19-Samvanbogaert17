@@ -4,16 +4,9 @@ using UnityEngine;
 
 public class TGOPaddle : MonoBehaviour
 {
-    public float paddleSpeed = 1f;
     public RectTransform player;
     public RectTransform screen;
     private Vector3 playerPos = new Vector3(0, 20f, 0);
-    public GameObject testPrefab;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

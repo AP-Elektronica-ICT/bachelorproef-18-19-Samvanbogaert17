@@ -51,7 +51,7 @@ public class TGOBall : MonoBehaviour
             angle = rnd.Next(45, 136);
         }
 
-        angle *= (Mathf.PI / 180);
+        angle *= Mathf.PI / 180;
     }
 
 }
