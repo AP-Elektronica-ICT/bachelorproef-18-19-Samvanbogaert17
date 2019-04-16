@@ -7,7 +7,8 @@ public class TGOMinigamesController : MonoBehaviour
 {
     public Button minigamesBtn;
     public Button[] minigameBtnsArray;
-    bool GameStarted = false;
+
+    [HideInInspector]public static bool GameStarted = false;
     // Start is called before the first frame update
     void Start()
     {

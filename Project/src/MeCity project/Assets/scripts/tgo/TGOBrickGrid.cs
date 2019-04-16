@@ -8,7 +8,7 @@ public class TGOBrickGrid : MonoBehaviour
     public GameObject brickPrefab;
     public Texture[] textures;
 
-    private List<GameObject> bricksList = new List<GameObject>();
+    public List<GameObject> bricksList = new List<GameObject>();
     private int bricksCount;
     private int textureCount = 0;
     private int columns;

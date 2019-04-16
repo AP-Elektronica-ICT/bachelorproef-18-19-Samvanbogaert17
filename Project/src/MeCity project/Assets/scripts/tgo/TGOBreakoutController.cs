@@ -22,9 +22,32 @@ public class TGOBreakoutController : MonoBehaviour
 
     void Update()
     {
-        if(bricks == 0)
+        if (TGOMinigamesController.GameStarted && GetComponent<Canvas>().enabled == true)
         {
-            Reset();
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                var child = gameObject.transform.GetChild(i).gameObject;
+                if (child != null)
+                {
+                    child.SetActive(true);
+                }
+            }
+
+            if (bricks == 0)
+            {
+                ResetGame();
+            }
+        }
+        else
+        {
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                var child = gameObject.transform.GetChild(i).gameObject;
+                if (child != null)
+                {
+                    child.SetActive(false);
+                }
+            }         
         }
     }
 
@@ -41,9 +64,9 @@ public class TGOBreakoutController : MonoBehaviour
     public void LoseLife()
     {
         lives--;
-        if(lives == 0)
+        if (lives == 0)
         {
-            Reset();
+            ResetGame();
             DataScript.AddScore(-2500);
         }
         else
@@ -54,7 +77,7 @@ public class TGOBreakoutController : MonoBehaviour
         FindObjectOfType<TGOBall>().GetRandomAngle();
     }
 
-    public void Reset()
+    public void ResetGame()
     {
         brickCounter = bricks;
         lives = 3;

@@ -37,12 +37,38 @@ public class TGOMastermind : MonoBehaviour
         restartBtn.onClick.AddListener(StartGame);
     }
 
+    void Update()
+    {
+        if (TGOMinigamesController.GameStarted && GetComponent<Canvas>().enabled)
+        {
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                var child = gameObject.transform.GetChild(i).gameObject;
+                if (child != null)
+                {
+                    child.SetActive(true);
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < gameObject.transform.childCount; i++)
+            {
+                var child = gameObject.transform.GetChild(i).gameObject;
+                if (child != null)
+                {
+                    child.SetActive(false);
+                }
+            }
+        }
+    }
+
     void Confirm()
     {
         //Initial check to see if player has filled in every color
-        for(int i = 0; i < answerSlots.Length; i++)
+        for (int i = 0; i < answerSlots.Length; i++)
         {
-            if(answerSlots[i].childCount > 0)
+            if (answerSlots[i].childCount > 0)
             {
                 isAnswered[i] = true;
             }
@@ -61,9 +87,9 @@ public class TGOMastermind : MonoBehaviour
             for (int i = 0; i < playerAnswers.Length; i++)
             {
                 playerAnswers[i] = answerSlots[i].GetChild(0).GetComponent<RawImage>().color;
-                for(int j = 0; j < possibleAnswers.Length; j++)
+                for (int j = 0; j < possibleAnswers.Length; j++)
                 {
-                    if(playerAnswers[i] == possibleAnswers[j].color)
+                    if (playerAnswers[i] == possibleAnswers[j].color)
                     {
                         playerColorCounter[j]++;
                     }
@@ -85,9 +111,9 @@ public class TGOMastermind : MonoBehaviour
         {
             gameAnswers[i] = possibleAnswers[rnd.Next(0, possibleAnswers.Length)].color;
             Debug.Log(gameAnswers[i]);
-            for(int j = 0; j < gameColorCounter.Length; j++)
+            for (int j = 0; j < gameColorCounter.Length; j++)
             {
-                if(possibleAnswers[j].color == gameAnswers[i])
+                if (possibleAnswers[j].color == gameAnswers[i])
                 {
                     gameColorCounter[j]++;
                 }
@@ -127,7 +153,7 @@ public class TGOMastermind : MonoBehaviour
         {
             occurance = 0;
             Debug.Log(i + ":  " + playerColorCounter[i] + " | " + gameColorCounter[i]);
-            for(int j = 0; j < gameColorCounter[i]; j++)
+            for (int j = 0; j < gameColorCounter[i]; j++)
             {
                 if (occurance < playerColorCounter[i] && playerColorCounter[i] != 0)
                 {
@@ -136,23 +162,23 @@ public class TGOMastermind : MonoBehaviour
                 }
                 occurance++;
             }
-            
+
         }
     }
 
     void CheckColor()
     {
         hintCount = 0;
-        for(int i = 0; i < gameAnswers.Length; i++)
+        for (int i = 0; i < gameAnswers.Length; i++)
         {
-            if(playerAnswers[i] == gameAnswers[i])
+            if (playerAnswers[i] == gameAnswers[i])
             {
                 gameHints[hintCount] = new Color(0f, 1f, 0f);
                 hintCount++;
             }
         }
 
-        if(playerAnswers == gameAnswers)
+        if (playerAnswers == gameAnswers)
         {
             DataScript.AddScore(100000 / prevAnswers.Count);
             restartBtn.interactable = true;
@@ -162,12 +188,12 @@ public class TGOMastermind : MonoBehaviour
     void ResetHints()
     {
         //resets hints to white
-        for(int i = 0;  i < gameHints.Length; i++)
+        for (int i = 0; i < gameHints.Length; i++)
         {
             gameHints[i] = new Color(1f, 1f, 1f);
         }
         //resets playerColorCounter
-        for(int i = 0; i < playerColorCounter.Length; i++)
+        for (int i = 0; i < playerColorCounter.Length; i++)
         {
             playerColorCounter[i] = 0;
         }
