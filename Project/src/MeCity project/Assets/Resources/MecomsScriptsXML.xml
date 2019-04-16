@@ -3,50 +3,219 @@
 <scripts>
   <question>
     <mctext>
-1. Consider a customer requesting a new connection to be installed in a regulated market.
-Which parties would he have had to contact?
+      Consumption units are used for billing, if ...
     </mctext>
     <answers>
-      <answer influence ="1">Just the Supplier</answer>
-      <answer influence ="-2">The DGO and the Supplier</answer>
-      <answer influence ="-1">Just the DGO</answer>
+      <answer influence ="1">The connection is unmeasured</answer>
+      <answer influence ="-1">The connection is used in a configuration without assets</answer>
+      <answer influence ="-1">The connection is used in a configuration wtih assets</answer>
+      <answer influence ="-1">An incidental invoice is created</answer>
     </answers>
-  </question>
-
-  <question>
-  <mctext>
-    2. Consider a customer requesting a new connection to be installed in a regulated market.
-    Which parties would he have had to contact?
-  </mctext>
-  <answers>
-    <answer influence ="1">Just the Supplier</answer>
-    <answer influence ="-2">The DGO and the Supplier</answer>
-    <answer influence ="-1">Just the DGO</answer>
-  </answers>
   </question>
 
   <question>
     <mctext>
-      3. Consider a customer requesting a new connection to be installed in a regulated market.
-      Which parties would he have had to contact?
+      Market Communication is more important in a deregulated market than in an integrated utilities market?
     </mctext>
     <answers>
-      <answer influence ="1">Just the Supplier</answer>
-      <answer influence ="-2">The DGO and the Supplier</answer>
-      <answer influence ="-1">Just the DGO</answer>
+      <answer influence ="1">True</answer>
+      <answer influence ="-1">False</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      For periodical invoices ...
+    </mctext>
+    <answers>
+      <answer influence ="-1">Index values are used for billing manual meter reading connections</answer>
+      <answer influence ="1">Index values are not used for periodical invoices, they are consumptions that are used for billing</answer>
+      <answer influence ="-1">Index values are only used for creating advance notes</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      Which contract duration type exists in MECOMS
+    </mctext>
+    <answers>
+      <answer influence ="1">Defined duration</answer>
+      <answer influence ="-1">Zero hour duration</answer>
+      <answer influence ="-1">Full-time</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      In an integrated utilities market, which of the following contract duration type is used most often?
+    </mctext>
+    <answers>
+      <answer influence ="1">Undefined duration</answer>
+      <answer influence ="-1">Defined duration</answer>
+      <answer influence ="-1">Defined duration with automatic renewal</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      Tariff structures are used for tariff differentiation. By default, which of the following tariff structures are present in MECOMS?
+    </mctext>
+    <answers>
+      <answer influence ="1">Payment mode, Timeframe, VolumSlicing, Net region code, Customer group</answer>
+      <answer influence ="-1">Number of water taps, Number of rooms >= 30m², Number of inhabitants, Unit pool</answer>
+      <answer influence ="-1">Payment mode, Timeframe, number of water taps, Number of rooms >= 30m²</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      Examples of Account types are ...
+    </mctext>
+    <answers>
+      <answer influence ="1">Owner, Debtor, Contractor, DGO, TGO, SUpplier, Balance Responsible, Shipper, Transporter, Meter Asset Manager, Meter Reading Agent</answer>
+      <answer influence ="-1">Owner, Debtor, Contractor, Distribution Grid Operator, Resident, Small commercial, Industrial, Large commercial</answer>
+      <answer influence ="-1">Number of water taps, Number of rooms >= 30m², Number of inhabitants, Unit pool</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      A connection is uniquely identified by means of ... ?
+    </mctext>
+    <answers>
+      <answer influence ="1">EAN ID</answer>
+      <answer influence ="-1">Serial number</answer>
+      <answer influence ="-1">Utility type</answer>
+      <answer influence ="-1">Address</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      For unmeasured connections, which of the following conditions need to be fulfilled?
+    </mctext>
+    <answers>
+      <answer influence ="1">Reading frequency needs to be set to the value Unmeasured AND Advance frequency needs to be equal to Billing frequency</answer>
+      <answer influence ="-1">Reading frequency needs to be set to Telemeasured AND the Advance frequency needs to be smaller than the Billing frequency</answer>
+      <answer influence ="-1">Reading frequency needs to be set to Yearly and the Advance frequency needs to be smaller or equal to the Billing frequency</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      Contract type products are used to ...
+    </mctext>
+    <answers>
+      <answer influence ="1">Define which products can be used for which contract types and this per Utility type</answer>
+      <answer influence ="-1">Define which products can be used per configuration</answer>
+      <answer influence ="-1">Define which products can be used for which contract types and this per reading frequency</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      When does a Certificate without assets need to be used to create a configuration without assets?
+    </mctext>
+    <answers>
+      <answer influence ="1">For measured connections where the consumptions are calculated by for example a third-party DGO</answer>
+      <answer influence ="-1">For unmeasured connections</answer>
+      <answer influence ="-1">For measured connections where the index values need to be used as input to calculate the consumption by the first-party supplier itself</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      A certificate represents a template/blueprint with building blocks which is used to ...
+    </mctext>
+    <answers>
+      <answer influence ="1">Create a configuration</answer>
+      <answer influence ="-1">Create a new metering asset</answer>
+      <answer influence ="-1">Create a new contract</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      What is SLP short for?
+    </mctext>
+    <answers>
+      <answer influence ="1">
+        SLP is short for Synthetic Load Profile. A Synthetic Load profile represents the pattern of Electricity OR Gas usage of a segment of supply market customers.
+        The total sum of the SLP values for a particular segment for a period of one year will equal one (100%). SLP are used for forecasting.
+      </answer>
+      <answer influence ="-1">SLP is short for Sea level pressure and relates to the generation of energy</answer>
+      <answer influence ="-1">SLP is short for Synthetic Load Profile and is used to forecast water usage for a particular customer segment.</answer>
+      <answer influence ="-1">SLP is short for Systematic location planning and is used to plan meter reading requests and meter reading tours</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      When are Advance notes sent out to customers?
+    </mctext>
+    <answers>
+      <answer influence ="1">only if the Advance frequency specified for the contract connection / agreement is smaller then the Billing frequency</answer>
+      <answer influence ="-1">On a monthly basis</answer>
+      <answer influence ="-1">On a two-monthly basis</answer>
+      <answer influence ="-1">Each 6 months</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      Which statement is true about one time items?
+    </mctext>
+    <answers>
+      <answer influence ="1">A one time item is not part of a product</answer>
+      <answer influence ="-1">A one time item can be used in a correction note</answer>
+      <answer influence ="-1">A one time item is part of the product</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      When you set up a date in MECOMS ...
+    </mctext>
+    <answers>
+      <answer influence ="1">The start date is inclusive and the end date is exclusive</answer>
+      <answer influence ="-1">The start date is inclusive and the end date is inclusive</answer>
+      <answer influence ="-1">The start date is exclusive and the end date is inclusive</answer>
+      <answer influence ="-1">The start date is exclusive and the end date is exclusive</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      Which of the following statements is true?
+    </mctext>
+    <answers>
+      <answer influence ="1">A metering function is specified per blueprint asset channel</answer>
+      <answer influence ="-1">A metering function is the same as a connection member</answer>
+      <answer influence ="-1">An asset blueprint is part of a metering function</answer>
+    </answers>
+  </question>
+
+  <question>
+    <mctext>
+      When a configuration with assets is created, which of the following elements need to be defined/specified?
+    </mctext>
+    <answers>
+      <answer influence ="1">Connection and metering device</answer>
+      <answer influence ="-1">Connection and customer</answer>
+      <answer influence ="-1">Metering device and customer</answer>
     </answers>
   </question>
 
   <!-- Odd one out questions -->
-  
+
   <OddOneOut>
     <oootext>1. Which one of these activities isn't part of 'Prepare Billing'</oootext>
-  <answers>
-    <answer influence ="1">Consolidate invoices</answer>
-    <answer influence ="-1"> Determine billing selection</answer>
-    <answer influence ="-1">Manage external invoice lines</answer>
-    <answer influence ="-1">Manage blocked accounts</answer>
-  </answers>
+    <answers>
+      <answer influence ="1">Consolidate invoices</answer>
+      <answer influence ="-1"> Determine billing selection</answer>
+      <answer influence ="-1">Manage external invoice lines</answer>
+      <answer influence ="-1">Manage blocked accounts</answer>
+    </answers>
   </OddOneOut>
 
   <OddOneOut>
@@ -73,7 +242,7 @@ Which parties would he have had to contact?
 
   <!-- Correct order questions -->
   <CorrectOrder>
-      <cotext>1. Put these 'Process Billing Run' steps in the correct order</cotext>
+    <cotext>1. Put these 'Process Billing Run' steps in the correct order</cotext>
     <answers>
       <answer orderpos ="1">Process billing run results</answer>
       <answer orderpos ="2">Consolidate invoices</answer>
