@@ -4,11 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class OpenWindow : MonoBehaviour
 {
-    public Button btn;
-    public Canvas canvas;
-    public void Start()
+    private Canvas canvas;
+
+    private void Start()
     {
-        btn.onClick.AddListener(Open);
+        canvas = GetComponent<Canvas>();
     }
 
     // script for opening the market canvas

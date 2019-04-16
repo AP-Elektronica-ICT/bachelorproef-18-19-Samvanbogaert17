@@ -77,7 +77,12 @@ public class QuitGame : MonoBehaviour {
         SceneManager.LoadScene("Highscore");
     }
 
-    // sluit het spel af
+    public void LoadSupport()
+    {
+        SceneManager.LoadScene("Support");
+    }
+
+    // closes the game
     public void DoQuit()
     {
         Application.Quit();
