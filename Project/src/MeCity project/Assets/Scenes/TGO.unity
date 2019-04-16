@@ -3045,9 +3045,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Press the bucket to start
-
-    or press ''Return'' to start'
+  m_Text: Press the bucket to start
 --- !u!222 &77370777
 CanvasRenderer:
   m_ObjectHideFlags: 0

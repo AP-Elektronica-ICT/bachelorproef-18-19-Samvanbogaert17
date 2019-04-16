@@ -87,7 +87,7 @@ public class TGOCatcher : MonoBehaviour
 
     public void CheckLives()
     {
-        if (lives > 0)
+        if (lives < 0)
         {
             ResetGame();
             DataScript.AddScore(-2500);
