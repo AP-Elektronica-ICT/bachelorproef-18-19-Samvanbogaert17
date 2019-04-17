@@ -37,4 +37,9 @@ public class OpenWindow : MonoBehaviour
             canvas.enabled = true;
         }
     }
+
+    public void HardOpen()
+    {
+        canvas.gameObject.SetActive(true);
+    }
 }

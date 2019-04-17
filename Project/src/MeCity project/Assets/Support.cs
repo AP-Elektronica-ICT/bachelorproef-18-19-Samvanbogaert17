@@ -11,9 +11,9 @@ public class Support : MonoBehaviour
 
     private void Start()
     {
-        menuCanvas.enabled = true;
-        reportCanvas.enabled = false;
-        suggestionCanvas.enabled = false;
-        addQuestionCanvas.enabled = false;
+        menuCanvas.gameObject.SetActive(true);
+        reportCanvas.gameObject.SetActive(false);
+        suggestionCanvas.gameObject.SetActive(false);
+        addQuestionCanvas.gameObject.SetActive(false);
     }
 }
