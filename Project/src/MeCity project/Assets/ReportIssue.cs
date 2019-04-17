@@ -43,7 +43,7 @@ public class ReportIssue : MonoBehaviour
 
             titleField.text = "";
             descriptionField.text = "";
-            commentText.color = new Color(0, 1, 0); // make text color red
+            commentText.color = new Color(0, 1, 0); // make text color green
             commentText.text = "Thank you for reporting an issue!";
         }
     }

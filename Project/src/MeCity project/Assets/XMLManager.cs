@@ -14,9 +14,11 @@ public class XMLManager : MonoBehaviour
 
     private string localHighscoreFilePath; //saves file to a local folder in the game files
     //filepaths located in the global transfer drive in the Ferranti environment;
-    private readonly string globalHighscoreFilePath = @"I:\svboga\MeCity\Highscores/highscores.xml";
-    private readonly string globalReportFilePath = @"I:\svboga\MeCity\Reports/reports.xml";
-    private readonly string globalSuggestionFilePath = @"I:\svboga\MeCity\Suggestions/suggestions.xml";
+    private readonly string globalHighscoreXML = @"I:\svboga\MeCity\Highscores/highscores.xml";
+    private readonly string globalReportXML = @"I:\svboga\MeCity\Reports/reports.xml";
+    private readonly string globalSuggestionXML = @"I:\svboga\MeCity\Suggestions/suggestions.xml";
+    private readonly string globalUnconfirmedQuestionFilePath = @"I:\svboga\MeCity\Questions\Unconfirmed";
+    private readonly string globalConfirmedQuestionFilePath = @"I:\svboga\MeCity\Questions\Confirmed";
 
     private void Awake()
     {
@@ -35,7 +37,7 @@ public class XMLManager : MonoBehaviour
     {
         //open a new xml file
         XmlSerializer serializer = new XmlSerializer(typeof(HighscoreDatabase));
-        FileStream stream = new FileStream(globalHighscoreFilePath, FileMode.Create, FileAccess.ReadWrite);
+        FileStream stream = new FileStream(globalHighscoreXML, FileMode.Create, FileAccess.ReadWrite);
         serializer.Serialize(stream, highscoreDB);
         stream.Close();
     }
@@ -44,9 +46,9 @@ public class XMLManager : MonoBehaviour
     public void LoadHighscores()
     {
         XmlSerializer serializer = new XmlSerializer(typeof(HighscoreDatabase));
-        if (File.Exists(globalHighscoreFilePath))
+        if (File.Exists(globalHighscoreXML))
         {
-            FileStream stream = new FileStream(globalHighscoreFilePath, FileMode.Open, FileAccess.ReadWrite);
+            FileStream stream = new FileStream(globalHighscoreXML, FileMode.Open, FileAccess.ReadWrite);
             highscoreDB = serializer.Deserialize(stream) as HighscoreDatabase;
             stream.Close();
         }
@@ -97,7 +99,7 @@ public class XMLManager : MonoBehaviour
     {
         //open a new xml file
         XmlSerializer serializer = new XmlSerializer(typeof(ReportDatabase));
-        FileStream stream = new FileStream(globalReportFilePath, FileMode.Create, FileAccess.ReadWrite);
+        FileStream stream = new FileStream(globalReportXML, FileMode.Create, FileAccess.ReadWrite);
         serializer.Serialize(stream, reportDB);
         stream.Close();
     }
@@ -105,9 +107,9 @@ public class XMLManager : MonoBehaviour
     public void LoadReports()
     {
         XmlSerializer serializer = new XmlSerializer(typeof(ReportDatabase));
-        if (File.Exists(globalReportFilePath))
+        if (File.Exists(globalReportXML))
         {
-            FileStream stream = new FileStream(globalReportFilePath, FileMode.Open, FileAccess.ReadWrite);
+            FileStream stream = new FileStream(globalReportXML, FileMode.Open, FileAccess.ReadWrite);
             reportDB = serializer.Deserialize(stream) as ReportDatabase;
             stream.Close();
         }
@@ -128,6 +130,11 @@ public class XMLManager : MonoBehaviour
         reportDB.list.Add(entry);
     }
 
+    public void RemoveReport(int index)
+    {
+        reportDB.list.RemoveAt(index);
+    }
+
     //
     //All code regarding saving and loading suggestions
     //
@@ -138,7 +145,7 @@ public class XMLManager : MonoBehaviour
     {
         //open a new xml file
         XmlSerializer serializer = new XmlSerializer(typeof(SuggestionDatabase));
-        FileStream stream = new FileStream(globalSuggestionFilePath, FileMode.Create, FileAccess.ReadWrite);
+        FileStream stream = new FileStream(globalSuggestionXML, FileMode.Create, FileAccess.ReadWrite);
         serializer.Serialize(stream, suggestionDB);
         stream.Close();
     }
@@ -146,9 +153,9 @@ public class XMLManager : MonoBehaviour
     public void LoadSuggestions()
     {
         XmlSerializer serializer = new XmlSerializer(typeof(SuggestionDatabase));
-        if (File.Exists(globalSuggestionFilePath))
+        if (File.Exists(globalSuggestionXML))
         {
-            FileStream stream = new FileStream(globalSuggestionFilePath, FileMode.Open, FileAccess.ReadWrite);
+            FileStream stream = new FileStream(globalSuggestionXML, FileMode.Open, FileAccess.ReadWrite);
             suggestionDB = serializer.Deserialize(stream) as SuggestionDatabase;
             stream.Close();
         }
@@ -173,6 +180,30 @@ public class XMLManager : MonoBehaviour
     //All code regarding saving and loading questions
     //
 
+    public void SaveQuestion()
+    {
+
+    }
+
+    public void LoadQuestion()
+    {
+
+    }
+
+    public void AddQuestion()
+    {
+
+    }
+
+    public void RemoveQuestion()
+    {
+
+    }
+
+    public void ModifyQuestion()
+    {
+
+    }
 
 }
 

@@ -263,4 +263,10 @@ Verder werken aan Catcher minigame
 
 16/04/19 - Dag 50
 
-Start van Support page
+Start van Support page:
+UI, klein deel van functionaliteit
+
+17/04/19 - Dag 51
+
+reporting problem functioneel + verzenden van e-mail
+making suggestion functioneel + verzenden van e-mail
