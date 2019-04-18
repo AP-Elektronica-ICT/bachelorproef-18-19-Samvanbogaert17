@@ -85,7 +85,7 @@ public class TGOHangman : MonoBehaviour
         
     }
 
-    void StartGame()
+    public void StartGame()
     {
         answerTxt.text = "";
         answerTxt.color = new Color(0, 0, 0);

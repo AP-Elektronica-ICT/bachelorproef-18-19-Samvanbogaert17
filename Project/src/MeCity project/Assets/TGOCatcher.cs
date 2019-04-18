@@ -96,7 +96,7 @@ public class TGOCatcher : MonoBehaviour
         bucket.transform.localPosition = new Vector2(288, -380);
     }
 
-    void ResetGame()
+    public void ResetGame()
     {
         GetRandomValues();
         lives = 3;

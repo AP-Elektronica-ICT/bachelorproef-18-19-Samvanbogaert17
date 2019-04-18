@@ -252,6 +252,7 @@ GameObject:
   - component: {fileID: 416532943447877131}
   - component: {fileID: 416532943447877124}
   - component: {fileID: 2369555982370805338}
+  - component: {fileID: 4896665927024496047}
   m_Layer: 0
   m_Name: EndOfGameCanvas
   m_TagString: Untagged
@@ -361,6 +362,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6af278379f9552429ff69fd288d5bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4896665927024496047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416532943447877130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ffaa3b0545a75449b4e508b9c7a871a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &416532943484473084
@@ -654,7 +667,6 @@ GameObject:
   - component: {fileID: 416532944005061318}
   - component: {fileID: 416532944005061314}
   - component: {fileID: 416532944005061317}
-  - component: {fileID: 416532944005061315}
   - component: {fileID: 416532944005061316}
   m_Layer: 0
   m_Name: ViewScoreBtn
@@ -720,20 +732,6 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &416532944005061315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416532944005061321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ffaa3b0545a75449b4e508b9c7a871a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btn: {fileID: 416532944005061316}
-  canvas: {fileID: 0}
 --- !u!114 &416532944005061316
 MonoBehaviour:
   m_ObjectHideFlags: 0

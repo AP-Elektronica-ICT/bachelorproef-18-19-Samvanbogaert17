@@ -270,3 +270,7 @@ UI, klein deel van functionaliteit
 
 reporting problem functioneel + verzenden van e-mail
 making suggestion functioneel + verzenden van e-mail
+
+18/04/19 - Dag 52
+
+Saving questions to global filepath + verzenden van e-mail
