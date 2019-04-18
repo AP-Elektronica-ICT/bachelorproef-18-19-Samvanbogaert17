@@ -17,8 +17,8 @@ public class XMLManager : MonoBehaviour
     private readonly string globalHighscoreXML = @"I:\svboga\MeCity\Highscores/highscores.xml";
     private readonly string globalReportXML = @"I:\svboga\MeCity\Reports/reports.xml";
     private readonly string globalSuggestionXML = @"I:\svboga\MeCity\Suggestions/suggestions.xml";
-    private readonly string globalUnconfirmedQuestionFilePath = @"I:\svboga\MeCity\Questions\Unconfirmed";
-    private readonly string globalConfirmedQuestionFilePath = @"I:\svboga\MeCity\Questions\Confirmed";
+    private readonly string globalUnconfirmedQuestionXML = @"I:\svboga\MeCity\Questions\Unconfirmed/questions.xml";
+    private readonly string globalConfirmedQuestionXML = @"I:\svboga\MeCity\Questions\Confirmed/questions.xml";
 
     private void Awake()
     {
@@ -176,23 +176,63 @@ public class XMLManager : MonoBehaviour
         suggestionDB.list.Add(entry);
     }
 
+    public void RemoveSuggestion()
+    {
+
+    }
+
     //
     //All code regarding saving and loading questions
     //
+    public QuestionDatabase questionDB = new QuestionDatabase();
 
-    public void SaveQuestion()
+    public void SaveQuestions()
     {
-
+        //open a new xml file
+        XmlSerializer serializer = new XmlSerializer(typeof(QuestionDatabase));
+        FileStream stream = new FileStream(globalUnconfirmedQuestionXML, FileMode.Create, FileAccess.ReadWrite);
+        serializer.Serialize(stream, questionDB);
+        stream.Close();
     }
 
-    public void LoadQuestion()
+    public void LoadQuestions()
     {
-
+        XmlSerializer serializer = new XmlSerializer(typeof(QuestionDatabase));
+        if (File.Exists(globalUnconfirmedQuestionXML))
+        {
+            FileStream stream = new FileStream(globalUnconfirmedQuestionXML, FileMode.Open, FileAccess.ReadWrite);
+            questionDB = serializer.Deserialize(stream) as QuestionDatabase;
+            stream.Close();
+        }
+        else
+        {
+            SaveQuestions();
+        }
     }
 
-    public void AddQuestion()
+    public void AddQuestion(string _subject, string _question, List<Answer> _answers)
     {
-
+        if(questionDB.list.Any(item => item.subject == _subject))
+        {
+            Debug.Log("list exists");
+            foreach (QuestionList _questionList in questionDB.list)
+            {
+                if (_questionList.subject == _subject)
+                {
+                    QuestionEntry entry = new QuestionEntry
+                    {
+                        question = _question,
+                        answers = _answers
+                    };
+                    _questionList.entries.Add(entry);
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("list doesn't exist, making new list");
+            questionDB.list.Add(new QuestionList { subject = _subject, entries = new List<QuestionEntry>() });
+        }
     }
 
     public void RemoveQuestion()
@@ -256,11 +296,30 @@ public class SuggestionDatabase
 public class QuestionEntry
 {
     public string question;
-    public string[] answers;
+
+    public List<Answer> answers = new List<Answer>();
+}
+
+[Serializable]
+public class Answer
+{
+    [XmlAttribute("modifier")]
+    public int modifier;
+
+    public string answer;
+}
+
+[Serializable]
+public class QuestionList
+{
+    [XmlAttribute("subject")]
+    public string subject;
+
+    public List<QuestionEntry> entries = new List<QuestionEntry>();
 }
 
 [Serializable]
 public class QuestionDatabase
 {
-    public List<QuestionEntry> list = new List<QuestionEntry>();
+    public List<QuestionList> list = new List<QuestionList>();
 }
