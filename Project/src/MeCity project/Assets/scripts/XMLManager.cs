@@ -230,7 +230,6 @@ public class XMLManager : MonoBehaviour
     {
         if(questionDB.list.Any(item => item.subject == _subject))
         {
-            Debug.Log("list exists");
             foreach (QuestionList _questionList in questionDB.list)
             {
                 if (_questionList.subject == _subject)
@@ -246,7 +245,6 @@ public class XMLManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("list doesn't exist, making new list");
             questionDB.list.Add(new QuestionList { subject = _subject, entries = new List<QuestionEntry>() });
         }
     }

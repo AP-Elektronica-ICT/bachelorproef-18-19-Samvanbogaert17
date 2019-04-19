@@ -23,7 +23,6 @@ public class TGOBrickGrid : MonoBehaviour
 
     private void Init()
     {
-        Debug.Log(bricksCount / textures.Length);
         for (int i = 0; i < bricksCount; i++)
         {
             if (i % columns == 0) 

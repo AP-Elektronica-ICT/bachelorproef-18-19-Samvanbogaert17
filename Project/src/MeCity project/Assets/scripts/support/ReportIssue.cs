@@ -17,7 +17,6 @@ public class ReportIssue : MonoBehaviour
     void Start()
     {
         commentText.text = "";
-        Debug.Log(XMLManager.instance);
         XMLManager.instance.LoadReports();
         confirmBtn.onClick.AddListener(ConfirmReport);
     }

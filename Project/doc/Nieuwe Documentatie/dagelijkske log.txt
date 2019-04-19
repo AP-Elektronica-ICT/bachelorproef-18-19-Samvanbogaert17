@@ -274,3 +274,7 @@ making suggestion functioneel + verzenden van e-mail
 18/04/19 - Dag 52
 
 Saving questions to global filepath + verzenden van e-mail
+
+19/04/19 - Dag 53
+
+Start van encryptie en decryptie van highscores, suggesties, reports ...
