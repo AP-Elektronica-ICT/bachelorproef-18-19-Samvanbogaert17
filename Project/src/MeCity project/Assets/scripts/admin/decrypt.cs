@@ -12,6 +12,6 @@ public class decrypt : MonoBehaviour {
 	
     void Task()
     {
-        Encryption.DecryptFile(Encryption.path, Encryption.key);
+        //Encryption.DecryptFile(Encryption.path, Encryption.key);
     }
 }

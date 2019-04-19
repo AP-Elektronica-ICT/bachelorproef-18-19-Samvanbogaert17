@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class btnScoresOnClick : MonoBehaviour {
 
+    /*
+
     public Button btn;
     public Canvas highscores;
     public Canvas userInterface;
@@ -50,4 +52,7 @@ public class btnScoresOnClick : MonoBehaviour {
         score.text = temp2;
         number.text = temp3;
     }
+
+    */
+
 }

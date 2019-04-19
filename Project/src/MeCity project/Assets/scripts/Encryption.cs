@@ -4,8 +4,7 @@ using System.Text;
 using UnityEngine;
 
 public class Encryption : MonoBehaviour {
-    public static string key = "youtubee";
-    public static string path = @"I:\CBrasp/MeCity/highscores.txt";
+    public static string key = "Ferranti";
 
     // script used for encryption and decryption for the highscores.txt file
     // used for encrypting a file

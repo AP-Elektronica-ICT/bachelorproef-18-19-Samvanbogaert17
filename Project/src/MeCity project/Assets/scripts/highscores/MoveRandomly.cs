@@ -2,6 +2,9 @@
 
 public class MoveRandomly : MonoBehaviour
 {
+
+    /*
+
     Vector3 target;
     public static bool hover = false;
 
@@ -66,4 +69,7 @@ public class MoveRandomly : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(Vector3.RotateTowards(transform.forward, target - transform.position, 15f, 0.0f));
         }
     }
+
+    */
+
 }

@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class addFish : MonoBehaviour
 {
+    /*
+
     public List<GameObject> fishes = new List<GameObject>();
     public string[] lines;
     public int[] scores;
@@ -34,6 +36,7 @@ public class addFish : MonoBehaviour
 
         // copy the online highscores.txt to the local persistentdatapath, decrypt this file so the file can be read
         // there will not be writed to the offline highscores file so encryption is redundant
+
         File.Copy(Encryption.path, offlineHighscoresPath);
         Encryption.DecryptFile(offlineHighscoresPath, Encryption.key);
 
@@ -98,4 +101,7 @@ public class addFish : MonoBehaviour
             fish.AddComponent<MoveRandomly>();
         }
     }
+
+    */
+
 }

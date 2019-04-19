@@ -90,6 +90,8 @@ public class QuitGame : MonoBehaviour {
 
     // when game over, append the current player highscore to the encrypted online highscores.txt file
     public void GameOver() {
+
+        /*
         string onlineHighscoresPath = Encryption.path;
 
         var key = Encoding.UTF8.GetBytes(Encryption.key);
@@ -99,5 +101,7 @@ public class QuitGame : MonoBehaviour {
         Encryption.AppendStringToFile(onlineHighscoresPath, line, key, iv);
         print("Online append succesful");
         SceneManager.LoadScene("titlescreen");
+
+    */
     }
 }

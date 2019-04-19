@@ -2,6 +2,9 @@
 using UnityEngine.UI;
 
 public class btnCloseHighscores : MonoBehaviour {
+
+    /*
+
     public Button btn;
 	// script used to close the highscores screen
 	void Start () {
@@ -17,4 +20,7 @@ public class btnCloseHighscores : MonoBehaviour {
         FindObjectOfType<btnScoresOnClick>().info.enabled = false;
         MoveRandomly.hover = true;
     }
+
+    */
+
 }

@@ -11,6 +11,6 @@ public class encrypt : MonoBehaviour {
 	}
 	void Task()
     {
-        Encryption.EncryptFile(Encryption.path, Encryption.key);
+        //Encryption.EncryptFile(Encryption.path, Encryption.key);
     }
 }

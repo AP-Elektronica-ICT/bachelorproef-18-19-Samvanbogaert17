@@ -40,6 +40,8 @@ public class XMLManager : MonoBehaviour
         FileStream stream = new FileStream(globalHighscoreXML, FileMode.Create, FileAccess.ReadWrite);
         serializer.Serialize(stream, highscoreDB);
         stream.Close();
+
+        Encryption.EncryptFile(globalHighscoreXML, Encryption.key);
     }
 
     //load
@@ -51,6 +53,8 @@ public class XMLManager : MonoBehaviour
             FileStream stream = new FileStream(globalHighscoreXML, FileMode.Open, FileAccess.ReadWrite);
             highscoreDB = serializer.Deserialize(stream) as HighscoreDatabase;
             stream.Close();
+
+            Encryption.DecryptFile(globalHighscoreXML, Encryption.key);
         }
         else
         {
