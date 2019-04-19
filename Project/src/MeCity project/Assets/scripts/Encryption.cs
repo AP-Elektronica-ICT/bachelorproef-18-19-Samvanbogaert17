@@ -8,7 +8,7 @@ public class Encryption : MonoBehaviour {
 
     // script used for encryption and decryption for the highscores.txt file
     // used for encrypting a file
-    public static void EncryptFile(string filePath, string key)
+    public static void EncryptFile(string filePath)
     {
         byte[] plainContent = File.ReadAllBytes(filePath);
         using (var DES = new DESCryptoServiceProvider())
@@ -30,7 +30,7 @@ public class Encryption : MonoBehaviour {
         }
     }
     // used for decrypting a file
-    public static void DecryptFile(string filePath, string key)
+    public static void DecryptFile(string filePath)
     {
         byte[] encrypted = File.ReadAllBytes(filePath);
         using (var DES = new DESCryptoServiceProvider())

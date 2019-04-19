@@ -41,7 +41,7 @@ public class XMLManager : MonoBehaviour
         serializer.Serialize(stream, highscoreDB);
         stream.Close();
 
-        Encryption.EncryptFile(globalHighscoreXML, Encryption.key);
+        //Encryption.EncryptFile(globalHighscoreXML);
     }
 
     //load
@@ -50,11 +50,11 @@ public class XMLManager : MonoBehaviour
         XmlSerializer serializer = new XmlSerializer(typeof(HighscoreDatabase));
         if (File.Exists(globalHighscoreXML))
         {
+            //Encryption.DecryptFile(globalHighscoreXML);
+
             FileStream stream = new FileStream(globalHighscoreXML, FileMode.Open, FileAccess.ReadWrite);
             highscoreDB = serializer.Deserialize(stream) as HighscoreDatabase;
             stream.Close();
-
-            Encryption.DecryptFile(globalHighscoreXML, Encryption.key);
         }
         else
         {
@@ -106,6 +106,8 @@ public class XMLManager : MonoBehaviour
         FileStream stream = new FileStream(globalReportXML, FileMode.Create, FileAccess.ReadWrite);
         serializer.Serialize(stream, reportDB);
         stream.Close();
+
+        //Encryption.EncryptFile(globalReportXML);
     }
 
     public void LoadReports()
@@ -113,6 +115,8 @@ public class XMLManager : MonoBehaviour
         XmlSerializer serializer = new XmlSerializer(typeof(ReportDatabase));
         if (File.Exists(globalReportXML))
         {
+            //Encryption.DecryptFile(globalReportXML);
+
             FileStream stream = new FileStream(globalReportXML, FileMode.Open, FileAccess.ReadWrite);
             reportDB = serializer.Deserialize(stream) as ReportDatabase;
             stream.Close();
@@ -152,6 +156,8 @@ public class XMLManager : MonoBehaviour
         FileStream stream = new FileStream(globalSuggestionXML, FileMode.Create, FileAccess.ReadWrite);
         serializer.Serialize(stream, suggestionDB);
         stream.Close();
+
+        //Encryption.EncryptFile(globalSuggestionXML);
     }
 
     public void LoadSuggestions()
@@ -159,6 +165,8 @@ public class XMLManager : MonoBehaviour
         XmlSerializer serializer = new XmlSerializer(typeof(SuggestionDatabase));
         if (File.Exists(globalSuggestionXML))
         {
+            //Encryption.DecryptFile(globalSuggestionXML);
+
             FileStream stream = new FileStream(globalSuggestionXML, FileMode.Open, FileAccess.ReadWrite);
             suggestionDB = serializer.Deserialize(stream) as SuggestionDatabase;
             stream.Close();
@@ -197,6 +205,8 @@ public class XMLManager : MonoBehaviour
         FileStream stream = new FileStream(globalUnconfirmedQuestionXML, FileMode.Create, FileAccess.ReadWrite);
         serializer.Serialize(stream, questionDB);
         stream.Close();
+
+        //Encryption.EncryptFile(globalUnconfirmedQuestionXML);
     }
 
     public void LoadQuestions()
@@ -204,6 +214,8 @@ public class XMLManager : MonoBehaviour
         XmlSerializer serializer = new XmlSerializer(typeof(QuestionDatabase));
         if (File.Exists(globalUnconfirmedQuestionXML))
         {
+            //Encryption.DecryptFile(globalUnconfirmedQuestionXML);
+
             FileStream stream = new FileStream(globalUnconfirmedQuestionXML, FileMode.Open, FileAccess.ReadWrite);
             questionDB = serializer.Deserialize(stream) as QuestionDatabase;
             stream.Close();
