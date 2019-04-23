@@ -3,24 +3,24 @@
   <intro>
     <text>
       In this level we will be discussing everything you need to know about the DGO.
-      
+
       As a DGO, it is your responsibility to take care of the distribution of energy between high voltage or high pressure grids and the end customer's connections.
-      
+
       This would be their main task, though depending on the local regulation, the DGO can also be responsible of additional tasks, which will appear throughout the game.
-      
+
       The main goal of this level is to solve those additional tasks that will occur throughout the game and make sure the happiness of the town stays above 0.
-      
+
       Some problems will be harder to solve than others and will require more time to be solved.
-      
+
       To solve problems, you will need to assign workers to a problem. This will cause a countdown to start.
-      
+
       If the countdown finishes, you succesfully solved a problem!
     </text>
   </intro>
   <cubes>
     <text>
       You may have noticed the cubes that are visible above every house. This is to indicate that in real life, you can't actually choose your DGO. You will be assigned one, based on your physical location.
-   
+
       Due to the nature of their tasks, the DGO market role is a regulated role. It would not make sense to set up multiple distribution networks.
 
       Although it is a highly unlikely situation, this means that it might be possible for you to have a different DGO than your neighbour.
@@ -41,42 +41,40 @@
       On the left side of the money panel you can see the Worker panel. This shows how many workers you currently have available to solve a problem and how many workers you have in total.
 
       By clicking on the money panel, you will open the 'Worker' menu. On this menu you will be able to buy more workers, each time for an increased price.
-      
+
       By clicking on the worker panel, you will open the 'Problems' menu. On this menu you will be able to see all the problems that you need to solve.
     </text>
   </ui>
   <recruitment>
     <text>
       As mentioned earlier, on this menu you will be able to buy more workers.
-      
+
       Each time you buy a worker, the price increases.
     </text>
   </recruitment>
   <problems>
     <text>
       In this menu, you will see all ongoing problems at the moment. Each problem has a title or description, a duration, a way to add or remove workers from a problem and a cancel button and an underlying severity.
-      
-      For each problem you have, happiness will decrease based on the severity of the problem.
-      
-      By adding a worker, you are starting to solve that problem. This means that the happiness will not decrease for this problem.
-      
-      Adding more workers, you will solve the problem more quickly. This might be at the cost of leaving a problem unattended, which will cause happiness to decrease.
-      
-      You also have a cancel button, this might come in handy if you have too many problems on your hand and the happiness is decreasing too quickly.
-      
-      By cancelling a problem, you will decrease the happiness based on the severity of the problem, but this might be more advantageous than leaving it unattended and unlimitedly draining happiness over time.
 
+      For each problem you have, happiness will decrease based on the severity of the problem.
+
+      By adding a worker, you are starting to solve that problem. This means that the happiness will not decrease for this problem.
+
+      Adding more workers, you will solve the problem more quickly. This might be at the cost of leaving a problem unattended, which will cause happiness to decrease.
+
+      You also have a cancel button, this might come in handy if you have too many problems on your hand and the happiness is decreasing too quickly.
+
+      By cancelling a problem, you will decrease the happiness based on the severity of the problem, but this might be more advantageous than leaving it unattended and unlimitedly draining happiness over time.
     </text>
   </problems>
-  <events>
+  <upgrades>
     <text>
-      During the game you will get different events. If you choose to accept this event, the quiz menu will appear and will present you with a question that you can answer.
+      You can also purchase upgrades that will help you solve problems.
 
-      If a question is answered correctly, then you will receive bonus points and also a small money reward, depending on the difficulty of the question.
+      Some upgrades will have different effects than others.
 
-      If a question is answered incorrectly, you will receive a similar penalty in score and another problem will occur.
-
-      
+      for example some will decrease the duration of problems, some will decrease the frequency of occuring problems ...
     </text>
-  </events>
+  </upgrades>
+
 </scripts>

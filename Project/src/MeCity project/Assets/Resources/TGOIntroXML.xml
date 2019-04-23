@@ -59,9 +59,33 @@ You earn points based on the length of the sequence.
     <text>
       The fourth minigame is 'mastermind'. In this minigame you need to guess the 4 colour code.
       
-      Ypu can achieve this by choosing 4 colours and after every selection, you get feedback about the correct position or color that are present in your selection.
+      You can achieve this by choosing 4 colours and after every selection, you get feedback about the correct position or color that are present in your selection.
       
       This feedback can help you decide which colors you need to take next or in what position you need to place them.
     </text>
   </mastermind>
+  <hangman>
+    <text>
+      The fifth minigame is 'hang man'. In this minigame you need to guess the word that is hidden on the screen.
+      
+      You can achieve this by guessing a letter.
+      
+      If the letter is correct, then the letter will appear on all spots where it appears in the word.
+      
+      If the letter is incorrect, then the letter will appear to the side, so you know which letters are incorrect and a piece of a hanging man will appear.
+      
+      If you guessed incorrectly too many times and the hangman picture is complete, you will lose the game.
+    </text>
+  </hangman>
+  <catcher>
+    <text>
+      The sixth minigame is 'Catcher'. In this minigame you need to catch as much electricity as you can.
+      
+      You can achieve this by using the bucket that can move from left to right to catch the electricity.
+      
+      Every time you catch electricity, the falling speed of the electricity will rise.
+      
+      This will make the game harder when you have caught a lot of electricity.
+    </text>
+  </catcher>
 </scripts>

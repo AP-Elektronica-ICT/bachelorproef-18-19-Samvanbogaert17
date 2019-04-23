@@ -38,10 +38,12 @@ The items will be shuffled and need to be rearranged to the correct order.
     </text>
   </correctOrder>
   <documentation>
-    A good way to find answers to all of the questions, besides blindly guessing and hoping for the right answer, is to search in the documentation.
-    
-    All documentation about the Mecoms product can be found on 'idocs.mecoms.com'.
-    
-    Here you will find all the in's and out's of the Mecoms product and also how to do certain tasks within the Mecoms environment.
+    <text>
+      A good way to find answers to all of the questions, besides blindly guessing and hoping for the right answer, is to search in the documentation.
+
+      All documentation about the Mecoms product can be found on 'idocs.mecoms.com'.
+
+      Here you will find all the in's and out's of the Mecoms product and also how to do certain tasks within the Mecoms environment.
+    </text>
   </documentation>
 </scripts>

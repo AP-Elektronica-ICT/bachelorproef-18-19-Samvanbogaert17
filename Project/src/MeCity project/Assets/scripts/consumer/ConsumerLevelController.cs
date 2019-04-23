@@ -29,6 +29,11 @@ public class ConsumerLevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        foreach(RawImage img in invSlots)
+        {
+            img.enabled = false;
+        }
+
         consumption = consumptionSlider.value;
         money = moneySlider.value;
         energy = energySlider.value;
@@ -75,6 +80,7 @@ public class ConsumerLevelController : MonoBehaviour
                         Init(1);
                     });
                 }
+                invSlots[num].enabled = true;
                 break;
             case 1:
                 FindObjectOfType<ConsumerDilemmaController>().StartDilemma(num);
@@ -87,6 +93,7 @@ public class ConsumerLevelController : MonoBehaviour
                         Init(2);
                     });
                 }
+                invSlots[num].enabled = true;
                 break;
             case 2:
                 FindObjectOfType<ConsumerDilemmaController>().StartDilemma(num);
@@ -99,6 +106,7 @@ public class ConsumerLevelController : MonoBehaviour
                         Init(3);
                     });
                 }
+                invSlots[num].enabled = true;
                 break;
             case 3:
                 dilemmaCanvas.enabled = false;
