@@ -33,12 +33,6 @@ public class ProducerContractController : MonoBehaviour
         GameObject.FindWithTag("ContractCount").GetComponent<Text>().text = ongoingContractsList.Count + " / " + contractList.Count;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void CancelContract(int index)
     {
         money = int.Parse(moneyTxt.text);

@@ -8,7 +8,6 @@ public class Login : MonoBehaviour
     public InputField field;
     string naam;
     public Text validation;
-    private string key = "youtubee";
   
     // script used to validate the user username input field and writes the player name and beginning score to the datascript
     void Start()
@@ -34,7 +33,7 @@ public class Login : MonoBehaviour
             validation.text = "Invalid username: please give me a username";
         } else if (naam.Length >= 20)
         {
-            validation.text = "Invalid username: username to long";
+            validation.text = "Invalid username: username too long";
         } else
         {
             if (naam.Contains(":"))

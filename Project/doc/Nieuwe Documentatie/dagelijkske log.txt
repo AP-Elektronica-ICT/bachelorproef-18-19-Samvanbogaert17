@@ -278,3 +278,8 @@ Saving questions to global filepath + verzenden van e-mail
 19/04/19 - Dag 53
 
 Start van encryptie en decryptie van highscores, suggesties, reports ...
+
+23/04/19 - Dag 54
+
+Optimizen van intro's
+documenteren over alle scripts in scriptie
