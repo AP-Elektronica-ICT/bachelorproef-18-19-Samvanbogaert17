@@ -22,32 +22,9 @@ public class TGOBreakoutController : MonoBehaviour
 
     void Update()
     {
-        if (TGOMinigamesController.GameStarted && GetComponent<Canvas>().enabled == true)
+        if (bricks == 0)
         {
-            for (int i = 0; i < gameObject.transform.childCount; i++)
-            {
-                var child = gameObject.transform.GetChild(i).gameObject;
-                if (child != null)
-                {
-                    child.SetActive(true);
-                }
-            }
-
-            if (bricks == 0)
-            {
-                ResetGame();
-            }
-        }
-        else
-        {
-            for (int i = 0; i < gameObject.transform.childCount; i++)
-            {
-                var child = gameObject.transform.GetChild(i).gameObject;
-                if (child != null)
-                {
-                    child.SetActive(false);
-                }
-            }         
+            ResetGame();
         }
     }
 

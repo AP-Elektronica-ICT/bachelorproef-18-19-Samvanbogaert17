@@ -48,17 +48,6 @@ public class TGOHangman : MonoBehaviour
 
     void Update()
     {
-        if (TGOMinigamesController.GameStarted && GetComponent<Canvas>().enabled)
-        {
-            for (int i = 0; i < gameObject.transform.childCount; i++)
-            {
-                var child = gameObject.transform.GetChild(i).gameObject;
-                if (child != null)
-                {
-                    child.SetActive(true);
-                }
-            }
-
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 if (wordField.text != "")
@@ -69,20 +58,7 @@ public class TGOHangman : MonoBehaviour
                 {
                     GuessLetter();
                 }
-            }
-        }
-        else
-        {
-            for (int i = 0; i < gameObject.transform.childCount; i++)
-            {
-                var child = gameObject.transform.GetChild(i).gameObject;
-                if (child != null)
-                {
-                    child.SetActive(false);
-                }
-            }
-        }
-        
+            }   
     }
 
     public void StartGame()

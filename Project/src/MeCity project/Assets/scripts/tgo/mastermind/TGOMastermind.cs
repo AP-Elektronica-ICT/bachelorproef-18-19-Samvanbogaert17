@@ -37,32 +37,6 @@ public class TGOMastermind : MonoBehaviour
         restartBtn.onClick.AddListener(StartGame);
     }
 
-    void Update()
-    {
-        if (TGOMinigamesController.GameStarted && GetComponent<Canvas>().enabled)
-        {
-            for (int i = 0; i < gameObject.transform.childCount; i++)
-            {
-                var child = gameObject.transform.GetChild(i).gameObject;
-                if (child != null)
-                {
-                    child.SetActive(true);
-                }
-            }
-        }
-        else
-        {
-            for (int i = 0; i < gameObject.transform.childCount; i++)
-            {
-                var child = gameObject.transform.GetChild(i).gameObject;
-                if (child != null)
-                {
-                    child.SetActive(false);
-                }
-            }
-        }
-    }
-
     void Confirm()
     {
         //Initial check to see if player has filled in every color

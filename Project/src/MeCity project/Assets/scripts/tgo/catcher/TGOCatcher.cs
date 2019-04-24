@@ -39,54 +39,30 @@ public class TGOCatcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (TGOMinigamesController.GameStarted && GetComponent<Canvas>().enabled)
+        if (playerIsReady)
         {
-            for (int i = 0; i < gameObject.transform.childCount; i++)
+            //periodically instantiate lightning objects
+            if (timer == time) // 60 frames or 1 second have passed
             {
-                var child = gameObject.transform.GetChild(i).gameObject;
-                if (child != null)
+                for (int i = 0; i < simultaniousInstances; i++)
                 {
-                    child.SetActive(true);
-                }
-            }
+                    GetRandomSpeedOffset();
+                    GetRandomAngle();
+                    GameObject _gameObject;
+                    _gameObject = Instantiate(lightningPrefab, gamePanelTransform);
+                    _gameObject.transform.localPosition = new Vector2(rnd.Next(50, 550), -20);
+                    _gameObject.transform.Rotate(new Vector3(0, 0, angle));
+                    _gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2((-lightningSpeed + speedOffset) * Mathf.Cos(angle), (-lightningSpeed + speedOffset) * Mathf.Sin(angle));
 
-            if (playerIsReady)
-            {
-                //periodically instantiate lightning objects
-                if (timer == time) // 60 frames or 1 second have passed
-                {
-                    for (int i = 0; i < simultaniousInstances; i++)
-                    {
-                        GetRandomSpeedOffset();
-                        GetRandomAngle();
-                        GameObject _gameObject;
-                        _gameObject = Instantiate(lightningPrefab, gamePanelTransform);
-                        _gameObject.transform.localPosition = new Vector2(rnd.Next(50, 550), -20);
-                        _gameObject.transform.Rotate(new Vector3(0, 0, angle));
-                        _gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2((-lightningSpeed + speedOffset) * Mathf.Cos(angle), (-lightningSpeed + speedOffset) * Mathf.Sin(angle));
-
-                    }
-                    GetRandomTime();
-                    GetRandomSimultaniousInstances();
-                    timer = 0;
-                    Debug.Log(lightningSpeed);
                 }
-                CheckLives();
-                timer++;
+                GetRandomTime();
+                GetRandomSimultaniousInstances();
+                timer = 0;
+                Debug.Log(lightningSpeed);
             }
+            CheckLives();
+            timer++;
         }
-        else
-        {
-            for (int i = 0; i < gameObject.transform.childCount; i++)
-            {
-                var child = gameObject.transform.GetChild(i).gameObject;
-                if (child != null)
-                {
-                    child.SetActive(false);
-                }
-            }
-        }
-
     }
 
     void Setup()
