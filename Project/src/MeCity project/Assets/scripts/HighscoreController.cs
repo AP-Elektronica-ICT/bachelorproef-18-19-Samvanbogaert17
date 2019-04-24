@@ -15,14 +15,6 @@ public class HighscoreController : MonoBehaviour
     {
         gridTransform = gridGO.transform;
         XMLManager.instance.LoadHighscores();
-        if (XMLManager.instance.highscoreDB.list.Any(item => item.username == DataScript.GetName()))
-        {
-            XMLManager.instance.ModifyHighscore(DataScript.GetName(), DataScript.GetScore().ToString());
-        }
-        else
-        {
-            XMLManager.instance.AddHighscore(DataScript.GetName(), DataScript.GetScore().ToString());
-        }
         XMLManager.instance.ReorderHighscores();
         XMLManager.instance.SaveHighscores();
         DisplayHighscores();

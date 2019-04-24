@@ -283,3 +283,8 @@ Start van encryptie en decryptie van highscores, suggesties, reports ...
 
 Optimizen van intro's
 documenteren over alle scripts in scriptie
+
+24/04/19 - Dag 55
+
+Testmoment met collega's
+Bugfixing van MeCity
