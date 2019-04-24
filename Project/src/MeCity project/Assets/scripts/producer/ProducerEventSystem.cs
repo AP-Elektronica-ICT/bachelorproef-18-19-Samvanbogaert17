@@ -49,8 +49,8 @@ public class ProducerEventSystem : MonoBehaviour
         rndWeatherIndex = random.Next(0, weatherEventList.Count);
 
         rndIndex = random.Next(0, contractList.Count);
-        eventTimer = random.Next(1500, 2100);
-        contractTimer = random.Next(1500, 2100);
+        eventTimer = random.Next(900, 1500);
+        contractTimer = random.Next(900, 1500);
         weatherTimer = random.Next(1800, 3600);
         GameObject.Find("HapSlider").GetComponent<Slider>().value = satisfaction;
 

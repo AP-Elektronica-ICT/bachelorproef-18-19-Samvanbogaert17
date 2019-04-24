@@ -1175,7 +1175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &904091413
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1475,10 +1475,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hey there, this is my personal aquarium. Every player gets a fish in this
-    aquarium. The better your score, the bigger your fish. You increase your score
-    by playing through the levels. Hover on the middle of any fish to see the player
-    and the score.
+  m_Text: Hello there! *General keno-* wait, what? This is the highscore menu. Every
+    player will be put in a list, and the player with the most points will be on top.
+    So it is up to you to earn the most points and earn yourself a spot on top of
+    the leaderboard!
 --- !u!222 &1063085257
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1505,7 +1505,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1356770574
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2064,7 +2064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1725847960
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2294,6 +2294,10 @@ MonoBehaviour:
   highscoreDB:
     list: []
   reportDB:
+    list: []
+  suggestionDB:
+    list: []
+  questionDB:
     list: []
 --- !u!1 &1748733891
 GameObject:

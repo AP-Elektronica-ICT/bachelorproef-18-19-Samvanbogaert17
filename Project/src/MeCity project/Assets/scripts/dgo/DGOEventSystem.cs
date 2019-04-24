@@ -30,8 +30,8 @@ public class DGOEventSystem : MonoBehaviour
     private int problemFrameCounter = 1;
     private int rndIndex;
 
-    [HideInInspector] public int problemTimerMinVal = 15 * 60;  //minimum time that needs to pass for a problem to appear
-    [HideInInspector] public int problemTimerMaxVal = 30 * 60;  //maximum time for a problem to appear
+    [HideInInspector] public int problemTimerMinVal = 10 * 60;  //minimum time that needs to pass for a problem to appear
+    [HideInInspector] public int problemTimerMaxVal = 20 * 60;  //maximum time for a problem to appear
     [HideInInspector] public int index = 0;
 
     public void Start()
@@ -43,8 +43,8 @@ public class DGOEventSystem : MonoBehaviour
         random = new System.Random();
         rndIndex = random.Next(0, problemList.Count);
 
-        eventTimer = random.Next(15 * 60, 25 * 60);
-        problemTimer = random.Next(15 * 60, 25 * 60);
+        eventTimer = random.Next(10 * 60, 20 * 60);
+        problemTimer = random.Next(10 * 60, 20 * 60);
     }
     public void Update()
     {
@@ -81,7 +81,7 @@ public class DGOEventSystem : MonoBehaviour
             if (eventFrameCounter % eventTimer == 0 || Input.GetKeyDown(KeyCode.P))
             {
                 showPopUp();
-                eventTimer = random.Next(15 * 60, 25 * 60);
+                eventTimer = random.Next(10 * 60, 20 * 60);
                 eventFrameCounter = 0;
             }
             eventFrameCounter++;
