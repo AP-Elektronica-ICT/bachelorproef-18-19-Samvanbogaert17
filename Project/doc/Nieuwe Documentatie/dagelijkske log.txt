@@ -288,3 +288,8 @@ documenteren over alle scripts in scriptie
 
 Testmoment met collega's
 Bugfixing van MeCity
+
+25/04/19 - Dag 56
+
+Bugfixing in TGO level
+Comments toevoegen in code
