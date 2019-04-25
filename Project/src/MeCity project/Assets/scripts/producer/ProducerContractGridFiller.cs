@@ -25,12 +25,7 @@ public class ProducerContractGridFiller : MonoBehaviour
         ongoingContractList = FindObjectOfType<ProducerContractController>().ongoingContractsList;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    //Add contract to the contract grid
     public void AddContract(int index)
     {
         Contract c = contractList[index];
@@ -48,6 +43,7 @@ public class ProducerContractGridFiller : MonoBehaviour
             FindObjectOfType<ProducerContractController>().CancelContract(c.id);
         });
     }
+    //Update contract on the contract grid
     public void UpdateContract(int index)
     {
         Contract c = ongoingContractList[index];
@@ -60,6 +56,7 @@ public class ProducerContractGridFiller : MonoBehaviour
             FindObjectOfType<ProducerContractController>().CancelContract(c.id);
         });
     }
+    //Remove contract from the contract grid
     public void RemoveContract(int index)
     {
         Destroy(contractNamePrefab[index]);

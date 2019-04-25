@@ -29,16 +29,20 @@ public class ConsumerLevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //disables all startimages
         foreach(RawImage img in invSlots)
         {
             img.enabled = false;
         }
 
+        //sets the values of the variables to that of the sliders
         consumption = consumptionSlider.value;
         money = moneySlider.value;
         energy = energySlider.value;
 
+        //enables dilemma canvas
         dilemmaCanvas.enabled = true;
+        //starts 1st startdilemma
         Init(0);
     }
 
@@ -55,7 +59,6 @@ public class ConsumerLevelController : MonoBehaviour
                 timePassed = true;
                 frameCounter = 0;
                 AskQuestion();
-
             }
         }
     }
@@ -63,6 +66,7 @@ public class ConsumerLevelController : MonoBehaviour
     //choices before start of the level
     private void Init(int num)
     {
+        //remove all onclick listeners
         for (int i = 0; i < choiceBtns.Length; i++)
         {
             choiceBtns[i].onClick.RemoveAllListeners();
@@ -70,6 +74,7 @@ public class ConsumerLevelController : MonoBehaviour
         switch (num)
         {
             case 0:
+                //starts 1st start dilemma
                 FindObjectOfType<ConsumerDilemmaController>().StartDilemma(num);
                 for (int i = 0; i < choiceBtns.Length; i++)
                 {
@@ -83,6 +88,7 @@ public class ConsumerLevelController : MonoBehaviour
                 invSlots[num].enabled = true;
                 break;
             case 1:
+                //starts 2nd start dilemma
                 FindObjectOfType<ConsumerDilemmaController>().StartDilemma(num);
                 for (int i = 0; i < choiceBtns.Length; i++)
                 {
@@ -96,6 +102,7 @@ public class ConsumerLevelController : MonoBehaviour
                 invSlots[num].enabled = true;
                 break;
             case 2:
+                //starts 3rd start dilemma
                 FindObjectOfType<ConsumerDilemmaController>().StartDilemma(num);
                 for (int i = 0; i < choiceBtns.Length; i++)
                 {
@@ -109,6 +116,8 @@ public class ConsumerLevelController : MonoBehaviour
                 invSlots[num].enabled = true;
                 break;
             case 3:
+                //starts with normal level functionality
+                //(ask a question or dilemma every 5 seconds)
                 dilemmaCanvas.enabled = false;
                 started = true;
                 questionAnswered = true;
@@ -119,7 +128,9 @@ public class ConsumerLevelController : MonoBehaviour
     public void AskQuestion()
     {
         System.Random random = new System.Random();
+        //random variable that will determine the type of question that will be asked
         int rnd = random.Next(0, 2);
+        //checks if a question has been answered and if 5 seconds have passed
         if (questionAnswered && timePassed)
         {
             quizCanvas.enabled = false;
@@ -127,14 +138,17 @@ public class ConsumerLevelController : MonoBehaviour
             switch (rnd)
             {
                 case 0:
+                    //ask a dilemma
                     FindObjectOfType<ConsumerDilemmaController>().Dilemma();
                     dilemmaCanvas.enabled = true;
                     break;
                 case 1:
+                    //ask a multiple choice question
                     FindObjectOfType<ConsumerQuizController>().MultipleChoice();
                     quizCanvas.enabled = true;
                     break;
             }
+            //new question: question isn't answered and 5 seconds haven't passed yet
             questionAnswered = timePassed = false;
         }
 

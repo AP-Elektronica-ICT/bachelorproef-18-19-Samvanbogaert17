@@ -68,12 +68,6 @@ public class ProducerMarketController : MonoBehaviour
         });
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     //method used to switch from market panel to installed panel or vice versa
     private void SwitchCanvas(int mode)
     {
@@ -109,6 +103,7 @@ public class ProducerMarketController : MonoBehaviour
         }
     }
 
+    //add building to the installed building tab
     public void BuyBuilding(int index)
     {
         //Parsing all texts to ints
@@ -136,6 +131,7 @@ public class ProducerMarketController : MonoBehaviour
         SetMarketPrefabs();
     }
 
+    //remove building from the installed buildings tab
     public void SellBuilding(int index)
     {
         if (installedBuildingList[index].amount > 0)
@@ -172,11 +168,12 @@ public class ProducerMarketController : MonoBehaviour
         }
     }
 
+    //updates buildings if a change has occured through weather
     public void UpdateBuilding(int index)
     {
         switch (index)
         {
-            case 0:
+            case 0: //updates all purchasable buildings
                 for (int i = 0; i < buildingList.Count; i++)
                 {
                     Building b = buildingList[i];
@@ -194,7 +191,7 @@ public class ProducerMarketController : MonoBehaviour
                     buy_sellPrefab[i].GetComponentInChildren<Button>().onClick.AddListener(() => BuyBuilding(b.id));
                 }
                 break;
-            case 1:
+            case 1: //updates all installed buildings
                 for (int i = 0; i < installedBuildingList.Count; i++)
                 {
                     Building b = installedBuildingList[i];
@@ -224,6 +221,8 @@ public class ProducerMarketController : MonoBehaviour
                 }
                 break;
         }
+
+        //updated market prefabs
         SetMarketPrefabs();
 
     }
@@ -247,16 +246,6 @@ public class ProducerMarketController : MonoBehaviour
         {
             installedBuildingList.Add(new Building(buildingList[i].id, buildingList[i].name, buildingList[i].type, 0, 0, buildingList[i].price));
         }
-
-        /*//Add all Green type buildings
-        installedBuildingList.Add(new Building(0, "Solarpanel farm", "Green", 0, 0, 10000));
-        installedBuildingList.Add(new Building(1, "Hydroelectric plant", "Green", 0, 0, 70000));
-        installedBuildingList.Add(new Building(2, "Wind turbine farm", "Green", 0, 0, 25000));
-        installedBuildingList.Add(new Building(3, "Geothermal station", "Green", 0, 0, 40000));
-
-        //Add all Gray type buildings
-        installedBuildingList.Add(new Building(4, "Nuclear power plant", "Gray", 0, 0, 250000));
-        installedBuildingList.Add(new Building(5, "Fossil fuel power station", "Gray", 0, 0, 5000));*/
     }
     private void GetMarketPrefabs()
     {

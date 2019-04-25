@@ -30,12 +30,14 @@ public class DGOUpgradeGridFiller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //get the upgrades list
         FillUpgradeList();
-
+        //get the grid transforms
         upgradeTitleTransform = upgradeTitleGrid.transform;
         upgradeEffectTransform = upgradeEffectGrid.transform;
         upgradeTransform = upgradeGrid.transform;
 
+        //Adds all upgrades to the upgrades menu
         Initialize();
     }
 
@@ -98,7 +100,7 @@ public class DGOUpgradeGridFiller : MonoBehaviour
                 }
                 break;
         }
-
+        //removes money based on the price of the upgrade
         money = int.Parse(moneyTxt.text);
         money -= u.price;
         moneyTxt.text = money.ToString();
@@ -122,15 +124,18 @@ public class DGOUpgradeGridFiller : MonoBehaviour
         public int effect { get; set; }
         public int type { get; set; }
         public int price { get; set; }
-        //type 1: decreases frequency of a problem
-        //type 2: decreases duration of a problem
-        //type 3: decreases happiness decline
+
         public Upgrade(int type, string name, int effect, int price)
         {
             this.type = type;
             this.name = name;
             this.effect = effect;
             this.price = price;
+
+            //type 1: decreases frequency of a problem
+            //type 2: decreases duration of a problem
+            //type 3: decreases happiness decline
+
             switch (type)
             {
                 case 1:

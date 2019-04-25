@@ -33,6 +33,11 @@ public class ProducerContractController : MonoBehaviour
         GameObject.FindWithTag("ContractCount").GetComponent<Text>().text = ongoingContractsList.Count + " / " + contractList.Count;
     }
 
+    //cancel a contract:
+    //remove profits gained from the contract
+    //gain the energy produced for the contract
+
+    //remove the contract from the contracts grid
     public void CancelContract(int index)
     {
         money = int.Parse(moneyTxt.text);
@@ -49,6 +54,11 @@ public class ProducerContractController : MonoBehaviour
         GameObject.FindWithTag("ContractCount").GetComponent<Text>().text = ongoingContractsList.Count + " / " + contractList.Count;
     }
 
+    //Accept a contract:
+    //gain profits gained from the contract
+    //remove the energy produced for the contract
+
+    //Add the contract to the contracts grid
     public void AcceptContract(int index)
     {
         ongoingContractsList.Add(index, new Contract(contractList[index].id, contractList[index].name, contractList[index].amountSold, contractList[index].profit));
@@ -68,6 +78,9 @@ public class ProducerContractController : MonoBehaviour
         GameObject.FindWithTag("ContractCount").GetComponent<Text>().text = ongoingContractsList.Count + " / " + contractList.Count;
     }
 
+    //Update a contract
+    //increase or decrease profits based on the change
+    //increase or decrease energy produced based on the change
     public void UpdateContract(int index)
     {
         money = int.Parse(moneyTxt.text);
@@ -87,6 +100,7 @@ public class ProducerContractController : MonoBehaviour
         FindObjectOfType<ProducerContractGridFiller>().UpdateContract(index);
     }
 
+    //dummy list with all contracts
     public void FillContractsList()
     {
         contractList.Add(new Contract(0, "Eneco", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
@@ -110,6 +124,7 @@ public class ProducerContractController : MonoBehaviour
         contractList.Add(new Contract(18, "Wase Wind", Random.Range(1, 100) * 1000, Random.Range(1, 100) * 1000));
     }
 
+    //give new values to all the contracts so the player can update the contract if he wishes
     public void RefreshContractsList()
     {
         for (int i = 0; i < contractList.Count; i++)
@@ -119,6 +134,7 @@ public class ProducerContractController : MonoBehaviour
         }
     }
 
+    //get the contract prefab to make code more readable
     private void GetContractPrefabs()
     {
         contractNamePrefab = FindObjectOfType<ProducerContractGridFiller>().contractNamePrefab;
@@ -127,6 +143,7 @@ public class ProducerContractController : MonoBehaviour
         cancelContractPrefab = FindObjectOfType<ProducerContractGridFiller>().cancelContractPrefab;
     }
 
+    //set the contract prefab to make code more readable
     private void SetContractPrefabs()
     {
         FindObjectOfType<ProducerContractGridFiller>().contractNamePrefab = contractNamePrefab;

@@ -27,21 +27,18 @@ public class DGOProblemGridFiller : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //get the grid transforms
         problemTitleTransform = ProblemTitleGrid.transform;
         problemTransform = ProblemGrid.transform;
 
+        //get lists from DGOProblemController to make code more readable
         problemList = FindObjectOfType<DGOProblemController>().problemList;
         ongoingProblemList = FindObjectOfType<DGOProblemController>().ongoingProblemList;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void AddProblem(int index)
     {
+        //Add a problem to the problems grid
         Problem p = ongoingProblemList[index];
 
         problemPrefab.Add(index, Instantiate(TextPrefab, problemTitleTransform));
@@ -76,6 +73,7 @@ public class DGOProblemGridFiller : MonoBehaviour
 
     public void RemoveProblem(int index)
     {
+        //remove a problem from the grid and remove it from the list
         Destroy(problemPrefab[index]);
         Destroy(durationPrefab[index]);
         Destroy(deployedWorkerPrefab[index]);

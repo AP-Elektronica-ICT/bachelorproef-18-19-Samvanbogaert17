@@ -10,6 +10,7 @@ public class MecomsLevelController : MonoBehaviour
     public Canvas oddOneOutCanvas;
     // Start is called before the first frame update
 
+    //These functions all should speak for themselves
     public void EnablePickCanvas()
     {
         pickCanvas.enabled = true;
@@ -35,6 +36,7 @@ public class MecomsLevelController : MonoBehaviour
         oddOneOutCanvas.enabled = true;
     }
 
+    //opens a random type of question
     public void OpenRandom()
     {
         System.Random rnd = new System.Random();

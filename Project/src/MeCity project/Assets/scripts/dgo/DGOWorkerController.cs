@@ -22,19 +22,16 @@ public class DGOWorkerController : MonoBehaviour
         buyWorkerBtn.onClick.AddListener(BuyWorker);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void BuyWorker()
     {
+        //adds worker to the available workers
         availableWorkers = int.Parse(availableWorkersCountTxt.text);
         totalWorkers = int.Parse(totalWorkersCountTxt.text);
         money = double.Parse(moneyTxt.text);
         price = double.Parse(priceTxt.text);
 
+        //decreases money based on the price
+        //increases price everytime a worker is bought
         money -= price;
         price *= 1.3;
         availableWorkers++;

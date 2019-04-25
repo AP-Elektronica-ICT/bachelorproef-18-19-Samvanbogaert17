@@ -28,12 +28,7 @@ public class ProducerMarketGridFiller : MonoBehaviour
             InitializeMarketCanvas();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    //Add all buildings from the buildings list to the market grid
     public void InitializeMarketCanvas()
     {
         buildingList = FindObjectOfType<ProducerMarketController>().buildingList;

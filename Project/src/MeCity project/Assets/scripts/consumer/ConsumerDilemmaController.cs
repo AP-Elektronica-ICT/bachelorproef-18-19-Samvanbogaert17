@@ -124,7 +124,9 @@ public class ConsumerDilemmaController : MonoBehaviour
     {
         CameraControl.showingPopUp = false;
         CameraControl.inQuiz = false;
+        //read the xml file and the attribute values of the answers
         XmlNodeList list = elemList[number].ChildNodes[1].ChildNodes;
+        //add all values of the attributes to the sliders
         consumption += float.Parse(list[btn].Attributes["consumption"].Value)*100;
         money += float.Parse(list[btn].Attributes["money"].Value)*100;
         energy += float.Parse(list[btn].Attributes["energy"].Value)*100;
@@ -132,13 +134,16 @@ public class ConsumerDilemmaController : MonoBehaviour
 
     private void changeConsumption(float curr, float prev)
     {
+        //checks if consumption changed
         if (consumption != prevConsumption)
         {
+            //increases consumption slider value if consumption is higher than previous consumption
             if (consumption > prevConsumption)
             {
                 consumptionSlider.value++;
                 prevConsumption++;
             }
+            //decreases consumption slider value if consumption is lower than previous consumption
             else
             {
                 consumptionSlider.value--;
@@ -149,13 +154,16 @@ public class ConsumerDilemmaController : MonoBehaviour
 
     private void changeMoney(float curr, float prev)
     {
+        //checks if money changed
         if (money != prevMoney)
         {
+            //increases money slider value if money is higher than previous money
             if (money > prevMoney)
             {
                 moneySlider.value++;
                 prevMoney++;
             }
+            //decreases money slider value if money is lower than previous money
             else
             {
                 moneySlider.value--;
@@ -168,11 +176,13 @@ public class ConsumerDilemmaController : MonoBehaviour
     {
         if (energy != prevEnergy)
         {
+            //increases energy slider value if energy is higher than previous energy
             if (energy > prevEnergy)
             {
                 energySlider.value++;
                 prevEnergy++;
             }
+            //decreases money slider value if money is lower than previous money
             else
             {
                 energySlider.value--;

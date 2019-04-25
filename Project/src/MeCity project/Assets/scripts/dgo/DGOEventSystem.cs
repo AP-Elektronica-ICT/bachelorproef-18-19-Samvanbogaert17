@@ -30,8 +30,8 @@ public class DGOEventSystem : MonoBehaviour
     private int problemFrameCounter = 1;
     private int rndIndex;
 
-    [HideInInspector] public int problemTimerMinVal = 10 * 60;  //minimum time that needs to pass for a problem to appear
-    [HideInInspector] public int problemTimerMaxVal = 20 * 60;  //maximum time for a problem to appear
+    public int problemTimerMinVal = 10 * 60;  //minimum time that needs to pass for a problem to appear
+    public int problemTimerMaxVal = 20 * 60;  //maximum time for a problem to appear
     [HideInInspector] public int index = 0;
 
     public void Start()

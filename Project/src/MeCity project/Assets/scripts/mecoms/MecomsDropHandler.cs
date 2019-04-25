@@ -13,7 +13,6 @@ public class MecomsDropHandler : MonoBehaviour, IDropHandler
         {
             if (transform.childCount > 0)
             {
-                //child = transform.GetChild(0).gameObject;
                 return transform.GetChild(0).gameObject;
             }
             return null;
@@ -23,10 +22,6 @@ public class MecomsDropHandler : MonoBehaviour, IDropHandler
     {
         if (!answer)
         {
-            //child.transform.SetParent(MecomsDragHandler.itemBeingDragged.transform.parent);
-            //Debug.Log(MecomsDragHandler.itemBeingDragged.transform.parent.name);
-            //Debug.Log(child.GetComponentsInChildren<Text>()[1].text);
-            //Debug.Log(child.transform.parent.name);
             MecomsDragHandler.itemBeingDragged.transform.SetParent(transform);
         }
         else

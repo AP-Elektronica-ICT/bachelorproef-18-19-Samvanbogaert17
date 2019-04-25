@@ -25,8 +25,9 @@ public class AddQuestion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //closes question panel that will be enabled by default
         CloseQuestionPanel();
-
+        //
         XMLManager.instance.LoadQuestions();
         //
         backBtn.onClick.AddListener(CloseQuestionPanel);

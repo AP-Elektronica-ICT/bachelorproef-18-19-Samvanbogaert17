@@ -42,49 +42,52 @@ public class DGOProblemController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //update happiness (in percentage) every frame
         happinessTxt.text = Math.Round((hapSlider.value / hapSlider.maxValue * 100)).ToString() + '%';
 
+        //checks if the game isn't paused or the player is not in a quiz
         if (!CameraControl.paused && !CameraControl.inQuiz)
         {
+            //checks if there is atleast 1 ongoing problem
             if (ongoingProblemList.Count > 0)
             {
                 for (int i = 0; i <= FindObjectOfType<DGOEventSystem>().index + 1; i++)
                 {
+                    //checks if the ongoingproblems list contains a value
                     if (ongoingProblemList.ContainsKey(i))
                     {
+                        //checks if the problem is finished
                         if (ongoingProblemList[i].durationInSeconds <= 0)
                         {
+                            //add money based on the severity of the problem
                             money = int.Parse(moneyTxt.text);
                             money += 1000 * ongoingProblemList[i].severity;
                             moneyTxt.text = money.ToString();
 
+                            //Add happiness based on the severity of the problem
                             satisfaction += 1500 * ongoingProblemList[i].severity;
                             hapSlider.value = satisfaction;
 
+                            //remove a problem
+                            //increase and update the solved problems counter
                             RemoveProblem(i);
                             solvedProblems++;
 
                             solvedProblemsCountTxt.text = solvedProblems.ToString();
                             unsolvedProblemsCountTxt.text = unsolvedProblems.ToString();
                         }
+                        //if the problem has more than 1 worker deployed
                         else if (ongoingProblemList[i].deployedWorkers > 0)
                         {
+                            //decreases duration of the problem faster if there are more workers deployed
                             if (Time.frameCount % (60 / ongoingProblemList[i].deployedWorkers) == 0)
                             {
                                 ongoingProblemList[i].durationInSeconds--;
                                 var timeSpan = TimeSpan.FromSeconds(ongoingProblemList[i].durationInSeconds);
-                                //Leading zeroes
-                                if (timeSpan.Seconds < 10)
-                                {
-                                    durationPrefab[i].GetComponent<Text>().text = timeSpan.Minutes + ":" + "0" + timeSpan.Seconds;
-                                }
-                                else
-                                {
-                                    durationPrefab[i].GetComponent<Text>().text = timeSpan.Minutes + ":" + timeSpan.Seconds;
-                                }
-                                //
+                                durationPrefab[i].GetComponent<Text>().text = timeSpan.Minutes + ":" + timeSpan.Seconds.AddLeadingZero();
                             }
                         }
+                        //if the problem has no workers deployed to it, then happiness will decrease
                         else if (ongoingProblemList[i].deployedWorkers == 0)
                         {
                             satisfaction -= (float)ongoingProblemList[i].happinessDecrease;
@@ -98,35 +101,49 @@ public class DGOProblemController : MonoBehaviour
 
     public void AddProblem(int rndindex, int index)
     {
+        //Add the problem to the ongoing problems list
         ongoingProblemList.Add(index, new Problem(problemList[rndindex].id, problemList[rndindex].title, problemList[rndindex].severity, problemList[rndindex].durationInSeconds));
+
+        //Add the problem to the problems grid
         FindObjectOfType<DGOProblemGridFiller>().AddProblem(index);
+
+        //increase unsolved problems counter
         unsolvedProblems++;
         unsolvedProblemsCountTxt.text = unsolvedProblems.ToString();
     }
 
     public void RemoveProblem(int index)
     {
+        //removes problem in the grid
         FindObjectOfType<DGOProblemGridFiller>().RemoveProblem(index);
 
+        //return all deployed workers to available workers
         availableWorkers = int.Parse(availableWorkersCountxt.text);
         availableWorkers += ongoingProblemList[index].deployedWorkers;
         availableWorkersCountxt.text = availableWorkers.ToString();
-
+        
+        //remove the problem from the ongoing problems list
         ongoingProblemList.Remove(index);
-
+        
+        //decrease unsolved problems counter
         unsolvedProblems--;
         unsolvedProblemsCountTxt.text = unsolvedProblems.ToString();
     }
 
     public void RemoveHappiness(int index)
     {
+        //removes happiness based on the severity of the problem that has been removed
         satisfaction -= ongoingProblemList[index].severity * 5000;
         hapSlider.value = satisfaction;
     }
 
     public void AddWorker(int index)
     {
+        //checks how many workers the player has available
         availableWorkers = int.Parse(availableWorkersCountxt.text);
+        //checks if the player has atleast 1 worker available
+        //then add worker to the current problem
+        //and remove worker from available workers
         if (availableWorkers > 0)
         {
             ongoingProblemList[index].deployedWorkers++;
@@ -138,7 +155,11 @@ public class DGOProblemController : MonoBehaviour
     }
     public void RemoveWorker(int index)
     {
+        //checks how many workers the player has available
         availableWorkers = int.Parse(availableWorkersCountxt.text);
+        //checks if a problem has atleast 1 worker deployed to it
+        //then removes the worker from the problem
+        //and add the worker to the available workers
         if (ongoingProblemList[index].deployedWorkers > 0)
         {
             ongoingProblemList[index].deployedWorkers--;
@@ -151,6 +172,7 @@ public class DGOProblemController : MonoBehaviour
 
     public void FillProblemList()
     {
+        //fill problems list with different problems that can occur
         problemList.Add(new Problem(0, "A customer needs his meterreadings taken.", 1));
         problemList.Add(new Problem(1, "A customer needs his meter replaced", 1));
         problemList.Add(new Problem(2, "A customer needs his meter removed", 1));
@@ -168,6 +190,7 @@ public class DGOProblemController : MonoBehaviour
 
     private void GetProblemPrefabs()
     {
+        //get all prefab lists from DGOProblemGridFiller to make code more readable
         problemPrefab = FindObjectOfType<DGOProblemGridFiller>().problemPrefab;
         durationPrefab = FindObjectOfType<DGOProblemGridFiller>().durationPrefab;
         deployedWorkerPrefab = FindObjectOfType<DGOProblemGridFiller>().deployedWorkerPrefab;
@@ -176,6 +199,7 @@ public class DGOProblemController : MonoBehaviour
 
     private void SetProblemPrefabs()
     {
+        //set all prefab lists from DGOProblemGridFiller to make code more readable
         FindObjectOfType<DGOProblemGridFiller>().problemPrefab = problemPrefab;
         FindObjectOfType<DGOProblemGridFiller>().durationPrefab = durationPrefab;
         FindObjectOfType<DGOProblemGridFiller>().deployedWorkerPrefab = deployedWorkerPrefab;
@@ -198,12 +222,15 @@ public class DGOProblemController : MonoBehaviour
             id = _id;
             severity = _severity;
             happinessDecrease = _severity * 10;
+            //if the duration in seconds is one minute (or default value)
             if(_durationInSeconds == 60)
             {
+                //give the problem a random duration
                 durationInSeconds = rnd.Next(10, _durationInSeconds * _severity);
             }
             else
             {
+                //give the problem the player defined duration
                 durationInSeconds = _durationInSeconds;
             }
             deployedWorkers = _deployedWorkers;
