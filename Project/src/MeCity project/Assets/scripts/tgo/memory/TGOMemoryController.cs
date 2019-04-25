@@ -26,15 +26,11 @@ public class TGOMemoryController : MonoBehaviour
         Init();
     }
 
-    void Update()
-    {
-    }
-
     private void Init()
     {
         int ind = 0;
 
-        for (int i = 0; i < 18; i++)
+        for (int i = 0; i < imgArray.Length * 2; i++)
         {
             int temp = i;
 
@@ -43,6 +39,9 @@ public class TGOMemoryController : MonoBehaviour
             {
                 OnClick(temp);
             });
+
+            //Increases the imgArray index by 1 everytime i can be divided by 2
+            //Hereby adding the same images 2 times before adding the next image
 
             if (i % 2 == 0 && i != 0)
             {
@@ -55,12 +54,16 @@ public class TGOMemoryController : MonoBehaviour
         ShuffleClass.Shuffle(answerList);
     }
 
+    /*
     private void OnClick(int index)
     {
-        if (ansCount == 2 && answerList[answersPicked[0]] != answerList[answersPicked[1]])
+        //checks if the user picked two answers and the answers that the user picked don't form a pair
+        if (ansCount == 2 && (answerList[answersPicked[0]] != answerList[answersPicked[1]] || answersPicked[0] == answersPicked[1]))
         {
+            //reset images back to the default image
             prefabList[answersPicked[0]].GetComponent<RawImage>().texture = meganDefault;
             prefabList[answersPicked[1]].GetComponent<RawImage>().texture = meganDefault;
+            //clear the answers picked list
             answersPicked.Clear();
             ansCount = 0;
         }
@@ -84,7 +87,45 @@ public class TGOMemoryController : MonoBehaviour
                 answersPicked.Clear();
                 ansCount = 0;
             }
+        }        
+    }*/
+
+    private void OnClick(int index)
+    {
+        if (answersPicked.Count == 2)
+        {
+            //reset images back to the default image
+            prefabList[answersPicked[0]].GetComponent<RawImage>().texture = meganDefault;
+            prefabList[answersPicked[1]].GetComponent<RawImage>().texture = meganDefault;
+            //clear the answers picked list
+            answersPicked.Clear();
         }
+
+        prefabList[index].GetComponent<RawImage>().texture = answerList[index];
+        answersPicked.Add(index);
+
+        if(answersPicked.Count == 2)
+        {
+            if (answersPicked[0] != answersPicked[1])
+            {
+                if (answerList[answersPicked[0]] == answerList[answersPicked[1]])
+                {
+                    DataScript.AddScore(1000);
+                    prefabList[answersPicked[0]].GetComponent<Button>().interactable = false;
+                    prefabList[answersPicked[1]].GetComponent<Button>().interactable = false;
+                    answersPicked.Clear();
+                }
+            }
+            else
+            {
+                //reset images back to the default image
+                prefabList[answersPicked[0]].GetComponent<RawImage>().texture = meganDefault;
+                prefabList[answersPicked[1]].GetComponent<RawImage>().texture = meganDefault;
+                //clear the answers picked list
+                answersPicked.Clear();
+            }
+        }
+        
     }
 
     public void StartGame()

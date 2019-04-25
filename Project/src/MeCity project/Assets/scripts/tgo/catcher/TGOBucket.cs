@@ -13,11 +13,11 @@ public class TGOBucket : MonoBehaviour
     {
         if (TGOCatcher.playerIsReady)
         {
-            float xPos = Input.mousePosition.x -  screen.rect.width;
-            float x1 = 0f;
-            float x2 = screen.rect.width;
-            playerPos = new Vector2(Mathf.Clamp(xPos, x1, x2), -380f);
-            player.localPosition = playerPos;
+            float xPos = Input.mousePosition.x;
+            float x1 = screen.position.x;
+            float x2 = screen.position.x + screen.rect.width;
+            playerPos = new Vector2(Mathf.Clamp(xPos, x1, x2), screen.position.y - screen.rect.height + 50);
+            player.position = playerPos;
         }
     }
 

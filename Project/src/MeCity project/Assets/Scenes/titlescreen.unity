@@ -838,7 +838,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'If the screen is working very slow, update your graphics card drivers.
-    Contact ITT for more information. '
+    Contact IT for more information. '
 --- !u!222 &927872118
 CanvasRenderer:
   m_ObjectHideFlags: 0

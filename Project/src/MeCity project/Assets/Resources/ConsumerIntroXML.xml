@@ -16,13 +16,11 @@
       On the bottom left you can see 3 sliders (From left to right: Energy consumption, wealth and usage of green or regular energy).
 
       In the middle you can see your inventory. Here you can find what choices you made during the beginning of the level.
-
-      By clicking on one of the items in your inventory, you can view what pro's and con's they have and what other effect they have on the results of other questions.
     </text>
   </ui>
   <questions>
     <text>
-      As mentioned earlier, you will receive questions throughout the game. These questions will come in different forms, such as dilemma's, regular multiple choice questions or 
+      As mentioned earlier, you will receive questions throughout the game. These questions will come in different forms, such as dilemma's and multiple choice questions.
     </text>
   </questions>
   <dilemma>

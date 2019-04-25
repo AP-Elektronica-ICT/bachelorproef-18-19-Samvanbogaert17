@@ -155,7 +155,6 @@ public class TGOMastermind : MonoBehaviour
         if (playerAnswers == gameAnswers)
         {
             DataScript.AddScore(100000 / prevAnswers.Count);
-            restartBtn.interactable = true;
         }
     }
 
@@ -175,8 +174,6 @@ public class TGOMastermind : MonoBehaviour
 
     public void StartGame()
     {
-        restartBtn.interactable = false;
-
         ClearPrevAnswers();
 
         GetCombination();

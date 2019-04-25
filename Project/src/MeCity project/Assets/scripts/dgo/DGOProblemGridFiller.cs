@@ -52,14 +52,9 @@ public class DGOProblemGridFiller : MonoBehaviour
         problemPrefab[index].GetComponent<Text>().text = p.title;
         problemPrefab[index].GetComponent<Text>().alignment = TextAnchor.MiddleLeft;
         var timeSpan = TimeSpan.FromSeconds(p.durationInSeconds);
-        if (timeSpan.Seconds < 10)
-        {
-            durationPrefab[index].GetComponent<Text>().text = timeSpan.Minutes + ":" + "0" + timeSpan.Seconds;
-        }
-        else
-        {
-            durationPrefab[index].GetComponent<Text>().text = timeSpan.Minutes + ":" + timeSpan.Seconds;
-        }
+
+        //Add duration to duration prefab
+        durationPrefab[index].GetComponent<Text>().text = timeSpan.Minutes + ":" + timeSpan.Seconds.AddLeadingZero();
 
         deployedWorkerPrefab[index].GetComponentInChildren<Text>().text = p.deployedWorkers.ToString();
         deployedWorkerPrefab[index].GetComponentsInChildren<Button>()[0].onClick.AddListener(() =>

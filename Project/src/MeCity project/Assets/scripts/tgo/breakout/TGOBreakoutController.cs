@@ -22,7 +22,7 @@ public class TGOBreakoutController : MonoBehaviour
 
     void Update()
     {
-        if (bricks == 0)
+        if (brickCounter == 0)
         {
             ResetGame();
         }
