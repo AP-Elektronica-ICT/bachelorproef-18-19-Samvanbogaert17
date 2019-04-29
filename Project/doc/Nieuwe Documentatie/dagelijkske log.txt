@@ -293,3 +293,7 @@ Bugfixing van MeCity
 
 Bugfixing in TGO level
 Comments toevoegen in code
+
+29/04/19 - Dag 57
+
+Admin pagina visueel functioneel & functioneel voor reports & suggestions
