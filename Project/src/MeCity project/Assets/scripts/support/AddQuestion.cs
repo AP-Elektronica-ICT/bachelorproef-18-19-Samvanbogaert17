@@ -27,7 +27,7 @@ public class AddQuestion : MonoBehaviour
     {
         //closes question panel that will be enabled by default
         CloseQuestionPanel();
-        //
+        // Loads all the questions in the unconfirmed questions file path
         XMLManager.instance.LoadQuestions();
         //
         backBtn.onClick.AddListener(CloseQuestionPanel);
@@ -83,7 +83,7 @@ public class AddQuestion : MonoBehaviour
                     answers.Add(new Answer { modifier = -1, answer = falseAnsInputs[i].text });
                 }
             }
-
+            //
             EmailController.instance.SendEmail(
                 "Question",
                 "New Question about " + subject, 

@@ -8,6 +8,7 @@ public class Support : MonoBehaviour
     public Canvas reportCanvas;
     public Canvas suggestionCanvas;
     public Canvas addQuestionCanvas;
+    public Canvas adminCanvas;
 
     private void Start()
     {
@@ -15,5 +16,6 @@ public class Support : MonoBehaviour
         reportCanvas.gameObject.SetActive(false);
         suggestionCanvas.gameObject.SetActive(false);
         addQuestionCanvas.gameObject.SetActive(false);
+        adminCanvas.gameObject.SetActive(false);
     }
 }

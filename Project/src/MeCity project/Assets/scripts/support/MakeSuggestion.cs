@@ -16,12 +16,11 @@ public class MakeSuggestion : MonoBehaviour
     void Start()
     {
         commentText.text = "";
-        Debug.Log(XMLManager.instance);
-        XMLManager.instance.LoadReports();
-        confirmBtn.onClick.AddListener(ConfirmReport);
+        XMLManager.instance.LoadSuggestions();
+        confirmBtn.onClick.AddListener(ConfirmSuggestion);
     }
 
-    void ConfirmReport()
+    void ConfirmSuggestion()
     {
         //throw error if inputfields are left blank
         if (titleField.text == "" || descriptionField.text == "")
