@@ -16,9 +16,9 @@ public class Admin : MonoBehaviour
     public GameObject contentGrid;
 
     private Transform contentTransform;
-    private Dictionary<int, GameObject> itemList = new Dictionary<int, GameObject>();
+    private List<GameObject> itemList = new List<GameObject>();
 
-    private int prevToggle = 0;
+    private int prevToggle = 1;
 
     private static string GetSHA512(string String)
     {
@@ -30,7 +30,7 @@ public class Admin : MonoBehaviour
 
         hashValue = hashString.ComputeHash(message);
 
-        foreach(byte x in hashValue)
+        foreach (byte x in hashValue)
         {
             hex += string.Format("{0:x2}", x);
         }
@@ -60,7 +60,7 @@ public class Admin : MonoBehaviour
         //kept in two different loops in order to correctly remove multiple game objects at once
         //
         //loop destroying GameObjects
-        for(int i = 0; i < itemList.Count; i++)
+        for (int i = 0; i < itemList.Count; i++)
         {
             int temp = i;
             if (itemList[temp].GetComponentInChildren<Toggle>().isOn)
@@ -74,14 +74,14 @@ public class Admin : MonoBehaviour
             int temp = i;
             if (itemList[temp].GetComponentInChildren<Toggle>().isOn)
             {
-                itemList.Remove(temp);
+                itemList.RemoveAt(temp);
             }
         }
     }
 
     void CheckToggle()
     {
-        for(int i = 0; i < toggles.Length; i++)
+        for (int i = 0; i < toggles.Length; i++)
         {
             if (toggles[i].isOn && prevToggle != i)
             {
@@ -98,23 +98,25 @@ public class Admin : MonoBehaviour
         switch (type)
         {
             case 0:     //reports
-                for(int i = 0; i < XMLManager.instance.reportDB.list.Count; i++)
+                for (int i = 0; i < XMLManager.instance.reportDB.list.Count; i++)
                 {
                     int temp = i;
-                    itemList.Add(temp, Instantiate(itemPrefab, contentTransform));
+                    itemList.Add(Instantiate(itemPrefab, contentTransform));
                     itemList[i].transform.GetChild(1).GetChild(0).GetComponent<Text>().text = XMLManager.instance.reportDB.list[i].title;
                     itemList[i].transform.GetChild(1).GetChild(1).GetComponent<Text>().text = XMLManager.instance.reportDB.list[i].description;
-                    itemList[i].transform.GetChild(0).GetChild(1).GetComponent<Button>().onClick.AddListener(() => Remove(temp));
+                    itemList[i].transform.GetChild(0).GetChild(1).GetComponent<Button>().onClick.RemoveAllListeners();
+                    itemList[i].transform.GetChild(0).GetChild(1).GetComponent<Button>().onClick.AddListener(() => Remove(temp, prevToggle));
                 }
                 break;
             case 1:     //suggestions
                 for (int i = 0; i < XMLManager.instance.suggestionDB.list.Count; i++)
                 {
                     int temp = i;
-                    itemList.Add(temp, Instantiate(itemPrefab, contentTransform));
+                    itemList.Add(Instantiate(itemPrefab, contentTransform));
                     itemList[i].transform.GetChild(1).GetChild(0).GetComponent<Text>().text = XMLManager.instance.suggestionDB.list[i].title;
                     itemList[i].transform.GetChild(1).GetChild(1).GetComponent<Text>().text = XMLManager.instance.suggestionDB.list[i].description;
-                    itemList[i].transform.GetChild(0).GetChild(1).GetComponent<Button>().onClick.AddListener(() => Remove(temp));
+                    itemList[i].transform.GetChild(0).GetChild(1).GetComponent<Button>().onClick.RemoveAllListeners();
+                    itemList[i].transform.GetChild(0).GetChild(1).GetComponent<Button>().onClick.AddListener(() => Remove(temp, prevToggle));
                 }
                 break;
             case 2:     //unconfirmed questions
@@ -133,9 +135,23 @@ public class Admin : MonoBehaviour
         }
     }
 
-    void Remove(int index)
+    void Remove(int index, int type)
     {
         Destroy(itemList[index]);
-        itemList.Remove(index);
+        itemList.RemoveAt(index);
+        switch (type)
+        {
+            case 0:
+                XMLManager.instance.RemoveReport(index);
+                XMLManager.instance.SaveReports();
+                break;
+            case 1:
+                XMLManager.instance.RemoveSuggestion(index);
+                XMLManager.instance.SaveSuggestions();
+                break;
+            case 2:
+                break;
+        }
+        FillGrid(prevToggle);
     }
 }

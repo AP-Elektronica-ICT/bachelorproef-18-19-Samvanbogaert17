@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- xml used for the scripts for the supplier eventsystem (popups) -->
 <scripts>
   <popup>
     <text>
@@ -137,8 +136,6 @@ The measurement is expressed in:
   <popup>
     <text>
 We supply electricity and gas to our customers. When a customer uses both and we are sending invoices:
-
-The measurement is expressed in:
     </text>
     <answers>
       <answer influence ="-1" >'We always send separate invoices for gas and electricity '</answer>
@@ -154,7 +151,7 @@ This costs time. What are you going to about it:
     </text>
     <answers>
       <answer influence ="3" >'It only happens a 2 times per month and the manual change takes 10 minutes – we keep doing so '</answer>
-      <answer influence ="1">'We asked our software vendor to automise it – that will cost 50.000€ - we confirmed the change'</answer>
+      <answer influence ="1">'We asked our software vendor to automate it – that will cost 50.000€ - we confirmed the change'</answer>
       <answer influence ="-3">'We call these customers and tell them to look for another supplier'</answer>
     </answers>
   </popup>
@@ -174,7 +171,6 @@ This costs time. What are you going to about it:
     <text>
       A customer calls in to let the supplier know that he currently cannot pay his bills / invoices.
       What are your options as supplier?
-
     </text>
     <answers>
       <answer influence ="3" >'Postpone the due dates of the invoices or put together a payment plan '</answer>
@@ -189,7 +185,7 @@ This costs time. What are you going to about it:
     </text>
     <answers>
       <answer influence ="-3" >'Postpone the due dates of the invoices or put together a payment plan '</answer>
-      <answer influence ="3">'Write off the customers '</answer>
+      <answer influence ="3">'Write off the open transactions of this customer'</answer>
       <answer influence ="-3">'Immediately stop delivering energy to the customer'</answer>
     </answers>
   </popup>

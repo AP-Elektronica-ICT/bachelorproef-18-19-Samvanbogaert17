@@ -188,9 +188,9 @@ public class XMLManager : MonoBehaviour
         suggestionDB.list.Add(entry);
     }
 
-    public void RemoveSuggestion()
+    public void RemoveSuggestion(int index)
     {
-
+        suggestionDB.list.RemoveAt(index);
     }
 
     //
