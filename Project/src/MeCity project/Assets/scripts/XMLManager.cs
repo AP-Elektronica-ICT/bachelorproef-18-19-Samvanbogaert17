@@ -196,7 +196,7 @@ public class XMLManager : MonoBehaviour
     //
     //All code regarding saving and loading questions
     //
-    public QuestionDatabase questionDB = new QuestionDatabase();
+    [HideInInspector] public QuestionDatabase questionDB = new QuestionDatabase();
 
     public void SaveQuestions()
     {
@@ -239,13 +239,79 @@ public class XMLManager : MonoBehaviour
                         question = _question,
                         answers = _answers
                     };
-                    _questionList.entries.Add(entry);
+                    _questionList.questionEntries.Add(entry);
                 }
             }
         }
         else
         {
-            questionDB.list.Add(new QuestionList { subject = _subject, entries = new List<QuestionEntry>() });
+            List<QuestionEntry> entryList = new List<QuestionEntry>();
+            entryList.Add(new QuestionEntry
+            {
+                question = _question,
+                answers = _answers
+            });
+            questionDB.list.Add(new QuestionList { subject = _subject, questionEntries = entryList });
+        }
+    }
+
+    public void AddDilemma(string _subject, string _question, List<Dilemma> _dilemmas)
+    {
+        if (questionDB.list.Any(item => item.subject == _subject))
+        {
+            foreach (QuestionList _questionList in questionDB.list)
+            {
+                if (_questionList.subject == _subject)
+                {
+                    DilemmaEntry entry = new DilemmaEntry
+                    {
+                        question = _question,
+                        dilemmas = _dilemmas
+                        
+                    };
+                    _questionList.dilemmaEntries.Add(entry);
+                }
+            }
+        }
+        else
+        {
+            List<DilemmaEntry> entryList = new List<DilemmaEntry>();
+            entryList.Add(new DilemmaEntry
+            {
+                question = _question,
+                dilemmas = _dilemmas
+            });
+            questionDB.list.Add(new QuestionList { subject = _subject, dilemmaEntries = entryList });
+        }
+    }
+
+    public void AddCorrectOrder(string _subject, string _question, List<Position> _positions)
+    {
+        if (questionDB.list.Any(item => item.subject == _subject))
+        {
+            foreach (QuestionList _questionList in questionDB.list)
+            {
+                if (_questionList.subject == _subject)
+                {
+                    CorrectOrderEntry entry = new CorrectOrderEntry
+                    {
+                        question = _question,
+                        positions = _positions
+
+                    };
+                    _questionList.correctOrderEntries.Add(entry);
+                }
+            }
+        }
+        else
+        {
+            List<CorrectOrderEntry> entryList = new List<CorrectOrderEntry>();
+            entryList.Add(new CorrectOrderEntry
+            {
+                question = _question,
+                positions = _positions
+            });
+            questionDB.list.Add(new QuestionList { subject = _subject, correctOrderEntries = entryList });
         }
     }
 
@@ -324,12 +390,51 @@ public class Answer
 }
 
 [Serializable]
+public class DilemmaEntry
+{
+    public string question;
+
+    public List<Dilemma> dilemmas = new List<Dilemma>();
+}
+
+[Serializable]
+public class Dilemma
+{
+    [XmlAttribute("consumption")]
+    public int consumption = 0;
+
+    [XmlAttribute("money")]
+    public int money = 0;
+
+    [XmlAttribute("energy")]
+    public int energy = 0;
+
+    public string choice;
+}
+
+[Serializable]
+public class CorrectOrderEntry
+{
+    public string question;
+
+    public List<Position> positions = new List<Position>();
+}
+
+[Serializable]
+public class Position
+{
+    public string position;
+}
+
+[Serializable]
 public class QuestionList
 {
     [XmlAttribute("subject")]
     public string subject;
 
-    public List<QuestionEntry> entries = new List<QuestionEntry>();
+    public List<QuestionEntry> questionEntries = new List<QuestionEntry>();
+    public List<DilemmaEntry> dilemmaEntries = new List<DilemmaEntry>();
+    public List<CorrectOrderEntry> correctOrderEntries = new List<CorrectOrderEntry>();
 }
 
 [Serializable]
