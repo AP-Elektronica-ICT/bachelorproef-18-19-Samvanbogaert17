@@ -297,3 +297,7 @@ Comments toevoegen in code
 29/04/19 - Dag 57
 
 Admin pagina visueel functioneel & functioneel voor reports & suggestions
+
+30/04/19 - Dag 58
+
+Vragen van huidige XML files geconverteerd naar nieuwe XML structuur mbv script
