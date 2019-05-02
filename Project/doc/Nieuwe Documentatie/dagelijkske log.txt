@@ -301,3 +301,10 @@ Admin pagina visueel functioneel & functioneel voor reports & suggestions
 30/04/19 - Dag 58
 
 Vragen van huidige XML files geconverteerd naar nieuwe XML structuur mbv script
+
+02/05/19 - Dag 59
+
+Laden en opslaan van vragen checken eerst lokaal en daarna globaal.
+
+03/05/19 - Dag 60 laatste dag
+

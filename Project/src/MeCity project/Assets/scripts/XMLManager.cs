@@ -7,12 +7,12 @@ using System.IO;
 using System;
 using System.Linq;
 using System.Globalization;
+using System.Text;
 
 public class XMLManager : MonoBehaviour
 {
     public static XMLManager instance;
 
-    private string localHighscoreFilePath; //saves file to a local folder in the game files
     //filepaths located in the global transfer drive in the Ferranti environment;
     private readonly string globalHighscoreXML = @"I:\svboga\MeCity\Highscores/highscores.xml";
     private readonly string globalReportXML = @"I:\svboga\MeCity\Reports/reports.xml";
@@ -20,10 +20,21 @@ public class XMLManager : MonoBehaviour
     private readonly string globalUnconfirmedQuestionXML = @"I:\svboga\MeCity\Questions\Unconfirmed/questions.xml";
     private readonly string globalConfirmedQuestionXML = @"I:\svboga\MeCity\Questions\Confirmed/questions.xml";
 
+
+    private string localHighscoreXML;
+    private string localReportXML;
+    private string localSuggestionXML;
+    private string localQuestionXML;
+
+
     private void Awake()
     {
-        localHighscoreFilePath = Application.dataPath + "/highscores.xml";
         instance = this;
+
+        localHighscoreXML = Application.persistentDataPath + "/Highscores/highscores.xml";
+        localReportXML = Application.persistentDataPath + "/Reports/reports.xml";
+        localSuggestionXML = Application.persistentDataPath + "/Suggestions/suggestions.xml";
+        localQuestionXML = Application.persistentDataPath + "/Questions/questions.xml";
     }
 
     //
@@ -198,27 +209,56 @@ public class XMLManager : MonoBehaviour
     //
     [HideInInspector] public QuestionDatabase questionDB = new QuestionDatabase();
 
-    public void SaveQuestions()
+    public void SaveQuestions(bool saveToGlobal = true)
     {
-        //open a new xml file
-        XmlSerializer serializer = new XmlSerializer(typeof(QuestionDatabase));
-        FileStream stream = new FileStream(globalUnconfirmedQuestionXML, FileMode.Create, FileAccess.ReadWrite);
-        serializer.Serialize(stream, questionDB);
-        stream.Close();
-
+        if (saveToGlobal)
+        {
+            //open a new xml file
+            XmlSerializer serializer = new XmlSerializer(typeof(QuestionDatabase));
+            FileStream stream = new FileStream(globalUnconfirmedQuestionXML, FileMode.Create, FileAccess.ReadWrite);
+            using (StreamWriter _stream = new StreamWriter(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                serializer.Serialize(stream, questionDB);
+            }
+            stream.Close();
+        }
+        else
+        {
+            //open a new xml file
+            XmlSerializer serializer = new XmlSerializer(typeof(QuestionDatabase));
+            FileStream stream = new FileStream(localQuestionXML, FileMode.Create, FileAccess.ReadWrite);
+            using (StreamWriter _stream = new StreamWriter(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                serializer.Serialize(stream, questionDB);
+            }
+            stream.Close();
+        }
         //Encryption.EncryptFile(globalUnconfirmedQuestionXML);
     }
 
     public void LoadQuestions()
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(QuestionDatabase));
-        if (File.Exists(globalUnconfirmedQuestionXML))
+        if (File.Exists(localQuestionXML))
         {
-            //Encryption.DecryptFile(globalUnconfirmedQuestionXML);
-
-            FileStream stream = new FileStream(globalUnconfirmedQuestionXML, FileMode.Open, FileAccess.ReadWrite);
-            questionDB = serializer.Deserialize(stream) as QuestionDatabase;
+            XmlSerializer serializer = new XmlSerializer(typeof(QuestionDatabase));
+            FileStream stream = new FileStream(localQuestionXML, FileMode.Open, FileAccess.ReadWrite);
+            using (StreamReader _stream = new StreamReader(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                questionDB = serializer.Deserialize(stream) as QuestionDatabase;
+            }
             stream.Close();
+        }
+        else if (File.Exists(globalUnconfirmedQuestionXML))
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(QuestionDatabase));
+            FileStream stream = new FileStream(globalUnconfirmedQuestionXML, FileMode.Open, FileAccess.ReadWrite);
+            using (StreamReader _stream = new StreamReader(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                questionDB = serializer.Deserialize(stream) as QuestionDatabase;
+            }
+            stream.Close();
+
+            SaveQuestions(false);
         }
         else
         {
@@ -228,7 +268,7 @@ public class XMLManager : MonoBehaviour
 
     public void AddQuestion(string _subject, string _question, List<Answer> _answers)
     {
-        if(questionDB.list.Any(item => item.subject == _subject))
+        if (questionDB.list.Any(item => item.subject == _subject))
         {
             foreach (QuestionList _questionList in questionDB.list)
             {
@@ -267,7 +307,7 @@ public class XMLManager : MonoBehaviour
                     {
                         question = _question,
                         dilemmas = _dilemmas
-                        
+
                     };
                     _questionList.dilemmaEntries.Add(entry);
                 }

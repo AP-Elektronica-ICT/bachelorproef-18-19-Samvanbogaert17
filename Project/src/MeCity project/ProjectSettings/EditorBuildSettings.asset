@@ -35,9 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MeganIntro.unity
     guid: 82298860f8b417b4b9b457e4dc11d4cd
-  - enabled: 1
-    path: Assets/Scenes/Highscores.unity
-    guid: af17efc95a16fea4797db06d41fed64e
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Mecoms.unity
     guid: 62d9ed3bb8d7831469c78100ccebcd39
