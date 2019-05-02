@@ -866,8 +866,8 @@ MonoBehaviour:
     going to make sure that you know everything there is to know about MECOMS. \n\nThis
     game is in development mode, problems can occur.\n\nYou can move the camera with
     the arrow keys, zoom in- and out with the mouse scrollwheel and turn the camera
-    left, right, up and down by moving the mouse to the edges of the playground while
-    pressing the spacebar.\n\nHave fun!"
+    left, right, up and down by moving the mouse to the edges of the playground.\n\nHave
+    fun!"
 --- !u!222 &1989338075
 CanvasRenderer:
   m_ObjectHideFlags: 0
