@@ -14364,7 +14364,7 @@ PrefabInstance:
     - target: {fileID: 121261869170365506, guid: 0b642ecb3485b2949831ad4ab28549c8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 15896.392
+      value: 16083.247
       objectReference: {fileID: 0}
     - target: {fileID: 6805862150216361521, guid: 0b642ecb3485b2949831ad4ab28549c8,
         type: 3}
@@ -17896,7 +17896,7 @@ PrefabInstance:
     - target: {fileID: 3631076301367788912, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000015442633
+      value: -0.000060881604
       objectReference: {fileID: 0}
     - target: {fileID: 3191827528021617528, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
@@ -50007,6 +50007,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2775818314949706769, guid: 0b7c3f55d36839b49b628788261e7eb5,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioControlImg
+      objectReference: {fileID: 0}
     - target: {fileID: 2775818314949706775, guid: 0b7c3f55d36839b49b628788261e7eb5,
         type: 3}
       propertyPath: audio
@@ -50027,11 +50032,6 @@ PrefabInstance:
       propertyPath: uiCanvas
       value: 
       objectReference: {fileID: 325258122}
-    - target: {fileID: 2775818314949706769, guid: 0b7c3f55d36839b49b628788261e7eb5,
-        type: 3}
-      propertyPath: m_Name
-      value: AudioControlImg
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b7c3f55d36839b49b628788261e7eb5, type: 3}
 --- !u!223 &1507868894 stripped

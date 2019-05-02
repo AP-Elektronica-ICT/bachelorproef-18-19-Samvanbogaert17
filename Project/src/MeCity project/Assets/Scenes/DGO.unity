@@ -1541,7 +1541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000013984492}
+  m_AnchoredPosition: {x: 0, y: -0.000035816618}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &48303112
@@ -48616,31 +48616,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8646762948107221745, guid: 0b642ecb3485b2949831ad4ab28549c8,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8646762948107221745, guid: 0b642ecb3485b2949831ad4ab28549c8,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -800
-      objectReference: {fileID: 0}
-    - target: {fileID: 8646762948107221745, guid: 0b642ecb3485b2949831ad4ab28549c8,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8646762948107221745, guid: 0b642ecb3485b2949831ad4ab28549c8,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -400
-      objectReference: {fileID: 0}
-    - target: {fileID: 6348732844729149460, guid: 0b642ecb3485b2949831ad4ab28549c8,
-        type: 3}
-      propertyPath: m_Name
-      value: QnaPanel
-      objectReference: {fileID: 0}
     - target: {fileID: 8646762948151591747, guid: 0b642ecb3485b2949831ad4ab28549c8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -48680,6 +48655,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646762948107221745, guid: 0b642ecb3485b2949831ad4ab28549c8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646762948107221745, guid: 0b642ecb3485b2949831ad4ab28549c8,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -800
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646762948107221745, guid: 0b642ecb3485b2949831ad4ab28549c8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8646762948107221745, guid: 0b642ecb3485b2949831ad4ab28549c8,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -400
+      objectReference: {fileID: 0}
+    - target: {fileID: 6348732844729149460, guid: 0b642ecb3485b2949831ad4ab28549c8,
+        type: 3}
+      propertyPath: m_Name
+      value: QnaPanel
       objectReference: {fileID: 0}
     - target: {fileID: 2098803137922003545, guid: 0b642ecb3485b2949831ad4ab28549c8,
         type: 3}
@@ -52285,7 +52285,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1550970756}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999998
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -70796,11 +70796,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5820183543842141807, guid: a14effcabb15c7c47a463f0c6ffb2cd1,
-        type: 3}
-      propertyPath: audio
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7022367932138829796, guid: a14effcabb15c7c47a463f0c6ffb2cd1,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -70809,7 +70804,7 @@ PrefabInstance:
     - target: {fileID: 7022367932138829796, guid: a14effcabb15c7c47a463f0c6ffb2cd1,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 109.999985
+      value: 0.0000076293945
       objectReference: {fileID: 0}
     - target: {fileID: 7566907235592180057, guid: a14effcabb15c7c47a463f0c6ffb2cd1,
         type: 3}
@@ -70886,6 +70881,11 @@ PrefabInstance:
       propertyPath: imgArray.Array.data[6]
       value: 
       objectReference: {fileID: 2800000, guid: 414c40b196415bb47ad988bc3abca634, type: 3}
+    - target: {fileID: 5820183543842141807, guid: a14effcabb15c7c47a463f0c6ffb2cd1,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a14effcabb15c7c47a463f0c6ffb2cd1, type: 3}
 --- !u!1001 &2775818315155643947
@@ -71217,7 +71217,7 @@ PrefabInstance:
     - target: {fileID: 3631076301367788912, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000053800835
+      value: -0.000022899021
       objectReference: {fileID: 0}
     - target: {fileID: 3191827528021617528, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
@@ -71256,3 +71256,29 @@ PrefabInstance:
       objectReference: {fileID: 1016737852}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69d5444c37eb1b45a633d0fff3132c9, type: 3}
+--- !u!1 &3631076300759747817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3631076301392189790, guid: a69d5444c37eb1b45a633d0fff3132c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3631076300759747816}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3631076300759747831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3631076300759747817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbab7009be397c94ea10a7a14afa7b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highscoreDB:
+    list: []
+  reportDB:
+    list: []
+  suggestionDB:
+    list: []
+  questionDB:
+    list: []

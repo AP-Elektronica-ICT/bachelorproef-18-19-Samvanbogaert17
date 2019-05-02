@@ -715,7 +715,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 3631076300694867470}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.99999964
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1882,7 +1882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5, y: -0.000020423071}
+  m_AnchoredPosition: {x: 5, y: -0.000030750816}
   m_SizeDelta: {x: 610, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &3631076301392189790
@@ -1900,6 +1900,7 @@ GameObject:
   - component: {fileID: 7236749133077136067}
   - component: {fileID: 3631076301392189780}
   - component: {fileID: 3191827528021617528}
+  - component: {fileID: 3780448483402031969}
   m_Layer: 5
   m_Name: QuizCanvas
   m_TagString: Untagged
@@ -2023,9 +2024,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dffd0e8e3ad9c44bb7fe125fca4665e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parenttag: popup
-  childquestiontag: text
-  childattribute: influence
   quizCanvas: {fileID: 3631076301392189777}
   btn: {fileID: 3631076300775778360}
   answerBtns:
@@ -2042,6 +2040,26 @@ MonoBehaviour:
   - {fileID: 3631076300263545820}
   questionTxt: {fileID: 3631076300533619806}
   moneyTxt: {fileID: 0}
+--- !u!114 &3780448483402031969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3631076301392189790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbab7009be397c94ea10a7a14afa7b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highscoreDB:
+    list: []
+  reportDB:
+    list: []
+  suggestionDB:
+    list: []
+  questionDB:
+    list: []
 --- !u!1 &3631076301578595287
 GameObject:
   m_ObjectHideFlags: 0

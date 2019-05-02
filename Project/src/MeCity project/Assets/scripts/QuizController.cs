@@ -7,11 +7,6 @@ using System.Linq;
 
 public class QuizController : MonoBehaviour
 {
-    public string parenttag = "popup";
-    public string childquestiontag = "text";
-    public string childattribute = "influence";
-        
-
     public Canvas quizCanvas;
     public Button btn;
     public Button[] answerBtns;
@@ -19,12 +14,14 @@ public class QuizController : MonoBehaviour
     public Text questionTxt;
     public Text moneyTxt;
 
-    private XmlDocument doc = new XmlDocument();
     private int money;
-    private int number;
-    //private bool answered = false;
+    private int questionnumber;
+    private int ansCount;
+    private int modifier;
     private int lastNum = 0;
     private string sceneName;
+
+    private QuestionList list;
 
     private System.Random rng = new System.Random();
     private List<Vector3> defaultPos = new List<Vector3>();
@@ -33,7 +30,9 @@ public class QuizController : MonoBehaviour
     // script used for the quiz canvas
     public void Start()
     {
-        for(int i = 0; i < answerBtns.Length; i++)
+        Debug.Log(Application.persistentDataPath);
+        XMLManager.instance.LoadQuestions();
+        for (int i = 0; i < answerBtns.Length; i++)
         {
             defaultPos.Add(answerBtns[i].transform.localPosition);
         }
@@ -56,18 +55,23 @@ public class QuizController : MonoBehaviour
             answerBtns[i].GetComponent<Image>().color = Color.white;
             answerBtns[i].interactable = true;
         }
-        // load the xml script
-        TextAsset xmlData = new TextAsset();
         //Make sure the file name is the name of the scene + 'ScriptsXML'
         //e.g. scene name is 'FirstLevel' then filename should be FirstLevelScriptsXML
         string filename = sceneName + "ScriptsXML";
-        xmlData = (TextAsset)Resources.Load(filename, typeof(TextAsset));
-        doc.LoadXml(xmlData.text);
-        int range = doc.GetElementsByTagName(childquestiontag).Count;
-
+        //the total amount of questions that are in a question type list of the question database
+        int range = 0;
+        //determine the correct question list
+        foreach (QuestionList _list in XMLManager.instance.questionDB.list)
+        {
+            if (_list.subject == sceneName)
+            {
+                list = _list;
+                range = _list.questionEntries.Count;
+            }
+        }
         // generate a random number to show up a random popup
         int randomgetal = RandomNumber(range);
-        number = randomgetal;
+        questionnumber = randomgetal;
         // Read the random popup in the xml file
         ReadXML(randomgetal);
 
@@ -77,7 +81,7 @@ public class QuizController : MonoBehaviour
             int temp = i;
             answerBtns[temp].onClick.AddListener(() =>
             {
-                BtnAnswer(temp, number);
+                BtnAnswer(temp, questionnumber);
                 foreach (Button btn in answerBtns)
                 {
                     btn.interactable = false;
@@ -102,24 +106,22 @@ public class QuizController : MonoBehaviour
     private void ReadXML(int number)
     {
         // Search for text tags in the xml file
-        XmlNodeList elemList = doc.GetElementsByTagName(parenttag);
-        int ansCount = elemList[number].ChildNodes[1].ChildNodes.Count;
-        XmlNodeList tekstList = doc.GetElementsByTagName(childquestiontag);
-        questionTxt.text = tekstList[number].InnerText;
+        ansCount = list.questionEntries[number].answers.Count;
+        questionTxt.text = list.questionEntries[number].question;
 
         // for each popup, the answers to the questions are given in the xml file, we search the number of answers
         //and generate this number of buttons, the answer texts are placed next to the buttons
         for (int i = 0; i < ansCount; i++)
         {
             answerBtns[i].gameObject.SetActive(true);
-            answerBtns[i].GetComponentsInChildren<Text>()[1].text = elemList[number].ChildNodes[1].ChildNodes[i].InnerText;
+            answerBtns[i].GetComponentsInChildren<Text>()[1].text = list.questionEntries[number].answers[i].answer;
             //add positions to shuffle array
             shuffledPos.Add(answerBtns[i].transform.localPosition);
             //
         }
         //shuffle the positions inside the array
         Shuffle(shuffledPos);
-        for(int i = 0; i < ansCount; i++)
+        for (int i = 0; i < ansCount; i++)
         {
             answerBtns[i].transform.localPosition = shuffledPos[i];
         }
@@ -131,27 +133,23 @@ public class QuizController : MonoBehaviour
         //answered = true;
         CameraControl.showingPopUp = false;
         CameraControl.inQuiz = false;
-        XmlNodeList elemlist = doc.GetElementsByTagName(parenttag);
-        XmlNodeList list = elemlist[number].ChildNodes[1].ChildNodes;
-        int influence = int.Parse(list[btn].Attributes[childattribute].Value);
-        XmlNodeList tekstList = doc.GetElementsByTagName(childquestiontag);
-
+        modifier = list.questionEntries[number].answers[btn].modifier;
         //All code for ScoreCanvas
         //
         //Add questionList to QnA question list
-        FindObjectOfType<QnAscore>().questionList.Add(tekstList[number].InnerText);
+        FindObjectOfType<QnAscore>().questionList.Add(list.questionEntries[number].question);
         //check which answer is correct answer and add to CorrectAnswerList
-        for (int i = 0; i < elemlist[number].ChildNodes[1].ChildNodes.Count; i++)
+        for (int i = 0; i < ansCount; i++)
         {
-            if (int.Parse(elemlist[number].ChildNodes[1].ChildNodes[i].Attributes[childattribute].Value) > 0)
+            if (list.questionEntries[number].answers[i].modifier > 0)
             {
-                FindObjectOfType<QnAscore>().correctAnsList.Add(elemlist[number].ChildNodes[1].ChildNodes[i].InnerText);
+                FindObjectOfType<QnAscore>().correctAnsList.Add(list.questionEntries[number].answers[i].answer);
             }
         }
         //Add player answer to PlayerAnswerList
-        FindObjectOfType<QnAscore>().playerAnsList.Add(elemlist[number].ChildNodes[1].ChildNodes[btn].InnerText);
+        FindObjectOfType<QnAscore>().playerAnsList.Add(list.questionEntries[number].answers[btn].answer);
         //
-        if (influence < 0)
+        if (modifier < 0)
         {
             if (EndOfGame.NumberOfCorrectAnswers > 0)
             {
@@ -159,7 +157,7 @@ public class QuizController : MonoBehaviour
             }
             EndOfGame.NumberOfCorrectAnswers--;
         }
-        if (influence > 0)
+        if (modifier > 0)
         {
             if (EndOfGame.NumberOfCorrectAnswers < 0)
             {
@@ -171,17 +169,17 @@ public class QuizController : MonoBehaviour
                 case "Producer":
                 case "DGO":
                 case "Supplier":
-                    AdjustMoney(influence * 1000);
+                    AdjustMoney(modifier * 1000);
                     break;
                 default:
                     break;
             }
         }
-        DataScript.AddScore(influence * 100);
+        DataScript.AddScore(modifier * 100);
 
-        for (int i = 0; i < list.Count; i++)
+        for (int i = 0; i < ansCount; i++)
         {
-            if (int.Parse(list[i].Attributes[childattribute].Value) > 0)
+            if (list.questionEntries[number].answers[i].modifier > 0)
             {
                 answerBtns[i].GetComponent<Image>().color = Color.green;
             }
