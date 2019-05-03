@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<SuggestionDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <list>
+    <SuggestionEntry>
+      <title>I want to have an admin page to review suggestions on</title>
+      <description>see title</description>
+      <dateLogged>logged on: 29/04/2019 12:56:33</dateLogged>
+    </SuggestionEntry>
+    <SuggestionEntry>
+      <title>It would be nice to have the ability to have updated highscores</title>
+      <description>see title</description>
+      <dateLogged>logged on: 03/05/2019 08:26:54</dateLogged>
+    </SuggestionEntry>
+  </list>
+</SuggestionDatabase>
