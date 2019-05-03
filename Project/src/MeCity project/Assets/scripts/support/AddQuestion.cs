@@ -91,7 +91,7 @@ public class AddQuestion : MonoBehaviour
                 DateTime.Now.ToString(new CultureInfo("en-GB")));
 
             XMLManager.instance.AddQuestion(subject, question, answers);
-            XMLManager.instance.SaveQuestions();
+            XMLManager.instance.SaveQuestions(false);
 
             //clear inputs
             questionInput.text = "";

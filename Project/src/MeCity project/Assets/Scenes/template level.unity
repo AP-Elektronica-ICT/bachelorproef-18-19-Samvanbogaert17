@@ -13502,6 +13502,7 @@ GameObject:
   - component: {fileID: 482524773}
   - component: {fileID: 482524779}
   - component: {fileID: 482524780}
+  - component: {fileID: 482524774}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -13600,6 +13601,26 @@ MonoBehaviour:
   - {fileID: 325258122}
   - {fileID: 139617082}
   - {fileID: 467576422}
+--- !u!114 &482524774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482524768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbab7009be397c94ea10a7a14afa7b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highscoreDB:
+    list: []
+  reportDB:
+    list: []
+  suggestionDB:
+    list: []
+  questionDB:
+    list: []
 --- !u!114 &482524779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44979,11 +45000,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2775818313724221348, guid: 0b7c3f55d36839b49b628788261e7eb5,
-        type: 3}
-      propertyPath: uiCanvas
-      value: 
-      objectReference: {fileID: 325258122}
     - target: {fileID: 2775818313724221349, guid: 0b7c3f55d36839b49b628788261e7eb5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -45013,21 +45029,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 2775818313895062246, guid: 0b7c3f55d36839b49b628788261e7eb5,
-        type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 325258122}
-    - target: {fileID: 2775818313895062246, guid: 0b7c3f55d36839b49b628788261e7eb5,
-        type: 3}
-      propertyPath: uiCanvas
-      value: 
-      objectReference: {fileID: 325258122}
-    - target: {fileID: 2775818314949706775, guid: 0b7c3f55d36839b49b628788261e7eb5,
-        type: 3}
-      propertyPath: audio
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2775818313895062245, guid: 0b7c3f55d36839b49b628788261e7eb5,
         type: 3}
@@ -45059,6 +45060,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2775818314949706775, guid: 0b7c3f55d36839b49b628788261e7eb5,
+        type: 3}
+      propertyPath: audio
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2775818313724221348, guid: 0b7c3f55d36839b49b628788261e7eb5,
+        type: 3}
+      propertyPath: uiCanvas
+      value: 
+      objectReference: {fileID: 325258122}
+    - target: {fileID: 2775818313895062246, guid: 0b7c3f55d36839b49b628788261e7eb5,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 325258122}
+    - target: {fileID: 2775818313895062246, guid: 0b7c3f55d36839b49b628788261e7eb5,
+        type: 3}
+      propertyPath: uiCanvas
+      value: 
+      objectReference: {fileID: 325258122}
     - target: {fileID: 2775818314949706769, guid: 0b7c3f55d36839b49b628788261e7eb5,
         type: 3}
       propertyPath: m_Name

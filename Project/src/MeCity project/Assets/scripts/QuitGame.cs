@@ -3,12 +3,12 @@ using UnityEngine.SceneManagement;
 using System.Text;
 
 public class QuitGame : MonoBehaviour {
-
     // loads the titlescreen scene
     public void LoadTitleScreen()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("titlescreen");
+        XMLManager.instance.SaveHighscores(false);
     }
 
     // loads the level screen/scene

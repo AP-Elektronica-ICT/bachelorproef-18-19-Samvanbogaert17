@@ -14364,7 +14364,7 @@ PrefabInstance:
     - target: {fileID: 121261869170365506, guid: 0b642ecb3485b2949831ad4ab28549c8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 16083.247
+      value: 16703.203
       objectReference: {fileID: 0}
     - target: {fileID: 6805862150216361521, guid: 0b642ecb3485b2949831ad4ab28549c8,
         type: 3}
@@ -15068,6 +15068,7 @@ GameObject:
   - component: {fileID: 482524779}
   - component: {fileID: 482524780}
   - component: {fileID: 482524774}
+  - component: {fileID: 482524775}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -15185,6 +15186,26 @@ MonoBehaviour:
   quizCanvas: {fileID: 1501323087}
   correctOrderCanvas: {fileID: 927745134}
   oddOneOutCanvas: {fileID: 1914226669}
+--- !u!114 &482524775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482524768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbab7009be397c94ea10a7a14afa7b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highscoreDB:
+    list: []
+  reportDB:
+    list: []
+  suggestionDB:
+    list: []
+  questionDB:
+    list: []
 --- !u!114 &482524779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17896,7 +17917,7 @@ PrefabInstance:
     - target: {fileID: 3631076301367788912, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000060881604
+      value: 0.000015683598
       objectReference: {fileID: 0}
     - target: {fileID: 3191827528021617528, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
@@ -50007,11 +50028,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 2775818314949706769, guid: 0b7c3f55d36839b49b628788261e7eb5,
-        type: 3}
-      propertyPath: m_Name
-      value: AudioControlImg
-      objectReference: {fileID: 0}
     - target: {fileID: 2775818314949706775, guid: 0b7c3f55d36839b49b628788261e7eb5,
         type: 3}
       propertyPath: audio
@@ -50032,6 +50048,11 @@ PrefabInstance:
       propertyPath: uiCanvas
       value: 
       objectReference: {fileID: 325258122}
+    - target: {fileID: 2775818314949706769, guid: 0b7c3f55d36839b49b628788261e7eb5,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioControlImg
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b7c3f55d36839b49b628788261e7eb5, type: 3}
 --- !u!223 &1507868894 stripped
@@ -64672,9 +64693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dffd0e8e3ad9c44bb7fe125fca4665e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parenttag: OddOneOut
-  childquestiontag: oootext
-  childattribute: influence
   quizCanvas: {fileID: 1914226669}
   btn: {fileID: 1903559398}
   answerBtns:

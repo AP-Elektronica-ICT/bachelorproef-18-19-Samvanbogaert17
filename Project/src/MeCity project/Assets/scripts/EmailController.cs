@@ -27,7 +27,7 @@ public class EmailController : MonoBehaviour
         mail.Body = description;
 
         SmtpServer.Port = 587;
-        SmtpServer.Credentials = (System.Net.ICredentialsByHost)new System.Net.NetworkCredential("dev.ferranti@gmail.com", "AeSh4rgE_2waEb%Y");
+        SmtpServer.Credentials = new NetworkCredential("dev.ferranti@gmail.com", "AeSh4rgE_2waEb%Y");
         SmtpServer.EnableSsl = true;
         ServicePointManager.ServerCertificateValidationCallback =
                 delegate (object s, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)

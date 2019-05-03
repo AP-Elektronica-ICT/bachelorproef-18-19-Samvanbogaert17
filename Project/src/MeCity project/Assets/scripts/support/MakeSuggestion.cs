@@ -28,7 +28,7 @@ public class MakeSuggestion : MonoBehaviour
             commentText.color = new Color(1, 0, 0); // make text color red
             commentText.text = "Please fill in a title and a description.";
         }
-        //confirm report
+        //confirm suggestion
         else
         {
             //read inputfields
@@ -37,7 +37,7 @@ public class MakeSuggestion : MonoBehaviour
             //adds suggestion title & description to the suggestion database
             XMLManager.instance.AddSuggestion(title, description);
             //save the suggestion database
-            XMLManager.instance.SaveSuggestions();
+            XMLManager.instance.SaveSuggestions(false);
             //send an email to dev.ferranti@gmail.com about the newly logged suggestion
             EmailController.instance.SendEmail("Suggestion", title, description, DateTime.Now.ToString(new CultureInfo("en-GB")));
 

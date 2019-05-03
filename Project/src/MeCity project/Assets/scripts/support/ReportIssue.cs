@@ -36,7 +36,7 @@ public class ReportIssue : MonoBehaviour
             string description = descriptionField.text;
 
             XMLManager.instance.AddReport(title, description);
-            XMLManager.instance.SaveReports();
+            XMLManager.instance.SaveReports(false);
 
             EmailController.instance.SendEmail("Report", title, description, DateTime.Now.ToString(new CultureInfo("en-GB")));
 

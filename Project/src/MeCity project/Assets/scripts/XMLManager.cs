@@ -44,13 +44,30 @@ public class XMLManager : MonoBehaviour
     [HideInInspector] public HighscoreDatabase highscoreDB = new HighscoreDatabase();
 
     //save
-    public void SaveHighscores()
+    public void SaveHighscores(bool saveToGlobal = true)
     {
-        //open a new xml file
-        XmlSerializer serializer = new XmlSerializer(typeof(HighscoreDatabase));
-        FileStream stream = new FileStream(globalHighscoreXML, FileMode.Create, FileAccess.ReadWrite);
-        serializer.Serialize(stream, highscoreDB);
-        stream.Close();
+        if (saveToGlobal)
+        {
+            //open a new xml file
+            XmlSerializer serializer = new XmlSerializer(typeof(HighscoreDatabase));
+            FileStream stream = new FileStream(globalHighscoreXML, FileMode.Create, FileAccess.ReadWrite);
+            using (StreamWriter _stream = new StreamWriter(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                serializer.Serialize(stream, highscoreDB);
+            }
+            stream.Close();
+        }
+        else
+        {
+            //open a new xml file
+            XmlSerializer serializer = new XmlSerializer(typeof(HighscoreDatabase));
+            FileStream stream = new FileStream(localHighscoreXML, FileMode.Create, FileAccess.ReadWrite);
+            using (StreamWriter _stream = new StreamWriter(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                serializer.Serialize(stream, highscoreDB);
+            }
+            stream.Close();
+        }
 
         //Encryption.EncryptFile(globalHighscoreXML);
     }
@@ -58,18 +75,31 @@ public class XMLManager : MonoBehaviour
     //load
     public void LoadHighscores()
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(HighscoreDatabase));
-        if (File.Exists(globalHighscoreXML))
+        if (File.Exists(localHighscoreXML))
         {
-            //Encryption.DecryptFile(globalHighscoreXML);
-
-            FileStream stream = new FileStream(globalHighscoreXML, FileMode.Open, FileAccess.ReadWrite);
-            highscoreDB = serializer.Deserialize(stream) as HighscoreDatabase;
+            XmlSerializer serializer = new XmlSerializer(typeof(HighscoreDatabase));
+            FileStream stream = new FileStream(localHighscoreXML, FileMode.Open, FileAccess.ReadWrite);
+            using (StreamReader _stream = new StreamReader(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                highscoreDB = serializer.Deserialize(stream) as HighscoreDatabase;
+            }
             stream.Close();
+        }
+        else if (File.Exists(globalHighscoreXML))
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(HighscoreDatabase));
+            FileStream stream = new FileStream(globalHighscoreXML, FileMode.Open, FileAccess.ReadWrite);
+            using (StreamReader _stream = new StreamReader(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                highscoreDB = serializer.Deserialize(stream) as HighscoreDatabase;
+            }
+            stream.Close();
+
+            SaveReports(false);
         }
         else
         {
-            SaveHighscores();
+            SaveReports();
         }
     }
 
@@ -110,27 +140,55 @@ public class XMLManager : MonoBehaviour
 
     [HideInInspector] public ReportDatabase reportDB = new ReportDatabase();
 
-    public void SaveReports()
+    public void SaveReports(bool saveToGlobal = true)
     {
-        //open a new xml file
-        XmlSerializer serializer = new XmlSerializer(typeof(ReportDatabase));
-        FileStream stream = new FileStream(globalReportXML, FileMode.Create, FileAccess.ReadWrite);
-        serializer.Serialize(stream, reportDB);
-        stream.Close();
-
-        //Encryption.EncryptFile(globalReportXML);
+        if (saveToGlobal)
+        {
+            //open a new xml file
+            XmlSerializer serializer = new XmlSerializer(typeof(ReportDatabase));
+            FileStream stream = new FileStream(globalReportXML, FileMode.Create, FileAccess.ReadWrite);
+            using (StreamWriter _stream = new StreamWriter(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                serializer.Serialize(stream, reportDB);
+            }
+            stream.Close();
+        }
+        else
+        {
+            //open a new xml file
+            XmlSerializer serializer = new XmlSerializer(typeof(ReportDatabase));
+            FileStream stream = new FileStream(localReportXML, FileMode.Create, FileAccess.ReadWrite);
+            using (StreamWriter _stream = new StreamWriter(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                serializer.Serialize(stream, reportDB);
+            }
+            stream.Close();
+        }
     }
 
     public void LoadReports()
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(ReportDatabase));
-        if (File.Exists(globalReportXML))
+        if (File.Exists(localReportXML))
         {
-            //Encryption.DecryptFile(globalReportXML);
-
-            FileStream stream = new FileStream(globalReportXML, FileMode.Open, FileAccess.ReadWrite);
-            reportDB = serializer.Deserialize(stream) as ReportDatabase;
+            XmlSerializer serializer = new XmlSerializer(typeof(ReportDatabase));
+            FileStream stream = new FileStream(localReportXML, FileMode.Open, FileAccess.ReadWrite);
+            using (StreamReader _stream = new StreamReader(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                reportDB = serializer.Deserialize(stream) as ReportDatabase;
+            }
             stream.Close();
+        }
+        else if (File.Exists(globalReportXML))
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(ReportDatabase));
+            FileStream stream = new FileStream(globalReportXML, FileMode.Open, FileAccess.ReadWrite);
+            using (StreamReader _stream = new StreamReader(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                reportDB = serializer.Deserialize(stream) as ReportDatabase;
+            }
+            stream.Close();
+
+            SaveReports(false);
         }
         else
         {
@@ -160,27 +218,57 @@ public class XMLManager : MonoBehaviour
 
     [HideInInspector] public SuggestionDatabase suggestionDB = new SuggestionDatabase();
 
-    public void SaveSuggestions()
+    public void SaveSuggestions(bool saveToGlobal = true)
     {
-        //open a new xml file
-        XmlSerializer serializer = new XmlSerializer(typeof(SuggestionDatabase));
-        FileStream stream = new FileStream(globalSuggestionXML, FileMode.Create, FileAccess.ReadWrite);
-        serializer.Serialize(stream, suggestionDB);
-        stream.Close();
+        if (saveToGlobal)
+        {
+            //open a new xml file
+            XmlSerializer serializer = new XmlSerializer(typeof(SuggestionDatabase));
+            FileStream stream = new FileStream(globalSuggestionXML, FileMode.Create, FileAccess.ReadWrite);
+            using (StreamWriter _stream = new StreamWriter(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                serializer.Serialize(stream, suggestionDB);
+            }
+            stream.Close();
+        }
+        else
+        {
+            //open a new xml file
+            XmlSerializer serializer = new XmlSerializer(typeof(SuggestionDatabase));
+            FileStream stream = new FileStream(localSuggestionXML, FileMode.Create, FileAccess.ReadWrite);
+            using (StreamWriter _stream = new StreamWriter(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                serializer.Serialize(stream, suggestionDB);
+            }
+            stream.Close();
+        }
 
         //Encryption.EncryptFile(globalSuggestionXML);
     }
 
     public void LoadSuggestions()
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(SuggestionDatabase));
-        if (File.Exists(globalSuggestionXML))
+        if (File.Exists(localSuggestionXML))
         {
-            //Encryption.DecryptFile(globalSuggestionXML);
-
-            FileStream stream = new FileStream(globalSuggestionXML, FileMode.Open, FileAccess.ReadWrite);
-            suggestionDB = serializer.Deserialize(stream) as SuggestionDatabase;
+            XmlSerializer serializer = new XmlSerializer(typeof(SuggestionDatabase));
+            FileStream stream = new FileStream(localSuggestionXML, FileMode.Open, FileAccess.ReadWrite);
+            using (StreamReader _stream = new StreamReader(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                suggestionDB = serializer.Deserialize(stream) as SuggestionDatabase;
+            }
             stream.Close();
+        }
+        else if (File.Exists(globalSuggestionXML))
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(SuggestionDatabase));
+            FileStream stream = new FileStream(globalSuggestionXML, FileMode.Open, FileAccess.ReadWrite);
+            using (StreamReader _stream = new StreamReader(stream, Encoding.GetEncoding("UTF-8")))
+            {
+                suggestionDB = serializer.Deserialize(stream) as SuggestionDatabase;
+            }
+            stream.Close();
+
+            SaveSuggestions(false);
         }
         else
         {
@@ -364,7 +452,6 @@ public class XMLManager : MonoBehaviour
     {
 
     }
-
 }
 
 //serializable highscore classes
