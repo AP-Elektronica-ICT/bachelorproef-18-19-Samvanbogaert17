@@ -308,3 +308,5 @@ Laden en opslaan van vragen checken eerst lokaal en daarna globaal.
 
 03/05/19 - Dag 60 laatste dag
 
+Bijwerken van de scriptie
+Oplossen van finale bugs en creëren van finale(?) build
