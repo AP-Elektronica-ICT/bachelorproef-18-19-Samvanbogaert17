@@ -20,7 +20,6 @@ public class XMLManager : MonoBehaviour
     private readonly string globalUnconfirmedQuestionXML = @"I:\svboga\MeCity\Questions\Unconfirmed/questions.xml";
     private readonly string globalConfirmedQuestionXML = @"I:\svboga\MeCity\Questions\Confirmed/questions.xml";
 
-
     private string localHighscoreXML;
     private string localReportXML;
     private string localSuggestionXML;
@@ -46,7 +45,7 @@ public class XMLManager : MonoBehaviour
     //save
     public void SaveHighscores(bool saveToGlobal = true)
     {
-        if (saveToGlobal)
+        if (saveToGlobal && Directory.Exists(globalHighscoreXML))
         {
             //open a new xml file
             XmlSerializer serializer = new XmlSerializer(typeof(HighscoreDatabase));
@@ -142,7 +141,7 @@ public class XMLManager : MonoBehaviour
 
     public void SaveReports(bool saveToGlobal = true)
     {
-        if (saveToGlobal)
+        if (saveToGlobal && Directory.Exists(globalReportXML))
         {
             //open a new xml file
             XmlSerializer serializer = new XmlSerializer(typeof(ReportDatabase));
@@ -220,7 +219,7 @@ public class XMLManager : MonoBehaviour
 
     public void SaveSuggestions(bool saveToGlobal = true)
     {
-        if (saveToGlobal)
+        if (saveToGlobal && Directory.Exists(globalSuggestionXML))
         {
             //open a new xml file
             XmlSerializer serializer = new XmlSerializer(typeof(SuggestionDatabase));
@@ -299,7 +298,7 @@ public class XMLManager : MonoBehaviour
 
     public void SaveQuestions(bool saveToGlobal = true)
     {
-        if (saveToGlobal)
+        if (saveToGlobal && Directory.Exists(globalUnconfirmedQuestionXML))
         {
             //open a new xml file
             XmlSerializer serializer = new XmlSerializer(typeof(QuestionDatabase));
