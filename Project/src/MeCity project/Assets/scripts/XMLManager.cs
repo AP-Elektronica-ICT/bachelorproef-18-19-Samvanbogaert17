@@ -31,10 +31,10 @@ public class XMLManager : MonoBehaviour
     {
         instance = this;
 
-        localHighscoreXML = Application.persistentDataPath + "/Highscores/highscores.xml";
-        localReportXML = Application.persistentDataPath + "/Reports/reports.xml";
-        localSuggestionXML = Application.persistentDataPath + "/Suggestions/suggestions.xml";
-        localQuestionXML = Application.persistentDataPath + "/Questions/questions.xml";
+        localHighscoreXML = Application.persistentDataPath + "/highscores.xml";
+        localReportXML = Application.persistentDataPath + "/reports.xml";
+        localSuggestionXML = Application.persistentDataPath + "/suggestions.xml";
+        localQuestionXML = Application.persistentDataPath + "/questions.xml";
     }
 
     //
