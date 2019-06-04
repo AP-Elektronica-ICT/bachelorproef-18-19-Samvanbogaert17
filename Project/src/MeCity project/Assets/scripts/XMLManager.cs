@@ -23,8 +23,8 @@ public class XMLManager : MonoBehaviour
     private string localHighscoreXML;
     private string localReportXML;
     private string localSuggestionXML;
-    private string localQuestionXML;
-
+    private readonly string localQuestionXML = @"C:\Users\samva\Desktop\School\bachelorproef-18-19-Samvanbogaert17\Project\doc\Nieuwe Documentatie\MeCity Content\Questions\Unconfirmed/question.xml";
+    private string _localQuestionXML;
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class XMLManager : MonoBehaviour
         localHighscoreXML = Application.persistentDataPath + "/highscores.xml";
         localReportXML = Application.persistentDataPath + "/reports.xml";
         localSuggestionXML = Application.persistentDataPath + "/suggestions.xml";
-        localQuestionXML = Application.persistentDataPath + "/questions.xml";
+        _localQuestionXML = @"C:\Users\samva\Desktop\School\bachelorproef-18-19-Samvanbogaert17\Project\doc\Nieuwe Documentatie\MeCity Content\Questions\question.xml";
     }
 
     //

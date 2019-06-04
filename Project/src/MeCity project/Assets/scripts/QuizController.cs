@@ -60,6 +60,7 @@ public class QuizController : MonoBehaviour
         //the total amount of questions that are in a question type list of the question database
         int range = 0;
         //determine the correct question list
+        
         foreach (QuestionList _list in XMLManager.instance.questionDB.list)
         {
             if (_list.subject == sceneName)
@@ -68,12 +69,13 @@ public class QuizController : MonoBehaviour
                 range = _list.questionEntries.Count;
             }
         }
+        
         // generate a random number to show up a random popup
         int randomgetal = RandomNumber(range);
         questionnumber = randomgetal;
         // Read the random popup in the xml file
         ReadXML(randomgetal);
-
+        
         for (int i = 0; i < answerBtns.Length; i++)
         {
 
@@ -87,6 +89,7 @@ public class QuizController : MonoBehaviour
                 }
             });
         }
+        
     }
     // Generating a random number
     private int RandomNumber(int maxRange)

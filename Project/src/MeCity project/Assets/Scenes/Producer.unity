@@ -48365,6 +48365,11 @@ PrefabInstance:
       propertyPath: moneyTxt
       value: 
       objectReference: {fileID: 1027628821}
+    - target: {fileID: 3191827528021617528, guid: a69d5444c37eb1b45a633d0fff3132c9,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a69d5444c37eb1b45a633d0fff3132c9, type: 3}
 --- !u!223 &1514396294 stripped

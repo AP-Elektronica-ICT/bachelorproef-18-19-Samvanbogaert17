@@ -1,0 +1,1331 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<QuestionDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <list>
+    <QuestionList subject="Supplier">
+      <questionEntries>
+        <QuestionEntry>
+          <question>
+            Ooh no, a colleague-supplier went bankrupt... You have taken in his customers! Good for you, but..
+
+            What do you have to do with your energy supply now?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Go to the energy market and buy new supply</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>This doesn't change a thing, I just have more customers and more profit</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>I have more profit now</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            You get a phone call from a customer. He tells you the whole street has a power outage.
+
+            How do you react?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>'We can't help you right now. We are aware of the situation. You will just have to wait a few hours'</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>'Thanks for letting us know, we are aware of the problem. We are going to see what we can do. Your issue should be resolved in a couple of hours'</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>'Thanks for calling. We will dispatch some technicians to resolve the issue. We will call you back when we have more information. If you have any questions in the meantime, please feel free to contact us'</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            Incoming phone call: 'Hello, I got an invoice for my electricity usage but I think there's been a mistake. I don't have an MMR meter but a smart meter, so I think the amount of money I have to pay isn't correct.
+
+            How do you react?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>'We will check it with the DGO and call you back at a later time. There might have been a mistake during administration. Thanks for calling, we will contact you as soon as possible'</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>'Hi Madam, you have to call the DGO himself if you have questions about the meter installation. We can’t fix your problem. Have a nice day!'</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>'Thanks for letting us know. You were registered to have an MMR meter. If you have a smart meter, we will send a technician over as soon as possible to gather the information on your SMR as well as do a meter reading. Many thanks, have a nice day'</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            The Belgian Red Devils are playing the world cup in Russia. You have to forecast if they are going to win or lose.
+
+            If you buy a lot of energy, and Belgium wins, you will have lots of benefits. If they lose, there will be a loss of energy and money. If you play safe and don't buy too much energy (you just want to see and wait if the Belgians are going to win),
+            you will have to pay double of the prices for the energy. It's up to you!
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>You play safe and don't buy too much energy</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>You choose to have lots of energy</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            Hi, I have a vacation house in the woods where my invoices are delivered. I didn’t know this was possible. Of course I want my invoices get send to my official home address. Can you fix that?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>'Hi, yeah, it’s not possible to have 2 adresses the invoices can get send to. I will call you back later, after I have more information. Have a nice day!'</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>'Hi, that can be true because you can have a delivery address and a billing address at the same time. We will adjust your address to the one you prefer. Thanks for calling, have a nice day!'</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            You are going to invest in a new software program to help your administration:
+
+            What do you do?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>'UMAX by Itinerys: implementation cost estimated to 200.000€ and their solution has a 60% fit with our requirements'</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>'SAP: implementation cost estimated to 400.000€ and their solution has a 80% fit with our requirements'</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>'MECOMS by MECOMS a Ferranti company: implementation cost estimated to 200.000€ and their solution has a 80% fit with our requirements'</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            You’ve send out a batch of 10.000 periodic invoices, but there was a bug in your software system.
+
+            What are you going to do?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>'Nothing – ride out the storm'</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>'Close the company'</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>'Upscale the call centre with extra agents, post messages on social media and website and get in touch with the software vendor for a solution'</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            A customer calls in to tell us he’s moving out his property.
+
+            What are you going to do?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>'Nothing'</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>'Send him an end note and close the contract'</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>'Send him an end note, close the contract, send the information to market parties who need to know'</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            We received information from the market that an existing customer of ours has switched to another supplier?
+
+            What are you going to do?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>'Call that customer and tell him he shouldn’t do that'</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>'Send him an end note, close the contract'</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>'Check if it’s a valid switch – if not send a rejection to the market – if yes – send him an end note and close the contract'</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            We receive measurements for a gas meter.
+
+            The measurement is expressed in:
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>'kwh'</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>'M3'</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>'liters'</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            We receive measurements for an electricity meter
+
+            The measurement is expressed in:
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>'kwh'</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>'M3'</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>'liters'</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            We supply electricity and gas to our customers. When a customer uses both and we are sending invoices:
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>'We always send separate invoices for gas and electricity '</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>'We always send one invoice combining gas and electricity '</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>'When possible we send one invoice combining gas and electricity '</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            In exceptional cases we need to manualy change an invoice.
+
+            This costs time. What are you going to about it:
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>'It only happens a 2 times per month and the manual change takes 10 minutes – we keep doing so '</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>'We asked our software vendor to automate it – that will cost 50.000€ - we confirmed the change'</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>'We call these customers and tell them to look for another supplier'</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            A Customer calls in because he had a Sauna installed a few months ago (which will most probably have a huge impact on his/her electricity consumption).
+            Which kind of invoice could we issue to avoid a very high next periodical invoice?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>'Intermediate Invoice'</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>'Correction note'</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>'Incidental note'</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            A customer calls in to let the supplier know that he currently cannot pay his bills / invoices.
+            What are your options as supplier?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>'Postpone the due dates of the invoices or put together a payment plan '</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>'Write off the customer'</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>'Immediately stop delivering energy to the customer'</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            A customer calls in to let us know that he went bankrupt, this means we will have to “write off” the invoice, this is a loss we might need to suffer.
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>'Postpone the due dates of the invoices or put together a payment plan '</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>'Write off the open transactions of this customer'</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>'Immediately stop delivering energy to the customer'</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+      </questionEntries>
+      <dilemmaEntries />
+      <correctOrderEntries />
+    </QuestionList>
+    <QuestionList subject="DGO">
+      <questionEntries>
+        <QuestionEntry>
+          <question>
+            DGO stands for ...
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Distribution Grid Operator</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Distribution Grid Overviewer</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>District Grid Operator</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>District Grid Overviewer</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            The Distribution network takes electricity, gas or water from the transmission system and ... the voltage or ... the pressure.
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Lowers/Reduces</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Increases/Raises</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Lowers/Raises</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Increases/Reduces</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            Can customers switch DGO while remaining in the same physical location?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>Yes</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>No</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            What is the main task of the DGO?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>the distribution of energy between the high voltage or high pressure grids and the end customer's connections.</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Installing, maintaining, removing or replacing the energy meters.</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Maintaining the grid.</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            When a consumer has an MMR with two rows of figures, the consumer will likely have a double tariff and will use two timeframes with a different price per unit.
+            The time when a device needs to switch from one timeframe to another is set by the DGO.
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>No</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>Yes</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+      </questionEntries>
+      <dilemmaEntries />
+      <correctOrderEntries />
+    </QuestionList>
+    <QuestionList subject="Producer">
+      <questionEntries>
+        <QuestionEntry>
+          <question>
+            Oh no! Your forecast for your energy production is wrong!
+
+            What action will you undertake?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Import more energy from other producers.</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>There is nothing I can do.</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            Following the climate protests in Brussels, the Belgian Government has decided to close down all non-renewable energy sources and fully rely on renewable energy. (Implying the government bought enough renewable energy sources to sustain the needs of Belgium.)
+
+            Why is this a bad choice?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>Many people will lose their job, because a lot of power stations will be shutdown.</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>This is in fact not a bad choice. Relying on renewable energy sources gives us the opportunity to reduce pollution and fight climate change.</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>Because renewable energy sources are not always reliable, and therefore can cause power outages if the produced quota does not meet the consumed quota.</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            You have received a new forecast! It indicates that the total amount of energy produced by both your renewable and non-renewable energy sources will be higher than necessary to fulfill the energy consumption for today, but will decrease heavily tomorrow because of a cloudy day.
+
+            What action will you undertake?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>Decrease/Increase production of my non-renewable energy sources accordingly</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>Leave my non-renewable energy sources be. They will produce too much the 1st day, but will produce enough the 2nd day.</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Decrease production of my non-renewable energy sources so I don't have an overproduction on the 1st day.</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            The Production of energy through renewable energies does pose quite the challenge.
+            As the amount of energy being produced is inconsistent, this will help need to be balanced by input from conventional power stations, which is called ...
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Spinning reserves</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Non-spinning reserves</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>replacement reserves</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            How much energy from a coal power plant makes it to customers as electricity?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>A quarter</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>A third</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Half</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Two-thirds</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            What country is the premier source of steel for nuclear power plants?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>US</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>Japan</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Chile</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Scotland</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            What global treaty has slashed world greenhouse gas emissions by 11 gigatons a year?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>The Kyoto protocol</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>The United Nations Frakework Convention on Climate Change</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>The Montreal Protocol</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>The United Nations Convention on the Law of the Sea</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            Estimates of what U.S. fuel resource have grown 40% or more since 2006?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Natural gas</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Coal</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>wind</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Geothermal</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            Do any cars run on coal
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>Yes</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>No</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            What solution is said to have potential for 57% of needed carbon cuts by 2030?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>Space-based solar systems</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>Energy efficiency</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Carbon capture and storage</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Nanotechnology</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            Are there any choices for electricity generation that don't rely on water?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>Yes</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>No</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            Does ethanol always deliver lower fuel economy than gasoline?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Yes</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>No</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            Can solar power provide electricity when the sun isn't shining?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Yes</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>No</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+      </questionEntries>
+      <dilemmaEntries />
+      <correctOrderEntries />
+    </QuestionList>
+    <QuestionList subject="Mecoms">
+      <questionEntries>
+        <QuestionEntry>
+          <question>
+            Consumption units are used for billing, if ...
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>The connection is unmeasured</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>The connection is used in a configuration without assets</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>The connection is used in a configuration wtih assets</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>An incidental invoice is created</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            Market Communication is more important in a deregulated market than in an integrated utilities market?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>True</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>False</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            For periodical invoices ...
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>Index values are used for billing manual meter reading connections</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>Index values are not used for periodical invoices, they are consumptions that are used for billing</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Index values are only used for creating advance notes</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            Which contract duration type exists in MECOMS
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Defined duration</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Zero hour duration</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Full-time</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            In an integrated utilities market, which of the following contract duration type is used most often?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Undefined duration</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Defined duration</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Defined duration with automatic renewal</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            Tariff structures are used for tariff differentiation. By default, which of the following tariff structures are present in MECOMS?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Payment mode, Timeframe, VolumSlicing, Net region code, Customer group</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Number of water taps, Number of rooms &gt;= 30m², Number of inhabitants, Unit pool</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Payment mode, Timeframe, number of water taps, Number of rooms &gt;= 30m²</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            Examples of Account types are ...
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Owner, Debtor, Contractor, DGO, TGO, SUpplier, Balance Responsible, Shipper, Transporter, Meter Asset Manager, Meter Reading Agent</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Owner, Debtor, Contractor, Distribution Grid Operator, Resident, Small commercial, Industrial, Large commercial</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Number of water taps, Number of rooms &gt;= 30m², Number of inhabitants, Unit pool</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            A connection is uniquely identified by means of ... ?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>EAN ID</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Serial number</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Utility type</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Address</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            For unmeasured connections, which of the following conditions need to be fulfilled?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Reading frequency needs to be set to the value Unmeasured AND Advance frequency needs to be equal to Billing frequency</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Reading frequency needs to be set to Telemeasured AND the Advance frequency needs to be smaller than the Billing frequency</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Reading frequency needs to be set to Yearly and the Advance frequency needs to be smaller or equal to the Billing frequency</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            Contract type products are used to ...
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Define which products can be used for which contract types and this per Utility type</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Define which products can be used per configuration</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Define which products can be used for which contract types and this per reading frequency</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            When does a Certificate without assets need to be used to create a configuration without assets?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>For measured connections where the consumptions are calculated by for example a third-party DGO</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>For unmeasured connections</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>For measured connections where the index values need to be used as input to calculate the consumption by the first-party supplier itself</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            A certificate represents a template/blueprint with building blocks which is used to ...
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Create a configuration</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Create a new metering asset</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Create a new contract</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            What is SLP short for?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>
+                SLP is short for Synthetic Load Profile. A Synthetic Load profile represents the pattern of Electricity OR Gas usage of a segment of supply market customers.
+                The total sum of the SLP values for a particular segment for a period of one year will equal one (100%). SLP are used for forecasting.
+              </answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>SLP is short for Sea level pressure and relates to the generation of energy</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>SLP is short for Synthetic Load Profile and is used to forecast water usage for a particular customer segment.</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>SLP is short for Systematic location planning and is used to plan meter reading requests and meter reading tours</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            When are Advance notes sent out to customers?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>only if the Advance frequency specified for the contract connection / agreement is smaller then the Billing frequency</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>On a monthly basis</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>On a two-monthly basis</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Each 6 months</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            Which statement is true about one time items?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>A one time item is not part of a product</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>A one time item can be used in a correction note</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>A one time item is part of the product</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            When you set up a date in MECOMS ...
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>The start date is inclusive and the end date is exclusive</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>The start date is inclusive and the end date is inclusive</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>The start date is exclusive and the end date is inclusive</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>The start date is exclusive and the end date is exclusive</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            Which of the following statements is true?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>A metering function is specified per blueprint asset channel</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>A metering function is the same as a connection member</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>An asset blueprint is part of a metering function</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            When a configuration with assets is created, which of the following elements need to be defined/specified?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Connection and metering device</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Connection and customer</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Metering device and customer</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+      </questionEntries>
+      <dilemmaEntries />
+      <correctOrderEntries>
+        <CorrectOrderEntry>
+          <question>1. Put these 'Process Billing Run' steps in the correct order</question>
+          <positions>
+            <Position>
+              <position>Process billing run results</position>
+            </Position>
+            <Position>
+              <position>Consolidate invoices</position>
+            </Position>
+            <Position>
+              <position>Process invoice validation</position>
+            </Position>
+            <Position>
+              <position>Post invoices</position>
+            </Position>
+            <Position>
+              <position>Settle invoices</position>
+            </Position>
+          </positions>
+        </CorrectOrderEntry>
+        <CorrectOrderEntry>
+          <question>Put these 'Create a discount' steps in the right order</question>
+          <positions>
+            <Position>
+              <position>Specify the type of discount required</position>
+            </Position>
+            <Position>
+              <position>Select whether the discount should be calculated based on either a currency or rather as a percentage</position>
+            </Position>
+            <Position>
+              <position>Specify the exact fashion of how the discount should be awarded</position>
+            </Position>
+            <Position>
+              <position>Add conditions to the discount</position>
+            </Position>
+          </positions>
+        </CorrectOrderEntry>
+        <CorrectOrderEntry>
+          <question>2. Put these 'Process Billing Run' steps in the correct order</question>
+          <positions>
+            <Position>
+              <position>Process billing run results</position>
+            </Position>
+            <Position>
+              <position>Consolidate invoices</position>
+            </Position>
+            <Position>
+              <position>Process invoice validation</position>
+            </Position>
+            <Position>
+              <position>Post invoices</position>
+            </Position>
+            <Position>
+              <position>Settle invoices</position>
+            </Position>
+          </positions>
+        </CorrectOrderEntry>
+      </correctOrderEntries>
+    </QuestionList>
+    <QuestionList subject="Consumer">
+      <questionEntries>
+        <QuestionEntry>
+          <question>
+            Consider a customer requesting a new connection to be installed in a regulated market.
+            Which parties would he have had to contact?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>Just the Supplier</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>The DGO and the Supplier</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Just the DGO</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            Consider a customer requesting a new connection to be installed in a deregulated market.
+            Which parties would he have had to contact?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>Just the DGO</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Just the Supplier</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>the DGO and the Supplier</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            Can customers switch DGO while remaining in the same physical location?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>Yes</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>No</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            How much does the average household dishwasher cost to run over a year?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>£18</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>£40</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>£1750</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            How many times a year does the average UK household boil a kettle?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>Around 350 times</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>Around 1500 times</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Around 6000 times</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            On average, what proportion of a household's annual electricity bill do TVs, game consoles and other entertainment equipment account for?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>6%</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>10%</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>90%</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            Which uses more electricity - a laptop or a desktop PC?
+          </question>
+          <answers>
+            <Answer modifier="1">
+              <answer>A desktop PC</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>A laptop</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Both use the same amount of electricity</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            What is the difference in energy cost per year between using a standard lightbulb and a low-energy lightbulb (based on four hours' use every day)?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>£1.15</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>£9.65</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>£11.97</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            If you leave the tap running when you brush your teeth, how much water do you waste per minute?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>A couple of pints</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>A fish bowl's worth (6 litres)</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>A paddling pool's worth (165 litres)</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            How much energy would we save per year if everyone across the UK unplugged their mobile phone chargers when not in use?
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>Enough to power 10 homes for a year</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Enough to power 20,000 homes for a year</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>Enough to power 115,000 homes for a year</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+        <QuestionEntry>
+          <question>
+            BONUS
+
+            If yo leave a PC monitor switched on overnight, it wastes the same amount of energy as it would take to:
+          </question>
+          <answers>
+            <Answer modifier="-1">
+              <answer>Microwave 1 dinner</answer>
+            </Answer>
+            <Answer modifier="-1">
+              <answer>Microwave 3 dinners</answer>
+            </Answer>
+            <Answer modifier="1">
+              <answer>Microwave 6 dinners</answer>
+            </Answer>
+          </answers>
+        </QuestionEntry>
+      </questionEntries>
+      <dilemmaEntries>
+        <!-- Start dilemma's of the consumer level -->
+        <DilemmaEntry>
+          <question>
+            In order to have electricity, you need to sign a contract with a supplier
+          </question>
+          <dilemmas>
+            <Dilemma consumption="4" money="-4" energy="0">
+              <choice>Engie</choice>
+            </Dilemma>
+            <Dilemma consumption="4" money="-4" energy="0">
+              <choice>Luminus</choice>
+            </Dilemma>
+          </dilemmas>
+        </DilemmaEntry>
+        <DilemmaEntry>
+          <question>
+            You will also need to choose a type of tariff.
+
+            Single Tariff will cost you more throughout the entire day, but will cost less than the day tariff of a Double Tariff contract.
+            Double Tariff has the benefits of having a much cheaper night tariff, but will come at the cost of having a higher day tariff.
+          </question>
+          <dilemmas>
+            <Dilemma consumption="2" money="-2" energy="0">
+              <choice>Single Tariff</choice>
+            </Dilemma>
+            <Dilemma consumption="1" money="-1" energy="0">
+              <choice>Double Tariff</choice>
+            </Dilemma>
+          </dilemmas>
+        </DilemmaEntry>
+        <DilemmaEntry>
+          <question>
+            You heard that people are investing in solar panels.
+
+            Should you invest in solar panels?
+          </question>
+          <dilemmas>
+            <Dilemma consumption="0" money="-2" energy="2">
+              <choice>Install solar panels</choice>
+            </Dilemma>
+            <Dilemma consumption="0" money="0" energy="0">
+              <choice>Don't install solar panels</choice>
+            </Dilemma>
+          </dilemmas>
+        </DilemmaEntry>
+        <!-- End of the start dilemma's -->
+        <DilemmaEntry>
+          <question>
+            Your DGO has offered to replace your normal meter with a smart meter, saving you a lot of money in the long term.
+          </question>
+          <dilemmas>
+            <Dilemma consumption="0" money="-1" energy="1">
+              <choice>Accept to install the smart meter.</choice>
+            </Dilemma>
+            <Dilemma consumption="0" money="0" energy="-1">
+              <choice>Refuse to install the smart meter.</choice>
+            </Dilemma>
+          </dilemmas>
+        </DilemmaEntry>
+        <DilemmaEntry>
+          <question>
+            You are being offered a promotion at your job!
+
+            Longer hours for a better paygrade!
+
+            Do you take it?
+          </question>
+          <dilemmas>
+            <Dilemma consumption="-2" money="3" energy="0">
+              <choice>Accept the offer.</choice>
+            </Dilemma>
+            <Dilemma consumption="0" money="0" energy="0">
+              <choice>Don't accept the offer.</choice>
+            </Dilemma>
+          </dilemmas>
+        </DilemmaEntry>
+        <DilemmaEntry>
+          <question>
+            Tesla has released a new car thats highly energy efficient!
+
+            Invest in a new car?
+          </question>
+          <dilemmas>
+            <Dilemma consumption="0" money="-3" energy="4">
+              <choice>Buy the car!</choice>
+            </Dilemma>
+            <Dilemma consumption="0" money="0" energy="-2">
+              <choice>You dissappoint Elon by not buying a car.</choice>
+            </Dilemma>
+          </dilemmas>
+        </DilemmaEntry>
+        <DilemmaEntry>
+          <question>
+            Your washing machine broke down and you need a new one?
+
+            Do you choose a regular washing machine or a smart washing machine?
+
+            The regular washing machine is cheaper although it will probably consume more energy at a higher price.
+            The smart washing machine is more expensive, but will probably save you a lot of money in the long term.
+          </question>
+          <dilemmas>
+            <Dilemma consumption="2" money="-2" energy="-1">
+              <choice>Buy the regular washing machine.</choice>
+            </Dilemma>
+            <Dilemma consumption="1" money="-3" energy="1">
+              <choice>Buy the smart washing machine.</choice>
+            </Dilemma>
+          </dilemmas>
+        </DilemmaEntry>
+        <DilemmaEntry>
+          <question>
+            You got your energy bill, but you notice that the values are not correct and you are paying too little.
+
+            Do you call the company and correct the mistake? or do you leave it be?
+          </question>
+          <dilemmas>
+            <Dilemma consumption="0" money="-1" energy="0">
+              <choice>Call the company and correct the mistake.</choice>
+            </Dilemma>
+            <Dilemma consumption="0" money="-2" energy="0">
+              <choice>Don't call the company and enjoy the profit you just made.</choice>
+            </Dilemma>
+          </dilemmas>
+        </DilemmaEntry>
+        <DilemmaEntry>
+          <question>
+            You have received an offer from your suppliers' competitor.
+
+            The tariff is better than your current tariff, but you'll have to pay a small fee to your current supplier for leaving early
+          </question>
+          <dilemmas>
+            <Dilemma consumption="0" money="-1" energy="0">
+              <choice>Refuse the offer and stay with your current supplier.</choice>
+            </Dilemma>
+            <Dilemma consumption="0" money="2" energy="0">
+              <choice>Leave your current supplier and accept the new contract.</choice>
+            </Dilemma>
+          </dilemmas>
+        </DilemmaEntry>
+        <DilemmaEntry>
+          <question>
+            You won the lottery!
+
+            Do you want to invest in smart kitchen appliances or save the money?
+          </question>
+          <dilemmas>
+            <Dilemma consumption="1" money="0" energy="2">
+              <choice>Invest in smart kitchen appliances</choice>
+            </Dilemma>
+            <Dilemma consumption="0" money="3" energy="0">
+              <choice>Save the money</choice>
+            </Dilemma>
+          </dilemmas>
+        </DilemmaEntry>
+      </dilemmaEntries>
+      <correctOrderEntries />
+    </QuestionList>
+  </list>
+</QuestionDatabase>
