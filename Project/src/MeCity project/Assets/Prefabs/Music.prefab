@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4224833936931181765}
   - component: {fileID: 4224833936931181766}
   - component: {fileID: 4224833936931181764}
+  - component: {fileID: 2295167457336541478}
   m_Layer: 5
   m_Name: Music
   m_TagString: Untagged
@@ -149,3 +150,23 @@ MonoBehaviour:
   levelMusic: {fileID: 8300000, guid: 91784c6275911274dabee35af47c3a35, type: 3}
   introMusic: {fileID: 8300000, guid: b048778f10450644c9fb71565dd17f4e, type: 3}
   source: {fileID: 4224833936931181766}
+--- !u!114 &2295167457336541478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4224833936931181767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbab7009be397c94ea10a7a14afa7b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highscoreDB:
+    list: []
+  reportDB:
+    list: []
+  suggestionDB:
+    list: []
+  questionDB:
+    list: []

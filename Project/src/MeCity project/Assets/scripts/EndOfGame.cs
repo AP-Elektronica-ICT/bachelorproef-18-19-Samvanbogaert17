@@ -175,8 +175,8 @@ public class EndOfGame : MonoBehaviour
     {
         triggered = true;
         string resultText = "CONGRATULATIONS!!!";
-        calculateScore(false);
-        resultText += string.Format("\n\nYou got a score of: {0:0.00}!!", DataScript.GetScore());
+        //calculateScore(false);
+        resultText += string.Format("\n\nYou got a score of: {0:0}!!", DataScript.GetScore());
         resultText += "\nYou would be an excellent " + sceneName + "!!!";
         resultTxt.text = resultText;
         Time.timeScale = 0;
@@ -187,8 +187,8 @@ public class EndOfGame : MonoBehaviour
     {
         triggered = true;
         string resultText = "GAME OVER!!!";
-        calculateScore(true);
-        resultText += string.Format("\n\nYou got a score of: {0:0.00}!!", DataScript.GetScore());
+        //calculateScore(true);
+        resultText += string.Format("\n\nYou got a score of: {0:0}!!", DataScript.GetScore());
         resultText += "\nYou should hone your skills a bit more, but you will become a great " + sceneName + " one day!!!";
         resultTxt.text = resultText;
         Time.timeScale = 0;

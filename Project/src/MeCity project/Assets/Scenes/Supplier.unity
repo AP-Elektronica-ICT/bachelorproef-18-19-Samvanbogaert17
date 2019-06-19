@@ -1361,7 +1361,7 @@ PrefabInstance:
     - target: {fileID: 3631076301367788912, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000054053617
+      value: 0.00012052308
       objectReference: {fileID: 0}
     - target: {fileID: 3191827528021617528, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
@@ -15955,7 +15955,6 @@ GameObject:
   - component: {fileID: 482524776}
   - component: {fileID: 482524778}
   - component: {fileID: 482524775}
-  - component: {fileID: 482524774}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -16058,26 +16057,6 @@ MonoBehaviour:
   - {fileID: 762808222}
   - {fileID: 1228309534}
   - {fileID: 36459215}
---- !u!114 &482524774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482524768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbab7009be397c94ea10a7a14afa7b81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highscoreDB:
-    list: []
-  reportDB:
-    list: []
-  suggestionDB:
-    list: []
-  questionDB:
-    list: []
 --- !u!114 &482524775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25772,6 +25751,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 416532944005061315, guid: 197059102c9a24a4dad2c98d1c738ac7,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1228309534}
     - target: {fileID: 416532944005061316, guid: 197059102c9a24a4dad2c98d1c738ac7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -25802,11 +25786,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 416532944005061315, guid: 197059102c9a24a4dad2c98d1c738ac7,
-        type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 1228309534}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 197059102c9a24a4dad2c98d1c738ac7, type: 3}
 --- !u!223 &762808222 stripped

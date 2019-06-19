@@ -14,7 +14,6 @@ public class HighscoreController : MonoBehaviour
     void Start()
     {
         gridTransform = gridGO.transform;
-        XMLManager.instance.LoadHighscores();
         XMLManager.instance.ReorderHighscores();
         XMLManager.instance.SaveHighscores();
         DisplayHighscores();

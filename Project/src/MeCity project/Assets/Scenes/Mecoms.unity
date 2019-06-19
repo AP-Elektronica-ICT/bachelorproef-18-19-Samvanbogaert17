@@ -4253,6 +4253,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 416532944005061315, guid: 197059102c9a24a4dad2c98d1c738ac7,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 467576422}
     - target: {fileID: 416532944005061316, guid: 197059102c9a24a4dad2c98d1c738ac7,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -4283,11 +4288,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    - target: {fileID: 416532944005061315, guid: 197059102c9a24a4dad2c98d1c738ac7,
-        type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 467576422}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 197059102c9a24a4dad2c98d1c738ac7, type: 3}
 --- !u!223 &139617082 stripped
@@ -14364,7 +14364,7 @@ PrefabInstance:
     - target: {fileID: 121261869170365506, guid: 0b642ecb3485b2949831ad4ab28549c8,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 16703.203
+      value: 17137.191
       objectReference: {fileID: 0}
     - target: {fileID: 6805862150216361521, guid: 0b642ecb3485b2949831ad4ab28549c8,
         type: 3}
@@ -15068,7 +15068,6 @@ GameObject:
   - component: {fileID: 482524779}
   - component: {fileID: 482524780}
   - component: {fileID: 482524774}
-  - component: {fileID: 482524775}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -15186,26 +15185,6 @@ MonoBehaviour:
   quizCanvas: {fileID: 1501323087}
   correctOrderCanvas: {fileID: 927745134}
   oddOneOutCanvas: {fileID: 1914226669}
---- !u!114 &482524775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482524768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbab7009be397c94ea10a7a14afa7b81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highscoreDB:
-    list: []
-  reportDB:
-    list: []
-  suggestionDB:
-    list: []
-  questionDB:
-    list: []
 --- !u!114 &482524779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17917,7 +17896,7 @@ PrefabInstance:
     - target: {fileID: 3631076301367788912, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000015683598
+      value: 0.000111279485
       objectReference: {fileID: 0}
     - target: {fileID: 3191827528021617528, guid: a69d5444c37eb1b45a633d0fff3132c9,
         type: 3}

@@ -14341,7 +14341,6 @@ GameObject:
   - component: {fileID: 482524771}
   - component: {fileID: 482524770}
   - component: {fileID: 482524769}
-  - component: {fileID: 482524774}
   - component: {fileID: 482524773}
   - component: {fileID: 482524775}
   - component: {fileID: 482524777}
@@ -14448,26 +14447,6 @@ MonoBehaviour:
   - {fileID: 467576422}
   - {fileID: 938673720}
   - {fileID: 1058221728}
---- !u!114 &482524774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482524768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbab7009be397c94ea10a7a14afa7b81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highscoreDB:
-    list: []
-  reportDB:
-    list: []
-  suggestionDB:
-    list: []
-  questionDB:
-    list: []
 --- !u!114 &482524775
 MonoBehaviour:
   m_ObjectHideFlags: 0
