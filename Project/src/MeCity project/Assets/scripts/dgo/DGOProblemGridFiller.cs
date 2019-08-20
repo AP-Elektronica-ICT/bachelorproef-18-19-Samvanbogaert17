@@ -31,7 +31,7 @@ public class DGOProblemGridFiller : MonoBehaviour
         problemTitleTransform = ProblemTitleGrid.transform;
         problemTransform = ProblemGrid.transform;
 
-        //get lists from DGOProblemController to make code more readable
+        //get lists from DGOProblemController
         problemList = FindObjectOfType<DGOProblemController>().problemList;
         ongoingProblemList = FindObjectOfType<DGOProblemController>().ongoingProblemList;
     }

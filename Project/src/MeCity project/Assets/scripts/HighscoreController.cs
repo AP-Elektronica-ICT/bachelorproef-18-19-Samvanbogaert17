@@ -14,7 +14,7 @@ public class HighscoreController : MonoBehaviour
     void Start()
     {
         gridTransform = gridGO.transform;
-        XMLManager.instance.ReorderHighscores();
+        XMLManager.instance.ReorderHighscores(); //puts player with highest score 1st ...
         XMLManager.instance.SaveHighscores();
         DisplayHighscores();
     }
@@ -29,7 +29,8 @@ public class HighscoreController : MonoBehaviour
         foreach (HighscoreEntry entry in XMLManager.instance.highscoreDB.list)
         {
             GameObject highscore = Instantiate(highscorePrefab, gridTransform);
-            highscore.GetComponentInChildren<Image>().color = XMLManager.instance.highscoreDB.list.FindIndex(item => item == entry) % 2 == 0 ?
+            highscore.GetComponentInChildren<Image>().color = 
+                XMLManager.instance.highscoreDB.list.FindIndex(item => item == entry) % 2 == 0 ?
                 new Color(0.8f,0.8f,0.8f, 0.4f): 
                 new Color(0.8f,0.8f,0.8f,0f);
             highscore.GetComponentInChildren<Image>().GetComponentsInChildren<Text>()[0].text = entry.username;
